@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: fe5abeadcbe591e4fa9107fbc02f3998
-timeCreated: 1493304330
+guid: 669d403b6c7d15448abd59ea3e539305
+timeCreated: 1491391266
 licenseType: Pro
 PluginImporter:
   serializedVersion: 2
@@ -30,7 +30,7 @@ PluginImporter:
       second:
         enabled: 0
         settings:
-          CPU: AnyCPU
+          CPU: x86_64
           OS: Windows
     data:
       first:
