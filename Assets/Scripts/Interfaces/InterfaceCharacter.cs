@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InterfaceCharacter : MonoBehaviour
+//This is a basic interface with a single required
+//method.
+public interface ISinkable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void Kill();
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+//This is a generic interface where T is a placeholder
+//for a data type that will be provided by the 
+//implementing class.
+public interface IDrainable<T>
+{
+    void Drain(T damageTaken);
+}
+
+public interface IChangeable<T>
+{
+    void Change(T Type);
 }

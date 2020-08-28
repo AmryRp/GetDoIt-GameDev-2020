@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : PlayerModel
+public class Player : PlayerModel, IChangeable<string>
 {
     [SerializeField]
     protected int PlayerEnergy;
     [SerializeField]
     protected string CanoeType;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Change(string Type)
     {
-        
+        Type = CanoeType;
     }
 
-    // Update is called once per frame
-    void Update()
+    // Start is called before the first frame update
+    void Start()
     {
         
     }

@@ -18,10 +18,4 @@ public class CharacterModel : MonoBehaviour
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
