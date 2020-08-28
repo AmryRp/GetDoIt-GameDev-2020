@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : PlayerModel
 {
+    [SerializeField]
+    protected int PlayerEnergy;
+    [SerializeField]
+    protected string CanoeType;
+
     // Start is called before the first frame update
     void Start()
     {

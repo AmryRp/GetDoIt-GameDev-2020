@@ -2,8 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCModel : MonoBehaviour
+public class CharacterModel : MonoBehaviour
 {
+    [SerializeField]
+    protected string CharacterName;
+
+    [SerializeField]
+    protected int Point;
+
+    [SerializeField]
+    protected int MoveSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
