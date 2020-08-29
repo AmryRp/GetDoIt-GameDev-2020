@@ -15,5 +15,10 @@ public class EquipChanger : MonoBehaviour
     [SerializeField]
     protected bool EquipAttribute2;
 
-
+    public EquipChanger(string equipName, string equipAttribute1, bool equipAttribute2)
+    {
+        EquipName = equipName;
+        EquipAttribute1 = equipAttribute1;
+        EquipAttribute2 = equipAttribute2;
+    }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-public class GeneralEnvironment :  IComparable<GeneralEnvironment>
+public class GeneralEnvironment : MonoBehaviour,  IComparable<GeneralEnvironment>
 {
     public string name;
 
