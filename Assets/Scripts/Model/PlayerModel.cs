@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class PlayerModel : CharacterModel
 {
-    private static Player instance;
-    public static Player MyInstance
+    private static PlayerModel instance;
+    public static PlayerModel MyInstance
     {
         get
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<Player>();
+                instance = FindObjectOfType<PlayerModel>();
             }
             return instance;
         }
     }
     private static bool playerExists;
+
+    public PlayerModel(string name, int point, int movespeed) : base(name, point, movespeed)
+    {
+    }
 
 
     // Start is called before the first frame update

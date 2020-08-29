@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//This is a basic interface with a single required
-//method.
+
+//game over when energy zero
 public interface ISinkable
 {
     void Kill();
 }
 
-//This is a generic interface where T is a placeholder
-//for a data type that will be provided by the 
-//implementing class.
+//get hit by obstacle
 public interface IDrainable<T>
 {
     void Drain(T damageTaken);
 }
 
+//change equip
 public interface IChangeable<T>
 {
     void Change(T Type);

@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-public class GeneralEnvironment : IComparable<GeneralEnvironment>
+public class GeneralEnvironment :  IComparable<GeneralEnvironment>
 {
     public string name;
+
+    [SerializeField]
     public int power;
 
     public GeneralEnvironment(string newName, int newPower)

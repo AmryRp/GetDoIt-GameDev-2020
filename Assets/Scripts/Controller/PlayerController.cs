@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerController : Player, ISinkable, IDrainable<float>
 {
+    public PlayerController(string name, int point, int movespeed) : base(name, point, movespeed)
+    {
+
+    }
+
     //The required method of the IKillable interface
     public void Kill()
     {

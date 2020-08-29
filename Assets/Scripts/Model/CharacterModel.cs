@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CharacterModel : MonoBehaviour
 {
+    [Header("Model Attribute")]
     [SerializeField]
-    protected string CharacterName;
+    public string CharacterName;
 
     [SerializeField]
     protected int Point;
@@ -13,9 +14,15 @@ public class CharacterModel : MonoBehaviour
     [SerializeField]
     protected int MoveSpeed;
 
-    // Start is called before the first frame update
-    void Start()
+    public CharacterModel(string name, int point)
     {
-        
+        CharacterName = name;
+        Point = point;
+    }
+    public CharacterModel(string name, int point,int movespeed)
+    {
+        CharacterName = name;
+        Point = point;
+        MoveSpeed = movespeed;
     }
 }
