@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InterfaceCharacter : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+//game over when energy zero
+public interface ISinkable
+{
+    void Kill();
+}
+
+//get hit by obstacle
+public interface IDrainable<T>
+{
+    void Drain(T damageTaken);
+}
+
+//change equip
+public interface IChangeable<T>
+{
+    void Change(T Type);
 }
