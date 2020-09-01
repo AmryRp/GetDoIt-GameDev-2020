@@ -512,11 +512,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Player
   Point: 100
-  MoveSpeed: 5
+  MoveSpeed: 10
   PlayerEnergy: 100
   CanoeType: 1
   CameraMeter: 0
   MaxDubbleTapTime: 3
+  LerpSpeed: 0.5
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &951392582
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,7 +929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followTarget: {fileID: 849871150}
   fixedTargetPos: {x: 6, y: 3, z: 0}
-  moveSpeed: 2
+  moveSpeed: 0.5
 --- !u!1 &1661967928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,7 +1309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2051664897
 RectTransform:
   m_ObjectHideFlags: 0

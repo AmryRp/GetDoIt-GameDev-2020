@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : Player, ISinkable, IDrainable<float>
 {
@@ -28,7 +29,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>
     int TapCount;
     public float MaxDubbleTapTime;
     float NewTime;
-    private float waterStream = 1f;
+    private float WaterStream = 5f;
     void Start()
     {
         TapCount = 0;
@@ -36,61 +37,71 @@ public class PlayerController : Player, ISinkable, IDrainable<float>
 
     void Update()
     {
-        Vector3 movePl = new Vector3(1f, 0f, 0f);
-        transform.position += movePl * waterStream * Time.deltaTime;
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
+
+            print("Got touch began!");
+        }
+        targetPos = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, targetPos, LerpSpeed * Time.deltaTime);
         //hold
-        if (Input.touchCount > 0)
-        {
-            acumTime += Input.GetTouch(0).deltaTime;
+        //if (Input.touchCount > 0)
+        //{
+        //    acumTime += Input.GetTouch(0).deltaTime;
 
-            if (acumTime >= holdTime)
-            {
-                //Long tap
-                print("Hold");
-            }
+        //    if (acumTime >= holdTime)
+        //    {
+        //        //Long tap
+        //        print("Hold");
+        //    }
 
-            if (Input.GetTouch(0).phase == TouchPhase.Ended) 
-        {
-                acumTime = 0;
-            }
-        }
+        //    if (Input.GetTouch(0).phase == TouchPhase.Ended)
+        //    {
+        //        acumTime = 0;
+        //    }
+        //}
 
-        //Double tap
-        if (Input.touchCount == 1)
-        {
-            Touch touch = Input.GetTouch(0);
+        ////Double tap
+        //if (Input.touchCount == 1)
+        //{
+        //    Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Ended)
-            {
-                TapCount += 1;
-            }
+        //    if (touch.phase == TouchPhase.Ended)
+        //    {
+        //        TapCount += 1;
+        //    }
 
-            if (TapCount == 1)
-            {
+        //    if (TapCount == 1)
+        //    {
 
-                NewTime = Time.time + MaxDubbleTapTime;
-            }
-            else if (TapCount == 2 && Time.time <= NewTime)
-            {
+        //        NewTime = Time.time + MaxDubbleTapTime;
+        //    }
+        //    else if (TapCount == 2 && Time.time <= NewTime)
+        //    {
 
-                //Whatever you want after a dubble tap    
-                print("Dubble tap");
+        //        //Whatever you want after a dubble tap    
+        //        print("Dubble tap");
 
 
-                TapCount = 0;
-            }
+        //        TapCount = 0;
+        //    }
 
-        }
-        if (Time.time > NewTime)
-        {
-            TapCount = 0;
-        }
+        //}
+        //if (Time.time > NewTime)
+        //{
+        //    TapCount = 0;
+        //}
     }
+    [SerializeField]
+    protected float LerpSpeed;
+
+    public Vector3 targetPos;
     public void MovePlayer()
     {
-        Vector3 movePl = new Vector3(1f, 0f, 0f);
-        movePl += movePl * MoveSpeed * Time.deltaTime;
-        transform.position = Vector3.Lerp(transform.position, transform.position + movePl, MoveSpeed * Time.deltaTime);
+        targetPos = new Vector3(transform.position.x + MoveSpeed, transform.position.y, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, targetPos, LerpSpeed * Time.deltaTime);
+    }
+    private void OnMouseDown()
+    {
+        MovePlayer();
     }
 }
-
