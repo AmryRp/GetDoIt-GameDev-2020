@@ -21,11 +21,11 @@ public interface IChangeable<T>
     void Change(T Type);
 }
 
-public interface IMoveable
+public interface IMoveable<T>
 {
-    void MovePlayer(float moveSpeed);
+    IEnumerator MovePlayer(T moveSpeed);
 }
-public interface IStopable
+public interface IStopable<T>
 {
-    void BreakPlayer(float breakValue);
+    void BreakPlayer(T breakValue);
 }

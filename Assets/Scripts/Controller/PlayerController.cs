@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable, IStopable
+public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<float>, IStopable<float>
 {
     public PlayerController(string name, int point, int movespeed) : base(name, point, movespeed)
     {
@@ -91,7 +91,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable,
 
             if (TapCount == 1)
             {
-                MovePlayer(MoveSpeed);
+                StartCoroutine(MovePlayer(0.8f));
                 NewTime = Time.time + MaxDubbleTapTime;
             }
             else if (TapCount == 2 && Time.time <= NewTime)
@@ -149,8 +149,8 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable,
                     //basically if thats true its been too long and we want to reset so the next click is simply a single click and not a double click.
                     //MovePlayer(MoveSpeed);
                     float tmpMoveSpeed = MoveSpeed;
-                    //StartCoroutine(MovePlay());
-                    StartCoroutine(SmoothLerp(1f));
+                    StartCoroutine(MovePlayer(0.8f));
+                    
                     if (MoveSpeed == 0)
                     {
                         MoveSpeed = tmpMoveSpeed;
@@ -162,40 +162,34 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable,
         }
 #endif
     }
-    public float slowDownDistance;
-    public float minSpeed;
-    public float maxSpeed;
-    public void MovePlayer(float mspeed)
-    {
-        mspeed += mspeed;
-        while (mspeed != 0)
-        {
-            //float maxDistance = mspeed;  // the range at which you want to start slowing
-            //float percentageOfMax = Vector3.Distance(transform.position, targetPos) / maxDistance;
-            //// clamp the value to 0-1 so we don't have to do a comparison
-            //percentageOfMax = Mathf.Clamp01(percentageOfMax);
-            //// if you were using lerp to change the speed...
-            //float speed = Mathf.Lerp(0f, mspeed, percentageOfMax);
-            //print(mspeed);
-            //targetPos = new Vector3(transform.position.x + mspeed*10, transform.position.y, transform.position.z);
-            //transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-            //mspeed -=5;
-        }
-        
-    }
+    //private IEnumerator MovePlayer(float mspeed)
+    //{
+
+    //    Vector3 startingPos = transform.position;
+    //    Vector3 finalPos = transform.position + (transform.right * MoveSpeed);
+    //    float elapsedTime = 0;
+
+    //    while (elapsedTime < mspeed)
+    //    {
+    //        transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / mspeed));
+    //        elapsedTime += Time.deltaTime;
+    //        yield return null;
+    //    }
+    //}
     public void BreakPlayer(float breakspeed)
     {
 
     }
-    private IEnumerator SmoothLerp(float time)
+
+    public IEnumerator MovePlayer(float moveSpeed)
     {
         Vector3 startingPos = transform.position;
         Vector3 finalPos = transform.position + (transform.right * MoveSpeed);
         float elapsedTime = 0;
 
-        while (elapsedTime < time)
+        while (elapsedTime < moveSpeed)
         {
-            transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / time));
+            transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / moveSpeed));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
