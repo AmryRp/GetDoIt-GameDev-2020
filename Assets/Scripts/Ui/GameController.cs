@@ -12,12 +12,12 @@ public class GameController : MonoBehaviour
     {
         
         Button btn = yourButton.GetComponent<Button>();
-        btn.onClick.AddListener(TaskOnClick);
+        //btn.onClick.AddListener(TaskOnClick);
     }
 
-    void TaskOnClick()
-    {
-        playerController.MovePlayer();
-    }
+    //void TaskOnClick()
+    //{
+    //    playerController.MovePlayer();
+    //}
 
 }

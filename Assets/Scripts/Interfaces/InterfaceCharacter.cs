@@ -20,3 +20,12 @@ public interface IChangeable<T>
 {
     void Change(T Type);
 }
+
+public interface IMoveable
+{
+    void MovePlayer(float moveSpeed);
+}
+public interface IStopable
+{
+    void BreakPlayer(float breakValue);
+}

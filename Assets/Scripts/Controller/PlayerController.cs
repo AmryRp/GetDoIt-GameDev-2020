@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : Player, ISinkable, IDrainable<float>
+public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable, IStopable
 {
     public PlayerController(string name, int point, int movespeed) : base(name, point, movespeed)
     {
@@ -42,23 +42,26 @@ public class PlayerController : Player, ISinkable, IDrainable<float>
     [Header("Water Effect")]
     [SerializeField]
     protected float LerpSpeed;
-    public Vector3 targetPos;
-    public float WaterStream = 0.3f;
+    public Transform targetPos;
+    //private Vector3 targetPos;
+    public float WaterStream ;
 
 
     void Start()
     {
+        
         TapCount = 0;
     }
 
     void Update()
     {
+        targetPos.Translate(transform.right * WaterStream);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos.position.normalized, WaterStream * Time.deltaTime);
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             print("Got touch began!");
         }
-        targetPos = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, targetPos, WaterStream * Time.deltaTime);
+       
         //hold
         if (Input.touchCount > 0)
         {
@@ -88,7 +91,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>
 
             if (TapCount == 1)
             {
-                MovePlayer();
+                MovePlayer(MoveSpeed);
                 NewTime = Time.time + MaxDubbleTapTime;
             }
             else if (TapCount == 2 && Time.time <= NewTime)
@@ -133,10 +136,10 @@ public class PlayerController : Player, ISinkable, IDrainable<float>
         if (one_click)
         {
            
-            while (one_click)
-            {
-                holdTime += Time.deltaTime;
-            }
+            //while (one_click)
+            //{
+            //    holdTime += Time.deltaTime;
+            //}
             if (!Input.GetMouseButtonUp(0))
             {
                 // if the time now is delay seconds more than when the first click started. 
@@ -144,7 +147,14 @@ public class PlayerController : Player, ISinkable, IDrainable<float>
                 {
                     print("One");
                     //basically if thats true its been too long and we want to reset so the next click is simply a single click and not a double click.
-                    MovePlayer();
+                    //MovePlayer(MoveSpeed);
+                    float tmpMoveSpeed = MoveSpeed;
+                    //StartCoroutine(MovePlay());
+                    StartCoroutine(SmoothLerp(1f));
+                    if (MoveSpeed == 0)
+                    {
+                        MoveSpeed = tmpMoveSpeed;
+                    }
                     one_click = false;
 
                 }
@@ -152,15 +162,42 @@ public class PlayerController : Player, ISinkable, IDrainable<float>
         }
 #endif
     }
-
-
-    public void MovePlayer()
+    public float slowDownDistance;
+    public float minSpeed;
+    public float maxSpeed;
+    public void MovePlayer(float mspeed)
     {
-        targetPos = new Vector3(transform.position.x + MoveSpeed, transform.position.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, targetPos, LerpSpeed * Time.deltaTime);
+        mspeed += mspeed;
+        while (mspeed != 0)
+        {
+            //float maxDistance = mspeed;  // the range at which you want to start slowing
+            //float percentageOfMax = Vector3.Distance(transform.position, targetPos) / maxDistance;
+            //// clamp the value to 0-1 so we don't have to do a comparison
+            //percentageOfMax = Mathf.Clamp01(percentageOfMax);
+            //// if you were using lerp to change the speed...
+            //float speed = Mathf.Lerp(0f, mspeed, percentageOfMax);
+            //print(mspeed);
+            //targetPos = new Vector3(transform.position.x + mspeed*10, transform.position.y, transform.position.z);
+            //transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+            //mspeed -=5;
+        }
+        
     }
-    public void BreakPlayer()
+    public void BreakPlayer(float breakspeed)
     {
 
+    }
+    private IEnumerator SmoothLerp(float time)
+    {
+        Vector3 startingPos = transform.position;
+        Vector3 finalPos = transform.position + (transform.right * MoveSpeed);
+        float elapsedTime = 0;
+
+        while (elapsedTime < time)
+        {
+            transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / time));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
     }
 }
