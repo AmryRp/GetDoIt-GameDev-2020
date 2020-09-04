@@ -11,6 +11,8 @@ EditorUserSettings:
     UnityRemoteDevice:
       value: 225f4d46245b0d4902070862342649191512
       flags: 0
+    lightmappingDeviceAndPlatform:
+      value: 53
     UnityRemoteResolution:
       value: 2d5e460b0459
       flags: 0
