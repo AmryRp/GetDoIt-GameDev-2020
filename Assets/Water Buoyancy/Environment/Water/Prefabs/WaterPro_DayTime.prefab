@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterMode: 2
   disablePixelLights: 1
-  textureSize: 256
+  textureSize: 255
   clipPlaneOffset: 0.07
   reflectLayers:
     serializedVersion: 2
@@ -132,8 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4e9958e78383848bd557dc9ae0eeb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  height: 0.2
+  speed: 0.7
+  height: 0.1
   noiseWalk: 0.5
   noiseStrength: 0.1
 --- !u!114 &11488104

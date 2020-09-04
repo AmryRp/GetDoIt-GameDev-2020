@@ -24,8 +24,9 @@ public interface IChangeable<T>
 public interface IMoveable<T>
 {
     IEnumerator MovePlayer(T moveSpeed);
+    void WaterStreamFlow(T Flow);
 }
 public interface IStopable<T>
 {
-    void BreakPlayer(T breakValue);
+    IEnumerator BreakPlayer(T breakValue);
 }
