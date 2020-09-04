@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<float>, IStopable<float>
 {
     [SerializeField]
-    private Rigidbody2D CanoeBody;
+    private Rigidbody CanoeBody;
     public PlayerController(string name, int point, int movespeed) : base(name, point, movespeed)
     {
 
@@ -31,24 +31,36 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     public bool is_hold = false;
     public float Hold_timer;
     public float max_Hold;
-    [Header("Water Effect")]
+    [Header("Water Stream")]
     [SerializeField]
     protected float LerpSpeed;
     public Transform targetPos;
     //private Vector3 targetPos;
-    public float WaterStream;
-
+    public float CurrentWaterStream;
+    public float DefaultWaterStream;
+    public bool InReverse;
     void Start()
     {
 
-        CanoeBody = GetComponent<Rigidbody2D>();
+        CanoeBody = GetComponent<Rigidbody>();
         TapCount = 0;
     }
 
     void Update()
     {
-        targetPos.Translate(transform.right * WaterStream);
-        transform.position = Vector3.MoveTowards(transform.position, targetPos.position.normalized, WaterStream * Time.deltaTime);
+
+        Vector3 direction;
+        if (!InReverse)
+        {
+            direction = new Vector3(0f + CurrentWaterStream, transform.position.y, transform.position.z);
+        }
+        else
+        {
+            direction = new Vector3(transform.position.x + CurrentWaterStream, transform.position.y, transform.position.z);
+        }
+        //targetPos.Translate(transform.right * WaterStream);
+        CanoeBody.MovePosition(transform.position + direction * Time.deltaTime);
+
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             print("Got touch began!");
@@ -122,10 +134,11 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         if ((Input.GetMouseButton(0) && Hold_timer >= max_Hold)|| Input.GetMouseButtonUp(0))
         {
             is_hold = false;
+            WaterStreamFlow(DefaultWaterStream);
         }        
         if (is_hold)
         {
-            StartCoroutine(BreakPlayer(WaterStream));
+            StartCoroutine(BreakPlayer(CurrentWaterStream));
             
         }
         else
@@ -137,8 +150,8 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 if ((Time.time - timer_for_double_click) > delay)
                 {
                     print("One Hold Time Reached");
-                    StartCoroutine(MovePlayer(2f));
-                    WaterStreamFlow(0.003f);
+                    StartCoroutine(MovePlayer(0.1f));
+                    WaterStreamFlow(DefaultWaterStream);
                     one_click = false;
                 }
             }
@@ -150,8 +163,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 if ((Time.time - timer_for_double_click) > delay)
                 {
                     print("One Hold Time Safe");
-                    StartCoroutine(MovePlayer(0.8f));
-                    WaterStreamFlow(0.003f);
+                    StartCoroutine(MovePlayer(MoveSpeed));
                     one_click = false;
                 }
             }
@@ -163,10 +175,20 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     {
         Vector3 startingPos = transform.position;
         Vector3 finalPos = transform.position + (transform.right * MoveSpeed);
+        Vector3 direction;
+        if (!InReverse)
+        {
+            direction = new Vector3(0f + moveSpeed, transform.position.y, transform.position.z);
+        }
+        else
+        {
+            direction = new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z);
+        } 
         float elapsedTime = 0;
         while (elapsedTime < moveSpeed)
         {
-            transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / moveSpeed));
+            CanoeBody.MovePosition(transform.position + direction * Time.deltaTime);
+            //transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / moveSpeed));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -177,44 +199,49 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         Hold_timer += Time.deltaTime;
         if (breakValue > 0)
         {
-            WaterStream -= Mathf.Lerp(0, breakValue, 2f * Time.deltaTime);
+            CurrentWaterStream -= Mathf.Lerp(0, breakValue, 2f * Time.deltaTime);
             yield return null;
         }
         else
         {
-            WaterStream = 0f;
+            CurrentWaterStream = 0f;
             yield return null;
         }
-        //if (Hold_timer >= max_Hold)
-        //{
-        //    is_hold = false;
-        //}
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "MuddyWatter")
         {
+            print("Mud");
+            InReverse = false;
             WaterStreamFlow(0.001f);
             MoveSpeed = 0.5f;
         }
         else if (collision.gameObject.tag == "ReverseWatter")
         {
+            print("Reverse");
+            InReverse = true;
             WaterStreamFlow(-0.003f);
             MoveSpeed = 0.6f;
         }
         else if (collision.gameObject.tag == "AfterWaterfall")
         {
+            print("WaterfallEffect");
+            InReverse = false;
             WaterStreamFlow(0.006f);
             MoveSpeed = 2f;
         }
         else
         {
-            WaterStreamFlow(0.003f);
+            print("Ordinary");
+            InReverse = false;
+    
+           
         }
     }
     public void WaterStreamFlow(float flow)
     {
-        WaterStream = flow;
+        CurrentWaterStream = flow;
     }
     //The required method of the IKillable interface
     public void Kill()
