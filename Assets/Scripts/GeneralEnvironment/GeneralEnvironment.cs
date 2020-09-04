@@ -3,7 +3,8 @@ using System.Collections;
 using System;
 public class GeneralEnvironment : MonoBehaviour,  IComparable<GeneralEnvironment>
 {
-    public string name;
+    [SerializeField]
+    protected string name;
 
     [SerializeField]
     public int power;

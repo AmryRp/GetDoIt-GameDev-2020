@@ -12,7 +12,7 @@ public class CharacterModel : MonoBehaviour
     protected int Point;
 
     [SerializeField]
-    protected int MoveSpeed;
+    protected float MoveSpeed;
 
     public CharacterModel(string name, int point)
     {
