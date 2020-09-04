@@ -85,6 +85,7 @@ namespace WaterBuoyancy
 
         protected virtual void OnTriggerEnter(Collider other)
         {
+            Debug.Log("On trigger Enter");
             if (other.CompareTag(WaterVolume.TAG))
             {
                 this.water = other.GetComponent<WaterVolume>();
@@ -97,9 +98,13 @@ namespace WaterBuoyancy
 
         protected virtual void OnTriggerExit(Collider other)
         {
+            Debug.Log("On trigger Exit");
             if (other.CompareTag(WaterVolume.TAG))
             {
+                this.rigidbody.angularDrag = 0f;
+                this.rigidbody.drag = 0f;
                 this.water = null;
+                Debug.Log("On trigger Exit with water");
             }
         }
 
