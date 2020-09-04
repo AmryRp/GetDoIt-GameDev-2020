@@ -24,13 +24,13 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     public bool timer_running;
     [SerializeField]
     public float timer_for_double_click;
-
     //this is how long in seconds to allow for a double click
     [SerializeField]
     float delay;
     public bool is_hold = false;
     public float Hold_timer;
     public float max_Hold;
+
     [Header("Water Stream")]
     [SerializeField]
     protected float LerpSpeed;
@@ -39,31 +39,39 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     public float CurrentWaterStream;
     public float DefaultWaterStream;
     public bool InReverse;
+
+    //Cache
+    Vector3 direction;
     void Start()
     {
-
         CanoeBody = GetComponent<Rigidbody>();
         TapCount = 0;
     }
 
     void Update()
     {
+        TouchScreenMovement();
 
-        Vector3 direction;
-        if (!InReverse)
-        {
-            direction = new Vector3(0f + CurrentWaterStream, transform.position.y, transform.position.z);
-        }
-        else
-        {
-            direction = new Vector3(transform.position.x + CurrentWaterStream, transform.position.y, transform.position.z);
-        }
+        //Untuk Test DiUnity
+#if UNITY_EDITOR
+
+        UnityEditorMovement();
+#endif
+    }
+
+    private void TouchScreenMovement()
+    {
+        /*direction = MoveDirection();
         //targetPos.Translate(transform.right * WaterStream);
-        CanoeBody.MovePosition(transform.position + direction * Time.deltaTime);
+        CanoeBody.MovePosition(transform.position + direction * Time.deltaTime);*/
+        TouchScreen();
+    }
 
+    private void TouchScreen()
+    {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            print("Got touch began!");
+            print("Got touch began!" + Input.touchCount);
         }
         //hold
         if (Input.touchCount > 0)
@@ -108,38 +116,45 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         {
             TapCount = 0;
         }
+    }
 
-        //Untuk Test DiUnity
-#if UNITY_EDITOR
+    private Vector3 MoveDirection()
+    {
+        return direction = (!InReverse) ? 
+            direction = new Vector3(0f + CurrentWaterStream, transform.position.y, transform.position.z) : 
+            direction = new Vector3(transform.position.x + CurrentWaterStream, transform.position.y, transform.position.z);
+    }
 
+    private void UnityEditorMovement()
+    {
         if (Input.GetMouseButtonDown(0))
         {
-                is_hold = true;
-                if (!one_click) // first click no previous clicks
-                {
-                    one_click = true;
-                    print("Click");
-                    timer_for_double_click = Time.time; // save the current time
-                                                        // do one click things;
-                }
-                else
-                {
-                    print("Double");
-                    one_click = false; // found a double click, now reset
+            is_hold = true;
+            if (!one_click) // first click no previous clicks
+            {
+                one_click = true;
+                print("Click");
+                timer_for_double_click = Time.time; // save the current time
+                                                    // do one click things;
+            }
+            else
+            {
+                print("Double");
+                one_click = false; // found a double click, now reset
 
-                }
-            
+            }
+
         }
 
-        if ((Input.GetMouseButton(0) && Hold_timer >= max_Hold)|| Input.GetMouseButtonUp(0))
+        if ((Input.GetMouseButton(0) && Hold_timer >= max_Hold) || Input.GetMouseButtonUp(0))
         {
             is_hold = false;
             WaterStreamFlow(DefaultWaterStream);
-        }        
+        }
         if (is_hold)
         {
             StartCoroutine(BreakPlayer(CurrentWaterStream));
-            
+
         }
         else
         {
@@ -168,44 +183,6 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 }
             }
             Hold_timer = 0f;
-        }
-#endif
-    }
-    public IEnumerator MovePlayer(float moveSpeed)
-    {
-        Vector3 startingPos = transform.position;
-        Vector3 finalPos = transform.position + (transform.right * MoveSpeed);
-        Vector3 direction;
-        if (!InReverse)
-        {
-            direction = new Vector3(0f + moveSpeed, transform.position.y, transform.position.z);
-        }
-        else
-        {
-            direction = new Vector3(transform.position.x + moveSpeed, transform.position.y, transform.position.z);
-        } 
-        float elapsedTime = 0;
-        while (elapsedTime < moveSpeed)
-        {
-            CanoeBody.MovePosition(transform.position + direction * Time.deltaTime);
-            //transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / moveSpeed));
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-    }
-
-    public IEnumerator BreakPlayer(float breakValue)
-    {
-        Hold_timer += Time.deltaTime;
-        if (breakValue > 0)
-        {
-            CurrentWaterStream -= Mathf.Lerp(0, breakValue, 2f * Time.deltaTime);
-            yield return null;
-        }
-        else
-        {
-            CurrentWaterStream = 0f;
-            yield return null;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -237,6 +214,36 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             InReverse = false;
     
            
+        }
+    }
+
+    public IEnumerator MovePlayer(float moveSpeed)
+    {
+        Vector3 startingPos = transform.position;
+        Vector3 finalPos = transform.position + (transform.right * MoveSpeed);
+        direction = MoveDirection();
+        float elapsedTime = 0;
+        while (elapsedTime < moveSpeed)
+        {
+            CanoeBody.MovePosition(transform.position + direction * Time.deltaTime);
+            //transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / moveSpeed));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    public IEnumerator BreakPlayer(float breakValue)
+    {
+        Hold_timer += Time.deltaTime;
+        if (breakValue > 0)
+        {
+            CurrentWaterStream -= Mathf.Lerp(0, breakValue, 2f * Time.deltaTime);
+            yield return null;
+        }
+        else
+        {
+            CurrentWaterStream = 0f;
+            yield return null;
         }
     }
     public void WaterStreamFlow(float flow)
