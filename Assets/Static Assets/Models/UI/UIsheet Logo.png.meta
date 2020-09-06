@@ -1,0 +1,2539 @@
+fileFormatVersion: 2
+guid: 2e7355a4a3afc33458a932814f9fedee
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 540794965471293560
+    second: UIsheet Logo_0
+  - first:
+      213: -6733915045062733902
+    second: UIsheet Logo_1
+  - first:
+      213: 7859740847236600163
+    second: UIsheet Logo_2
+  - first:
+      213: 1344913949966062820
+    second: UIsheet Logo_3
+  - first:
+      213: -1299866432749950398
+    second: UIsheet Logo_4
+  - first:
+      213: -5050661845209455519
+    second: UIsheet Logo_5
+  - first:
+      213: 1683552155067618257
+    second: UIsheet Logo_6
+  - first:
+      213: 6782867619535739398
+    second: UIsheet Logo_7
+  - first:
+      213: -873371723575615952
+    second: UIsheet Logo_8
+  - first:
+      213: 7121204253597719257
+    second: UIsheet Logo_9
+  - first:
+      213: 4209815401704496946
+    second: UIsheet Logo_10
+  - first:
+      213: 8623628274961081178
+    second: UIsheet Logo_11
+  - first:
+      213: 2285504028533331229
+    second: UIsheet Logo_12
+  - first:
+      213: -5800633472938085464
+    second: UIsheet Logo_13
+  - first:
+      213: 8482499394753720405
+    second: UIsheet Logo_14
+  - first:
+      213: 926083394384421578
+    second: UIsheet Logo_15
+  - first:
+      213: -8989532611632514125
+    second: UIsheet Logo_16
+  - first:
+      213: -2560139140007403580
+    second: UIsheet Logo_17
+  - first:
+      213: -8879571397655629781
+    second: UIsheet Logo_18
+  - first:
+      213: -8908198748379653009
+    second: UIsheet Logo_19
+  - first:
+      213: -4115017839536307359
+    second: UIsheet Logo_20
+  - first:
+      213: 3813621354972685434
+    second: UIsheet Logo_21
+  - first:
+      213: -8411369818575114697
+    second: UIsheet Logo_22
+  - first:
+      213: -2607007043643321124
+    second: UIsheet Logo_23
+  - first:
+      213: 4199759807629142865
+    second: UIsheet Logo_24
+  - first:
+      213: -5929593994276405478
+    second: UIsheet Logo_25
+  - first:
+      213: 6001897810120472856
+    second: UIsheet Logo_26
+  - first:
+      213: -4849622562830069537
+    second: UIsheet Logo_27
+  - first:
+      213: -4960682291984654146
+    second: UIsheet Logo_28
+  - first:
+      213: 3096478321806381243
+    second: UIsheet Logo_29
+  - first:
+      213: -4654667857689763210
+    second: UIsheet Logo_30
+  - first:
+      213: 4679921609927190165
+    second: UIsheet Logo_31
+  - first:
+      213: -4220946524044950555
+    second: UIsheet Logo_32
+  - first:
+      213: -6031681269704188656
+    second: UIsheet Logo_33
+  - first:
+      213: 3766276960267514361
+    second: UIsheet Logo_34
+  - first:
+      213: 7741708077741937203
+    second: UIsheet Logo_35
+  - first:
+      213: 268243743108848442
+    second: UIsheet Logo_36
+  - first:
+      213: 6134072599578284309
+    second: UIsheet Logo_37
+  - first:
+      213: -1543159869729669887
+    second: UIsheet Logo_38
+  - first:
+      213: 746551065901261202
+    second: UIsheet Logo_39
+  - first:
+      213: 5512362129370517005
+    second: UIsheet Logo_40
+  - first:
+      213: 2718271763011757752
+    second: UIsheet Logo_41
+  - first:
+      213: -7508342251142209888
+    second: UIsheet Logo_42
+  - first:
+      213: -1775230576313109700
+    second: UIsheet Logo_43
+  - first:
+      213: -8079162580729749381
+    second: UIsheet Logo_44
+  - first:
+      213: -4327421403133318895
+    second: UIsheet Logo_45
+  - first:
+      213: 798778430703590138
+    second: UIsheet Logo_46
+  - first:
+      213: 4334021665249556304
+    second: UIsheet Logo_47
+  - first:
+      213: 4388183133697795936
+    second: UIsheet Logo_48
+  - first:
+      213: 3425348643084557191
+    second: UIsheet Logo_49
+  - first:
+      213: -8256138529101600980
+    second: UIsheet Logo_50
+  - first:
+      213: -3469647613422011175
+    second: UIsheet Logo_51
+  - first:
+      213: -4217089812511141690
+    second: UIsheet Logo_52
+  - first:
+      213: -7649050298214314193
+    second: UIsheet Logo_53
+  - first:
+      213: 7887673067211316863
+    second: UIsheet Logo_54
+  - first:
+      213: -602980853322092780
+    second: UIsheet Logo_55
+  - first:
+      213: -7168463304961821603
+    second: UIsheet Logo_56
+  - first:
+      213: 3156883945160827172
+    second: UIsheet Logo_57
+  - first:
+      213: -7376108837541451557
+    second: UIsheet Logo_58
+  - first:
+      213: 3835203235914133219
+    second: UIsheet Logo_59
+  - first:
+      213: -6158414854182558087
+    second: UIsheet Logo_60
+  - first:
+      213: -7956121862758077311
+    second: UIsheet Logo_61
+  - first:
+      213: 166345506585065976
+    second: UIsheet Logo_62
+  - first:
+      213: 1530875361305727841
+    second: UIsheet Logo_63
+  - first:
+      213: 3290357127834078913
+    second: UIsheet Logo_64
+  - first:
+      213: -343053237061064327
+    second: UIsheet Logo_65
+  - first:
+      213: 32675343684658655
+    second: UIsheet Logo_66
+  - first:
+      213: -1146856702939931888
+    second: UIsheet Logo_67
+  - first:
+      213: -9015539065590787473
+    second: UIsheet Logo_68
+  - first:
+      213: -926290711876058383
+    second: UIsheet Logo_69
+  - first:
+      213: 3164501339752799298
+    second: UIsheet Logo_70
+  - first:
+      213: 414636087281006434
+    second: UIsheet Logo_71
+  - first:
+      213: -5616373991259465496
+    second: UIsheet Logo_72
+  - first:
+      213: 4635257082336885811
+    second: UIsheet Logo_73
+  - first:
+      213: 245636290111597185
+    second: UIsheet Logo_74
+  - first:
+      213: -5587712479776404407
+    second: UIsheet Logo_75
+  - first:
+      213: -2297248536749095186
+    second: UIsheet Logo_76
+  - first:
+      213: -2291841376765543851
+    second: UIsheet Logo_77
+  - first:
+      213: -4447400924493150377
+    second: UIsheet Logo_78
+  - first:
+      213: 5888099712858411154
+    second: UIsheet Logo_79
+  - first:
+      213: -5197518745664556928
+    second: UIsheet Logo_80
+  - first:
+      213: 3976159771553251065
+    second: UIsheet Logo_81
+  - first:
+      213: 1698013375099157610
+    second: UIsheet Logo_82
+  - first:
+      213: -3147491507955221467
+    second: UIsheet Logo_83
+  - first:
+      213: 7689657175614057466
+    second: UIsheet Logo_84
+  - first:
+      213: 7323279266087585943
+    second: UIsheet Logo_85
+  - first:
+      213: 6827695066219966987
+    second: UIsheet Logo_86
+  - first:
+      213: -8229606659980491066
+    second: UIsheet Logo_87
+  - first:
+      213: -8814605403916394192
+    second: UIsheet Logo_88
+  - first:
+      213: 3616796752864981084
+    second: UIsheet Logo_89
+  - first:
+      213: -8884005102582680795
+    second: UIsheet Logo_90
+  - first:
+      213: -3862206935257276924
+    second: UIsheet Logo_91
+  - first:
+      213: -8769471258575882214
+    second: UIsheet Logo_92
+  - first:
+      213: 1945155758665960661
+    second: UIsheet Logo_93
+  - first:
+      213: 4858192766211422742
+    second: UIsheet Logo_94
+  - first:
+      213: -1878941530629605807
+    second: UIsheet Logo_95
+  - first:
+      213: -7872432160130033361
+    second: UIsheet Logo_96
+  - first:
+      213: -362841425940351579
+    second: UIsheet Logo_97
+  - first:
+      213: -7626456534696114174
+    second: UIsheet Logo_98
+  - first:
+      213: -8804694824870385875
+    second: UIsheet Logo_99
+  - first:
+      213: 1938836262743613673
+    second: UIsheet Logo_100
+  - first:
+      213: 7703002208643276577
+    second: UIsheet Logo_101
+  - first:
+      213: 6222168367122756087
+    second: UIsheet Logo_102
+  - first:
+      213: -6387453208787410368
+    second: UIsheet Logo_103
+  - first:
+      213: -6902001716762316242
+    second: UIsheet Logo_104
+  - first:
+      213: -8155858936627348558
+    second: UIsheet Logo_105
+  - first:
+      213: 5888421759827088595
+    second: UIsheet Logo_106
+  - first:
+      213: -6132767328509554715
+    second: UIsheet Logo_107
+  - first:
+      213: -9146709315921783757
+    second: UIsheet Logo_108
+  - first:
+      213: 2284402757666708516
+    second: UIsheet Logo_109
+  - first:
+      213: -4889275604300596931
+    second: UIsheet Logo_110
+  - first:
+      213: -6912508046730428647
+    second: UIsheet Logo_111
+  - first:
+      213: -6317791296457290460
+    second: UIsheet Logo_112
+  - first:
+      213: -1185798968538336112
+    second: UIsheet Logo_113
+  - first:
+      213: -1864980675917597863
+    second: UIsheet Logo_114
+  - first:
+      213: -5937556802596070028
+    second: UIsheet Logo_115
+  - first:
+      213: -7932905157036997085
+    second: UIsheet Logo_116
+  - first:
+      213: 3049385000924601053
+    second: UIsheet Logo_117
+  - first:
+      213: -2800606809962971812
+    second: UIsheet Logo_118
+  - first:
+      213: 8584941473692405438
+    second: UIsheet Logo_119
+  - first:
+      213: -385216518800948837
+    second: UIsheet Logo_120
+  - first:
+      213: 5125382554817354093
+    second: UIsheet Logo_121
+  - first:
+      213: -1928670529579704223
+    second: UIsheet Logo_122
+  - first:
+      213: -2252085023698773412
+    second: UIsheet Logo_123
+  - first:
+      213: -6489648516403994565
+    second: UIsheet Logo_124
+  - first:
+      213: -1536003833454867714
+    second: UIsheet Logo_125
+  - first:
+      213: 308731745533368315
+    second: UIsheet Logo_126
+  - first:
+      213: -4680513932547735058
+    second: UIsheet Logo_127
+  - first:
+      213: -5691521661339634603
+    second: UIsheet Logo_128
+  - first:
+      213: 132125831387223139
+    second: UIsheet Logo_129
+  - first:
+      213: 262619555218135411
+    second: UIsheet Logo_130
+  - first:
+      213: 3771187289533520433
+    second: UIsheet Logo_131
+  - first:
+      213: 1737773746046175101
+    second: UIsheet Logo_132
+  - first:
+      213: 406175791109288585
+    second: UIsheet Logo_133
+  - first:
+      213: 8846810806041697879
+    second: UIsheet Logo_134
+  - first:
+      213: -3605385225653164103
+    second: UIsheet Logo_135
+  - first:
+      213: 1871016284662037436
+    second: UIsheet Logo_136
+  - first:
+      213: 6163918246383521079
+    second: UIsheet Logo_137
+  - first:
+      213: -7706613208643476249
+    second: UIsheet Logo_138
+  - first:
+      213: 2802461515287134822
+    second: UIsheet Logo_139
+  - first:
+      213: 8111142601674845701
+    second: UIsheet Logo_140
+  - first:
+      213: -2903811580092566197
+    second: UIsheet Logo_141
+  - first:
+      213: 78470739884637223
+    second: UIsheet Logo_142
+  - first:
+      213: 7013151128733863254
+    second: UIsheet Logo_143
+  - first:
+      213: -4870497855350626889
+    second: UIsheet Logo_144
+  - first:
+      213: -7659106858651574410
+    second: UIsheet Logo_145
+  - first:
+      213: 7035715971756419213
+    second: UIsheet Logo_146
+  - first:
+      213: -1988519139608789939
+    second: UIsheet Logo_147
+  - first:
+      213: 8747058828703125143
+    second: UIsheet Logo_148
+  - first:
+      213: 6832475376909751884
+    second: UIsheet Logo_149
+  - first:
+      213: 944223555735644130
+    second: UIsheet Logo_150
+  - first:
+      213: 6975685982010432216
+    second: UIsheet Logo_151
+  - first:
+      213: 1863326733187605425
+    second: UIsheet Logo_152
+  - first:
+      213: 7248392633892831751
+    second: UIsheet Logo_153
+  - first:
+      213: -8503095790379847443
+    second: UIsheet Logo_154
+  - first:
+      213: 7617801647544575342
+    second: UIsheet Logo_155
+  - first:
+      213: 6036466748061771608
+    second: UIsheet Logo_156
+  - first:
+      213: -3772054619669607926
+    second: UIsheet Logo_157
+  - first:
+      213: -1411834344886220051
+    second: UIsheet Logo_158
+  - first:
+      213: -2513616698769652820
+    second: UIsheet Logo_159
+  - first:
+      213: -1727621350525057667
+    second: UIsheet Logo_160
+  - first:
+      213: -1598234769714653865
+    second: UIsheet Logo_161
+  - first:
+      213: -1124607662644507411
+    second: UIsheet Logo_162
+  - first:
+      213: 5408551443350623597
+    second: UIsheet Logo_163
+  - first:
+      213: -1456286314393993095
+    second: UIsheet Logo_164
+  - first:
+      213: 8508599919783360556
+    second: UIsheet Logo_165
+  - first:
+      213: -5212243369664878248
+    second: UIsheet Logo_166
+  - first:
+      213: -7236130225958491542
+    second: UIsheet Logo_167
+  - first:
+      213: 2039341815940738336
+    second: UIsheet Logo_168
+  - first:
+      213: -5897348748549564754
+    second: UIsheet Logo_169
+  - first:
+      213: 4736576203192082732
+    second: UIsheet Logo_170
+  - first:
+      213: 7315523592092611031
+    second: UIsheet Logo_171
+  - first:
+      213: -4440108949913846094
+    second: UIsheet Logo_172
+  - first:
+      213: 6879034959683970726
+    second: UIsheet Logo_173
+  - first:
+      213: -7640832833516564491
+    second: UIsheet Logo_174
+  - first:
+      213: -4677823454545503576
+    second: UIsheet Logo_175
+  - first:
+      213: 4155353652226167363
+    second: UIsheet Logo_176
+  - first:
+      213: 4113344317072534073
+    second: UIsheet Logo_177
+  - first:
+      213: -8303979570565674804
+    second: UIsheet Logo_178
+  - first:
+      213: -4130670160951618924
+    second: UIsheet Logo_179
+  - first:
+      213: 5854591075030004128
+    second: UIsheet Logo_180
+  - first:
+      213: -3699393481525004187
+    second: UIsheet Logo_181
+  - first:
+      213: 8657060774842118070
+    second: UIsheet Logo_182
+  - first:
+      213: -6697785337680988133
+    second: UIsheet Logo_183
+  - first:
+      213: 7159764210609640602
+    second: UIsheet Logo_184
+  - first:
+      213: 6677991210931224409
+    second: UIsheet Logo_185
+  - first:
+      213: -5432050377625663443
+    second: UIsheet Logo_186
+  - first:
+      213: 2651595311407482592
+    second: UIsheet Logo_187
+  - first:
+      213: 1409968795552009178
+    second: UIsheet Logo_188
+  - first:
+      213: 6587487646323045293
+    second: UIsheet Logo_189
+  - first:
+      213: 1298074539082360408
+    second: UIsheet Logo_190
+  - first:
+      213: 6061869395946349707
+    second: UIsheet Logo_191
+  - first:
+      213: 3914423257306996222
+    second: UIsheet Logo_192
+  - first:
+      213: -5938567023615711082
+    second: UIsheet Logo_193
+  - first:
+      213: -5481331430956236028
+    second: UIsheet Logo_194
+  - first:
+      213: -3613769938002506382
+    second: UIsheet Logo_195
+  - first:
+      213: 5305802248371803520
+    second: UIsheet Logo_196
+  - first:
+      213: -560212513658719144
+    second: UIsheet Logo_197
+  - first:
+      213: -5227848991279916459
+    second: UIsheet Logo_198
+  - first:
+      213: -5223566248261161396
+    second: UIsheet Logo_199
+  - first:
+      213: -4926382158583008424
+    second: UIsheet Logo_200
+  - first:
+      213: -3118113903392529192
+    second: UIsheet Logo_201
+  - first:
+      213: -6169077242062075775
+    second: UIsheet Logo_202
+  - first:
+      213: 7390181690605890694
+    second: UIsheet Logo_203
+  - first:
+      213: -4403024208822448645
+    second: UIsheet Logo_204
+  - first:
+      213: 486271914006170394
+    second: UIsheet Logo_205
+  - first:
+      213: -6413888906055401319
+    second: UIsheet Logo_206
+  - first:
+      213: 4267499938876997357
+    second: UIsheet Logo_207
+  - first:
+      213: -2768721312110256166
+    second: UIsheet Logo_208
+  - first:
+      213: -1529835624841204670
+    second: UIsheet Logo_209
+  - first:
+      213: -5039266583128356428
+    second: UIsheet Logo_210
+  - first:
+      213: 8964673062570676103
+    second: UIsheet Logo_211
+  - first:
+      213: -2762755868244853214
+    second: UIsheet Logo_212
+  - first:
+      213: 7634245979481172806
+    second: UIsheet Logo_213
+  - first:
+      213: 8279725398544014874
+    second: UIsheet Logo_214
+  - first:
+      213: -3683857045259797045
+    second: UIsheet Logo_215
+  - first:
+      213: 4971062453935103979
+    second: UIsheet Logo_216
+  - first:
+      213: 5755818214086184862
+    second: UIsheet Logo_217
+  - first:
+      213: 8303947695729708222
+    second: UIsheet Logo_218
+  - first:
+      213: 1212089942834041096
+    second: UIsheet Logo_219
+  - first:
+      213: -8439917388451180748
+    second: UIsheet Logo_220
+  - first:
+      213: 2446998223144766555
+    second: UIsheet Logo_221
+  - first:
+      213: -1008387383620610800
+    second: UIsheet Logo_222
+  - first:
+      213: -734981571568688185
+    second: UIsheet Logo_223
+  - first:
+      213: -204954781129988519
+    second: UIsheet Logo_224
+  - first:
+      213: -1834227147363099544
+    second: UIsheet Logo_225
+  - first:
+      213: 5860531800235636809
+    second: UIsheet Logo_226
+  - first:
+      213: -6372715448737509848
+    second: UIsheet Logo_227
+  - first:
+      213: 2089011757899625075
+    second: UIsheet Logo_228
+  - first:
+      213: 7901665552998084848
+    second: UIsheet Logo_229
+  - first:
+      213: -8206331002335570624
+    second: UIsheet Logo_230
+  - first:
+      213: 8699148796553619596
+    second: UIsheet Logo_231
+  - first:
+      213: -7718798988562578568
+    second: UIsheet Logo_232
+  - first:
+      213: 1749575508645880750
+    second: UIsheet Logo_233
+  - first:
+      213: -6394341281147211612
+    second: UIsheet Logo_234
+  - first:
+      213: -7063035560055090851
+    second: UIsheet Logo_235
+  - first:
+      213: -6309881461994617015
+    second: UIsheet Logo_236
+  - first:
+      213: -5737316142344162232
+    second: UIsheet Logo_237
+  - first:
+      213: -3923971036663394932
+    second: UIsheet Logo_238
+  - first:
+      213: -8088293036206382605
+    second: UIsheet Logo_239
+  - first:
+      213: -3222474879131810817
+    second: UIsheet Logo_240
+  - first:
+      213: -916430871869497958
+    second: UIsheet Logo_241
+  - first:
+      213: 2901696214505475267
+    second: UIsheet Logo_242
+  - first:
+      213: -8270031509443276078
+    second: UIsheet Logo_243
+  - first:
+      213: -3200257965438249661
+    second: UIsheet Logo_244
+  - first:
+      213: 7706839734655001172
+    second: UIsheet Logo_245
+  - first:
+      213: -6305075246526394419
+    second: UIsheet Logo_246
+  - first:
+      213: -7930210416138960329
+    second: UIsheet Logo_247
+  - first:
+      213: 4485378810386509629
+    second: UIsheet Logo_248
+  - first:
+      213: -2000618495638506359
+    second: UIsheet Logo_249
+  - first:
+      213: 3735251106394766997
+    second: UIsheet Logo_250
+  - first:
+      213: -6952832622482080635
+    second: UIsheet Logo_251
+  - first:
+      213: 1095010259647890728
+    second: UIsheet Logo_252
+  - first:
+      213: 132641834600298861
+    second: UIsheet Logo_253
+  - first:
+      213: -5272361907930135234
+    second: UIsheet Logo_254
+  - first:
+      213: 1471765003183415007
+    second: UIsheet Logo_255
+  - first:
+      213: -1764457061428783309
+    second: UIsheet Logo_256
+  - first:
+      213: 6820458881618446993
+    second: UIsheet Logo_257
+  - first:
+      213: -2751617752037524488
+    second: UIsheet Logo_258
+  - first:
+      213: 5741264828695175987
+    second: UIsheet Logo_259
+  - first:
+      213: -423485023597935839
+    second: UIsheet Logo_260
+  - first:
+      213: -3458286544156640882
+    second: UIsheet Logo_261
+  - first:
+      213: 2871866356847550708
+    second: UIsheet Logo_262
+  - first:
+      213: 7159079854084666183
+    second: UIsheet Logo_263
+  - first:
+      213: -92778221774796632
+    second: UIsheet Logo_264
+  - first:
+      213: -6084032079353465672
+    second: UIsheet Logo_265
+  - first:
+      213: -7786607680958911629
+    second: UIsheet Logo_266
+  - first:
+      213: 381587010527980914
+    second: UIsheet Logo_267
+  - first:
+      213: -3803645280087921796
+    second: UIsheet Logo_268
+  - first:
+      213: 2360415935629583695
+    second: UIsheet Logo_269
+  - first:
+      213: 4318797000085942095
+    second: UIsheet Logo_270
+  - first:
+      213: 3070987968676072330
+    second: UIsheet Logo_271
+  - first:
+      213: -3988260453844082182
+    second: UIsheet Logo_272
+  - first:
+      213: 8270930656247821392
+    second: UIsheet Logo_273
+  - first:
+      213: 779943044387269261
+    second: UIsheet Logo_274
+  - first:
+      213: 8856901966454577313
+    second: UIsheet Logo_275
+  - first:
+      213: 6741030361549290218
+    second: UIsheet Logo_276
+  - first:
+      213: 6016853462675022486
+    second: UIsheet Logo_277
+  - first:
+      213: 9138759958026709642
+    second: UIsheet Logo_278
+  - first:
+      213: -3934556426969004260
+    second: UIsheet Logo_279
+  - first:
+      213: -1873151480082661959
+    second: UIsheet Logo_280
+  - first:
+      213: -3301339701296245377
+    second: UIsheet Logo_281
+  - first:
+      213: 7815605258275564590
+    second: UIsheet Logo_282
+  - first:
+      213: 1341980746388510142
+    second: UIsheet Logo_283
+  - first:
+      213: -3858344237938948310
+    second: UIsheet Logo_284
+  - first:
+      213: 9151402695186307499
+    second: UIsheet Logo_285
+  - first:
+      213: -8406429926089078677
+    second: UIsheet Logo_286
+  - first:
+      213: 2480560835053388172
+    second: UIsheet Logo_287
+  - first:
+      213: 7632383084179607513
+    second: UIsheet Logo_288
+  - first:
+      213: -1919725872200296533
+    second: UIsheet Logo_289
+  - first:
+      213: 8804903573364858118
+    second: UIsheet Logo_290
+  - first:
+      213: 2004430661870565473
+    second: UIsheet Logo_291
+  - first:
+      213: 939089149106483834
+    second: UIsheet Logo_292
+  - first:
+      213: -4821369506012080854
+    second: UIsheet Logo_293
+  - first:
+      213: 6597689992348885670
+    second: UIsheet Logo_294
+  - first:
+      213: 5228205600533221446
+    second: UIsheet Logo_295
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 2
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 47
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UIsheet Logo_10
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 7646
+        width: 858
+        height: 859
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f9094adc44c6a30800000000000000
+      internalID: 4209815401704496946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_11
+      rect:
+        serializedVersion: 2
+        x: 2775
+        y: 7663
+        width: 188
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a53e114e9384da770800000000000000
+      internalID: 8623628274961081178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_12
+      rect:
+        serializedVersion: 2
+        x: 3046
+        y: 7663
+        width: 188
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1514790ecdb7bf10800000000000000
+      internalID: 2285504028533331229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_13
+      rect:
+        serializedVersion: 2
+        x: 3429
+        y: 7692
+        width: 575
+        height: 729
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a3f845e692008fa0800000000000000
+      internalID: -5800633472938085464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_14
+      rect:
+        serializedVersion: 2
+        x: 4125
+        y: 8117
+        width: 730
+        height: 325
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550f2cfd144e7b570800000000000000
+      internalID: 8482499394753720405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_15
+      rect:
+        serializedVersion: 2
+        x: 4975
+        y: 7667
+        width: 775
+        height: 775
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2ebaac0fb1adc00800000000000000
+      internalID: 926083394384421578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_21
+      rect:
+        serializedVersion: 2
+        x: 5768
+        y: 7578
+        width: 858
+        height: 878
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a74adfaba64bce430800000000000000
+      internalID: 3813621354972685434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_22
+      rect:
+        serializedVersion: 2
+        x: 6551
+        y: 7518
+        width: 928
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e636127bfc44b80800000000000000
+      internalID: -8411369818575114697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_23
+      rect:
+        serializedVersion: 2
+        x: 7580
+        y: 7630
+        width: 166
+        height: 621
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd4d2b408ec02dbd0800000000000000
+      internalID: -2607007043643321124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_24
+      rect:
+        serializedVersion: 2
+        x: 7988
+        y: 7430
+        width: 283
+        height: 958
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15ba2b33b4b884a30800000000000000
+      internalID: 4199759807629142865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_25
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 7946
+        width: 421
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f7dd4bda9d5bda0800000000000000
+      internalID: -5929593994276405478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_32
+      rect:
+        serializedVersion: 2
+        x: 4225
+        y: 7730
+        width: 517
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e3816aff7f2c65c0800000000000000
+      internalID: -4220946524044950555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_44
+      rect:
+        serializedVersion: 2
+        x: 4413
+        y: 7709
+        width: 154
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b70a9f4207c01ef80800000000000000
+      internalID: -8079162580729749381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_54
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 6626
+        width: 820
+        height: 916
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7edb8b2dd4a67d60800000000000000
+      internalID: 7887673067211316863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_56
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 6605
+        width: 959
+        height: 958
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d54f352ba90848c90800000000000000
+      internalID: -7168463304961821603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_57
+      rect:
+        serializedVersion: 2
+        x: 2246
+        y: 6605
+        width: 958
+        height: 958
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 421e174e8318fcb20800000000000000
+      internalID: 3156883945160827172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_58
+      rect:
+        serializedVersion: 2
+        x: 3409
+        y: 6634
+        width: 884
+        height: 892
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd8e8b1b71cc2a990800000000000000
+      internalID: -7376108837541451557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_61
+      rect:
+        serializedVersion: 2
+        x: 4438
+        y: 6617
+        width: 904
+        height: 942
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ce594b15d269190800000000000000
+      internalID: -7956121862758077311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_62
+      rect:
+        serializedVersion: 2
+        x: 5430
+        y: 6541
+        width: 1106
+        height: 1014
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f93cfd5b5afe4200800000000000000
+      internalID: 166345506585065976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_63
+      rect:
+        serializedVersion: 2
+        x: 6605
+        y: 6517
+        width: 1002
+        height: 954
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163960ab703ce3510800000000000000
+      internalID: 1530875361305727841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_65
+      rect:
+        serializedVersion: 2
+        x: 7984
+        y: 5409
+        width: 308
+        height: 1904
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9796de106ea3d3bf0800000000000000
+      internalID: -343053237061064327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_73
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 5300
+        width: 988
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33cbd4bf1cdb35040800000000000000
+      internalID: 4635257082336885811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_74
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 5300
+        width: 983
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18aeb0887eca86300800000000000000
+      internalID: 245636290111597185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_75
+      rect:
+        serializedVersion: 2
+        x: 2192
+        y: 5300
+        width: 987
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c09e7ca157472b0800000000000000
+      internalID: -5587712479776404407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_76
+      rect:
+        serializedVersion: 2
+        x: 3238
+        y: 5300
+        width: 987
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee6c84e80a88e10e0800000000000000
+      internalID: -2297248536749095186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_77
+      rect:
+        serializedVersion: 2
+        x: 4317
+        y: 5396
+        width: 554
+        height: 771
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55af858196eb130e0800000000000000
+      internalID: -2291841376765543851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_82
+      rect:
+        serializedVersion: 2
+        x: 4951
+        y: 5330
+        width: 1863
+        height: 895
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6cb5ae0b2e809710800000000000000
+      internalID: 1698013375099157610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_96
+      rect:
+        serializedVersion: 2
+        x: 6955
+        y: 5409
+        width: 784
+        height: 771
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f29961909a08fb290800000000000000
+      internalID: -7872432160130033361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_98
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 4142
+        width: 1033
+        height: 1029
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2084b7a3032692690800000000000000
+      internalID: -7626456534696114174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_99
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 4142
+        width: 1034
+        height: 1029
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2761efb4b07fc580800000000000000
+      internalID: -8804694824870385875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_100
+      rect:
+        serializedVersion: 2
+        x: 2409
+        y: 4134
+        width: 1029
+        height: 1033
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0aa7efe4128ea10800000000000000
+      internalID: 1938836262743613673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_101
+      rect:
+        serializedVersion: 2
+        x: 3563
+        y: 4134
+        width: 1029
+        height: 1033
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12f5b3e42bf86ea60800000000000000
+      internalID: 7703002208643276577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_102
+      rect:
+        serializedVersion: 2
+        x: 4746
+        y: 4363
+        width: 688
+        height: 771
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f13607d925995650800000000000000
+      internalID: 6222168367122756087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_103
+      rect:
+        serializedVersion: 2
+        x: 5450
+        y: 4363
+        width: 781
+        height: 771
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0422cc616253b57a0800000000000000
+      internalID: -6387453208787410368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_104
+      rect:
+        serializedVersion: 2
+        x: 6363
+        y: 4925
+        width: 958
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e22fe39c10a2730a0800000000000000
+      internalID: -6902001716762316242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_105
+      rect:
+        serializedVersion: 2
+        x: 7413
+        y: 4984
+        width: 617
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bbb12c328190de80800000000000000
+      internalID: -8155858936627348558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_107
+      rect:
+        serializedVersion: 2
+        x: 6363
+        y: 3879
+        width: 517
+        height: 921
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef01168b9804eaa0800000000000000
+      internalID: -6132767328509554715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_108
+      rect:
+        serializedVersion: 2
+        x: 6980
+        y: 3879
+        width: 508
+        height: 921
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 334d9b8a65c501180800000000000000
+      internalID: -9146709315921783757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_109
+      rect:
+        serializedVersion: 2
+        x: 7563
+        y: 4442
+        width: 342
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c95ae6434d3bf10800000000000000
+      internalID: 2284402757666708516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_110
+      rect:
+        serializedVersion: 2
+        x: 7976
+        y: 4442
+        width: 341
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d39fdac0ebdc52cb0800000000000000
+      internalID: -4889275604300596931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_111
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 3100
+        width: 959
+        height: 959
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f7a973e86d110a0800000000000000
+      internalID: -6912508046730428647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_112
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 3100
+        width: 959
+        height: 959
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42dcb99f942b258a0800000000000000
+      internalID: -6317791296457290460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_113
+      rect:
+        serializedVersion: 2
+        x: 2392
+        y: 3029
+        width: 1029
+        height: 1030
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0947f39ee123b8fe0800000000000000
+      internalID: -1185798968538336112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_114
+      rect:
+        serializedVersion: 2
+        x: 3492
+        y: 3029
+        width: 1029
+        height: 1030
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 953b6f2d4f14e16e0800000000000000
+      internalID: -1864980675917597863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_115
+      rect:
+        serializedVersion: 2
+        x: 4755
+        y: 3995
+        width: 1244
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d9e8beb8f899da0800000000000000
+      internalID: -5937556802596070028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_126
+      rect:
+        serializedVersion: 2
+        x: 7563
+        y: 3946
+        width: 342
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf7176703e5d84400800000000000000
+      internalID: 308731745533368315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_127
+      rect:
+        serializedVersion: 2
+        x: 7976
+        y: 3946
+        width: 341
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee1c93470697b0fb0800000000000000
+      internalID: -4680513932547735058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_128
+      rect:
+        serializedVersion: 2
+        x: 4759
+        y: 3789
+        width: 1163
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 554f8683437a301b0800000000000000
+      internalID: -5691521661339634603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_140
+      rect:
+        serializedVersion: 2
+        x: 4750
+        y: 3642
+        width: 2015
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50eed57b831909070800000000000000
+      internalID: 8111142601674845701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_156
+      rect:
+        serializedVersion: 2
+        x: 6680
+        y: 3642
+        width: 29
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857eda85686d5c350800000000000000
+      internalID: 6036466748061771608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_165
+      rect:
+        serializedVersion: 2
+        x: 4759
+        y: 3413
+        width: 1686
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c28ba9aeb8e941670800000000000000
+      internalID: 8508599919783360556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_179
+      rect:
+        serializedVersion: 2
+        x: 6342
+        y: 3409
+        width: 84
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4925c24bf59eca6c0800000000000000
+      internalID: -4130670160951618924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_180
+      rect:
+        serializedVersion: 2
+        x: 6851
+        y: 3217
+        width: 1538
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a1f554509faf3150800000000000000
+      internalID: 5854591075030004128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_199
+      rect:
+        serializedVersion: 2
+        x: 4742
+        y: 3149
+        width: 1776
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4e6caf3c2a2287b0800000000000000
+      internalID: -5223566248261161396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_216
+      rect:
+        serializedVersion: 2
+        x: 4759
+        y: 2928
+        width: 3104
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef551bc6f2ccf440800000000000000
+      internalID: 4971062453935103979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_231
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 2201
+        width: 993
+        height: 803
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8868da8db599b870800000000000000
+      internalID: 8699148796553619596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_250
+      rect:
+        serializedVersion: 2
+        x: 1483
+        y: 2463
+        width: 3583
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59e7b8f471746d330800000000000000
+      internalID: 3735251106394766997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_270
+      rect:
+        serializedVersion: 2
+        x: 5588
+        y: 2379
+        width: 425
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4f25275df27feb30800000000000000
+      internalID: 4318797000085942095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_271
+      rect:
+        serializedVersion: 2
+        x: 6159
+        y: 1992
+        width: 1104
+        height: 867
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b8f6669475e9a20800000000000000
+      internalID: 3070987968676072330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_272
+      rect:
+        serializedVersion: 2
+        x: 7384
+        y: 2021
+        width: 1062
+        height: 821
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1a2e87f3ad6a8c0800000000000000
+      internalID: -3988260453844082182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_273
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 871
+        width: 750
+        height: 1212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0543a8f4c9f38c270800000000000000
+      internalID: 8270930656247821392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_274
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 1888
+        width: 4213
+        height: 496
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8a6db9011ae2da00800000000000000
+      internalID: 779943044387269261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_275
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 1246
+        width: 4259
+        height: 571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a8dbf0a9690aea70800000000000000
+      internalID: 8856901966454577313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_276
+      rect:
+        serializedVersion: 2
+        x: 5596
+        y: 1229
+        width: 542
+        height: 571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeab448f563fc8d50800000000000000
+      internalID: 6741030361549290218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_277
+      rect:
+        serializedVersion: 2
+        x: 6246
+        y: 1596
+        width: 1675
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 692e25c7858208350800000000000000
+      internalID: 6016853462675022486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_278
+      rect:
+        serializedVersion: 2
+        x: 7946
+        y: 1546
+        width: 259
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8aeeb933c563de70800000000000000
+      internalID: 9138759958026709642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_279
+      rect:
+        serializedVersion: 2
+        x: 8230
+        y: 1546
+        width: 262
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1748cd96c5a569c0800000000000000
+      internalID: -3934556426969004260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_280
+      rect:
+        serializedVersion: 2
+        x: 6175
+        y: 1288
+        width: 1734
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bdfc2b37aa3106e0800000000000000
+      internalID: -1873151480082661959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_281
+      rect:
+        serializedVersion: 2
+        x: 7946
+        y: 1246
+        width: 259
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f75d75d68094f22d0800000000000000
+      internalID: -3301339701296245377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_282
+      rect:
+        serializedVersion: 2
+        x: 8230
+        y: 1258
+        width: 262
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2ca034d29b967c60800000000000000
+      internalID: 7815605258275564590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_283
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 171
+        width: 275
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb596e3f06caf9210800000000000000
+      internalID: 1341980746388510142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_284
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 417
+        width: 7212
+        height: 691
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a274974ab58647ac0800000000000000
+      internalID: -3858344237938948310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIsheet Logo_0
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 7657
+        width: 850
+        height: 848
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8707c35e72a418700800000000000000
+      internalID: 540794965471293560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 14460b663fa285347b1611391c3e26c8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
