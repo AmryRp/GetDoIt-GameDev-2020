@@ -39,7 +39,9 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     public float CurrentWaterStream;
     public float DefaultWaterStream;
     public bool InReverse;
+    public bool isMoving = false;
 
+    public float MaxAnimTime;
     //Cache
     Vector3 direction;
     void Start()
@@ -50,8 +52,15 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
 
     void Update()
     {
+        //untuk mobile touch
         TouchScreenMovement();
 
+        //efek arus air
+        if (!isMoving)
+        {
+            StartCoroutine(MovePlayer(0.1f));
+  
+        }
         //Untuk Test DiUnity
 #if UNITY_EDITOR
 
@@ -71,7 +80,37 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
+            is_hold = true;
+            one_click = true;
+            isMoving = true;
             print("Got touch began!" + Input.touchCount);
+            //jika terlalu lama hold / stop
+            if (one_click && Hold_timer >= max_Hold)
+            {
+                // if the time now is delay seconds more than when the first click started. 
+                if ((Time.time - timer_for_double_click) > delay)
+                {
+                    print("One Hold Time Reached");
+                    StartCoroutine(MovePlayer(0.1f));
+                    WaterStreamFlow(DefaultWaterStream);
+                    is_hold = false;
+                    one_click = false;
+                }
+            }
+            //jika belum melebihi batas waktu hold
+            else if (one_click && Hold_timer <= max_Hold - 0.01f)
+            {
+
+                // if the time now is delay seconds more than when the first click started. 
+                if ((Time.time - timer_for_double_click) > delay)
+                {
+                    print("One Hold Time Safe");
+                    StartCoroutine(MovePlayer(MoveSpeed));
+                    is_hold = false;
+                    one_click = false;
+                }
+            }
+            Hold_timer = 0f;
         }
         //hold
         if (Input.touchCount > 0)
@@ -82,10 +121,13 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             {
                 //Long tap
                 print("Hold");
+                StartCoroutine(BreakPlayer(CurrentWaterStream));
             }
 
             if (Input.GetTouch(0).phase == TouchPhase.Ended)
             {
+                is_hold = false;
+                WaterStreamFlow(DefaultWaterStream);
                 acumTime = 0;
             }
         }
@@ -117,12 +159,13 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             TapCount = 0;
         }
     }
+   
 
-    private Vector3 MoveDirection()
+    private Vector3 MoveDirection(float PlayerSpeed)
     {
-        return direction = (!InReverse) ? 
-            direction = new Vector3(0f + CurrentWaterStream, transform.position.y, transform.position.z) : 
-            direction = new Vector3(transform.position.x + CurrentWaterStream, transform.position.y, transform.position.z);
+        return direction = (!InReverse) ?
+            direction = new Vector3(0f + CurrentWaterStream * (PlayerSpeed/10), transform.position.y, transform.position.z) :
+            direction = new Vector3(transform.position.x - CurrentWaterStream, transform.position.y, transform.position.z);
     }
 
     private void UnityEditorMovement()
@@ -132,10 +175,12 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             is_hold = true;
             if (!one_click) // first click no previous clicks
             {
+                isMoving = true;
                 one_click = true;
                 print("Click");
                 timer_for_double_click = Time.time; // save the current time
                                                     // do one click things;
+               
             }
             else
             {
@@ -161,6 +206,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             //jika terlalu lama hold / stop
             if (one_click && Hold_timer >= max_Hold)
             {
+                
                 // if the time now is delay seconds more than when the first click started. 
                 if ((Time.time - timer_for_double_click) > delay)
                 {
@@ -173,7 +219,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             //jika belum melebihi batas waktu hold
             else if (one_click && Hold_timer <= max_Hold - 0.01f)
             {
-
+               
                 // if the time now is delay seconds more than when the first click started. 
                 if ((Time.time - timer_for_double_click) > delay)
                 {
@@ -185,8 +231,9 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             Hold_timer = 0f;
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
+        
         if (collision.gameObject.tag == "MuddyWatter")
         {
             print("Mud");
@@ -212,29 +259,34 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         {
             print("Ordinary");
             InReverse = false;
-    
-           
+            
+
         }
     }
 
     public IEnumerator MovePlayer(float moveSpeed)
     {
-        Vector3 startingPos = transform.position;
-        Vector3 finalPos = transform.position + (transform.right * MoveSpeed);
-        direction = MoveDirection();
+        // Vector3 startingPos = transform.position;
+        // Vector3 finalPos = transform.position + (transform.right * MoveSpeed);
+        float MoveEffect = moveSpeed;
         float elapsedTime = 0;
-        while (elapsedTime < moveSpeed)
+        while (elapsedTime < MaxAnimTime)
         {
+            direction = MoveDirection(moveSpeed - MoveEffect);
             CanoeBody.MovePosition(transform.position + direction * Time.deltaTime);
             //transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / moveSpeed));
             elapsedTime += Time.deltaTime;
+            MoveEffect -= Time.deltaTime;
+
             yield return null;
         }
+    
     }
 
     public IEnumerator BreakPlayer(float breakValue)
     {
         Hold_timer += Time.deltaTime;
+        StopCoroutine("MovePlayer");
         if (breakValue > 0)
         {
             CurrentWaterStream -= Mathf.Lerp(0, breakValue, 2f * Time.deltaTime);
