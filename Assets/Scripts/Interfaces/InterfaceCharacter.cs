@@ -25,6 +25,7 @@ public interface IMoveable<T>
 {
     IEnumerator MovePlayer(T moveSpeed);
     void WaterStreamFlow(T Flow);
+    IEnumerator WatrStreamDirection(T WaterFlowDir);
 }
 public interface IStopable<T>
 {

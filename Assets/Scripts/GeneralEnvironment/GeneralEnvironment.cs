@@ -4,11 +4,11 @@ using System;
 public class GeneralEnvironment : MonoBehaviour,  IComparable<GeneralEnvironment>
 {
     [SerializeField]
-    protected string name;
-
+    public string name;
+    [SerializeField]
+    public int myLevel;
     [SerializeField]
     public int power;
-
     public GeneralEnvironment(string newName, int newPower)
     {
         name = newName;
