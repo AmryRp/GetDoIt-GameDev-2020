@@ -29,7 +29,6 @@ public class Status : MonoBehaviour
     private float lerpSpeed = 0;
 
     public float MyMaxValue { get; set; }
-
     private float currentValue;
 
     public float MyCurrentValue
@@ -58,10 +57,10 @@ public class Status : MonoBehaviour
             }
 
             currentFill = currentValue / MyMaxValue;
-
+            print(currentFill);
             if (statValue != null)
             {
-                statValue.text = currentValue + "  /  " + MyMaxValue;
+                statValue.text = Mathf.Round( currentValue) + "  /  " + MyMaxValue;
             }
         }
 
@@ -90,7 +89,7 @@ public class Status : MonoBehaviour
         content = GetComponent<Image>();
 
     }
-    private void LateUpdate()
+    private void Update()
     {
         HandleBar();
     }
@@ -113,7 +112,7 @@ public class Status : MonoBehaviour
 
         if (currentFill != content.fillAmount)
         {
-            content.fillAmount = Mathf.MoveTowards(content.fillAmount, currentFill, Time.deltaTime * lerpSpeed);
+            content.fillAmount = Mathf.MoveTowards(content.fillAmount, currentFill, Time.time * lerpSpeed);
         }
     }
     public void Reset()

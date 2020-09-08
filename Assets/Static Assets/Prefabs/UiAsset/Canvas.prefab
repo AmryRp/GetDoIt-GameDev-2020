@@ -433,16 +433,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880130698939405585}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5123203234224870444}
-  m_RootOrder: 4
+  m_Father: {fileID: 2152946219470208096}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 316.1, y: -3.275}
+  m_AnchoredPosition: {x: -26.775269, y: 0.00027894974}
   m_SizeDelta: {x: 272.1316, y: 54.065712}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1402426425746180997
@@ -520,7 +520,6 @@ RectTransform:
   - {fileID: 5289634743276356355}
   - {fileID: 1798733252528933006}
   - {fileID: 2152946219470208096}
-  - {fileID: 928346661401411063}
   m_Father: {fileID: 8731040975914430752}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -921,6 +920,7 @@ GameObject:
   - component: {fileID: 2152946219470208096}
   - component: {fileID: 6392648171525397918}
   - component: {fileID: 8520921232864198563}
+  - component: {fileID: 2612020905131390492}
   m_Layer: 5
   m_Name: bar energy
   m_TagString: Untagged
@@ -938,7 +938,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 928346661401411063}
   m_Father: {fileID: 5123203234224870444}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -985,6 +986,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 7
+--- !u!114 &2612020905131390492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472606987473682821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb1d993c36672c44f8c9b81830c8e196, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statValue: {fileID: 9184459539929298134}
+  lerpSpeed: 0.01
+  currentValue: 0
 --- !u!1 &8779345984985749368
 GameObject:
   m_ObjectHideFlags: 0

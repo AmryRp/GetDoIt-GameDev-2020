@@ -8,7 +8,7 @@ static class ExpManager
 {
     public static int CalculateExp(Environment e)
     {
-        int Plvl = Player.MyInstance.myLevel;
+        int Plvl = Player.MyInstPL.myLevel;
         int baseXP = (Plvl * 5) + 45;
 
         int grayLevel = CalculateGray();
@@ -26,7 +26,7 @@ static class ExpManager
 
     private static int zeroDiff()
     {
-        int Plvl = Player.MyInstance.myLevel;
+        int Plvl = Player.MyInstPL.myLevel;
         if (Plvl <= 7)
         {
             return 5;
@@ -56,7 +56,7 @@ static class ExpManager
 
     public static int CalculateGray()
     {
-        int Plvl = Player.MyInstance.myLevel;
+        int Plvl = Player.MyInstPL.myLevel;
         if (Plvl <= 5)
         {
             return 0;

@@ -7,12 +7,13 @@ using UnityEngine;
 public interface ISinkable
 {
     void Kill();
+    void Drain();
 }
 
 //get hit by obstacle
 public interface IDrainable<T>
 {
-    void Drain(T damageTaken);
+    void Damage(T damageTaken);
 }
 
 //change equip
