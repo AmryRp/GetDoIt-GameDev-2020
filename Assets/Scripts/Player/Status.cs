@@ -57,7 +57,7 @@ public class Status : MonoBehaviour
             }
 
             currentFill = currentValue / MyMaxValue;
-            print(currentFill);
+          
             if (statValue != null)
             {
                 statValue.text = Mathf.Round( currentValue) + "  /  " + MyMaxValue;

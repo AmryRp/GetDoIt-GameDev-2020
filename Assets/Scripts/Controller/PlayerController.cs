@@ -43,7 +43,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     //Cache
     Vector3 PlayerDirection;
     private static PlayerController instance;
-    public static PlayerController MyInstance
+    public static PlayerController MyPlayerControl
     {
         get
         {
@@ -56,6 +56,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     }
     protected override void Start()
     {
+        lastMove = transform.position;
         CanoeBody = GetComponent<Rigidbody>();
         TapCount = 0;
 
@@ -95,12 +96,11 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         {
             StartCoroutine(WatrStreamDirection(0.2f));
         }
-
-        //Untuk Test DiUnity
-
-     
+        DistanceTravel();
+        //untuk drain energy
         Drain();
         base.Update();
+        //Untuk Test DiUnity
 #if UNITY_EDITOR
 
         UnityEditorMovement();
@@ -386,5 +386,14 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 Fatigue();
             
         }
+    }
+
+    public void DistanceTravel()
+    {
+        
+        float distance = Vector3.Distance(lastMove, transform.position);
+        totalDistance += distance;
+        lastMove = transform.position;
+        DistanceTraveled.text = Mathf.Round(totalDistance) + " km";
     }
 }

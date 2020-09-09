@@ -66,8 +66,11 @@ public class PlayerModel : CharacterModel
     protected int Level;
     [SerializeField]
     protected Status Energy;
-    
 
-    
+    [SerializeField]
+    protected Text DistanceTraveled;
+    [SerializeField]
+    protected float totalDistance;
+
 }
 

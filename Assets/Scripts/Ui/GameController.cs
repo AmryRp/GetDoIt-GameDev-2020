@@ -4,20 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerController playerController;
-    public Button yourButton;
-
+ 
     void Start()
     {
         
-        Button btn = yourButton.GetComponent<Button>();
-        //btn.onClick.AddListener(TaskOnClick);
     }
-
-    //void TaskOnClick()
-    //{
-    //    playerController.MovePlayer();
-    //}
-
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Ball")
+        {
+            // a rigidbody tagged as "Ball" hit the player
+        }
+    }
 }

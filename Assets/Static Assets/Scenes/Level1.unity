@@ -2267,6 +2267,8 @@ MonoBehaviour:
   EnergyDrain: 0.0005
   Level: 0
   Energy: {fileID: 470751705204030241}
+  DistanceTraveled: {fileID: 990711355}
+  totalDistance: 0
   CanoeBody: {fileID: 0}
   holdTime: 1.5
   acumTime: 0
@@ -2832,6 +2834,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &990711355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4410185227214236474, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+  m_PrefabInstance: {fileID: 470751705204030240}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1071021800
 GameObject:
   m_ObjectHideFlags: 0
@@ -4832,6 +4845,7 @@ GameObject:
   - component: {fileID: 1621937931}
   - component: {fileID: 1621937930}
   - component: {fileID: 1621937933}
+  - component: {fileID: 1621937934}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4919,6 +4933,19 @@ MonoBehaviour:
   followTarget: {fileID: 849871152}
   fixedTargetPos: {x: 6, y: 5, z: 0}
   moveSpeed: 1
+--- !u!65 &1621937934
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621937929}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.771416, y: 9.809836, z: 30.30542}
+  m_Center: {x: 0.06554794, y: -0.06897849, z: 15.591871}
 --- !u!1 &1633069986
 GameObject:
   m_ObjectHideFlags: 0

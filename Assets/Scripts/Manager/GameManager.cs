@@ -2,17 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnClickScreenCaptureButton()
     {
-        
+        StartCoroutine(CaptureScreen());
     }
-
-    // Update is called once per frame
-    void Update()
+    public IEnumerator CaptureScreen()
     {
-        
+        // Wait till the last possible moment before screen rendering to hide the UI
+        yield return null;
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
+
+        // Wait for screen rendering to complete
+        yield return new WaitForEndOfFrame();
+
+        // Take screenshot
+        ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/screenshot.png");
+
+        // Show UI after we're done
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
     }
 }

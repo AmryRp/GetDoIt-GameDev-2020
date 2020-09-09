@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class UiController : MonoBehaviour
 {
+
+    protected static bool playerExists;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        DontDestroyOnLoad(transform.gameObject);
+        if (!playerExists)
+        {
+            playerExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
