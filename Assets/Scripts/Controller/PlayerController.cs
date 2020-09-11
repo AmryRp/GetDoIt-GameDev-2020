@@ -394,6 +394,6 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         float distance = Vector3.Distance(lastMove, transform.position);
         totalDistance += distance;
         lastMove = transform.position;
-        DistanceTraveled.text = Mathf.Round(totalDistance) + " km";
+        DistanceTraveled.text = Mathf.Round(totalDistance) + " m";
     }
 }

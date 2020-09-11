@@ -5,14 +5,14 @@ using UnityEngine;
 public class UiController : MonoBehaviour
 {
 
-    protected static bool playerExists;
+    protected static bool UiControllerxist;
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(transform.gameObject);
-        if (!playerExists)
+        if (!UiControllerxist)
         {
-            playerExists = true;
+            UiControllerxist = true;
             DontDestroyOnLoad(transform.gameObject);
         }
         else
