@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BackgroundManager : MonoBehaviour
-{
+{   
     public GameObject[] tiles;
     private Transform player;
+    [SerializeField]
     private float spawnz = 0.0f;
-    private float tilelength = 21.5f;
-    private float save = 11f;
-    private int amntilescreen = 10;
+    [SerializeField]
+    private float tilelength = 31.7f;
+    [SerializeField]
+    private float save = 10f;
+    [SerializeField]
+    private int amntilescreen = 1;
+    [SerializeField]
     private int lastPrefabindex;
+    [SerializeField]
     float crossroad = 0;
+    [SerializeField]
     private List<GameObject> activeTiles;
 
     // Start is called before the first frame update
@@ -22,22 +29,22 @@ public class BackgroundManager : MonoBehaviour
         for (int i = 0; i < amntilescreen; i++)
         {
             if (i < 2)
-                spawntile(0);
+                spawntile(1);
             else
-                spawntile();
+                spawntile(0);
         }
     }
 
     // Update is called once per frame
     private void Update()
     {
-
+        activeTiles = new List<GameObject>();
         if (player.position.x - save > (spawnz - amntilescreen * tilelength))
         {
-            spawntile();
+            spawntile(0);
 
         }
-        if (activeTiles.Count > 15)
+        if (activeTiles.Count > 3)
         {
             DeleteTile();
         }
@@ -116,7 +123,8 @@ public class BackgroundManager : MonoBehaviour
             go = Instantiate(tiles[prefabIndex]) as GameObject;
         }
         go.transform.SetParent(transform);
-        go.transform.position = Vector3.right * spawnz;
+        Vector3 Ini = new Vector3(transform.position.x + spawnz, player.transform.position.y - 3.5f, transform.position.z);
+        go.transform.position = Ini;
         spawnz += tilelength;
         activeTiles.Add(go);
 

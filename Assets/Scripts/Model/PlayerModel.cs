@@ -6,6 +6,42 @@ using UnityEngine.UI;
 
 public class PlayerModel : CharacterModel
 {
+    [Header("TouchScreen")]
+    public float holdTime = 0.8f; //or whatever
+    public float acumTime = 0;
+    public int TapCount;
+    public float MaxDubbleTapTime;
+    public float NewTime;
+
+    [Header("UnityEditor")]
+    public bool one_click = false;
+    public bool timer_running;
+    [SerializeField]
+    public float timer_for_double_click;
+    //this is how long in seconds to allow for a double click
+    [SerializeField]
+    public float delay;
+    public bool is_hold = false;
+    public float Hold_timer;
+    public float max_Hold;
+
+    [Header("Water Stream")]
+    [SerializeField]
+    protected float LerpSpeed;
+    public Transform targetPos;
+    //private Vector3 targetPos;
+    public float CurrentWaterStream;
+    public float DefaultWaterStream;
+    public bool InReverse;
+    public bool isMoving = false;
+    public float MaxAnimTime;
+
+    [Header("Water Splash")]
+    [SerializeField]
+    protected ParticleSystem WaterSplash;
+
+    //Cache
+   
     [Header("Player Mechanic")]
     [SerializeField]
     protected float PlayerEnergy;
@@ -14,6 +50,7 @@ public class PlayerModel : CharacterModel
     [SerializeField]
     protected float CameraMeter;
     protected static bool playerExists;
+    public Vector3 PlayerDirection;
     [Header("Player Exp Mechanic")]
 
     //[SerializeField]
@@ -67,6 +104,7 @@ public class PlayerModel : CharacterModel
     [SerializeField]
     protected Status Energy;
 
+    [Header("Distance Travel System")]
     [SerializeField]
     protected Text DistanceTraveled;
     [SerializeField]

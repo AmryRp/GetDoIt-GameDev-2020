@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Water Volume
+  - GameplayUI
+  - MainMenu
+  - PauseOption
+  - Settings
+  - T_Distance
+  - bar energy
+  - WaterDrop
   layers:
   - Default
   - TransparentFX

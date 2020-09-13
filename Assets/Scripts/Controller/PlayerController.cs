@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+using UnityEngine.UI;
 public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<float>, IStopable<float>
 {
 
@@ -11,37 +13,6 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
 
     }
 
-    [Header("TouchScreen")]
-    public float holdTime = 0.8f; //or whatever
-    public float acumTime = 0;
-    public int TapCount;
-    public float MaxDubbleTapTime;
-    public float NewTime;
-
-    [Header("UnityEditor")]
-    public bool one_click = false;
-    public bool timer_running;
-    [SerializeField]
-    public float timer_for_double_click;
-    //this is how long in seconds to allow for a double click
-    [SerializeField]
-    float delay;
-    public bool is_hold = false;
-    public float Hold_timer;
-    public float max_Hold;
-
-    [Header("Water Stream")]
-    [SerializeField]
-    protected float LerpSpeed;
-    public Transform targetPos;
-    //private Vector3 targetPos;
-    public float CurrentWaterStream;
-    public float DefaultWaterStream;
-    public bool InReverse;
-    public bool isMoving = false;
-    public float MaxAnimTime;
-    //Cache
-    Vector3 PlayerDirection;
     private static PlayerController instance;
     public static PlayerController MyPlayerControl
     {
@@ -56,6 +27,9 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     }
     protected override void Start()
     {
+        
+
+        SetDefault();
         lastMove = transform.position;
         CanoeBody = GetComponent<Rigidbody>();
         TapCount = 0;
@@ -70,17 +44,17 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         {
             Destroy(gameObject);
         }
-        SetDefault();
         base.Start();
     }
 
     public void SetDefault()
     {
-
+        DistanceTraveled = GameObject.FindGameObjectWithTag("T_Distance").GetComponent<Text>();
+        Energy = GameObject.FindGameObjectWithTag("bar energy").GetComponent<Status>();
         Energy.Initialize(PlayerEnergy, PlayerEnergy);
         //MyExp.Initialize(0, Mathf.Floor(100 * myLevel * Mathf.Pow(myLevel, 0.5f)));
         //LevelText.text = myLevel.ToString();
-
+        
     }
     protected override void Update()
     {
@@ -96,9 +70,14 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         {
             StartCoroutine(WatrStreamDirection(0.2f));
         }
-        DistanceTravel();
+        
+            DistanceTravel();
+        
+        
+            StartCoroutine(DrainIt());
+        
         //untuk drain energy
-        Drain();
+        //Drain();
         base.Update();
         //Untuk Test DiUnity
 #if UNITY_EDITOR
@@ -201,8 +180,8 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     private Vector3 WaterFlow(float waterFlow)
     {
         return PlayerDirection = (!InReverse) ?
-            PlayerDirection = new Vector3(0f + waterFlow, transform.position.y, transform.position.z) :
-            PlayerDirection = new Vector3(transform.position.x + waterFlow, transform.position.y, transform.position.z);
+            PlayerDirection = new Vector3(0f + waterFlow + CurrentWaterStream, transform.position.y, transform.position.z) :
+            PlayerDirection = new Vector3(transform.position.x + waterFlow + CurrentWaterStream, transform.position.y, transform.position.z);
     }
 
     private Vector3 MoveDirection(float PlayerSpeed)
@@ -275,13 +254,14 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
+        WaterSplash = GetComponentInChildren<ParticleSystem>();
         if (collision.gameObject.tag == "MuddyWatter")
         {
             print("Mud");
             InReverse = false;
-            WaterStreamFlow(0.001f);
+            WaterStreamFlow(0.03f);
             MoveSpeed = 0.5f;
 
         }
@@ -289,23 +269,38 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         {
             print("Reverse");
             InReverse = true;
-            WaterStreamFlow(-0.003f);
+            WaterStreamFlow(-0.3f);
             MoveSpeed = 0.6f;
         }
         else if (collision.gameObject.tag == "AfterWaterfall")
         {
             print("WaterfallEffect");
             InReverse = false;
-            WaterStreamFlow(0.006f);
+            WaterStreamFlow(2.2f);
             MoveSpeed = 2f;
+        }
+        else if (collision.gameObject.tag == "WaterDrop")
+        {
+            print("WaterDrop");
+            InReverse = false;
+            WaterStreamFlow(1.5f);
+            MoveSpeed = 2f;
+        }
+        else if (collision.gameObject.tag == "Water Volume" && CanoeBody.velocity.y < -5)
+        { 
+            print("Water SPLASH");
+            WaterSplash.gameObject.SetActive(true);
+            WaterSplash.Play();
         }
         else
         {
             print("Ordinary");
+            WaterStreamFlow(DefaultWaterStream);
             InReverse = false;
-
-
+            print(CanoeBody.velocity);
+            WaterSplash.Stop();
         }
+       
     }
     public IEnumerator MovePlayer(float moveSpeed)
     {
@@ -328,10 +323,11 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     public IEnumerator DrainIt()
     {
         float elapsedTime = 0;
-        while (elapsedTime < 60f)
+        while (elapsedTime < 100f)
         {
             Drain();
-            yield return null;
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForSecondsRealtime(1.3f);
         }
 
     }
