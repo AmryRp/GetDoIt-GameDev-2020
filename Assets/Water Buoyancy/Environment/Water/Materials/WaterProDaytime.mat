@@ -46,7 +46,7 @@ Material:
     m_Colors:
     - WaveSpeed: {r: 19, g: 9, b: -16, a: -7}
     - _HorizonColor: {r: 0.172, g: 0.463, b: 0.435, a: 1}
-    - _RefrColor: {r: 0.34, g: 0.85, b: 0.92, a: 1}
+    - _RefrColor: {r: 0.12775902, g: 0.51268375, b: 0.9339623, a: 1}
   m_BuildTextureStacks: []
 --- !u!1002 &2100001
 EditorExtensionImpl:
