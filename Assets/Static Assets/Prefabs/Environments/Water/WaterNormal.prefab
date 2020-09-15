@@ -181,6 +181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterPro_DayTime 2
       objectReference: {fileID: 0}
+    - target: {fileID: 153978, guid: 7f2b758a4ca009b45905891aaa876e61, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 464684, guid: 7f2b758a4ca009b45905891aaa876e61, type: 3}
       propertyPath: m_RootOrder
       value: 1

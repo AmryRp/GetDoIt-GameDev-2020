@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2339418916974110220, guid: 87faae7bf01eb1244a06201e46c46802, type: 3}
       propertyPath: density
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2339418916982236946, guid: 87faae7bf01eb1244a06201e46c46802, type: 3}
       propertyPath: m_Mesh
@@ -73,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3107048573284766880, guid: 87faae7bf01eb1244a06201e46c46802, type: 3}
       propertyPath: m_Name
-      value: WaterBelow
+      value: WaterBelow Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3107048573284766887, guid: 87faae7bf01eb1244a06201e46c46802, type: 3}
       propertyPath: m_LocalPosition.x
