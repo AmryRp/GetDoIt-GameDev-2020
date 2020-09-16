@@ -280,7 +280,7 @@ SpriteRenderer:
   m_Size: {x: 5.76, y: 2.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &31039992
@@ -565,7 +565,7 @@ SpriteRenderer:
   m_Size: {x: 1.64, y: 4.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &332822405
@@ -848,7 +848,7 @@ SpriteRenderer:
   m_Size: {x: 3.96, y: 1.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &743368812
@@ -1076,9 +1076,6 @@ MonoBehaviour:
   CharacterName: Player
   Point: 100
   MoveSpeed: 2
-  PlayerEnergy: 100
-  CanoeType: 1
-  CameraMeter: 0
   holdTime: 0
   acumTime: 0
   TapCount: 0
@@ -1088,9 +1085,29 @@ MonoBehaviour:
   timer_running: 0
   timer_for_double_click: 0
   delay: 0.51
+  is_hold: 0
+  Hold_timer: 0
+  max_Hold: 0
   LerpSpeed: 0.5
   targetPos: {fileID: 849871151}
-  WaterStream: 0.01
+  CurrentWaterStream: 0
+  DefaultWaterStream: 0
+  InReverse: 0
+  isMoving: 0
+  MaxAnimTime: 0
+  WaterSplash: {fileID: 0}
+  PlayerEnergy: 100
+  CanoeType: 1
+  CameraMeter: 0
+  PlayerDirection: {x: 0, y: 0, z: 0}
+  lastMove: {x: 0, y: 0, z: 0}
+  CGLose: {fileID: 0}
+  EnergyDrain: 0
+  Level: 0
+  Energy: {fileID: 0}
+  DistanceTraveled: {fileID: 0}
+  totalDistance: 0
+  CanoeBody: {fileID: 0}
 --- !u!1 &894935878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,7 +1204,7 @@ SpriteRenderer:
   m_Size: {x: 5.24, y: 13.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &906807087
@@ -1482,7 +1499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bdf44a2660dd8841b5f9563bec2ee1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followTarget: {fileID: 849871150}
+  followTarget: {fileID: 0}
   fixedTargetPos: {x: 6, y: 3, z: 0}
   moveSpeed: 0.5
 --- !u!1 &1661967928
@@ -1882,8 +1899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89973272fdbb9ba4f9f5ad705dea8183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 849871152}
-  yourButton: {fileID: 2051664899}
+  ModeName: 
+  ButtonName: 
 --- !u!114 &2051664899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1984,6 +2001,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 77394894, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 208025742964630594, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -1992,9 +2013,25 @@ PrefabInstance:
       propertyPath: m_MatchWidthOrHeight
       value: 0.218
       objectReference: {fileID: 0}
+    - target: {fileID: 2670670852495538300, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3614453169656077265, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816931607372683349, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877274597417022739, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877274597417022739, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8731040975914430752, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2079,6 +2116,10 @@ PrefabInstance:
     - target: {fileID: 8731040975914430752, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166540588199224743, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}

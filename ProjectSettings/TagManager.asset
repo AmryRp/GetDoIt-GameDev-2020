@@ -12,6 +12,7 @@ TagManager:
   - T_Distance
   - bar energy
   - WaterDrop
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Player
   - 
   - 
   - 

@@ -25,14 +25,14 @@ public class PlayerModel : CharacterModel
     public float Hold_timer;
     public float max_Hold;
 
-    [Header("Water Stream")]
+/*    [Header("Water Stream")]
     [SerializeField]
     protected float LerpSpeed;
     public Transform targetPos;
     //private Vector3 targetPos;
-    public float CurrentWaterStream;
     public float DefaultWaterStream;
-    public bool InReverse;
+    public bool InReverse;*/
+    public float MoveSpeedInWater;
     public bool isMoving = false;
     public float MaxAnimTime;
 
@@ -50,7 +50,6 @@ public class PlayerModel : CharacterModel
     [SerializeField]
     protected float CameraMeter;
     protected static bool playerExists;
-    public Vector3 PlayerDirection;
     [Header("Player Exp Mechanic")]
 
     //[SerializeField]
