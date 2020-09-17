@@ -9,7 +9,9 @@ public class CameraController : MonoBehaviour
     private Vector3 targetPos;
     public float moveSpeed;
     //private static bool cameraExists;
-    private Rigidbody PlayerDrag;
+    private Rigidbody2D PlayerDrag;
+    public Camera camera;
+    public float minZoom, maxZoom,maxVelocity;
     private void Start()
     {
         /*DontDestroyOnLoad(transform.gameObject);
@@ -20,12 +22,24 @@ public class CameraController : MonoBehaviour
         }
         else { Destroy(gameObject); }*/
         Application.targetFrameRate = 60;
-        PlayerDrag = followTarget.GetComponent<Rigidbody>();
+        PlayerDrag = followTarget.GetComponent<Rigidbody2D>();
+        camera.GetComponent<Camera>();
     }
     void Update()
     {
-        
-        targetPos = new Vector3(followTarget.transform.position.x+fixedTargetPos.x, followTarget.transform.position.y+ fixedTargetPos.y, transform.position.z+ fixedTargetPos.z);
+        cameraMove();
+        cameraZoom();
+
+    }
+    public void cameraMove()
+    {
+        targetPos = new Vector3(followTarget.transform.position.x + fixedTargetPos.x, 
+            followTarget.transform.position.y + fixedTargetPos.y, transform.position.z + fixedTargetPos.z);
         transform.position = Vector3.Lerp(transform.position, targetPos, moveSpeed * Time.deltaTime);
+    }
+    public void cameraZoom()
+    {
+        camera.orthographicSize = Mathf.Lerp(minZoom, maxZoom, 
+        Mathf.InverseLerp(0.0f, maxVelocity, PlayerDrag.velocity.magnitude));
     }
 }

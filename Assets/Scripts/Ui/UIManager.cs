@@ -33,7 +33,7 @@ public class UIManager : UiController
                 Activating(false, true);
                 break;
             case 2:
-                print("Time Mode");
+                Activating(false, true);
                 break;
             case 3:
                 print("unknown");

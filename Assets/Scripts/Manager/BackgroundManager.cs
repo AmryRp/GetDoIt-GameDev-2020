@@ -38,7 +38,7 @@ public class BackgroundManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        activeTiles = new List<GameObject>();
+        
         if (player.position.x - save > (spawnz - amntilescreen * tilelength))
         {
             spawntile(0);
@@ -123,7 +123,7 @@ public class BackgroundManager : MonoBehaviour
             go = Instantiate(tiles[prefabIndex]) as GameObject;
         }
         go.transform.SetParent(transform);
-        Vector3 Ini = new Vector3(transform.position.x + spawnz, player.transform.position.y - 3.5f, transform.position.z);
+        Vector3 Ini = new Vector3(transform.position.x + spawnz, player.transform.position.y - 1.5f, transform.position.z);
         go.transform.position = Ini;
         spawnz += tilelength;
         activeTiles.Add(go);

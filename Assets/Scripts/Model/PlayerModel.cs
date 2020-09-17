@@ -25,23 +25,19 @@ public class PlayerModel : CharacterModel
     public float Hold_timer;
     public float max_Hold;
 
-/*    [Header("Water Stream")]
-    [SerializeField]
+    [Header("Water Stream")]
+/*[SerializeField]
     protected float LerpSpeed;
     public Transform targetPos;
-    //private Vector3 targetPos;
+    //private Vector3 targetPos;*/
     public float DefaultWaterStream;
-    public bool InReverse;*/
+    public bool InReverse;
     public float MoveSpeedInWater;
     public bool isMoving = false;
     public float MaxAnimTime;
 
-    [Header("Water Splash")]
-    [SerializeField]
-    protected ParticleSystem WaterSplash;
-
     //Cache
-   
+
     [Header("Player Mechanic")]
     [SerializeField]
     protected float PlayerEnergy;
@@ -50,8 +46,12 @@ public class PlayerModel : CharacterModel
     [SerializeField]
     protected float CameraMeter;
     protected static bool playerExists;
-    [Header("Player Exp Mechanic")]
+    [SerializeField]
+    public Rigidbody2D CanoeBody;
 
+    [Header("Player Moving Animation Particle")]
+    [SerializeField]
+    protected ParticleSystem MoveBoatSplash;
     //[SerializeField]
     //protected Status ExpStat;
 
@@ -69,18 +69,6 @@ public class PlayerModel : CharacterModel
     protected float EnergyDrain = 0f;
     protected float batas = 4f;
 
-    private static PlayerModel instance;
-    public static PlayerModel MyInstance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<PlayerModel>();
-            }
-            return instance;
-        }
-    }
 
     public PlayerModel(string name, int point, int movespeed) : base(name, point, movespeed)
     {
