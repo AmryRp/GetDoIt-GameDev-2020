@@ -17,6 +17,10 @@ TagManager:
   - MovementParticle
   - DistanceReceiver
   - CameraShot
+  - CaptureOption
+  - SettingOptionMM
+  - PauseMenu
+  - ExitOption
   layers:
   - Default
   - TransparentFX

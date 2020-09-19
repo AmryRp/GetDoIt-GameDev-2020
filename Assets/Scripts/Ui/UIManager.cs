@@ -18,9 +18,12 @@ public class UIManager : UiController
             Destroy(gameObject);
         }
     }
-    public void Update()
+    public void LateUpdate()
     {
-        SwitchScene(SceneManager.GetActiveScene().buildIndex);
+        
+            SwitchScene(SceneManager.GetActiveScene().buildIndex);
+       
+       
     }
     public void SwitchScene(int SceneName) 
     {
@@ -45,35 +48,16 @@ public class UIManager : UiController
     }
     public void Activating(bool Menu, bool Gameplay)
     {
-
-        GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = Menu;
-        GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = Gameplay;
+        if (!GameManager.MyGM.IsPaused)
+        {
+            GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = Menu;
+            GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = Gameplay;
+        }
     }
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void OnClickScreenCaptureButton()
-    {
-        StartCoroutine(CaptureScreen());
-    }
-    public IEnumerator CaptureScreen()
-    {
-        // Wait till the last possible moment before screen rendering to hide the UI
-        yield return null;
-        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
-
-        // Wait for screen rendering to complete
-        yield return new WaitForEndOfFrame();
-        System.DateTime today = System.DateTime.Now;
-        string day = today.ToString().Replace("/", "");
-        string completeday = day.Replace(":","");
-        // Take screenshot
-        ScreenCapture.CaptureScreenshot(Application.persistentDataPath +"/RiverCapture" + completeday.Replace(" ","") + ".png");
-
-        // Show UI after we're done
-        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-    }
     
 }

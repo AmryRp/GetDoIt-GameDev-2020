@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WaterProDaytime
-  m_Shader: {fileID: 4800000, guid: 1cac2e0bcc34e4b3cbb4bd85982eba83, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_Shader: {fileID: -6465566751694194690, guid: 8bea3a9ea41fb944e959e768521fe606, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -19,11 +19,27 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_8922795A:
+        m_Texture: {fileID: 2800000, guid: 08dc8221af55d034eb1d142c347746f9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_FFA7D820:
+        m_Texture: {fileID: 2800000, guid: 08dc8221af55d034eb1d142c347746f9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DisplGuide:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Fresnel:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -39,12 +55,48 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_13B08344_Out_0:
+        m_Texture: {fileID: 2800000, guid: 08dc8221af55d034eb1d142c347746f9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_156F07CD: 2.5
+    - Vector1_257C9DBA: 1.9
+    - Vector1_2E35CDA8: 2.59
+    - Vector1_47AA137D: 2.59
+    - Vector1_48990FD1: 0.54
+    - Vector1_4BDB3963: 7.8
+    - Vector1_4DC98BBB: 0.824
+    - Vector1_5AB9A17F: -0.2
+    - Vector1_713EEFCB: 0.4
+    - Vector1_9242270D: 0.06
+    - Vector1_9A554F9: 1.43
+    - Vector1_C20BB190: 0.79
+    - Vector1_C9E9BA65: 25
+    - Vector1_DAAE5D95: 0.32
+    - Vector1_E16D9E8A: 3
+    - Vector1_ED2C807D: 11
+    - Vector1_F3FCDACB: 2.5
+    - Vector1_F46EDE7F: 1.65
+    - Vector1_FAABA866: 1
+    - _BottomFoamThreshold: 0.1
+    - _DisplAmount: 0
     - _ReflDistort: 0.44
     - _RefrDistort: 0.4
     - _WaveScale: 0.063
     m_Colors:
+    - Color_9D291823: {r: 0.48220006, g: 0.7924528, b: 0.775147, a: 0}
+    - Color_A97EFB38: {r: 0.6786668, g: 0.8815174, b: 0.9528302, a: 0}
+    - Color_AC75D0B5: {r: 0.012281928, g: 0.6033163, b: 0.8679245, a: 0}
+    - Color_C5E11F95: {r: 0.038714837, g: 0.3086349, b: 0.5471698, a: 0}
+    - Vector2_1BCE19EA: {r: -0.023, g: 0.04, b: 0, a: 0}
+    - Vector2_323444C4: {r: 0, g: 0.92, b: 0, a: 0}
+    - Vector2_5391DCCA: {r: 0.11, g: -2.44, b: 0, a: 0}
     - WaveSpeed: {r: 19, g: 9, b: -16, a: -7}
+    - _ColorBottomDark: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorBottomLight: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorTopDark: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorTopLight: {r: 1, g: 1, b: 1, a: 1}
     - _HorizonColor: {r: 0.172, g: 0.463, b: 0.435, a: 1}
     - _RefrColor: {r: 0.12775902, g: 0.51268375, b: 0.9339623, a: 1}
   m_BuildTextureStacks: []

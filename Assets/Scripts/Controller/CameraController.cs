@@ -28,14 +28,16 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         cameraMove();
-        cameraZoom();
+        
 
     }
     public void cameraMove()
     {
+        cameraZoom();
         targetPos = new Vector3(followTarget.transform.position.x + fixedTargetPos.x, 
             followTarget.transform.position.y + fixedTargetPos.y, transform.position.z + fixedTargetPos.z);
         transform.position = Vector3.Lerp(transform.position, targetPos, moveSpeed * Time.deltaTime);
+        
     }
     public void cameraZoom()
     {

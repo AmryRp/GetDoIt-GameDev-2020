@@ -45,7 +45,6 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     {
         lastMove = transform.position;
         CanoeBody = GetComponent<Rigidbody2D>();
-        //MoveBoatSplash = GameObject.FindGameObjectWithTag("MovementParticle").GetComponentInChildren<ParticleSystem>();
         TapCount = 0;
         DistanceTraveled = GameObject.FindGameObjectWithTag("T_Distance").GetComponent<Text>();
         Energy = GameObject.FindGameObjectWithTag("bar energy").GetComponent<Status>();
@@ -56,14 +55,16 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     }
     protected override void Update()
     {
-        MyScene = SceneManager.GetActiveScene().buildIndex;
+        //MyScene = SceneManager.GetActiveScene().buildIndex;
         //untuk handle animasi
         //HandleLayers();
         //untuk mobile touch 
-        TouchScreen();
-        DistanceTravel();
-        StartCoroutine(DrainIt());
-
+        if (!GameManager.MyGM.IsPaused)
+        {
+            TouchScreen();
+            DistanceTravel();
+            StartCoroutine(DrainIt());
+        }
         //untuk drain energy
         //Drain();
         base.Update();
@@ -76,21 +77,26 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
 
     private void TouchScreen()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if ( Input.touchCount > 0 && 
+            !(EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)))
         {
-            if (!(EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)))
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
+
                 one_click = true;
                 timer_for_double_click = Time.time;
                 Debug.Log("Not Touched the UI");
+                if (!is_hold)
+                {
+                    StartCoroutine(MovePlayer(MoveSpeed));
+                    one_click = false;
+                }
+
             }
-            
-        }
-        //hold
-        if (Input.touchCount > 0)
-        {
-            if (!(EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)))
+            //hold
+            if (Input.touchCount > 0 )
             {
+
                 acumTime += Input.GetTouch(0).deltaTime;
 
                 if (acumTime >= holdTime)
@@ -109,21 +115,16 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                         acumTime = 0f;
                     }
                 }
-
-                if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                {
-                    is_hold = false;
-                    acumTime = 0;
-                }
             }
-        }
-        //Double tap
-        if (Input.touchCount == 1)
-        {
-            if (!(EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)))
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                is_hold = false;
+                acumTime = 0;
+            }
+            //Double tap
+            if (Input.touchCount == 1)
             {
                 Touch touch = Input.GetTouch(0);
-
                 if (touch.phase == TouchPhase.Ended)
                 {
                     TapCount += 1;
@@ -160,68 +161,69 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             {
                 TapCount = 0;
             }
+
         }
     }
 
-    //private void UnityEditorMovement()
-    //{
-    //    if (Input.GetMouseButtonDown(0) && !isMoving)
-    //    {
-          
-    //        if (!one_click) // first click no previous clicks
-    //        {
-    //            one_click = true;
-    //            timer_for_double_click = Time.time;
-    //            is_hold = true;
-    //        }
-    //        else
-    //        {
-    //            //print("Double");
-    //            one_click = false; // found a double click, now reset
-    //        }
+    private void UnityEditorMovement()
+    {
+        if (Input.GetMouseButtonDown(0) && !isMoving)
+        {
+           
+                if (!one_click) // first click no previous clicks
+            {
+                one_click = true;
+                timer_for_double_click = Time.time;
+                is_hold = true;
+            }
+            else
+            {
+                //print("Double");
+                one_click = false; // found a double click, now reset
+            }
 
-    //    }
-    //    if (Input.GetMouseButtonUp(0) || Hold_timer >= max_Hold)
-    //    {
-    //        is_hold = false;
-    //        Hold_timer = 0f;
-    //    }
-    //    if (is_hold)
-    //    {
-    //        StartCoroutine(BreakPlayer(MoveSpeedInWater));
-    //    }
-    //    else
-    //    {
-    //        is_hold = false;
-    //        //jika terlalu lama hold / stop
-    //        if (one_click && Hold_timer >= max_Hold)
-    //        {
+        }
+        if (Input.GetMouseButtonUp(0) || Hold_timer >= max_Hold)
+        {
+            is_hold = false;
+            Hold_timer = 0f;
+        }
+        if (is_hold)
+        {
+            StartCoroutine(BreakPlayer(MoveSpeedInWater));
+        }
+        else
+        {
+            is_hold = false;
+            //jika terlalu lama hold / stop
+            if (one_click && Hold_timer >= max_Hold)
+            {
 
-    //            // if the time now is delay seconds more than when the first click started. 
-    //            if ((Time.time - timer_for_double_click) > delay)
-    //            {
-    //                print("One Hold Time Reached");
-    //                StartCoroutine(MovePlayer(0.5f));
-    //                one_click = false;
-    //            }
-    //        }
-    //        //jika belum melebihi batas waktu hold
-    //        else if (one_click && Hold_timer <= max_Hold - 0.01f)
-    //        {
+                // if the time now is delay seconds more than when the first click started. 
+                if ((Time.time - timer_for_double_click) > delay)
+                {
+                    print("One Hold Time Reached");
+                    StartCoroutine(MovePlayer(0.5f));
+                    one_click = false;
+                }
+            }
+            //jika belum melebihi batas waktu hold
+            else if (one_click && Hold_timer <= max_Hold - 0.01f)
+            {
 
-    //            // if the time now is delay seconds more than when the first click started. 
-    //            if ((Time.time - timer_for_double_click) > delay)
-    //            {
-    //                print("One Hold Time Safe");
-    //                StartCoroutine(MovePlayer(MoveSpeed));
+                // if the time now is delay seconds more than when the first click started. 
+                if ((Time.time - timer_for_double_click) > delay)
+                {
+                    print("One Hold Time Safe");
+                    StartCoroutine(MovePlayer(MoveSpeed));
 
-    //                MoveBoatSplash.Play();
-    //                one_click = false;
-    //            }
-    //        }
-    //        Hold_timer = 0f;
-    //    }
-    //}
+                    MoveBoatSplash.Play();
+                    one_click = false;
+                }
+            }
+            Hold_timer = 0f;
+        }
+    }
     public IEnumerator MovePlayer(float moveSpeed)
     {
         // Vector3 startingPos = transform.position;

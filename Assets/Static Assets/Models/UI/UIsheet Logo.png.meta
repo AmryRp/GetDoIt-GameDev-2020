@@ -1097,10 +1097,10 @@ TextureImporter:
       name: UIsheet Logo_21
       rect:
         serializedVersion: 2
-        x: 5768
-        y: 7578
-        width: 858
-        height: 878
+        x: 5797
+        y: 7561
+        width: 849
+        height: 857
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1330,7 +1330,7 @@ TextureImporter:
         serializedVersion: 2
         x: 6605
         y: 6517
-        width: 1002
+        width: 955
         height: 954
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
