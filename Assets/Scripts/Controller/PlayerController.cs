@@ -59,6 +59,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         //untuk handle animasi
         //HandleLayers();
         //untuk mobile touch 
+        //print(!GameManager.MyGM.IsPaused);
         if (!GameManager.MyGM.IsPaused)
         {
             TouchScreen();
@@ -77,6 +78,10 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
 
     private void TouchScreen()
     {
+        if (!IsMoving)
+        {
+            MoveBoatSplash.Stop();
+        }
         if ( Input.touchCount > 0 && 
             !(EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)))
         {
@@ -85,7 +90,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
 
                 one_click = true;
                 timer_for_double_click = Time.time;
-                Debug.Log("Not Touched the UI");
+                //Debug.Log("Not Touched the UI");
                 if (!is_hold)
                 {
                     StartCoroutine(MovePlayer(MoveSpeed));
@@ -246,10 +251,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             elapsedTime += Time.deltaTime;
             MoveEffect -= Time.deltaTime;
             isMoving = (elapsedTime >= MaxAnimTime) ? false : true;
-            if (!IsMoving)
-            {
-                MoveBoatSplash.Stop();
-            }
+            
             yield return null;
         }
 

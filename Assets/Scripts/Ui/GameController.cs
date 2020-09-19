@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -8,13 +9,13 @@ public class GameController : UiController, IPointerClickHandler
 {
     public string ModeName;
     public string ButtonName;
-    
-   
+
+    public RawImage Img;
     public void OnPointerClick(PointerEventData eventData)
     {
         if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
         {
-            Debug.Log("Touched the UI");
+            //Debug.Log("Touched the UI");
             switch (ButtonName)
             {
                 case "SceneChange":
@@ -44,6 +45,12 @@ public class GameController : UiController, IPointerClickHandler
                 case "CaptureButton":
                     OnClickScreenCaptureButton();
                     break;
+                case "ExitOption":
+                    CloseCaptureRecords();
+                    break;
+                case "ShareToInstagram":
+                    StartCoroutine(TakeScreenshotAndShare());
+                    break;
                 default:
                     print("Incorrect button Name");
                     break;
@@ -72,7 +79,15 @@ public class GameController : UiController, IPointerClickHandler
     }
     public void OnClickScreenCaptureButton()
     {
-        StartCoroutine(CaptureScreen());
+        GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = false;
+        GameObject.FindGameObjectWithTag("CaptureOption").GetComponent<Canvas>().enabled = true;
+        
+    }
+    public void CloseCaptureRecords()
+    {
+        GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = true;
+        GameObject.FindGameObjectWithTag("CaptureOption").GetComponent<Canvas>().enabled = false;
+       
     }
     public IEnumerator CaptureScreen()
     {
@@ -93,14 +108,16 @@ public class GameController : UiController, IPointerClickHandler
         StartCoroutine(TakeScreenshotAndSave());
 
         yield return new WaitForEndOfFrame();
-        PickImage(1024);
         if (NativeGallery.IsMediaPickerBusy()) { yield return null; }
 
         // Show UI after we're done
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
     }
     private IEnumerator TakeScreenshotAndSave()
-    {
+    {   
+        // Wait till the last possible moment before screen rendering to hide the UI
+        yield return null;
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
         yield return new WaitForEndOfFrame();
 
         Texture2D ss = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
@@ -111,13 +128,49 @@ public class GameController : UiController, IPointerClickHandler
         //NativeGallery.Permission permission = NativeGallery.SaveImageToGallery(ss, "GalleryTest", "Image.png", (success, path) => Debug.Log("Media save result: " + success + " " + path));
         string name = string.Format("{0}_Capture{1}_{2}.png", Application.productName, "{0}", System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
         Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName + " Captures", name));
-       // Debug.Log("Permission result: " + permission);
-       // Debug.Log("Permission result: " + permission);
-
+        // Debug.Log("Permission result: " + permission);
+        var fileName = "../DCIM/"+Application.productName + " Captures"+name;
+        var bytes = File.ReadAllBytes(fileName);
+        var texture = new Texture2D(73, 73);
+        texture.LoadImage(bytes);
+        GUI.Button(new Rect(0, 0, 800, 100), texture);
+        //Sprite s = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero, 1f);
+        Img.texture = texture;
+        // Show UI after we're done
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+        yield return null;
         // To avoid memory leaks
         Destroy(ss);
     }
+    
+    private IEnumerator TakeScreenshotAndShare()
+    {
+        print("CaptureScreen and share");
+        yield return null;
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
+        yield return new WaitForEndOfFrame();
 
+        Texture2D ss = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+        ss.Apply();
+
+        string filePath = Path.Combine(Application.temporaryCachePath, "shared img.png");
+        File.WriteAllBytes(filePath, ss.EncodeToPNG());
+
+        // To avoid memory leaks
+        Destroy(ss);
+
+        new NativeShare().AddFile(filePath)
+            .SetSubject("Subject goes here").SetText("Look At My Great Picture")
+            .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
+            .Share();
+
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+        yield return null;
+        // Share on WhatsApp only, if installed (Android only)
+        //if( NativeShare.TargetExists( "com.whatsapp" ) )
+        //	new NativeShare().AddFile( filePath ).AddTarget( "com.whatsapp" ).Share();
+    }
     private void PickImage(int maxSize)
     {
         NativeGallery.Permission permission = NativeGallery.GetImageFromGallery((path) =>

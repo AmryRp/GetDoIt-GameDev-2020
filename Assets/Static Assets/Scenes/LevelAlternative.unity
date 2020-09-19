@@ -1228,7 +1228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bdf44a2660dd8841b5f9563bec2ee1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followTarget: {fileID: 0}
+  followTarget: {fileID: 496645589}
   fixedTargetPos: {x: 6, y: 5, z: 0}
   moveSpeed: 1
   camera: {fileID: 1027296491}
@@ -11291,6 +11291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: UnPauseButton
   ButtonName: UnPauseButton
+  Img: {fileID: 0}
 --- !u!1 &1510838873
 GameObject:
   m_ObjectHideFlags: 0
@@ -11878,6 +11879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPaused: 0
+  AudioIsPlay: 0
 --- !u!4 &1866914733
 Transform:
   m_ObjectHideFlags: 0

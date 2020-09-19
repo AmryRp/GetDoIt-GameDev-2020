@@ -346,6 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: unpause
   ButtonName: UnPauseButton
+  Img: {fileID: 0}
 --- !u!1 &126237455317165371
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: null
   ButtonName: Setting
+  Img: {fileID: 0}
 --- !u!1 &314120161888133566
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,6 +655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: Touch caps
   ButtonName: CaptureButton
+  Img: {fileID: 0}
 --- !u!1 &385882355841733886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,7 +1293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ModeName: 
-  ButtonName: 
+  ButtonName: ShareToInstagram
+  Img: {fileID: 7410415825246849297}
 --- !u!1 &1630115417928167631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2029678644775765728}
   - component: {fileID: 6208622747820312212}
+  - component: {fileID: 5782397958193941232}
   m_Layer: 0
   m_Name: CaptureOption
   m_TagString: CaptureOption
@@ -1472,7 +1477,7 @@ RectTransform:
   m_Children:
   - {fileID: 6972179794554571586}
   m_Father: {fileID: 8731040975914430752}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1500,6 +1505,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &5782397958193941232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808009356595893898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &1880130698939405585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,6 +2086,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3778217406169417752}
   - component: {fileID: 2841410882058064501}
+  - component: {fileID: 1649721021399293960}
   m_Layer: 0
   m_Name: SettingOptionMM
   m_TagString: SettingOptionMM
@@ -2084,7 +2107,7 @@ RectTransform:
   m_Children:
   - {fileID: 9077597114299005962}
   m_Father: {fileID: 8731040975914430752}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2112,6 +2135,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1649721021399293960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2509067868978135509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &2526959754796852586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,6 +2246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: xxx
   ButtonName: PlayerInfo
+  Img: {fileID: 0}
 --- !u!1 &2608983215633139178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,6 +2677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: null
   ButtonName: Gallery
+  Img: {fileID: 0}
 --- !u!95 &5736755060918161863
 Animator:
   serializedVersion: 3
@@ -2906,6 +2948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: Level1
   ButtonName: SceneChange
+  Img: {fileID: 0}
 --- !u!95 &2336878325906869678
 Animator:
   serializedVersion: 3
@@ -3045,7 +3088,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 7877274597417022739}
   m_Direction: 3
   m_Value: 1
-  m_Size: 0.9999999
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3249,8 +3292,8 @@ RectTransform:
   - {fileID: 9166540588199224743}
   - {fileID: 2670670852495538300}
   - {fileID: 7921562445442007759}
-  - {fileID: 2029678644775765728}
   - {fileID: 3778217406169417752}
+  - {fileID: 2029678644775765728}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3344,8 +3387,8 @@ GameObject:
   - component: {fileID: 3658719243840112524}
   - component: {fileID: 3562361038315173647}
   m_Layer: 0
-  m_Name: instagram (1)
-  m_TagString: Untagged
+  m_Name: ExitButton
+  m_TagString: ExitOption
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3420,7 +3463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ModeName: 
-  ButtonName: 
+  ButtonName: ExitOption
+  Img: {fileID: 0}
 --- !u!1 &4118286845989203947
 GameObject:
   m_ObjectHideFlags: 0
@@ -3745,6 +3789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7921562445442007759}
   - component: {fileID: 7950329646731865316}
+  - component: {fileID: 5902525251229642892}
   m_Layer: 0
   m_Name: ExitOption
   m_TagString: ExitOption
@@ -3793,6 +3838,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &5902525251229642892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656531886019029786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &4706238021625685986
 GameObject:
   m_ObjectHideFlags: 0
@@ -3960,6 +4022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: 
   ButtonName: 
+  Img: {fileID: 0}
 --- !u!1 &4995955004227797512
 GameObject:
   m_ObjectHideFlags: 0
@@ -4511,6 +4574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: backhome
   ButtonName: BackButton
+  Img: {fileID: 0}
 --- !u!1 &5341178460061192940
 GameObject:
   m_ObjectHideFlags: 0
@@ -4846,9 +4910,10 @@ GameObject:
   - component: {fileID: 1371206689936117978}
   - component: {fileID: 3615414389043249125}
   - component: {fileID: 7630074427591261026}
+  - component: {fileID: 2337959069519362702}
   m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
+  m_Name: BacButton
+  m_TagString: ExitOption
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4902,7 +4967,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 7887673067211316863, guid: 2e7355a4a3afc33458a932814f9fedee, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -4910,6 +4975,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2337959069519362702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267572468177943328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89973272fdbb9ba4f9f5ad705dea8183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ModeName: xxx
+  ButtonName: ExitOption
+  Img: {fileID: 0}
 --- !u!1 &6302766980368667407
 GameObject:
   m_ObjectHideFlags: 0
@@ -5698,6 +5778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: LevelAlternative
   ButtonName: SceneChange
+  Img: {fileID: 0}
 --- !u!95 &733853665403939150
 Animator:
   serializedVersion: 3
@@ -5776,7 +5857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9789856, g: 1, b: 0.8632076, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5886,6 +5967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: 
   ButtonName: 
+  Img: {fileID: 0}
 --- !u!1 &7700348477065860730
 GameObject:
   m_ObjectHideFlags: 0
@@ -6735,6 +6817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: 
   ButtonName: 
+  Img: {fileID: 0}
 --- !u!1 &8578368962039319594
 GameObject:
   m_ObjectHideFlags: 0
@@ -6900,6 +6983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: 
   ButtonName: 
+  Img: {fileID: 0}
 --- !u!1 &8779345984985749368
 GameObject:
   m_ObjectHideFlags: 0
@@ -7112,6 +7196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeName: null
   ButtonName: PauseButton
+  Img: {fileID: 0}
 --- !u!114 &5899055235662812992
 MonoBehaviour:
   m_ObjectHideFlags: 0
