@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e30e427ba42394942a6f391c814dd63a
-timeCreated: 1597067371
+guid: 2eb72520cd4ae2f44a30055928cb384c
+timeCreated: 1498727312
 licenseType: Store
 PluginImporter:
   serializedVersion: 2
@@ -9,12 +9,6 @@ PluginImporter:
   isPreloaded: 0
   isOverridable: 0
   platformData:
-    data:
-      first:
-        Android: Android
-      second:
-        enabled: 1
-        settings: {}
     data:
       first:
         Any: 
@@ -28,6 +22,12 @@ PluginImporter:
         enabled: 0
         settings:
           DefaultValueInitialized: true
+    data:
+      first:
+        iPhone: iOS
+      second:
+        enabled: 1
+        settings: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
