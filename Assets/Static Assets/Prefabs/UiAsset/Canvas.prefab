@@ -6816,8 +6816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89973272fdbb9ba4f9f5ad705dea8183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ModeName: 
-  ButtonName: 
+  ModeName: regular
+  ButtonName: SaveToGallery
   Img: {fileID: 0}
 --- !u!1 &8523397846607993937
 GameObject:
