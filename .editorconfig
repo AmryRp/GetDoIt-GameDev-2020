@@ -2,3 +2,9 @@
 
 # UNT0010: MonoBehaviour instance creation
 dotnet_diagnostic.UNT0010.severity = none
+[merge]
+    tool = unityyamlmerge
+
+    [mergetool "unityyamlmerge"]
+    trustExitCode = false
+    cmd = '<path to UnityYAMLMerge>' merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
