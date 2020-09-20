@@ -21,6 +21,10 @@ TagManager:
   - SettingOptionMM
   - PauseMenu
   - ExitOption
+  - CameraMeter
+  - CameraMeterText
+  - PointText
+  - Objects
   layers:
   - Default
   - TransparentFX

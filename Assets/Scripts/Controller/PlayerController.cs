@@ -1,3 +1,4 @@
+
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -65,6 +66,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             TouchScreen();
             DistanceTravel();
             StartCoroutine(DrainIt());
+            CameraObjectManager.MyCamReceiver.CalculateMeter();
         }
         //untuk drain energy
         //Drain();
@@ -72,7 +74,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         //Untuk Test DiUnity
 #if UNITY_EDITOR
 
-        //UnityEditorMovement();
+        UnityEditorMovement();
 #endif
     }
 

@@ -1,3 +1,4 @@
+
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -50,6 +51,9 @@ public class GameController : UiController, IPointerClickHandler
                     break;
                 case "ShareToInstagram":
                     StartCoroutine(TakeScreenshotAndShare());
+                    break;
+                case "SaveToGallery":
+                    StartCoroutine(TakeScreenshotAndSave());
                     break;
                 default:
                     print("Incorrect button Name");
@@ -125,22 +129,16 @@ public class GameController : UiController, IPointerClickHandler
         ss.Apply();
 
         // Save the screenshot to Gallery/Photos
-        //NativeGallery.Permission permission = NativeGallery.SaveImageToGallery(ss, "GalleryTest", "Image.png", (success, path) => Debug.Log("Media save result: " + success + " " + path));
         string name = string.Format("{0}_Capture{1}_{2}.png", Application.productName, "{0}", System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
         Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName + " Captures", name));
-        // Debug.Log("Permission result: " + permission);
-        var fileName = "../DCIM/"+Application.productName + " Captures"+name;
-        var bytes = File.ReadAllBytes(fileName);
-        var texture = new Texture2D(73, 73);
-        texture.LoadImage(bytes);
-        GUI.Button(new Rect(0, 0, 800, 100), texture);
-        //Sprite s = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero, 1f);
-        Img.texture = texture;
-        // Show UI after we're done
+
+        //calculate the point 
+        StartCoroutine( CameraObjectManager.MyCamReceiver.capturedPointShot());
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
         yield return null;
         // To avoid memory leaks
         Destroy(ss);
+
     }
     
     private IEnumerator TakeScreenshotAndShare()
@@ -159,12 +157,12 @@ public class GameController : UiController, IPointerClickHandler
 
         // To avoid memory leaks
         Destroy(ss);
-
         new NativeShare().AddFile(filePath)
-            .SetSubject("Subject goes here").SetText("Look At My Great Picture")
-            .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
+            .SetSubject("Subject goes here").SetText("Look At My Great Picture at River Horizon Game by GetDoIt")
+            .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget) )
             .Share();
 
+        StartCoroutine(CameraObjectManager.MyCamReceiver.capturedPointShot());
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
         yield return null;
         // Share on WhatsApp only, if installed (Android only)
@@ -211,4 +209,3 @@ public class GameController : UiController, IPointerClickHandler
 
 
 }
-
