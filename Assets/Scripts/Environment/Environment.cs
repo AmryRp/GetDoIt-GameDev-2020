@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Environment : GeneralEnvironment
 {
-
-  
     public Environment(string newName, int newPower) : base(newName, newPower)
     {
     }
@@ -16,4 +14,9 @@ public class Environment : GeneralEnvironment
         Dictionary<string, GeneralEnvironment> Obstacles = new Dictionary<string, GeneralEnvironment>();
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

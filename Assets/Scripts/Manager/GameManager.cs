@@ -1,40 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
-    private static GameManager instance;
-    public static GameManager MyGM
+    // Start is called before the first frame update
+    void Start()
     {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<GameManager>();
-            }
-            return instance;
-        }
+        
     }
-    private void Start()
+
+    // Update is called once per frame
+    void Update()
     {
-        IsPaused = false;
+        
     }
-    public bool IsPaused;
-    private void Update()
-    {
-        if (Time.timeScale == 0f)
-        {
-            IsPaused = true;
-
-        }
-        else
-        {
-            IsPaused = false;
-        }
-
-    }
-    public bool AudioIsPlay;
-
 }
