@@ -105,7 +105,7 @@ public class Player : PlayerModel, IChangeable<string>
     public void PlayerRespawn()
     {
         Hidup = true;
-        IsAnimator.SetBool("Die", false);
+        IsAnimator.SetBool("IsDie", false);
         Energy.MyCurrentValue += myEnergy.MyMaxValue;
     }
     //untuk handle animasi
@@ -160,7 +160,7 @@ public class Player : PlayerModel, IChangeable<string>
 
         if (Energy.MyCurrentValue <= 0)
         {
-            IsAnimator.SetBool("Die", true);
+            IsAnimator.SetBool("IsDie", true);
             Direction = Vector2.zero;
             //myRigidbody.velocity = Direction;
             Hidup = false;

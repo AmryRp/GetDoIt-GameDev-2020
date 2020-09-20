@@ -302,9 +302,6 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 yield return null;
             }
         }
-
-
-
     }
 
     //The required method of the IKillable interface
