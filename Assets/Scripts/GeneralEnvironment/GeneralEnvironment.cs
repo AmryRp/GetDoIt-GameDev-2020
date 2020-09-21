@@ -3,14 +3,16 @@
 
 using System.Collections;
 using System;
+
+[RequireComponent(typeof(BoxCollider))]
 public class GeneralEnvironment : MonoBehaviour, IComparable<GeneralEnvironment>
 {
     [SerializeField]
-    public string name;
+    public string name = "Object";
     [SerializeField]
-    public int myLevel;
+    public int myLevel = 1 ;
     [SerializeField]
-    public int power;
+    public int power = 10;
     public GeneralEnvironment(string newName, int newPower)
     {
         name = newName;
@@ -29,7 +31,7 @@ public class GeneralEnvironment : MonoBehaviour, IComparable<GeneralEnvironment>
         //Return the difference in power.
         return power - other.power;
     }
-    public float maxRayCastDefault;
+    public float maxRayCastDefault = 40f;
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DistanceReceiver"))
@@ -41,9 +43,9 @@ public class GeneralEnvironment : MonoBehaviour, IComparable<GeneralEnvironment>
             RaycastHit hit;
 
             int rand = UnityEngine.Random.Range(0, 9999);
-            name = name + "_" + Mathf.Round(distance).ToString() + "_" + rand.ToString();
+            string realname = name;
+            name = name + "_" + Mathf.Round(distance).ToString() + "_" + power.ToString() + "_" + rand.ToString();
             Debug.DrawLine(transform.position, other.transform.position);
-
             print("Found Object : " + name);
             CameraObjectManager.MyCamReceiver.ObjectCatchs.Add(name, distance);
             CameraObjectManager.MyCamReceiver.KeyVal.Add(name);
@@ -64,6 +66,11 @@ public class GeneralEnvironment : MonoBehaviour, IComparable<GeneralEnvironment>
             StartCoroutine(CameraObjectManager.MyCamReceiver.AddingObjects());
 
         }
+    }
+    public void awake()
+    {
+        BoxCollider Box = GetComponent<BoxCollider>();
+        Box.isTrigger = true;
     }
 }
 

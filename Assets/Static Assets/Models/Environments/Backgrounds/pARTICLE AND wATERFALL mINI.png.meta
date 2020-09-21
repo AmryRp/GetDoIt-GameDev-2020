@@ -1,0 +1,337 @@
+fileFormatVersion: 2
+guid: 829c971bfea366947b2c220370343bf0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7986776877568968229
+    second: pARTICLE AND wATERFALL mINI_0
+  - first:
+      213: 7681816036445655534
+    second: pARTICLE AND wATERFALL mINI_1
+  - first:
+      213: -8571080110714030865
+    second: pARTICLE AND wATERFALL mINI_2
+  - first:
+      213: -104565414789557664
+    second: pARTICLE AND wATERFALL mINI_3
+  - first:
+      213: -1986049994677776146
+    second: pARTICLE AND wATERFALL mINI_4
+  - first:
+      213: -4144344281687125694
+    second: pARTICLE AND wATERFALL mINI_5
+  - first:
+      213: 1567930353035813784
+    second: pARTICLE AND wATERFALL mINI_6
+  - first:
+      213: 1258307825368940418
+    second: pARTICLE AND wATERFALL mINI_7
+  - first:
+      213: 9209793449930334199
+    second: pARTICLE AND wATERFALL mINI_8
+  - first:
+      213: -7647738738668682001
+    second: pARTICLE AND wATERFALL mINI_9
+  - first:
+      213: -7057428018497454694
+    second: pARTICLE AND wATERFALL mINI_10
+  - first:
+      213: -6032387338867147174
+    second: pARTICLE AND wATERFALL mINI_11
+  - first:
+      213: -9186827056950502882
+    second: pARTICLE AND wATERFALL mINI_12
+  - first:
+      213: -6892810863485693648
+    second: pARTICLE AND wATERFALL mINI_13
+  - first:
+      213: -5443479096153991696
+    second: pARTICLE AND wATERFALL mINI_14
+  - first:
+      213: -6677898793243312470
+    second: pARTICLE AND wATERFALL mINI_15
+  - first:
+      213: 3530202373530265937
+    second: pARTICLE AND wATERFALL mINI_16
+  - first:
+      213: 6372921679062852482
+    second: pARTICLE AND wATERFALL mINI_1
+  - first:
+      213: -5410588657511958696
+    second: pARTICLE AND wATERFALL mINI_2
+  - first:
+      213: 5429486354577325167
+    second: pARTICLE AND wATERFALL mINI_3
+  - first:
+      213: 8523285473086221838
+    second: pARTICLE AND wATERFALL mINI_4
+  - first:
+      213: -2266908343725198535
+    second: pARTICLE AND wATERFALL mINI_5
+  - first:
+      213: -7773154442126542216
+    second: pARTICLE AND wATERFALL mINI_6
+  - first:
+      213: -7341612040108043725
+    second: pARTICLE AND wATERFALL mINI_7
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pARTICLE AND wATERFALL mINI_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 887
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5264dcf114bb6de60800000000000000
+      internalID: 7986776877568968229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pARTICLE AND wATERFALL mINI_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 730
+        width: 685
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2836ded708a217850800000000000000
+      internalID: 6372921679062852482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pARTICLE AND wATERFALL mINI_2
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 731
+        width: 656
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857fd33584ab9e4b0800000000000000
+      internalID: -5410588657511958696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pARTICLE AND wATERFALL mINI_3
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 770
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c7965a219695b40800000000000000
+      internalID: 5429486354577325167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pARTICLE AND wATERFALL mINI_4
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 401
+        width: 1135
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e2d8ebafac84670800000000000000
+      internalID: 8523285473086221838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pARTICLE AND wATERFALL mINI_6
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 408
+        width: 689
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87a3cc40835302490800000000000000
+      internalID: -7773154442126542216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pARTICLE AND wATERFALL mINI_7
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 72
+        width: 2129
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33211ae3fba5d1a90800000000000000
+      internalID: -7341612040108043725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 31c0e027f7e122a419e252232ba3e9fb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

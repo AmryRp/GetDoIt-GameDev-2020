@@ -57,21 +57,26 @@ public class CameraObjectManager : MonoBehaviour
     {
         int CountObjects = ObjectCatchs.Count;
         float tmpVal = 0;
+        float IPower = 0;
         if (CountObjects != 0)
         {
             foreach (KeyValuePair<string, float> Objects in ObjectCatchs)
             {
                 tmpVal += Mathf.Round(Objects.Value);
+                char separator = "_"[0];
+                string pow = Objects.Key.Split(separator)[2];
+                IPower += float.Parse(pow);
 
             }
             capturePoint = 0f;
-            capturePoint = tmpVal;
+            IPower = IPower * calculateGolden;
+            capturePoint = tmpVal+IPower;
             AllPoint += capturePoint;
             CalculatePoint();
         }
         yield return null;
     }
-
+    public float calculateGolden =1f;
     public void CalculateMeter()
     {
         if (CameraMeterBar == null)
@@ -79,7 +84,7 @@ public class CameraObjectManager : MonoBehaviour
             CameraMeterBar = GameObject.FindGameObjectWithTag("CameraMeter").GetComponent<Image>();
         }
         bool isGolden = false;
-        float calculateGolden;
+       
         calculateGolden = CameraMeter / (maxCameraMeter - CameraMeter);
         if (calculateGolden == goldenRatio)
         {
@@ -89,12 +94,12 @@ public class CameraObjectManager : MonoBehaviour
         }
         else if (calculateGolden < goldenRatio)
         {
-            currentFill = CameraMeter / maxCameraMeter;
+            currentFill = ((CameraMeter* calculateGolden)*1.5f) / maxCameraMeter;
             CameraMeterBar.color = Color.red;
         }
         else if (calculateGolden > goldenRatio)
         {
-            currentFill = CameraMeter / maxCameraMeter;
+            currentFill = ((CameraMeter* calculateGolden)*2f) / maxCameraMeter;
             CameraMeterBar.color = Color.yellow;
         }
         else 
