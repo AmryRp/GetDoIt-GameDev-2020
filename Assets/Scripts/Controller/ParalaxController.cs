@@ -42,7 +42,7 @@ public class ParalaxController : MonoBehaviour
         {
             if (verticalFreeze) // Parallax Y position follow y camera position
             {
-                position.y = cameraTransform.position.y;
+                position.y = cameraTransform.position.y * 1f;
             }
             position.x = startpos + distance;
         }
