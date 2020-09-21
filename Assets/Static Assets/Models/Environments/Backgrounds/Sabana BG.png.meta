@@ -1,0 +1,718 @@
+fileFormatVersion: 2
+guid: 5f4445f8adc545f4982340a8809493a7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5030782385226543791
+    second: Sabana BG_0
+  - first:
+      213: 829151310266040340
+    second: Sabana BG_1
+  - first:
+      213: 680837421121781470
+    second: Sabana BG_2
+  - first:
+      213: -9019580915501531834
+    second: Sabana BG_3
+  - first:
+      213: 1763970740457126486
+    second: Sabana BG_4
+  - first:
+      213: -562048621562342432
+    second: Sabana BG_5
+  - first:
+      213: 2053448379799196326
+    second: Sabana BG_6
+  - first:
+      213: -5407583327536956381
+    second: Sabana BG_7
+  - first:
+      213: 303319460966916677
+    second: Sabana BG_8
+  - first:
+      213: -8259818259745737823
+    second: Sabana BG_9
+  - first:
+      213: 6447391528240804272
+    second: Sabana BG_10
+  - first:
+      213: 6974906851717350533
+    second: Sabana BG_11
+  - first:
+      213: -3324270886980338248
+    second: Sabana BG_12
+  - first:
+      213: -7723486260375324974
+    second: Sabana BG_13
+  - first:
+      213: -158830544927089941
+    second: Sabana BG_14
+  - first:
+      213: -5250348553669212836
+    second: Sabana BG_15
+  - first:
+      213: 4443075025688125038
+    second: Sabana BG_16
+  - first:
+      213: -4191355241714149907
+    second: Sabana BG_17
+  - first:
+      213: -2547369752187886668
+    second: Sabana BG_18
+  - first:
+      213: -6458146807655435232
+    second: Sabana BG_19
+  - first:
+      213: -7753337376072104109
+    second: Sabana BG_20
+  - first:
+      213: -665630809561875042
+    second: Sabana BG_21
+  - first:
+      213: 5627570188328778953
+    second: Sabana BG_22
+  - first:
+      213: -6872614143690211111
+    second: Sabana BG_23
+  - first:
+      213: 8096222989406479934
+    second: Sabana BG_24
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sabana BG_0
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 8522
+        width: 3428
+        height: 291
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa278b5dcede0d540800000000000000
+      internalID: 5030782385226543791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_1
+      rect:
+        serializedVersion: 2
+        x: 4421
+        y: 8421
+        width: 3540
+        height: 319
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 410057149bcb18b00800000000000000
+      internalID: 829151310266040340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_2
+      rect:
+        serializedVersion: 2
+        x: 8634
+        y: 7767
+        width: 1012
+        height: 1085
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edeb1cbf602d27900800000000000000
+      internalID: 680837421121781470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6924
+        width: 4285
+        height: 1463
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d73a4f1f204d280800000000000000
+      internalID: -9019580915501531834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_4
+      rect:
+        serializedVersion: 2
+        x: 4532
+        y: 7723
+        width: 3419
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65a3123ea02ea7810800000000000000
+      internalID: 1763970740457126486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_5
+      rect:
+        serializedVersion: 2
+        x: 8542
+        y: 6721
+        width: 605
+        height: 349
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e3574da1c33338f0800000000000000
+      internalID: -562048621562342432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_6
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 6227
+        width: 77
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a2588afb605f7c10800000000000000
+      internalID: 2053448379799196326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_7
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 6222
+        width: 121
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32cb5dc3d9764f4b0800000000000000
+      internalID: -5407583327536956381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_8
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 6251
+        width: 78
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5426564517b953400800000000000000
+      internalID: 303319460966916677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_9
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 6237
+        width: 88
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a3f19e1e0b3f5d80800000000000000
+      internalID: -8259818259745737823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_10
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 6222
+        width: 82
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b1f7a86f6cb97950800000000000000
+      internalID: 6447391528240804272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_11
+      rect:
+        serializedVersion: 2
+        x: 1661
+        y: 6227
+        width: 43
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5840d06b3d8dbc060800000000000000
+      internalID: 6974906851717350533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_12
+      rect:
+        serializedVersion: 2
+        x: 1869
+        y: 6222
+        width: 58
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd3d54bd31ddd1d0800000000000000
+      internalID: -3324270886980338248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_13
+      rect:
+        serializedVersion: 2
+        x: 2140
+        y: 6227
+        width: 54
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d6f7beba2aa0d490800000000000000
+      internalID: -7723486260375324974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_14
+      rect:
+        serializedVersion: 2
+        x: 2368
+        y: 6198
+        width: 77
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea932ef578bbcdf0800000000000000
+      internalID: -158830544927089941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_15
+      rect:
+        serializedVersion: 2
+        x: 2591
+        y: 6213
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c558f87dec30327b0800000000000000
+      internalID: -5250348553669212836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_16
+      rect:
+        serializedVersion: 2
+        x: 2915
+        y: 6203
+        width: 92
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6edc880239f8ad30800000000000000
+      internalID: 4443075025688125038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_17
+      rect:
+        serializedVersion: 2
+        x: 3181
+        y: 6213
+        width: 92
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de5182a4d9055d5c0800000000000000
+      internalID: -4191355241714149907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_18
+      rect:
+        serializedVersion: 2
+        x: 4460
+        y: 5291
+        width: 2668
+        height: 1430
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b32449f4bce5acd0800000000000000
+      internalID: -2547369752187886668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5433
+        width: 3428
+        height: 305
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024ff56f1bd0066a0800000000000000
+      internalID: -6458146807655435232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_20
+      rect:
+        serializedVersion: 2
+        x: 8459
+        y: 5341
+        width: 964
+        height: 567
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35786734cbc966490800000000000000
+      internalID: -7753337376072104109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_21
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 3942
+        width: 3656
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9d328c2e4433c6f0800000000000000
+      internalID: -665630809561875042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_22
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 2445
+        width: 2620
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc3ae72545291e40800000000000000
+      internalID: 5627570188328778953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_23
+      rect:
+        serializedVersion: 2
+        x: 4736
+        y: 2537
+        width: 1583
+        height: 877
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d0050759d19f90a0800000000000000
+      internalID: -6872614143690211111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sabana BG_24
+      rect:
+        serializedVersion: 2
+        x: 4439
+        y: 3759
+        width: 2713
+        height: 1532
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e36ace9c9ef8b5070800000000000000
+      internalID: 8096222989406479934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a26a005dad530f448b2518e58682ce75
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
