@@ -90,13 +90,11 @@ public class CameraObjectManager : MonoBehaviour
         else if (calculateGolden < goldenRatio)
         {
             currentFill = CameraMeter / maxCameraMeter;
-            print("underrated");
             CameraMeterBar.color = Color.red;
         }
         else if (calculateGolden > goldenRatio)
         {
             currentFill = CameraMeter / maxCameraMeter;
-            print("Overrated");
             CameraMeterBar.color = Color.yellow;
         }
         else 
