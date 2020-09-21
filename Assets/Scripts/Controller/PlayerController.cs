@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<float>, IStopable<float>
 {
 
-
     public PlayerController(string name, int point, int movespeed) : base(name, point, movespeed)
     {
 
@@ -304,9 +303,6 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 yield return null;
             }
         }
-
-
-
     }
 
     //The required method of the IKillable interface
