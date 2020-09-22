@@ -892,19 +892,6 @@ MonoBehaviour:
   horizontalOnly: 1
   verticalFreeze: 1
   parallaxEffect: 0.1
---- !u!65 &7529664004630769674
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8447724261681993710}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.23, y: 4.89, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8961886491094156972
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,11 +2090,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13f7612f4d943a742a0de4352153313d, type: 3}
---- !u!1 &8447724261681993710 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5925265796224547817, guid: 13f7612f4d943a742a0de4352153313d, type: 3}
-  m_PrefabInstance: {fileID: 2812108381106301959}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6135201256588196011 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8224136581989356716, guid: 13f7612f4d943a742a0de4352153313d, type: 3}

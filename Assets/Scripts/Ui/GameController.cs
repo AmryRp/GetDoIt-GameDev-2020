@@ -30,6 +30,10 @@ public class GameController : UiController, IPointerClickHandler
                     LoadUI(true, false, false, false, false, false, false);
                     Time.timeScale = 1f;
                     break;
+                case "BackButtonMM":
+                    LoadUI(false, false, false, true, false, false, false);
+                    Time.timeScale = 1f;
+                    break;
                 case "BackHome":
                     LoadUI(false, false, false, true, false, false, false);
                     Time.timeScale = 1f;
@@ -39,7 +43,8 @@ public class GameController : UiController, IPointerClickHandler
                     print("Open Challenge Box");
                     break;
                 case "Setting":
-                    LoadUI(true, false, false, false, false, false, false);
+                    LoadUI(false, false, true, false, false, false, false);
+                    Time.timeScale = 0f;
                     break;
                 case "Gallery":
                     print("unknown");

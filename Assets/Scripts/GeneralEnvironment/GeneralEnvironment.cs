@@ -9,7 +9,7 @@ using System.Collections.Generic;
 public class GeneralEnvironment : MonoBehaviour, IComparable<GeneralEnvironment>
 {
     [SerializeField]
-    public string name = "Object";
+    public string name ;
     [SerializeField]
     public int myLevel = 1 ;
     [SerializeField]
@@ -71,18 +71,19 @@ public class GeneralEnvironment : MonoBehaviour, IComparable<GeneralEnvironment>
     {
         if (other.CompareTag("DistanceReceiver")&&isCaptured)
         {
-           
             CameraObjectManager.MyCamReceiver.ObjectCatchs.Remove(name);
             CameraObjectManager.MyCamReceiver.KeyVal.Remove(name);
             //print("Remove Object : " + name);
             StartCoroutine(CameraObjectManager.MyCamReceiver.AddingObjects());
-
+            name = "object";
+            isCaptured = false;
         }
     }
-    public void awake()
+    public void start()
     {
         BoxCollider Box = GetComponent<BoxCollider>();
         Box.isTrigger = true;
+
     }
 }
 

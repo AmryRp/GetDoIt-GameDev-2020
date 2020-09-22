@@ -136,10 +136,15 @@ public class CameraObjectManager : MonoBehaviour
     }
     public IEnumerator PointTextHandle()
     {
+        while (true)
+        {
+            if (PrevousPoint < AllPoint)
+            {
+                PrevousPoint++; //Increment the display score by 1
+                PointText.text = Mathf.Round(Mathf.Lerp(PrevousPoint, AllPoint, 0.1f * Time.deltaTime)).ToString();
+            }
+            yield return new WaitForSeconds(0.2f); // I used .2 secs but you can update it as fast as you want
+        }
         
-            PointText.text = Mathf.Round(Mathf.Lerp(PrevousPoint, AllPoint, 0.1f * Time.deltaTime)).ToString();
-            
-        yield return new WaitForSeconds(0.1f);
-
     }
 }
