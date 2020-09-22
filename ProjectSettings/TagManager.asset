@@ -25,6 +25,7 @@ TagManager:
   - CameraMeterText
   - PointText
   - Objects
+  - GameOver
   layers:
   - Default
   - TransparentFX

@@ -17,7 +17,7 @@ public class BackgroundManager : MonoBehaviour
     [SerializeField]
     private int lastPrefabindex;
     [SerializeField]
-    float crossroad = 0;
+    float Water = 0;
     [SerializeField]
     private List<GameObject> activeTiles;
 
@@ -44,7 +44,7 @@ public class BackgroundManager : MonoBehaviour
             spawntile(0);
 
         }
-        if (activeTiles.Count > 3)
+        if (activeTiles.Count > 4)
         {
             DeleteTile();
         }
@@ -58,12 +58,12 @@ public class BackgroundManager : MonoBehaviour
 
     private int randPrefab()
     {
-        crossroad += Time.deltaTime;
+        Water += Time.deltaTime;
         if (tiles.Length <= 1)
             return 0;
         int randomIndx = lastPrefabindex;
 
-        if (crossroad >= 0.6f)
+        if (Water >= 0.6f)
         {
             while (randomIndx == lastPrefabindex)
             {
@@ -94,7 +94,7 @@ public class BackgroundManager : MonoBehaviour
                 }
                 randomIndx = Random.Range(min, tiles.Length);
             }
-            crossroad = 0;
+            Water = 0;
             lastPrefabindex = randomIndx;
             return randomIndx;
         }
@@ -111,8 +111,6 @@ public class BackgroundManager : MonoBehaviour
     }
     private void spawntile(int prefabIndex = -1)
     {
-
-
         GameObject go;
         if (prefabIndex == -1)
         {
@@ -123,7 +121,7 @@ public class BackgroundManager : MonoBehaviour
             go = Instantiate(tiles[prefabIndex]) as GameObject;
         }
         go.transform.SetParent(transform);
-        float rand = UnityEngine.Random.Range(0, 1.5f);
+        float rand = UnityEngine.Random.Range(1, 1.5f);
         Vector3 Ini = new Vector3(transform.position.x + SpawnTileAt, player.transform.position.y - rand, transform.position.z);
         go.transform.position = Ini;
         SpawnTileAt += tilelength;
