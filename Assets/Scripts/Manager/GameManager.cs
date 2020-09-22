@@ -34,6 +34,12 @@ public class GameManager : MonoBehaviour
             IsPaused = false;
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameController GC = new GameController();
+            GC.LoadUI(false, false, false, false, false, true, false);
+        }
+
     }
     public bool AudioIsPlay;
 

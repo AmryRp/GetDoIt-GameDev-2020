@@ -21,16 +21,17 @@ public class CameraController : MonoBehaviour
             DontDestroyOnLoad(transform.gameObject);
         }
         else { Destroy(gameObject); }*/
+        if (followTarget == null)
+        {
+            followTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        }
         Application.targetFrameRate = 60;
         PlayerDrag = followTarget.GetComponent<Rigidbody2D>();
         camera.GetComponent<Camera>();
     }
     void Update()
     {
-        if (followTarget == null)
-        {
-            followTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        }
+        
         cameraMove();
     }
     public void cameraMove()

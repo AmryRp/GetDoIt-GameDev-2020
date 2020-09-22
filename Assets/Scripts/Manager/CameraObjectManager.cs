@@ -18,6 +18,8 @@ public class CameraObjectManager : MonoBehaviour
     public float capturePoint;
     public float AllPoint;
     public Text PointText;
+    public float PrevousPoint;
+    public int MaxObjects;
     private static CameraObjectManager instance;
     public static CameraObjectManager MyCamReceiver
 
@@ -36,12 +38,13 @@ public class CameraObjectManager : MonoBehaviour
         ObjectCatchs = new Dictionary<string, float>();
         KeyVal = new List<string>();
     }
+
     public IEnumerator AddingObjects()
     {
         int CountObjects = ObjectCatchs.Count;
         float tmpVal = 0;
 
-        if (CountObjects != 0)
+        if (CountObjects != 0 && CountObjects <= MaxObjects)
         {
             foreach (KeyValuePair<string, float> Objects in ObjectCatchs)
             {
@@ -51,27 +54,34 @@ public class CameraObjectManager : MonoBehaviour
             CameraMeter = 0f;
             CameraMeter = tmpVal / CountObjects;
         }
+
         yield return null;
     }
     public IEnumerator capturedPointShot()
     {
         int CountObjects = ObjectCatchs.Count;
         float tmpVal = 0;
+        float IPower = 0;
         if (CountObjects != 0)
         {
             foreach (KeyValuePair<string, float> Objects in ObjectCatchs)
             {
                 tmpVal += Mathf.Round(Objects.Value);
+                char separator = "_"[0];
+                string pow = Objects.Key.Split(separator)[2];
+                IPower += float.Parse(pow);
 
             }
             capturePoint = 0f;
-            capturePoint = tmpVal;
+            IPower = IPower * calculateGolden;
+            capturePoint = (tmpVal + IPower) / CountObjects;
+            PrevousPoint = AllPoint;
             AllPoint += capturePoint;
-            CalculatePoint();
         }
+        CalculatePoint();
         yield return null;
     }
-
+    public float calculateGolden = 1f;
     public void CalculateMeter()
     {
         if (CameraMeterBar == null)
@@ -79,7 +89,7 @@ public class CameraObjectManager : MonoBehaviour
             CameraMeterBar = GameObject.FindGameObjectWithTag("CameraMeter").GetComponent<Image>();
         }
         bool isGolden = false;
-        float calculateGolden;
+
         calculateGolden = CameraMeter / (maxCameraMeter - CameraMeter);
         if (calculateGolden == goldenRatio)
         {
@@ -89,15 +99,15 @@ public class CameraObjectManager : MonoBehaviour
         }
         else if (calculateGolden < goldenRatio)
         {
-            currentFill = CameraMeter / maxCameraMeter;
-            CameraMeterBar.color = Color.red;
+            currentFill = ((CameraMeter * calculateGolden) * 0.5f) / maxCameraMeter;
+            CameraMeterBar.color = Color.green;
         }
         else if (calculateGolden > goldenRatio)
         {
-            currentFill = CameraMeter / maxCameraMeter;
+            currentFill = ((CameraMeter * calculateGolden) * 1f) / maxCameraMeter;
             CameraMeterBar.color = Color.yellow;
         }
-        else 
+        else
         {
             CameraMeterBar.color = Color.white;
         }
@@ -126,11 +136,15 @@ public class CameraObjectManager : MonoBehaviour
     }
     public IEnumerator PointTextHandle()
     {
-
-        if (PointText != null)
+        while (true)
         {
-            PointText.text = AllPoint.ToString();
+            if (PrevousPoint < AllPoint)
+            {
+                PrevousPoint++; //Increment the display score by 1
+                PointText.text = Mathf.Round(Mathf.Lerp(PrevousPoint, AllPoint, 0.1f * Time.deltaTime)).ToString();
+            }
+            yield return new WaitForSeconds(0.2f); // I used .2 secs but you can update it as fast as you want
         }
-        yield return null;
+        
     }
 }

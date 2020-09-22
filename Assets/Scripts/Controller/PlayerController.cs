@@ -28,16 +28,16 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     protected override void Start()
     {
         SetDefault();
-        DontDestroyOnLoad(transform.gameObject);
-        if (!playerExists)
-        {
-            playerExists = true;
-            DontDestroyOnLoad(transform.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //DontDestroyOnLoad(transform.gameObject);
+        //if (!playerExists)
+        //{
+        //    playerExists = true;
+        //    DontDestroyOnLoad(transform.gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
         base.Start();
     }
 

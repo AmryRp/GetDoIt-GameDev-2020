@@ -7,7 +7,7 @@ public class BackgroundManager : MonoBehaviour
     public GameObject[] tiles;
     private Transform player;
     [SerializeField]
-    private float spawnz = 0.0f;
+    private float SpawnTileAt = 0.0f;
     [SerializeField]
     private float tilelength = 31.7f;
     [SerializeField]
@@ -17,7 +17,7 @@ public class BackgroundManager : MonoBehaviour
     [SerializeField]
     private int lastPrefabindex;
     [SerializeField]
-    float crossroad = 0;
+    float Water = 0;
     [SerializeField]
     private List<GameObject> activeTiles;
 
@@ -39,12 +39,12 @@ public class BackgroundManager : MonoBehaviour
     private void Update()
     {
         
-        if (player.position.x - save > (spawnz - amntilescreen * tilelength))
+        if (player.position.x - save > (SpawnTileAt - amntilescreen * tilelength))
         {
             spawntile(0);
 
         }
-        if (activeTiles.Count > 3)
+        if (activeTiles.Count > 4)
         {
             DeleteTile();
         }
@@ -58,12 +58,12 @@ public class BackgroundManager : MonoBehaviour
 
     private int randPrefab()
     {
-        crossroad += Time.deltaTime;
+        Water += Time.deltaTime;
         if (tiles.Length <= 1)
             return 0;
         int randomIndx = lastPrefabindex;
 
-        if (crossroad >= 0.6f)
+        if (Water >= 0.6f)
         {
             while (randomIndx == lastPrefabindex)
             {
@@ -94,7 +94,7 @@ public class BackgroundManager : MonoBehaviour
                 }
                 randomIndx = Random.Range(min, tiles.Length);
             }
-            crossroad = 0;
+            Water = 0;
             lastPrefabindex = randomIndx;
             return randomIndx;
         }
@@ -111,8 +111,6 @@ public class BackgroundManager : MonoBehaviour
     }
     private void spawntile(int prefabIndex = -1)
     {
-
-
         GameObject go;
         if (prefabIndex == -1)
         {
@@ -123,9 +121,10 @@ public class BackgroundManager : MonoBehaviour
             go = Instantiate(tiles[prefabIndex]) as GameObject;
         }
         go.transform.SetParent(transform);
-        Vector3 Ini = new Vector3(transform.position.x + spawnz, player.transform.position.y - 1.5f, transform.position.z);
+        float rand = UnityEngine.Random.Range(1, 1.5f);
+        Vector3 Ini = new Vector3(transform.position.x + SpawnTileAt, player.transform.position.y - rand, transform.position.z);
         go.transform.position = Ini;
-        spawnz += tilelength;
+        SpawnTileAt += tilelength;
         activeTiles.Add(go);
 
 
