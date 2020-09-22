@@ -54,14 +54,8 @@ public class PlayerModel : CharacterModel
     protected ParticleSystem MoveBoatSplash;
     //[SerializeField]
     //protected Status ExpStat;
-
     //protected Text LevelText;
-
     public Vector3 lastMove;
-
-    [Header("Player Game Over Canvas UI")]
-    [SerializeField]
-    public CanvasGroup CGLose;
     protected int scene;
 
     [Header("Player Energy System")]

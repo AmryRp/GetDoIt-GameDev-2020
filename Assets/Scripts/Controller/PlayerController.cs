@@ -114,7 +114,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
 
                     if ((acumTime >= max_Hold) && (Time.time - timer_for_double_click) > delay)
                     {
-                        print("One Hold Time Reached");
+                       // print("One Hold Time Reached");
                         StartCoroutine(MovePlayer(0.6f));
                         is_hold = false;
                         one_click = false;
@@ -145,7 +145,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                         // if the time now is delay seconds more than when the first click started. 
                         if ((Time.time - timer_for_double_click) > delay)
                         {
-                            print("One Hold Time Safe");
+                            //print("One Hold Time Safe");
                             StartCoroutine(MovePlayer(MoveSpeed));
 
                             is_hold = false;
@@ -208,7 +208,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 // if the time now is delay seconds more than when the first click started. 
                 if ((Time.time - timer_for_double_click) > delay)
                 {
-                    print("One Hold Time Reached");
+                    //print("One Hold Time Reached");
                     StartCoroutine(MovePlayer(0.5f));
                     one_click = false;
                 }
@@ -220,7 +220,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 // if the time now is delay seconds more than when the first click started. 
                 if ((Time.time - timer_for_double_click) > delay)
                 {
-                    print("One Hold Time Safe");
+                   // print("One Hold Time Safe");
                     StartCoroutine(MovePlayer(MoveSpeed));
 
                     MoveBoatSplash.Play();
@@ -266,7 +266,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             effectWater = collision.gameObject.GetComponent<BuoyancyEffector2D>();
             effectWater.flowMagnitude = DefaultWaterStream;
             MoveSpeedInWater = effectWater.flowMagnitude; //Set Canoe Water speed berdasarkan deras aliran air yang disentuh
-            Debug.Log("Touch with water");
+            //Debug.Log("Touch with water");
         }
     }
     public IEnumerator DrainIt()
@@ -287,7 +287,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         StopCoroutine("MovePlayer");
         if (breakValue > 0 && is_hold)
         {
-            print("Stop");
+            //print("Stop");
             float elapsedTime = 0;
             while (elapsedTime < max_Hold)
             {

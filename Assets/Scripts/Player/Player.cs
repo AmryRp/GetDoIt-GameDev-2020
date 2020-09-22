@@ -62,19 +62,16 @@ public class Player : PlayerModel, IChangeable<string>
     // Update is called once per frame
     protected virtual void Update()
     {
-   
-    }
-
-    public void Lose(CanvasGroup CGl)
-    {
         if (!Hidup)
         {
-            CGLose.gameObject.SetActive(true);
-            CGl.alpha = CGLose.alpha = 1;
-            CGl.blocksRaycasts = CGLose.blocksRaycasts = true;
+            Lose();
         }
+    }
 
-
+    public void Lose()
+    {
+        GameController GC = new GameController();
+        GC.LoadUI(false, false, false, false, false, false, true);
     }
     //public void GainExp(int exp)
     //{
@@ -105,7 +102,7 @@ public class Player : PlayerModel, IChangeable<string>
     public void PlayerRespawn()
     {
         Hidup = true;
-        IsAnimator.SetBool("IsDie", false);
+        //IsAnimator.SetBool("IsDie", false);
         Energy.MyCurrentValue += myEnergy.MyMaxValue;
     }
     //untuk handle animasi
@@ -151,12 +148,12 @@ public class Player : PlayerModel, IChangeable<string>
     }
 
 
-    public virtual void TakeDamage(float damage, Transform source)
+    public virtual void TakeDamage(float damage/*, Transform source*/)
     {
 
         Energy.MyCurrentValue -= damage;
 
-        GameTextManager.MyInts.creattext(transform.position, damage.ToString(), SCTTYPE.DAMAGE, false);
+        //GameTextManager.MyInts.creattext(transform.position, damage.ToString(), SCTTYPE.DAMAGE, false);
 
         if (Energy.MyCurrentValue <= 0)
         {
@@ -166,7 +163,7 @@ public class Player : PlayerModel, IChangeable<string>
             Hidup = false;
             if (this is Player)
             {
-                MyInstPL.Lose(MyInstPL.CGLose);
+                Lose();
             }
 
         }
@@ -177,7 +174,7 @@ public class Player : PlayerModel, IChangeable<string>
     {
         myEnergy.MyCurrentValue += h;
         //text tambah energy
-        GameTextManager.MyInts.creattext(transform.position, h.ToString(), SCTTYPE.HEAL, true);
+       // GameTextManager.MyInts.creattext(transform.position, h.ToString(), SCTTYPE.HEAL, true);
 
     }
     public void Fatigue()

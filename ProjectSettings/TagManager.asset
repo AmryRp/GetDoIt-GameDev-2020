@@ -26,6 +26,7 @@ TagManager:
   - PointText
   - Objects
   - GameOver
+  - Shutter
   layers:
   - Default
   - TransparentFX
