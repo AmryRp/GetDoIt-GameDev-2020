@@ -16,17 +16,17 @@ public class ParticleControl : MonoBehaviour
     {
         WaterSplash = GameObject.FindGameObjectWithTag("PlayerParticle").GetComponent<ParticleSystem>();
     }
-   
+
     void Awake()
     {
-      
+
         // Cache references to all desired variables
         player = PlayerController.MyPlayerControl;
         Obstacle = gameObject.tag;
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         if (collision.gameObject.tag == "Player")
         {
             switch (Obstacle)
@@ -45,6 +45,7 @@ public class ParticleControl : MonoBehaviour
                     break;
                 case "Stone":
                     player.TakeDamage(20f);
+                    AudioController.Playsound("HitObstacle");
                     break;
                 case "Energy":
                     player.getEnergy(15f);
@@ -53,6 +54,7 @@ public class ParticleControl : MonoBehaviour
                 case "Water Volume":
                     if (player.CanoeBody.velocity.y < -1)
                     {
+                        AudioController.Playsound("DropSound");
                         WaterSplash.gameObject.SetActive(true);
                         WaterSplash.Play();
                         //print(player.CanoeBody.velocity);
@@ -65,7 +67,6 @@ public class ParticleControl : MonoBehaviour
             BuoyancyEffector2D effectWater;
             effectWater = GameObject.FindGameObjectWithTag("Water").GetComponent<BuoyancyEffector2D>();
             effectWater.flowMagnitude = player.MoveSpeedInWater;
-            AudioController.Playsound("DropSound");
             //Debug.Log("crash");
         }
     }

@@ -3111,7 +3111,7 @@ GameObject:
   - component: {fileID: 2814701676292406472}
   m_Layer: 5
   m_Name: ScreenShot Taken (2)
-  m_TagString: Untagged
+  m_TagString: ScreenShotTaken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5656,7 +5656,7 @@ GameObject:
   - component: {fileID: 1587968677242733906}
   m_Layer: 5
   m_Name: Point
-  m_TagString: Untagged
+  m_TagString: CalculatedPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7509,7 +7509,7 @@ GameObject:
   - component: {fileID: 4384626477862481208}
   m_Layer: 5
   m_Name: Distance Travelled (1)
-  m_TagString: Untagged
+  m_TagString: DistancePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

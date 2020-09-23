@@ -20,6 +20,8 @@ public class CameraObjectManager : MonoBehaviour
     public Text PointText;
     public float PrevousPoint;
     public int MaxObjects;
+    public float InitShotTaken;
+    public float tempShotTaken;
     private static CameraObjectManager instance;
     public static CameraObjectManager MyCamReceiver
 
@@ -35,6 +37,7 @@ public class CameraObjectManager : MonoBehaviour
     }
     private void Start()
     {
+        InitShotTaken = 0f;
         ObjectCatchs = new Dictionary<string, float>();
         KeyVal = new List<string>();
     }

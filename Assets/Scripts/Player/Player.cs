@@ -156,7 +156,7 @@ public class Player : PlayerModel, IChangeable<string>
 
         if (Energy.MyCurrentValue <= 0)
         {
-            IsAnimator.SetBool("IsDie", true);
+            //IsAnimator.SetBool("IsDie", true);
             Direction = Vector2.zero;
             //myRigidbody.velocity = Direction;
             Hidup = false;

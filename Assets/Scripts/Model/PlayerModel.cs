@@ -94,7 +94,14 @@ public class PlayerModel : CharacterModel
     [SerializeField]
     protected Text DistanceTraveled;
     [SerializeField]
-    protected float totalDistance;
-
+    public float totalDistance;
+    public float AllDistance;
+    [Header("Player Point Records System")]
+    
+    public float AllShotTaken;
+    public float AllSavedDistance;
+    public float AllPointCollected;
+    public float AllObjectShot;
+    public float AllAnimalShot;
 }
 

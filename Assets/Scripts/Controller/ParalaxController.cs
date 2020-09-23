@@ -26,6 +26,7 @@ public class ParalaxController : MonoBehaviour
         cameraTransform = mainCamera.transform;
         length = GetComponent<SpriteRenderer>().bounds.size.x; // length of sprite
         startPos = transform.position;
+        
     }
 
     private void Update()

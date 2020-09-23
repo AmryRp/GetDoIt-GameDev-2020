@@ -246,6 +246,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         // Vector3 finalPos = transform.position + (transform.right * MoveSpeed);
         float MoveEffect = moveSpeed;
         float elapsedTime = 0;
+        AudioController.Playsound("Move");
         while (elapsedTime < MaxAnimTime)
         {
             

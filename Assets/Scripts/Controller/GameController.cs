@@ -10,7 +10,7 @@ public class GameController : UiController, IPointerClickHandler
 {
     public string ModeName;
     public string ButtonName;
-
+    private CameraObjectManager COGM;
     private PlayerController PC;
     public RawImage Img;
     public void OnPointerClick(PointerEventData eventData)
@@ -102,6 +102,7 @@ public class GameController : UiController, IPointerClickHandler
     private void Awake()
     {
         PC = PlayerController.MyPlayerControl;
+        COGM = CameraObjectManager.MyCamReceiver;
     }
 
     public void LoadPlay(string Name)
@@ -113,13 +114,13 @@ public class GameController : UiController, IPointerClickHandler
     private IEnumerator TakeScreenshotAndSave()
     {
 
-        yield return new WaitForSecondsRealtime(0.9f);
+        yield return new WaitForSeconds(0.5f);
         captureMoment();
         AudioController.Playsound("Jepret");
-        yield return new WaitForSecondsRealtime(0.3f);
+        yield return new WaitForSeconds(0.5f);
         GameObject.FindGameObjectWithTag("Shutter").GetComponent<Animator>().enabled = true;
+        yield return new WaitForSeconds(0.5f);
         GameObject.FindGameObjectWithTag("Shutter").GetComponent<Animator>().enabled = false;
-        yield return new WaitForSecondsRealtime(1f);
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
         // Wait till the last possible moment before screen rendering to hide the UI
         yield return new WaitForEndOfFrame();
@@ -127,42 +128,43 @@ public class GameController : UiController, IPointerClickHandler
         Texture2D ss = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
         ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
         ss.Apply();
-
+        COGM.InitShotTaken += 1f;
         // Save the screenshot to Gallery/Photos
         string name = string.Format("{0}_Capture{1}_{2}.png", Application.productName, "{0}", System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
         Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName + " Captures", name));
 
         //calculate the point
         
-        StartCoroutine(CameraObjectManager.MyCamReceiver.capturedPointShot());
+        StartCoroutine(COGM.capturedPointShot());
         PC.TakeDamage(10f);
-        yield return new WaitForSecondsRealtime(1.2f);
+        yield return new WaitForSeconds(1.2f);
         // To avoid memory leaks
         Destroy(ss);
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSeconds(2f);
         doneCapture();
-        Time.timeScale = 0f;
+        //kalau pause animasi ga jalan
+        //Time.timeScale = 0f;
         //ToastMessageShower.MyToast.showToastOnUiThread("Photo Saved in" + Application.productName + " Captures");
     }
-    
+
     private IEnumerator TakeScreenshotAndShare()
     {
 
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         captureMoment();
         AudioController.Playsound("Jepret");
-        yield return new WaitForSecondsRealtime(0.3f);
+        yield return new WaitForSeconds(0.3f);
         GameObject.FindGameObjectWithTag("Shutter").GetComponent<Animator>().enabled = true;
+        yield return new WaitForSeconds(0.5f);
         GameObject.FindGameObjectWithTag("Shutter").GetComponent<Animator>().enabled = false;
-        yield return null;
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
         yield return new WaitForEndOfFrame();
 
         Texture2D ss = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
         ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
         ss.Apply();
-
+        COGM.InitShotTaken += 1f;
         string filePath = Path.Combine(Application.temporaryCachePath, "shared img.png");
         File.WriteAllBytes(filePath, ss.EncodeToPNG());
 
@@ -172,14 +174,15 @@ public class GameController : UiController, IPointerClickHandler
             .SetSubject("Subject goes here").SetText("Look At My Great Picture at River Horizon Game by GetDoIt")
             .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget) )
             .Share();
-            StartCoroutine(CameraObjectManager.MyCamReceiver.capturedPointShot());
+            StartCoroutine(COGM.capturedPointShot());
         PC.TakeDamage(8f);
 
-        yield return null;
+        yield return new WaitForSeconds(2f);
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSeconds(2f);
         doneCapture();
-        Time.timeScale = 0f;
+        //kalau pause animasi ga jalan
+        //Time.timeScale = 0f;
         //ToastMessageShower.MyToast.showToastOnUiThread("Photo Saved in" + Application.productName + " Captures");
         // Share on WhatsApp only, if installed (Android only)
         //if( NativeShare.TargetExists( "com.whatsapp" ) )

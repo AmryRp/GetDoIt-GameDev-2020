@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class UIManager : UiController
 {
     private GameManager GM;
+    private PlayerController PL;
+    private CameraObjectManager COGM;
     private static UIManager instance;
     public static UIManager MyUI
     {
@@ -20,6 +22,8 @@ public class UIManager : UiController
     }
     void Start()
     {
+        COGM = CameraObjectManager.MyCamReceiver;
+        PL = PlayerController.MyPlayerControl;
         GM = GameManager.MyGM;
         DontDestroyOnLoad(transform.gameObject);
         if (!UiControllerxist)
@@ -79,5 +83,80 @@ public class UIManager : UiController
         GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = mainmenu;
         GameObject.FindGameObjectWithTag("GameOver").GetComponent<Canvas>().enabled = GOver;
     }
+    public IEnumerator CalculatingPrefabPoint() 
+    {
+         
 
+        yield return null;
+    }
+    public Text DistanceP;
+    float tmpDistance;
+    public Text CollectedPoint;
+    float tmpCP;
+    public Text SsTaken;
+    float tmpSS;
+    public void CalculatePoint()
+    {
+        if (CollectedPoint == null)
+        {
+            CollectedPoint = GameObject.FindGameObjectWithTag("CalculatedPoint").GetComponent<Text>();
+        }
+        if (DistanceP == null)
+        {
+            DistanceP = GameObject.FindGameObjectWithTag("DistancePoint").GetComponent<Text>();
+        }
+        if (SsTaken == null)
+        {
+            SsTaken = GameObject.FindGameObjectWithTag("ScreenShotTaken").GetComponent<Text>();
+        }
+
+        COGM.tempShotTaken = COGM.InitShotTaken;
+        COGM.AllPoint = COGM.PrevousPoint;
+        PL.AllDistance = PL.totalDistance;
+        StartCoroutine(PointTextHandleSS());
+        StartCoroutine(PointTextHandleCP());
+        StartCoroutine(PointTextHandleDP());
+    }
+    public IEnumerator PointTextHandleSS()
+    {
+        tmpSS = 0f;
+        while (true)
+        {
+            if (tmpSS < PL.AllShotTaken)
+            {
+                tmpSS++; //Increment the display score by 1
+                SsTaken.text = Mathf.Round(Mathf.Lerp(tmpSS, PL.AllShotTaken, 0.1f * Time.deltaTime)).ToString();
+            }
+            yield return new WaitForSeconds(0.2f); // I used .2 secs but you can update it as fast as you want
+        }
+
+    }
+    public IEnumerator PointTextHandleCP()
+    {
+        tmpCP = 0f;
+        while (true)
+        {
+            if (tmpCP < COGM.AllPoint)
+            {
+                tmpCP++; //Increment the display score by 1
+                CollectedPoint.text = Mathf.Round(Mathf.Lerp(tmpCP, COGM.AllPoint, 0.1f * Time.deltaTime)).ToString();
+            }
+            yield return new WaitForSeconds(0.2f); // I used .2 secs but you can update it as fast as you want
+        }
+
+    }
+    public IEnumerator PointTextHandleDP()
+    {
+        tmpDistance = 0f;
+        while (true)
+        {
+            if (tmpDistance < PL.AllDistance)
+            {
+                tmpDistance++; //Increment the display score by 1
+                DistanceP.text = Mathf.Round(Mathf.Lerp(tmpDistance, PL.AllDistance, 0.1f * Time.deltaTime)).ToString();
+            }
+            yield return new WaitForSeconds(0.2f); // I used .2 secs but you can update it as fast as you want
+        }
+
+    }
 }
