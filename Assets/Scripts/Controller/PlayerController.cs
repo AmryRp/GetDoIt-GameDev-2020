@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<float>, IStopable<float>
 {
-
     public PlayerController(string name, int point, int movespeed) : base(name, point, movespeed)
     {
 
@@ -81,6 +80,8 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     {
         if (!IsMoving)
         {
+            IsAnimator.SetBool(IDLE, true);
+            IsAnimator.SetBool(MOVING, false);
             MoveBoatSplash.Stop();
         }
         if ( Input.touchCount > 0 && 
@@ -88,7 +89,6 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         {
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
-
                 one_click = true;
                 timer_for_double_click = Time.time;
                 //Debug.Log("Not Touched the UI");
@@ -109,6 +109,8 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 {
                     //Long tap
                     //print("Hold");
+                    IsAnimator.SetBool(MOVING, false);
+                    IsAnimator.SetBool(STOP, true);
                     is_hold = true;
                     StartCoroutine(BreakPlayer(MoveSpeedInWater));
 
@@ -119,11 +121,16 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                         is_hold = false;
                         one_click = false;
                         acumTime = 0f;
+                        IsAnimator.SetBool(STOP, false);
+                        IsAnimator.SetBool(MOVING, false);
                     }
                 }
             }
             if (Input.GetTouch(0).phase == TouchPhase.Ended)
             {
+                IsAnimator.SetBool(IDLE, true);
+                IsAnimator.SetBool(MOVING, false);
+                IsAnimator.SetBool(STOP, false);
                 is_hold = false;
                 acumTime = 0;
             }
@@ -147,7 +154,6 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                         {
                             //print("One Hold Time Safe");
                             StartCoroutine(MovePlayer(MoveSpeed));
-
                             is_hold = false;
                             one_click = false;
                         }
@@ -159,12 +165,16 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 {
                     //Whatever you want after a dubble tap    
                     //print("Dubble tap");
+                    IsAnimator.SetBool(IDLE, false);
+                    IsAnimator.SetBool(MOVING, true);
                     TapCount = 0;
                 }
 
             }
             if (Time.time > NewTime)
             {
+                /*IsAnimator.SetBool(IDLE, true);
+                IsAnimator.SetBool(MOVING, false);*/
                 TapCount = 0;
             }
 
@@ -238,6 +248,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         float elapsedTime = 0;
         while (elapsedTime < MaxAnimTime)
         {
+            
             /*Vector2 tempVect = new Vector2(waterSpeed, 0f);
             tempVect = tempVect.normalized * moveSpeed * Time.deltaTime;*/
 
@@ -247,7 +258,9 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             CanoeBody.AddForce(new Vector2(((MoveSpeedInWater + moveSpeed) * Time.deltaTime), 0), ForceMode2D.Impulse); // Movement
             //MovementSpeedInWater kecepatan canoe berdasarkan deras air atau bisa ditambah dengan moveSpeed kecepatan dari player, seperti dibawah ini
             /*CanoeBody.MovePosition(transform.position + transform.right * ((MoveSpeedInWater + moveSpeed) * Time.deltaTime)); */
-
+            
+            IsAnimator.SetBool(IDLE, false);
+            IsAnimator.SetBool(MOVING, true);
             //transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / moveSpeed));
             elapsedTime += Time.deltaTime;
             MoveEffect -= Time.deltaTime;
@@ -255,7 +268,8 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             
             yield return null;
         }
-
+        IsAnimator.SetBool(IDLE, true);
+        IsAnimator.SetBool(MOVING, false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

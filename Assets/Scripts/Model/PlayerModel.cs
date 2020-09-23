@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class PlayerModel : CharacterModel
 {
+    protected const string IDLE = "IsIdle";
+    protected const string MOVING = "IsMoving";
+    protected const string STOP = "IsStop";
+    protected const string CAPTURE = "IsCapture";
+
     [Header("TouchScreen")]
     public float holdTime = 0.8f; //or whatever
     public float acumTime = 0;
