@@ -5,6 +5,18 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class UIManager : UiController
 {
+    private static UIManager instance;
+    public static UIManager MyUI
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<UIManager>();
+            }
+            return instance;
+        }
+    }
     void Start()
     {
         DontDestroyOnLoad(transform.gameObject);
@@ -20,10 +32,7 @@ public class UIManager : UiController
     }
     public void LateUpdate()
     {
-        
             SwitchScene(SceneManager.GetActiveScene().buildIndex);
-       
-       
     }
     public void SwitchScene(int SceneName) 
     {
@@ -58,6 +67,15 @@ public class UIManager : UiController
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    public void LoadUI(bool gpui, bool pause, bool sett, bool mainmenu, bool capture, bool exit, bool GOver)
+    {
+        GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = gpui;
+        GameObject.FindGameObjectWithTag("CaptureOption").GetComponent<Canvas>().enabled = capture;
+        GameObject.FindGameObjectWithTag("PauseOption").GetComponent<Canvas>().enabled = pause;
+        GameObject.FindGameObjectWithTag("SettingOptionMM").GetComponent<Canvas>().enabled = sett;
+        GameObject.FindGameObjectWithTag("ExitOption").GetComponent<Canvas>().enabled = exit;
+        GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = mainmenu;
+        GameObject.FindGameObjectWithTag("GameOver").GetComponent<Canvas>().enabled = GOver;
+    }
 
-    
 }

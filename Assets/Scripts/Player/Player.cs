@@ -70,8 +70,9 @@ public class Player : PlayerModel, IChangeable<string>
 
     public void Lose()
     {
-        GameController GC = new GameController();
-        GC.LoadUI(false, false, false, false, false, false, true);
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+        UIManager UI = UIManager.MyUI;
+        UI.LoadUI(false, false, false, false, false, false, true);
     }
     //public void GainExp(int exp)
     //{
@@ -163,6 +164,7 @@ public class Player : PlayerModel, IChangeable<string>
             Hidup = false;
             if (this is Player)
             {
+                 
                 Lose();
             }
 

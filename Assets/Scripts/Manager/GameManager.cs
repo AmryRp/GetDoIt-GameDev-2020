@@ -36,11 +36,13 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameController GC = new GameController();
-            GC.LoadUI(false, false, false, false, false, true, false);
+            UIManager UI = UIManager.MyUI;
+            UI.LoadUI(false, false, false, false, false, true, false);
         }
 
     }
     public bool AudioIsPlay;
+    public bool sfxIsPlay;
+    public bool isCapturing;
 
 }

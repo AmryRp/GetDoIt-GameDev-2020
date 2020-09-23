@@ -15777,13 +15777,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8882306654688096764}
-  m_LocalRotation: {x: -0.7061783, y: -0.31435156, z: -0.13368532, w: 0.6201803}
+  m_LocalRotation: {x: -0.6810028, y: -0.22584376, z: -0.22977112, w: 0.6575979}
   m_LocalPosition: {x: 1.43, y: 2.08, z: -1.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4556621513927396440}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: -106.268, y: 45.880997, z: -83.20999}
+  m_LocalEulerAnglesHint: {x: -91.923, y: -28.322021, z: -9.270996}
 --- !u!198 &3149906256062036438
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -16358,7 +16358,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.03
+      scalar: 0.02
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -16416,7 +16416,7 @@ ParticleSystem:
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
-    donutRadius: 0.27
+    donutRadius: 1.72
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
@@ -16498,7 +16498,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 9.46
       mode: 0
       spread: 0
       speed:
@@ -16781,7 +16781,7 @@ ParticleSystem:
       repeatInterval: 0.01
       probability: 1
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -16792,9 +16792,36 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 0.5984802
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.14211881
+          value: 0.35910505
+          inSlope: 0.05530113
+          outSlope: 0.05530113
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.33059302
+          value: 0.6883327
+          inSlope: 0.6022358
+          outSlope: 0.6022358
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.649152
+          value: 0.4071462
+          inSlope: 0.28033745
+          outSlope: 0.28033745
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -16803,7 +16830,7 @@ ParticleSystem:
           time: 1
           value: 1
           inSlope: 1
-          outSlope: 0
+          outSlope: 1
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -19354,7 +19381,7 @@ ParticleSystem:
     separateAxes: 0
     range: {x: 0, y: 1}
   ColorBySpeedModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -19362,7 +19389,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 0.96915424, g: 1, b: 0.68235296, a: 0}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -20990,7 +21017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8753635478766064093, guid: 5b3e6b4be4e9b3d4c8c7919307c16964, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.31
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8753635478766064093, guid: 5b3e6b4be4e9b3d4c8c7919307c16964, type: 3}
       propertyPath: m_LocalScale.z

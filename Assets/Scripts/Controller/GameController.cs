@@ -17,25 +17,26 @@ public class GameController : UiController, IPointerClickHandler
         if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
         {
             //Debug.Log("Touched the UI");
+            UIManager UI = UIManager.MyUI;
             switch (ButtonName)
             {
                 case "SceneChange":
                     LoadPlay(ModeName);
                     break;
                 case "PauseButton":
-                    LoadUI(false, true,false , false, false, false, false);
+                    UI.LoadUI(false, true,false , false, false, false, false);
                     Time.timeScale = 0f;
                     break;
                 case "BackButton":
-                    LoadUI(true, false, false, false, false, false, false);
+                    UI.LoadUI(true, false, false, false, false, false, false);
                     Time.timeScale = 1f;
                     break;
                 case "BackButtonMM":
-                    LoadUI(false, false, false, true, false, false, false);
+                    UI.LoadUI(false, false, false, true, false, false, false);
                     Time.timeScale = 1f;
                     break;
                 case "BackHome":
-                    LoadUI(false, false, false, true, false, false, false);
+                    UI.LoadUI(false, false, false, true, false, false, false);
                     Time.timeScale = 1f;
                     LoadPlay(ModeName);
                     break;
@@ -43,7 +44,7 @@ public class GameController : UiController, IPointerClickHandler
                     print("Open Challenge Box");
                     break;
                 case "Setting":
-                    LoadUI(false, false, true, false, false, false, false);
+                    UI.LoadUI(false, false, true, false, false, false, false);
                     Time.timeScale = 0f;
                     break;
                 case "Gallery":
@@ -53,15 +54,15 @@ public class GameController : UiController, IPointerClickHandler
                     print("unknown");
                     break;
                 case "UnPauseButton":
-                    LoadUI(true, false, false, false, false, false, false);
+                    UI.LoadUI(true, false, false, false, false, false, false);
                     Time.timeScale = 1f;
                     break;
                 case "CaptureButton":
-                    LoadUI(false, false, false, false, true, false, false);
+                    UI.LoadUI(false, false, false, false, true, false, false);
                     Time.timeScale = 0f;
                     break;
                 case "ExitOption":
-                    LoadUI(true, false, false, false, false, false, false);
+                    UI.LoadUI(true, false, false, false, false, false, false);
                     Time.timeScale = 1f;
                     break;
                 case "ShareToInstagram":
@@ -76,13 +77,16 @@ public class GameController : UiController, IPointerClickHandler
                 case "NoButton":
                     if (SceneManager.GetActiveScene().buildIndex == 0)
                     {
-                        LoadUI(false, false, false, true, false, false, false);
+                        UI.LoadUI(false, false, false, true, false, false, false);
                     }
                     else 
                     {
-                        LoadUI(true, false, false, false, false, false, false);
+                        UI.LoadUI(true, false, false, false, false, false, false);
                         Time.timeScale = 1f;
                     }
+                    break;
+                case "RestartButton":
+                    LoadPlay(SceneManager.GetActiveScene().name);
                     break;
                 default:
                     print("Incorrect button Name");
@@ -90,16 +94,7 @@ public class GameController : UiController, IPointerClickHandler
             }
         }
     }
-    public void LoadUI(bool gpui, bool pause,bool sett, bool mainmenu,bool capture,bool exit,bool GOver)
-    {
-        GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = gpui;
-        GameObject.FindGameObjectWithTag("CaptureOption").GetComponent<Canvas>().enabled = capture;
-        GameObject.FindGameObjectWithTag("PauseOption").GetComponent<Canvas>().enabled = pause;
-        GameObject.FindGameObjectWithTag("SettingOptionMM").GetComponent<Canvas>().enabled = sett;
-        GameObject.FindGameObjectWithTag("ExitOption").GetComponent<Canvas>().enabled = exit;
-        GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = mainmenu;
-        GameObject.FindGameObjectWithTag("GameOver").GetComponent<Canvas>().enabled = GOver;
-    }
+   
 
     public void LoadPlay(string Name)
     {
