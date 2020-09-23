@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2500410527827625646}
   - component: {fileID: 4889189265955162828}
   - component: {fileID: 509013750106485365}
+  - component: {fileID: 662250118568151271}
+  - component: {fileID: 743365905359312373}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -4986,6 +4988,47 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &662250118568151271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921833594098171426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50dce9ca81894b04e9155f999110ca64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obstacle: ReverseWater
+  WaterSplash: {fileID: 0}
+  player: {fileID: 0}
+--- !u!61 &743365905359312373
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921833594098171426}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005286224, y: 0.07105949}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.4107504, y: 0.83909005}
+  m_EdgeRadius: 0
 --- !u!1 &2420381542885041727
 GameObject:
   m_ObjectHideFlags: 0
@@ -4997,6 +5040,8 @@ GameObject:
   - component: {fileID: 4034367597692755370}
   - component: {fileID: 1707733749301274843}
   - component: {fileID: 6503014506800979997}
+  - component: {fileID: 8817852234755899049}
+  - component: {fileID: 5936614876944533162}
   m_Layer: 0
   m_Name: Plane (1)
   m_TagString: Untagged
@@ -5069,6 +5114,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8817852234755899049
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2420381542885041727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.8998618, y: 9.56444, z: 3.718054}
+  m_Center: {x: -0.0024450598, y: 4.3094997, z: -0.38635975}
+--- !u!114 &5936614876944533162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2420381542885041727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa03fb23c5df24242b4c13b4938d8347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: waterfall
+  myLevel: 4
+  power: 30
+  isCaptured: 0
+  maxRayCastDefault: 40
 --- !u!1 &2581632461158438604
 GameObject:
   m_ObjectHideFlags: 0
@@ -5245,7 +5320,7 @@ GameObject:
   - component: {fileID: 4098988580616501810}
   m_Layer: 0
   m_Name: Audio Source
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5274,15 +5349,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a8dd65a0e3b15ff43ad3064b02f84017, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7e2083dcfb715e74da3db0079666508d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.139
+  m_Volume: 0.052
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 188
+  Priority: 241
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5349,8 +5424,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1
+      time: 0.09532738
+      value: 0.543499
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5372,7 +5447,7 @@ GameObject:
   - component: {fileID: 6156020720131056506}
   m_Layer: 0
   m_Name: Audio Source
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5401,15 +5476,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a8dd65a0e3b15ff43ad3064b02f84017, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7e2083dcfb715e74da3db0079666508d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.139
+  m_Volume: 0.052
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 188
+  Priority: 241
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5476,8 +5551,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1
+      time: 0.09532738
+      value: 0.543499
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5498,6 +5573,8 @@ GameObject:
   - component: {fileID: 7240015298986577032}
   - component: {fileID: 1827242323943230975}
   - component: {fileID: 5511885960879500127}
+  - component: {fileID: 1913598268124626775}
+  - component: {fileID: 5705901268986980647}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -10473,6 +10550,47 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!61 &1913598268124626775
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5170084052850909266}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.028650057, y: 0.031427056}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.9269075, y: 0.919041}
+  m_EdgeRadius: 0
+--- !u!114 &5705901268986980647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5170084052850909266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50dce9ca81894b04e9155f999110ca64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obstacle: AfterWaterfall
+  WaterSplash: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &6020237063807966352
 GameObject:
   m_ObjectHideFlags: 0
@@ -10484,6 +10602,8 @@ GameObject:
   - component: {fileID: 3416395744566512326}
   - component: {fileID: 2114566521744650923}
   - component: {fileID: 3046268941382772674}
+  - component: {fileID: 92916378886462507}
+  - component: {fileID: 649432303868844601}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -15459,6 +15579,47 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!61 &92916378886462507
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6020237063807966352}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.1762385, y: 0.08931509}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.6765459, y: 0.80090445}
+  m_EdgeRadius: 0
+--- !u!114 &649432303868844601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6020237063807966352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50dce9ca81894b04e9155f999110ca64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obstacle: AfterWaterfall
+  WaterSplash: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &6834732537741505827
 GameObject:
   m_ObjectHideFlags: 0
@@ -15553,7 +15714,7 @@ GameObject:
   - component: {fileID: 5637453827235204331}
   m_Layer: 0
   m_Name: Audio Source
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15582,15 +15743,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a8dd65a0e3b15ff43ad3064b02f84017, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7e2083dcfb715e74da3db0079666508d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.139
+  m_Volume: 0.052
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 188
+  Priority: 241
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -15657,8 +15818,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1
+      time: 0.09532738
+      value: 0.543499
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -15679,6 +15840,8 @@ GameObject:
   - component: {fileID: 1696680509242560182}
   - component: {fileID: 791027781271696852}
   - component: {fileID: 4568785651414704627}
+  - component: {fileID: 9004431534311296189}
+  - component: {fileID: 4814450940442835146}
   m_Layer: 0
   m_Name: Plane (2)
   m_TagString: Untagged
@@ -15751,6 +15914,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9004431534311296189
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146224934886742875}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.8998628, y: 9.56444, z: 3.7180545}
+  m_Center: {x: -0.0024450317, y: 4.3094997, z: -0.38635933}
+--- !u!114 &4814450940442835146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146224934886742875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa03fb23c5df24242b4c13b4938d8347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: waterfall
+  myLevel: 4
+  power: 16
+  isCaptured: 0
+  maxRayCastDefault: 40
 --- !u!1 &8738825322244276329
 GameObject:
   m_ObjectHideFlags: 0
@@ -15762,6 +15955,8 @@ GameObject:
   - component: {fileID: 4445206362926167487}
   - component: {fileID: 7697802058978479947}
   - component: {fileID: 2736705225608678186}
+  - component: {fileID: 2126681422578915058}
+  - component: {fileID: 5086104015069496808}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -15834,6 +16029,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2126681422578915058
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8738825322244276329}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.8998618, y: 9.564441, z: 3.7180533}
+  m_Center: {x: -0.0024450435, y: 4.3095, z: -0.38635966}
+--- !u!114 &5086104015069496808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8738825322244276329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa03fb23c5df24242b4c13b4938d8347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: waterfall
+  myLevel: 4
+  power: 24
+  isCaptured: 0
+  maxRayCastDefault: 40
 --- !u!1 &8803758520094174167
 GameObject:
   m_ObjectHideFlags: 0

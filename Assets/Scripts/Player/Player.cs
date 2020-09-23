@@ -48,8 +48,6 @@ public class Player : PlayerModel, IChangeable<string>
   
     //public Status MyExp { get { return ExpStat; } set => ExpStat = value; }
 
-    public int MyScene { get { return scene; } set => scene = value; }
-
 
     // Use this for initialization
     protected virtual void Start()
@@ -139,14 +137,14 @@ public class Player : PlayerModel, IChangeable<string>
 
     //}
 
-    public void ActivateLayer(string layerName)
-    {
-        for (int i = 0; i < IsAnimator.layerCount; i++)
-        {
-            IsAnimator.SetLayerWeight(i, 0);
-        }
-        IsAnimator.SetLayerWeight(IsAnimator.GetLayerIndex(layerName), 1);
-    }
+    //public void ActivateLayer(string layerName)
+    //{
+    //    for (int i = 0; i < IsAnimator.layerCount; i++)
+    //    {
+    //        IsAnimator.SetLayerWeight(i, 0);
+    //    }
+    //    IsAnimator.SetLayerWeight(IsAnimator.GetLayerIndex(layerName), 1);
+    //}
 
 
     public virtual void TakeDamage(float damage/*, Transform source*/)
@@ -172,7 +170,7 @@ public class Player : PlayerModel, IChangeable<string>
 
 
     }
-    public void getEnergy(int h)
+    public void getEnergy(float h)
     {
         myEnergy.MyCurrentValue += h;
         //text tambah energy

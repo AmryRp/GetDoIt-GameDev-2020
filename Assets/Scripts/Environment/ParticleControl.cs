@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class ParticleControl : MonoBehaviour
 {
     [Header("Particle COntrol")]
@@ -20,11 +21,12 @@ public class ParticleControl : MonoBehaviour
     {
       
         // Cache references to all desired variables
-        player = FindObjectOfType<PlayerController>();
+        player = PlayerController.MyPlayerControl;
         Obstacle = gameObject.tag;
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.gameObject.tag == "Player")
         {
             switch (Obstacle)
@@ -41,19 +43,30 @@ public class ParticleControl : MonoBehaviour
                 case "WaterDrop":
                     player.MoveSpeedInWater = 2f;
                     break;
+                case "Stone":
+                    player.TakeDamage(20f);
+                    break;
+                case "Energy":
+                    player.getEnergy(15f);
+
+                    break;
                 case "Water Volume":
-                    if (player.CanoeBody.velocity.y < -2)
+                    if (player.CanoeBody.velocity.y < -1)
                     {
                         WaterSplash.gameObject.SetActive(true);
                         WaterSplash.Play();
-                        print(player.CanoeBody.velocity);
+                        //print(player.CanoeBody.velocity);
                     }
                     break;
                 default:
                     player.MoveSpeedInWater = 0.5f;
                     break;
             }
-            Debug.Log("crash");
+            BuoyancyEffector2D effectWater;
+            effectWater = GameObject.FindGameObjectWithTag("Water").GetComponent<BuoyancyEffector2D>();
+            effectWater.flowMagnitude = player.MoveSpeedInWater;
+            AudioController.Playsound("DropSound");
+            //Debug.Log("crash");
         }
     }
 }

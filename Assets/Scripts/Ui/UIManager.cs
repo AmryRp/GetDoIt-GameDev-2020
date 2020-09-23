@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class UIManager : UiController
 {
+    private GameManager GM;
     private static UIManager instance;
     public static UIManager MyUI
     {
@@ -19,6 +20,7 @@ public class UIManager : UiController
     }
     void Start()
     {
+        GM = GameManager.MyGM;
         DontDestroyOnLoad(transform.gameObject);
         if (!UiControllerxist)
         {
@@ -57,7 +59,7 @@ public class UIManager : UiController
     }
     public void Activating(bool Menu, bool Gameplay)
     {
-        if (!GameManager.MyGM.IsPaused)
+        if (!GM.IsPaused && !GM.isCapturing)
         {
             GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = Menu;
             GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = Gameplay;

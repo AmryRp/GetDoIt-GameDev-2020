@@ -111,5 +111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tree3
   myLevel: 1
-  power: 10
+  power: 18
+  isCaptured: 0
   maxRayCastDefault: 40

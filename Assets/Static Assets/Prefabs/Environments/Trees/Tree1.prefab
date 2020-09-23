@@ -98,7 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tree1
   myLevel: 1
-  power: 10
+  power: 15
+  isCaptured: 0
   maxRayCastDefault: 40
 --- !u!65 &3306902254312720266
 BoxCollider:

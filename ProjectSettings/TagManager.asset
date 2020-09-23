@@ -27,6 +27,12 @@ TagManager:
   - Objects
   - GameOver
   - Shutter
+  - BGM
+  - SFX
+  - SliderBGM
+  - SliderSFX
+  - ToggleBGM
+  - ToggleSFX
   layers:
   - Default
   - TransparentFX
