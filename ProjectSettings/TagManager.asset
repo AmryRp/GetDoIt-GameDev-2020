@@ -36,6 +36,9 @@ TagManager:
   - DistancePoint
   - ScreenShotTaken
   - CalculatedPoint
+  - ShowImage
+  - UICAnvas
+  - MyPoints
   layers:
   - Default
   - TransparentFX

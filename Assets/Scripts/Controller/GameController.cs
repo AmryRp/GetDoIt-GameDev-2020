@@ -1,5 +1,5 @@
 
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -10,23 +10,31 @@ public class GameController : UiController, IPointerClickHandler
 {
     public string ModeName;
     public string ButtonName;
+    [SerializeField]
     private CameraObjectManager COGM;
+    [SerializeField]
     private PlayerController PC;
+    [SerializeField]
+    private UIManager UI;
+    [SerializeField]
+    GameManager GM;
     public RawImage Img;
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+        if (Input.GetMouseButton(0) || Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
         {
             //Debug.Log("Touched the UI");
-            UIManager UI = UIManager.MyUI;
-            GameManager GM = GameManager.MyGM;
+            UI = UIManager.MyUI;
+            GM = GameManager.MyGM;
+            PC = PlayerController.MyPlayerControl;
+            COGM = CameraObjectManager.MyCamReceiver;
             switch (ButtonName)
             {
                 case "SceneChange":
                     LoadPlay(ModeName);
                     break;
                 case "PauseButton":
-                    UI.LoadUI(false, true,false , false, false, false, false);
+                    UI.LoadUI(false, true, false, false, false, false, false);
                     Time.timeScale = 0f;
                     break;
                 case "BackButton":
@@ -60,31 +68,39 @@ public class GameController : UiController, IPointerClickHandler
                     Time.timeScale = 1f;
                     break;
                 case "CaptureButton":
+                    PC = PlayerController.MyPlayerControl;
+                    PC.IsAnimator.SetBool("IsCapture", true);
+                    PC.IsAnimator.SetBool("IsMoving", false);
+                    PC.IsAnimator.SetBool("IsStop", false);
                     GM.isCapturing = true;
-                    UI.LoadUI(false, false, false, false, true, false, false);
-                    
+                    //captureMoment();
                     break;
                 case "ExitOption":
-                    doneCapture();
+                    //doneCapture();
+                    PC = PlayerController.MyPlayerControl;
+                    PC.IsAnimator.SetBool("IsCapture", false);
                     GM.isCapturing = false;
                     UI.LoadUI(true, false, false, false, false, false, false);
                     Time.timeScale = 1f;
                     break;
                 case "ShareToInstagram":
+                    COGM = CameraObjectManager.MyCamReceiver;
                     StartCoroutine(TakeScreenshotAndShare());
                     break;
                 case "SaveToGallery":
+                    COGM = CameraObjectManager.MyCamReceiver;
                     StartCoroutine(TakeScreenshotAndSave());
                     break;
                 case "YesButton":
                     Application.Quit();
                     break;
                 case "NoButton":
+                    UI = UIManager.MyUI;
                     if (SceneManager.GetActiveScene().buildIndex == 0)
                     {
                         UI.LoadUI(false, false, false, true, false, false, false);
                     }
-                    else 
+                    else
                     {
                         UI.LoadUI(true, false, false, false, false, false, false);
                         Time.timeScale = 1f;
@@ -93,34 +109,40 @@ public class GameController : UiController, IPointerClickHandler
                 case "RestartButton":
                     LoadPlay(SceneManager.GetActiveScene().name);
                     break;
+                case "SaveToPrefab":
+                    //Saving Point to Prefab
+                    PC = PlayerController.MyPlayerControl;
+                    //UI = UIManager.MyUI;
+                    //StartCoroutine(UI.CalculatingPrefabPoint());
+
+                    if (ModeName.Equals("BackHomeOG"))
+                    {
+                        LoadPlay("MainMenu");
+                    }
+                    else 
+                    {
+                        LoadPlay(SceneManager.GetActiveScene().name);
+                    }
+                    break;
                 default:
                     print("Incorrect button Name");
                     break;
             }
         }
     }
-    private void Awake()
-    {
-        PC = PlayerController.MyPlayerControl;
-        COGM = CameraObjectManager.MyCamReceiver;
-    }
 
     public void LoadPlay(string Name)
     {
-
         SceneManager.LoadScene(Name, LoadSceneMode.Single);
+
     }
-  
     private IEnumerator TakeScreenshotAndSave()
     {
-
-        yield return new WaitForSeconds(0.5f);
-        captureMoment();
         AudioController.Playsound("Jepret");
-        yield return new WaitForSeconds(0.5f);
-        GameObject.FindGameObjectWithTag("Shutter").GetComponent<Animator>().enabled = true;
-        yield return new WaitForSeconds(0.5f);
-        GameObject.FindGameObjectWithTag("Shutter").GetComponent<Animator>().enabled = false;
+        Animator Jepret = GameObject.FindGameObjectWithTag("Shutter").GetComponent<Animator>();
+        Jepret.SetBool("Shutter", true);
+        yield return new WaitForSeconds(0.3f);
+        Time.timeScale = 1f;
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
         // Wait till the last possible moment before screen rendering to hide the UI
         yield return new WaitForEndOfFrame();
@@ -128,43 +150,45 @@ public class GameController : UiController, IPointerClickHandler
         Texture2D ss = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
         ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
         ss.Apply();
-        COGM.InitShotTaken += 1f;
+        COGM = CameraObjectManager.MyCamReceiver;
         // Save the screenshot to Gallery/Photos
         string name = string.Format("{0}_Capture{1}_{2}.png", Application.productName, "{0}", System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
         Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName + " Captures", name));
 
         //calculate the point
-        
+
         StartCoroutine(COGM.capturedPointShot());
         PC.TakeDamage(10f);
-        yield return new WaitForSeconds(1.2f);
         // To avoid memory leaks
         Destroy(ss);
+        yield return null;
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-        yield return new WaitForSeconds(2f);
-        doneCapture();
         //kalau pause animasi ga jalan
         //Time.timeScale = 0f;
         //ToastMessageShower.MyToast.showToastOnUiThread("Photo Saved in" + Application.productName + " Captures");
     }
-
+    public void NullHandler()
+    {
+        COGM = GameObject.FindGameObjectWithTag("DistanceReceiver").GetComponent<CameraObjectManager>();
+        PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        print(PC);
+        print(COGM);    }
     private IEnumerator TakeScreenshotAndShare()
     {
-
-        yield return new WaitForSeconds(1f);
-        captureMoment();
+        NullHandler();
         AudioController.Playsound("Jepret");
+        Animator Jepret = GameObject.FindGameObjectWithTag("Shutter").GetComponent<Animator>();
+        Jepret.SetBool("Shutter", true);
         yield return new WaitForSeconds(0.3f);
-        GameObject.FindGameObjectWithTag("Shutter").GetComponent<Animator>().enabled = true;
-        yield return new WaitForSeconds(0.5f);
-        GameObject.FindGameObjectWithTag("Shutter").GetComponent<Animator>().enabled = false;
+        Time.timeScale = 1f;
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
+        // Wait till the last possible moment before screen rendering to hide the UI
         yield return new WaitForEndOfFrame();
 
         Texture2D ss = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
         ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
         ss.Apply();
-        COGM.InitShotTaken += 1f;
+        COGM = CameraObjectManager.MyCamReceiver;
         string filePath = Path.Combine(Application.temporaryCachePath, "shared img.png");
         File.WriteAllBytes(filePath, ss.EncodeToPNG());
 
@@ -172,52 +196,24 @@ public class GameController : UiController, IPointerClickHandler
         Destroy(ss);
         new NativeShare().AddFile(filePath)
             .SetSubject("Subject goes here").SetText("Look At My Great Picture at River Horizon Game by GetDoIt")
-            .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget) )
+            .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
             .Share();
-            StartCoroutine(COGM.capturedPointShot());
+        StartCoroutine(COGM.capturedPointShot());
         PC.TakeDamage(8f);
 
-        yield return new WaitForSeconds(2f);
+        yield return null;
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-        yield return new WaitForSeconds(2f);
-        doneCapture();
-        //kalau pause animasi ga jalan
-        //Time.timeScale = 0f;
-        //ToastMessageShower.MyToast.showToastOnUiThread("Photo Saved in" + Application.productName + " Captures");
-        // Share on WhatsApp only, if installed (Android only)
-        //if( NativeShare.TargetExists( "com.whatsapp" ) )
-        //	new NativeShare().AddFile( filePath ).AddTarget( "com.whatsapp" ).Share();
     }
     public void captureMoment()
     {
-        PC.IsAnimator.SetBool("IsCapture", true);
-        PC.IsAnimator.SetBool("IsMoving", false);
-        PC.IsAnimator.SetBool("IsStop", false);
+            PC.IsAnimator.SetBool("IsCapture", true);
+            PC.IsAnimator.SetBool("IsMoving", false);
+            PC.IsAnimator.SetBool("IsStop", false);
     }
     public void doneCapture()
     {
+        NullHandler();
         PC.IsAnimator.SetBool("IsCapture", false);
     }
 
-    //public IEnumerator CaptureScreen()
-    //{
-    //    // Wait till the last possible moment before screen rendering to hide the UI
-    //    yield return null;
-    //    GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
-
-    //    // Wait for screen rendering to complete
-    //    yield return new WaitForEndOfFrame();
-    //    System.DateTime today = System.DateTime.Now;
-    //    string day = today.ToString().Replace("/", "");
-    //    string completeday = day.Replace(":", "");
-    //    // Take screenshot
-    //    //ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/RiverCapture" + completeday.Replace(" ", "") + ".png");
-    //    string TempName = "RiverCapture" + completeday.Replace(" ", "") + ".png";
-    //    StartCoroutine(TakeScreenshotAndSave());
-    //    yield return new WaitForEndOfFrame();
-    //    if (NativeGallery.IsMediaPickerBusy()) { yield return null; }
-
-    //    // Show UI after we're done
-    //    GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-    //}
 }

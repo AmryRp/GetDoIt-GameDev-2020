@@ -31,7 +31,10 @@ public class CameraController : MonoBehaviour
     }
     void Update()
     {
-        
+        if (followTarget == null)
+        {
+            followTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        }
         cameraMove();
     }
     public void cameraMove()

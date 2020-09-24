@@ -22,19 +22,20 @@ public class UIManager : UiController
     }
     void Start()
     {
+        NullHandler();
         COGM = CameraObjectManager.MyCamReceiver;
         PL = PlayerController.MyPlayerControl;
         GM = GameManager.MyGM;
-        DontDestroyOnLoad(transform.gameObject);
-        if (!UiControllerxist)
-        {
-            UiControllerxist = true;
-            DontDestroyOnLoad(transform.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //DontDestroyOnLoad(transform.gameObject);
+        //if (!UiControllerxist)
+        //{
+        //    UiControllerxist = true;
+        //    DontDestroyOnLoad(transform.gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
     public void LateUpdate()
     {
@@ -85,8 +86,8 @@ public class UIManager : UiController
     }
     public IEnumerator CalculatingPrefabPoint() 
     {
-         
 
+        CalculatePoint();
         yield return null;
     }
     public Text DistanceP;
@@ -95,7 +96,8 @@ public class UIManager : UiController
     float tmpCP;
     public Text SsTaken;
     float tmpSS;
-    public void CalculatePoint()
+
+    public void NullHandler()
     {
         if (CollectedPoint == null)
         {
@@ -108,6 +110,13 @@ public class UIManager : UiController
         if (SsTaken == null)
         {
             SsTaken = GameObject.FindGameObjectWithTag("ScreenShotTaken").GetComponent<Text>();
+        }
+    }
+    public void CalculatePoint()
+    {
+        if ((CollectedPoint == null)||(DistanceP == null)||(SsTaken == null))
+        {
+            NullHandler();
         }
 
         COGM.tempShotTaken = COGM.InitShotTaken;

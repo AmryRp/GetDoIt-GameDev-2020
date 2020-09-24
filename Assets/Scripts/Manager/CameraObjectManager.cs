@@ -19,7 +19,7 @@ public class CameraObjectManager : MonoBehaviour
     public float AllPoint;
     public Text PointText;
     public float PrevousPoint;
-    public int MaxObjects;
+    public int MaxObjects = 45;
     public float InitShotTaken;
     public float tempShotTaken;
     private static CameraObjectManager instance;
@@ -37,6 +37,8 @@ public class CameraObjectManager : MonoBehaviour
     }
     private void Start()
     {
+        AllPoint = 0f;
+        //PointText.text = "0";
         InitShotTaken = 0f;
         ObjectCatchs = new Dictionary<string, float>();
         KeyVal = new List<string>();
@@ -80,6 +82,8 @@ public class CameraObjectManager : MonoBehaviour
             capturePoint = (tmpVal + IPower) / CountObjects;
             PrevousPoint = AllPoint;
             AllPoint += capturePoint;
+            InitShotTaken += 1f;
+            tempShotTaken = InitShotTaken;
         }
         CalculatePoint();
         yield return null;

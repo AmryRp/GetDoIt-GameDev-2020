@@ -65,12 +65,12 @@ public class Player : PlayerModel, IChangeable<string>
             Lose();
         }
     }
-
     public void Lose()
     {
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-        UIManager UI = UIManager.MyUI;
+        UI = UIManager.MyUI;
         UI.LoadUI(false, false, false, false, false, false, true);
+        StartCoroutine(UI.CalculatingPrefabPoint());
     }
     //public void GainExp(int exp)
     //{

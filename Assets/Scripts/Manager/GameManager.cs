@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
@@ -17,8 +18,17 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
+    [SerializeField]
+    private UIManager UI;
+    [SerializeField]
+    private Animator isShowing;
+    [SerializeField]
+    private PlayerController PC;
     private void Start()
     {
+        PC = PlayerController.MyPlayerControl;
+        UI = UIManager.MyUI;
+        isShowing = GameObject.FindGameObjectWithTag("ShowImage").GetComponent<Animator>();
         IsPaused = false;
     }
     public bool IsPaused;
@@ -34,12 +44,41 @@ public class GameManager : MonoBehaviour
             IsPaused = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return))
         {
-            UIManager UI = UIManager.MyUI;
-            UI.LoadUI(false, false, false, false, false, true, false);
+            if (UI = null)
+            {
+                UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+            }
+            else { UI = UIManager.MyUI; }
+            
+            if (SceneManager.GetActiveScene().buildIndex != 0)
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+            else 
+            {
+                UI.LoadUI(false, false, false, false, false, true, false);
+            }
+        }
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            PC.IsAnimator.SetBool("IsCapture", true);
+            PC.IsAnimator.SetBool("IsMoving", false);
+            PC.IsAnimator.SetBool("IsStop", false);
         }
 
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            UI.LoadUI(true, false, false, false, false, false, false);
+            isShowing.SetBool("ShowImage", false);
+            Time.timeScale = 1f;
+        }
+    }
+    public IEnumerator PauseTime()
+    {
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0f;
     }
     public bool AudioIsPlay;
     public bool sfxIsPlay;

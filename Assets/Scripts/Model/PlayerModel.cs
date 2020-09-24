@@ -97,7 +97,8 @@ public class PlayerModel : CharacterModel
     public float totalDistance;
     public float AllDistance;
     [Header("Player Point Records System")]
-    
+    [SerializeField]
+    public UIManager UI;
     public float AllShotTaken;
     public float AllSavedDistance;
     public float AllPointCollected;
