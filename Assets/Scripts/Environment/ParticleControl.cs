@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class ParticleControl : MonoBehaviour
 {
-    [Header("Particle COntrol")]
+    [Header("Particle Control")]
     [SerializeField]
     string Obstacle;
     [SerializeField]
@@ -19,26 +19,24 @@ public class ParticleControl : MonoBehaviour
 
     void Awake()
     {
-
         // Cache references to all desired variables
         player = PlayerController.MyPlayerControl;
         Obstacle = gameObject.tag;
     }
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
-
         if (collision.gameObject.tag == "Player")
         {
             switch (Obstacle)
             {
-                case "MuddyWatter":
-                    player.MoveSpeedInWater = 0.5f;
+                case "MuddyWater":
+                    player.MoveSpeedInWater = 0.1f;
                     break;
-                case "ReverseWatter":
+                case "ReverseWater":
                     player.MoveSpeedInWater = -0.6f;
                     break;
                 case "AfterWaterfall":
-                    player.MoveSpeedInWater = 2f;
+                    player.MoveSpeedInWater = 3f;
                     break;
                 case "WaterDrop":
                     player.MoveSpeedInWater = 2f;
@@ -57,17 +55,16 @@ public class ParticleControl : MonoBehaviour
                         AudioController.Playsound("DropSound");
                         WaterSplash.gameObject.SetActive(true);
                         WaterSplash.Play();
-                        //print(player.CanoeBody.velocity);
                     }
                     break;
                 default:
-                    player.MoveSpeedInWater = 0.5f;
+                    player.MoveSpeedInWater = 1f;
                     break;
             }
             BuoyancyEffector2D effectWater;
             effectWater = GameObject.FindGameObjectWithTag("Water").GetComponent<BuoyancyEffector2D>();
+            Debug.Log(effectWater.flowMagnitude + " crash with " + Obstacle);
             effectWater.flowMagnitude = player.MoveSpeedInWater;
-            //Debug.Log("crash");
         }
     }
 }

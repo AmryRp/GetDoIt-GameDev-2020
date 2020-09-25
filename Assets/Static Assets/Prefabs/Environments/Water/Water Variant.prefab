@@ -5952,6 +5952,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2741697004374901455, guid: 5b3e6b4be4e9b3d4c8c7919307c16964, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2783345743137915391, guid: 5b3e6b4be4e9b3d4c8c7919307c16964, type: 3}
       propertyPath: m_Offset.x
       value: 0.5001806
@@ -6003,6 +6007,10 @@ PrefabInstance:
     - target: {fileID: 5623449789512704645, guid: 5b3e6b4be4e9b3d4c8c7919307c16964, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0828
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802185210442034068, guid: 5b3e6b4be4e9b3d4c8c7919307c16964, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6260741487056516217, guid: 5b3e6b4be4e9b3d4c8c7919307c16964, type: 3}
       propertyPath: m_Enabled

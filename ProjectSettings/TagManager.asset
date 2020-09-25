@@ -39,6 +39,11 @@ TagManager:
   - ShowImage
   - UICAnvas
   - MyPoints
+  - MuddyWater
+  - ReverseWater
+  - AfterWaterfall
+  - Stone
+  - Energy
   layers:
   - Default
   - TransparentFX
