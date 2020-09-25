@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public bool IsPaused;
     private void Update()
     {
+        
         if (Time.timeScale == 0f)
         {
             IsPaused = true;
@@ -96,5 +97,5 @@ public class GameManager : MonoBehaviour
     public bool AudioIsPlay;
     public bool sfxIsPlay;
     public bool isCapturing;
-
+    public bool isDeath = false;
 }

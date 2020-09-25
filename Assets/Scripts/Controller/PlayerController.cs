@@ -60,13 +60,16 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         //untuk mobile touch 
       
         GM = GameManager.MyGM;
-        print(!GM.IsPaused);
         if (!GM.IsPaused && Hidup)
         {
             TouchScreen();
             DistanceTravel();
             StartCoroutine(DrainIt());
             CameraObjectManager.MyCamReceiver.CalculateMeter();
+        }
+        else if (!Hidup)
+        {
+            GM.isDeath = true;
         }
         //untuk drain energy
         //Drain();

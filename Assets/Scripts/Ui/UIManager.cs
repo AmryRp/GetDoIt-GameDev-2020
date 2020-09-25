@@ -64,7 +64,7 @@ public class UIManager : UiController
     }
     public void Activating(bool Menu, bool Gameplay)
     {
-        if (!GM.IsPaused && !GM.isCapturing && PL.Hidup)
+        if (!GM.IsPaused && !GM.isCapturing && !GM.isDeath)
         {
             GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = Menu;
             GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = Gameplay;
