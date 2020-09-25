@@ -67,7 +67,9 @@ public class PlayerModel : CharacterModel
     [SerializeField]
     protected float EnergyDrain = 0f;
     protected float batas = 4f;
-
+    public float maxDrainSpeedTime = 100f;
+    public float timeWaitingDrain =1.2f;
+    public GameManager GM;
 
     public PlayerModel(string name, int point, int movespeed) : base(name, point, movespeed)
     {

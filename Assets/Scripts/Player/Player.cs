@@ -67,6 +67,7 @@ public class Player : PlayerModel, IChangeable<string>
     }
     public void Lose()
     {
+        Time.timeScale = 1f;
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
         UI = UIManager.MyUI;
         UI.LoadUI(false, false, false, false, false, false, true);

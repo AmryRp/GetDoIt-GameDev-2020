@@ -58,8 +58,10 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         //untuk handle animasi
         //HandleLayers();
         //untuk mobile touch 
-        //print(!GameManager.MyGM.IsPaused);
-        if (!GameManager.MyGM.IsPaused)
+      
+        GM = GameManager.MyGM;
+        print(!GM.IsPaused);
+        if (!GM.IsPaused && Hidup)
         {
             TouchScreen();
             DistanceTravel();
@@ -287,11 +289,11 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     public IEnumerator DrainIt()
     {
         float elapsedTime = 0;
-        while (elapsedTime < 100f)
+        while (elapsedTime < maxDrainSpeedTime && Hidup && !GM.IsPaused)
         {
             Drain();
             elapsedTime += Time.deltaTime;
-            yield return new WaitForSecondsRealtime(1.3f);
+            yield return new WaitForSecondsRealtime(timeWaitingDrain);
         }
     }
 
