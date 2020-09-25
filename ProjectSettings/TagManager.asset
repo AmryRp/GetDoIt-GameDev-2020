@@ -44,6 +44,7 @@ TagManager:
   - AfterWaterfall
   - Stone
   - Energy
+  - PanelTransisi
   layers:
   - Default
   - TransparentFX

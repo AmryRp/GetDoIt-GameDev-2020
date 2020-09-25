@@ -64,7 +64,7 @@ public class UIManager : UiController
     }
     public void Activating(bool Menu, bool Gameplay)
     {
-        if (!GM.IsPaused && !GM.isCapturing)
+        if (!GM.IsPaused && !GM.isCapturing && PL.Hidup)
         {
             GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = Menu;
             GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = Gameplay;
@@ -131,7 +131,7 @@ public class UIManager : UiController
         tmpSS = 0f;
         while (true)
         {
-            if (tmpSS < PL.AllShotTaken)
+            if (tmpSS <= PL.AllShotTaken)
             {
                 tmpSS++; //Increment the display score by 1
                 SsTaken.text = Mathf.Round(Mathf.Lerp(tmpSS, PL.AllShotTaken, 0.1f * Time.deltaTime)).ToString();
@@ -145,7 +145,7 @@ public class UIManager : UiController
         tmpCP = 0f;
         while (true)
         {
-            if (tmpCP < COGM.AllPoint)
+            if (tmpCP <= COGM.AllPoint)
             {
                 tmpCP++; //Increment the display score by 1
                 CollectedPoint.text = Mathf.Round(Mathf.Lerp(tmpCP, COGM.AllPoint, 0.1f * Time.deltaTime)).ToString();
@@ -159,7 +159,7 @@ public class UIManager : UiController
         tmpDistance = 0f;
         while (true)
         {
-            if (tmpDistance < PL.AllDistance)
+            if (tmpDistance <= PL.AllDistance)
             {
                 tmpDistance++; //Increment the display score by 1
                 DistanceP.text = Mathf.Round(Mathf.Lerp(tmpDistance, PL.AllDistance, 0.1f * Time.deltaTime)).ToString();

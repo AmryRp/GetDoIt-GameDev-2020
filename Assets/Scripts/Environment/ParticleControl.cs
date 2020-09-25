@@ -63,7 +63,7 @@ public class ParticleControl : MonoBehaviour
             }
             BuoyancyEffector2D effectWater;
             effectWater = GameObject.FindGameObjectWithTag("Water").GetComponent<BuoyancyEffector2D>();
-            Debug.Log(effectWater.flowMagnitude + " crash with " + Obstacle);
+            //Debug.Log(effectWater.flowMagnitude + " crash with " + Obstacle);
             effectWater.flowMagnitude = player.MoveSpeedInWater;
         }
     }

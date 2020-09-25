@@ -120,7 +120,8 @@ public class CameraObjectManager : MonoBehaviour
         }
         if (isGolden)
         {
-            print("perfect");
+            //tampilkan teks
+            //print("perfect");
         }
         StartCoroutine(HandleBar());
     }

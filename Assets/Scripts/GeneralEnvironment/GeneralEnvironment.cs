@@ -42,12 +42,12 @@ public class GeneralEnvironment : MonoBehaviour, IComparable<GeneralEnvironment>
             Ray ray = new Ray(transform.position, other.transform.position);
             float distance = Vector3.Distance(transform.position, other.transform.position);
             RaycastHit hit;
-            Debug.DrawLine(transform.position, other.transform.position,Color.red);
+           // Debug.DrawLine(transform.position, other.transform.position,Color.red);
             isCaptured = true;
             // jika tidak terhalangi jarak pandang object ke camera
             if (!Physics.Raycast(ray, out hit, distance))
             {
-                Debug.DrawLine(hit.point,hit.point+Vector3.up*7,Color.white);
+               // Debug.DrawLine(hit.point,hit.point+Vector3.up*7,Color.white);
                 int rand = UnityEngine.Random.Range(0, 9999);
                 name = name + "_" + Mathf.Round(distance).ToString() + "_" + power.ToString() + "_" + rand.ToString();
                 //print("Found Object : " + name);

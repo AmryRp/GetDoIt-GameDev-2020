@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     private Animator isShowing;
     [SerializeField]
     private PlayerController PC;
+    [SerializeField]
+    private Animator animator;
     private void Start()
     {
         PC = PlayerController.MyPlayerControl;
@@ -63,9 +65,10 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            PC.IsAnimator.SetBool("IsCapture", true);
-            PC.IsAnimator.SetBool("IsMoving", false);
-            PC.IsAnimator.SetBool("IsStop", false);
+            StartCoroutine(LoadSceneAFterTransition());
+            //PC.IsAnimator.SetBool("IsCapture", true);
+            //PC.IsAnimator.SetBool("IsMoving", false);
+            //PC.IsAnimator.SetBool("IsStop", false);
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
@@ -74,6 +77,16 @@ public class GameManager : MonoBehaviour
             isShowing.SetBool("ShowImage", false);
             Time.timeScale = 1f;
         }
+    }
+
+    private IEnumerator LoadSceneAFterTransition()
+    {
+        animator = GameObject.FindGameObjectWithTag("PanelTransisi").GetComponent<Animator>();
+        //show animate out animation
+        animator.SetBool("TutupYach", true);
+        yield return new WaitForSecondsRealtime(1f);
+        //load the scene we want
+        SceneManager.LoadScene(1);
     }
     public IEnumerator PauseTime()
     {

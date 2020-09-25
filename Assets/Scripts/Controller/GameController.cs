@@ -85,11 +85,43 @@ public class GameController : UiController, IPointerClickHandler
                     break;
                 case "ShareToInstagram":
                     COGM = CameraObjectManager.MyCamReceiver;
-                    StartCoroutine(TakeScreenshotAndShare());
+                    PC = PlayerController.MyPlayerControl;
+                    if (PC.myEnergy.MyCurrentValue <= (PC.myEnergy.MyMaxValue * 0.1))
+                    {
+                        PC = PlayerController.MyPlayerControl;
+                        PC.IsAnimator.SetBool("IsCapture", false);
+                        GM.isCapturing = false;
+                        UI.LoadUI(true, false, false, false, false, false, false);
+                        Time.timeScale = 1f;
+                    }
+                    else if (!PC.Hidup)
+                    {
+                        PC.Lose();
+                    }
+                    else if (PC.myEnergy.MyCurrentValue >= (PC.myEnergy.MyMaxValue * 0.1))
+                    {
+                        StartCoroutine(TakeScreenshotAndSave());
+                    }
                     break;
                 case "SaveToGallery":
                     COGM = CameraObjectManager.MyCamReceiver;
-                    StartCoroutine(TakeScreenshotAndSave());
+                    PC = PlayerController.MyPlayerControl;
+                    if (PC.myEnergy.MyCurrentValue <= (PC.myEnergy.MyMaxValue * 0.1))
+                    {
+                        PC = PlayerController.MyPlayerControl;
+                        PC.IsAnimator.SetBool("IsCapture", false);
+                        GM.isCapturing = false;
+                        UI.LoadUI(true, false, false, false, false, false, false);
+                        Time.timeScale = 1f;
+                    }
+                    else if (!PC.Hidup)
+                    {
+                        PC.Lose();
+                    }
+                    else if (PC.myEnergy.MyCurrentValue >= (PC.myEnergy.MyMaxValue * 0.1))
+                    {
+                        StartCoroutine(TakeScreenshotAndShare());
+                    }
                     break;
                 case "YesButton":
                     Application.Quit();
@@ -124,16 +156,26 @@ public class GameController : UiController, IPointerClickHandler
                         LoadPlay(SceneManager.GetActiveScene().name);
                     }
                     break;
+                case "UpgradeMenu":
+                    print("not yet opened");
+                    break;
                 default:
                     print("Incorrect button Name");
                     break;
             }
         }
     }
-
+    private Animator animator;
+    private IEnumerator LoadSceneAFterTransition(string Name)
+    {
+        animator = GameObject.FindGameObjectWithTag("PanelTransisi").GetComponent<Animator>();
+        //show animate out animation
+        animator.SetBool("TutupYach", true);
+        yield return new WaitForSecondsRealtime(3f);
+    }
     public void LoadPlay(string Name)
     {
-        SceneManager.LoadScene(Name, LoadSceneMode.Single);
+        StartCoroutine(LoadSceneAFterTransition(Name));
 
     }
     private IEnumerator TakeScreenshotAndSave()
@@ -160,9 +202,16 @@ public class GameController : UiController, IPointerClickHandler
             Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName + " Captures", name));
 
             //calculate the point
-
-            StartCoroutine(COGM.capturedPointShot());
-            PC.TakeDamage(10f);
+            if (PC.Hidup)
+            {
+                StartCoroutine(COGM.capturedPointShot());
+                PC.TakeDamage(10f);
+            }
+            else
+            {
+                GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+                PC.Lose(); 
+            }
             // To avoid memory leaks
             Destroy(ss);
             yield return null;
@@ -188,8 +237,9 @@ public class GameController : UiController, IPointerClickHandler
     {
         COGM = GameObject.FindGameObjectWithTag("DistanceReceiver").GetComponent<CameraObjectManager>();
         PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        print(PC);
-        print(COGM);    }
+       // print(PC);
+       // print(COGM);  
+    }
     private IEnumerator TakeScreenshotAndShare()
     {
         if (PC.Hidup)

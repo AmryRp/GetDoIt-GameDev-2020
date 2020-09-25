@@ -20,15 +20,15 @@ public class NPC : NPCModel
        
         if (GEM.isCaptured)
         {
-            if (PL = null) StartCoroutine(cariPasangan());
+            //if (PL = null) StartCoroutine(cariPasangan());
             PL = PlayerController.MyPlayerControl;
             Ray ray = new Ray(transform.position, PL.transform.position);
             float distance = Vector3.Distance(transform.position, PL.transform.position);
             RaycastHit hit;
-            Debug.DrawLine(transform.position, PL.transform.position, Color.cyan);
+           // Debug.DrawLine(transform.position, PL.transform.position, Color.cyan);
             if (Physics.Raycast(ray, out hit, distance))
             {
-                Debug.DrawLine(hit.point, hit.point + Vector3.up * 12, Color.blue);
+                //Debug.DrawLine(hit.point, hit.point + Vector3.up * 12, Color.blue);
                 StartCoroutine(KagetNPCnya());
             }
         }
@@ -37,7 +37,7 @@ public class NPC : NPCModel
     {
         while (PL = null)
         {
-            //PL = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            PL = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             yield return null;
         }
 
@@ -45,12 +45,13 @@ public class NPC : NPCModel
     public IEnumerator KagetNPCnya()
     {
         float move = 0f;
-        while (move < 150f) {
+        while (move < 360f) {
             AnimalAnim = GetComponentInChildren<Animator>();
             AnimalAnim.SetBool("RUUUUNFORYOURLIFE", true);
-            transform.position = transform.position + new Vector3(-1 * MoveSpeed * Time.deltaTime,0, 0);
+            transform.position = transform.position + new Vector3(-0.1f * MoveSpeed * Time.deltaTime,0, 0);
             move += Time.time;
-            yield return null;
+            yield return new WaitForSeconds(0.2f);
+            AnimalAnim.SetBool("RUUUUNFORYOURLIFE", false);
         }
      
     }
