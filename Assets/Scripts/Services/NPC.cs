@@ -25,10 +25,10 @@ public class NPC : NPCModel
             Ray ray = new Ray(transform.position, PL.transform.position);
             float distance = Vector3.Distance(transform.position, PL.transform.position);
             RaycastHit hit;
-           // Debug.DrawLine(transform.position, PL.transform.position, Color.cyan);
+            Debug.DrawLine(transform.position, PL.transform.position, Color.cyan);
             if (Physics.Raycast(ray, out hit, distance))
             {
-                //Debug.DrawLine(hit.point, hit.point + Vector3.up * 12, Color.blue);
+                Debug.DrawLine(hit.point, hit.point + Vector3.up * 12, Color.blue);
                 StartCoroutine(KagetNPCnya());
             }
         }
@@ -45,13 +45,13 @@ public class NPC : NPCModel
     public IEnumerator KagetNPCnya()
     {
         float move = 0f;
-        while (move < 360f) {
+        while (move < maxcatchtime) {
             AnimalAnim = GetComponentInChildren<Animator>();
             AnimalAnim.SetBool("RUUUUNFORYOURLIFE", true);
             transform.position = transform.position + new Vector3(-0.1f * MoveSpeed * Time.deltaTime,0, 0);
             move += Time.time;
             yield return new WaitForSeconds(0.2f);
-            AnimalAnim.SetBool("RUUUUNFORYOURLIFE", false);
+            //AnimalAnim.SetBool("RUUUUNFORYOURLIFE", false);
         }
      
     }

@@ -36,7 +36,10 @@ public class GameManager : MonoBehaviour
     public bool IsPaused;
     private void Update()
     {
-        
+        if (!PC.Hidup)
+        {
+            isDeath = true;
+        }
         if (Time.timeScale == 0f)
         {
             IsPaused = true;

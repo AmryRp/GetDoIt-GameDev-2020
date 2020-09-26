@@ -10389,7 +10389,7 @@ GameObject:
   - component: {fileID: 570476802}
   m_Layer: 14
   m_Name: Audio Source
-  m_TagString: Untagged
+  m_TagString: BGM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15795,7 +15795,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3876081188652721376, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25167.996
+      value: -6183533
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654068117810683985, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654068117810683985, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_Size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4722650197493831634, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_AnchorMin.x
@@ -15833,9 +15841,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 67
       objectReference: {fileID: 0}
+    - target: {fileID: 5395796341315849905, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 416742107}
     - target: {fileID: 5816931607372683349, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 464
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909840725211520133, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: ShapeModule.m_Texture
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6049054813487420213, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_Name
@@ -15846,8 +15862,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6895443330181751286, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -65.34009
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895443330181751286, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7118468525696785304, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_AnchorMax.y
@@ -26556,7 +26576,7 @@ GameObject:
   - component: {fileID: 1777360133}
   m_Layer: 0
   m_Name: Audio Source
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

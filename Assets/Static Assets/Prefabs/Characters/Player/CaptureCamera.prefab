@@ -54,6 +54,8 @@ MonoBehaviour:
   PointText: {fileID: 0}
   PrevousPoint: 0
   MaxObjects: 50
+  InitShotTaken: 0
+  tempShotTaken: 0
   calculateGolden: 1
 --- !u!54 &1935444585756601048
 Rigidbody:
@@ -82,8 +84,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.008665, y: 8.172388, z: 28.597542}
-  m_Center: {x: 0.86186695, y: 5.5169706, z: 13.798699}
+  m_Size: {x: 13.574224, y: 8.172388, z: 28.597542}
+  m_Center: {x: -1.7135744, y: 5.5169706, z: 13.798697}
 --- !u!1 &1935444587186916575
 GameObject:
   m_ObjectHideFlags: 0

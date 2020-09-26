@@ -181,6 +181,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 /*IsAnimator.SetBool(IDLE, true);
                 IsAnimator.SetBool(MOVING, false);*/
                 TapCount = 0;
+                MoveBoatSplash.Stop();
             }
 
         }
@@ -316,6 +317,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 elapsedTime += Time.deltaTime;
                 if (CanoeBody.velocity == Vector2.zero)
                 {
+                    isMoving = false;
                     MoveBoatSplash.Stop();
                 }
                 //isMoving = (elapsedTime >= MaxAnimTime) ? true : false;

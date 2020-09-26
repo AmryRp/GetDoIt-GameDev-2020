@@ -19,6 +19,8 @@ public class GameController : UiController, IPointerClickHandler
     [SerializeField]
     GameManager GM;
     public RawImage Img;
+
+    [System.Obsolete]
     public void OnPointerClick(PointerEventData eventData)
     {
         if (Input.GetMouseButton(0) || Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
@@ -82,6 +84,8 @@ public class GameController : UiController, IPointerClickHandler
                     GM.isCapturing = false;
                     UI.LoadUI(true, false, false, false, false, false, false);
                     Time.timeScale = 1f;
+                    GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().maxParticles = int.Parse(Mathf.Round(COGM.AllPoint).ToString());
+                    GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().Play();
                     break;
                 case "ShareToInstagram":
                     COGM = CameraObjectManager.MyCamReceiver;
@@ -100,7 +104,9 @@ public class GameController : UiController, IPointerClickHandler
                     }
                     else if (PC.myEnergy.MyCurrentValue >= (PC.myEnergy.MyMaxValue * 0.1))
                     {
-                        StartCoroutine(TakeScreenshotAndSave());
+                       
+                        StartCoroutine(TakeScreenshotAndShare());
+                       
                     }
                     break;
                 case "SaveToGallery":
@@ -120,7 +126,7 @@ public class GameController : UiController, IPointerClickHandler
                     }
                     else if (PC.myEnergy.MyCurrentValue >= (PC.myEnergy.MyMaxValue * 0.1))
                     {
-                        StartCoroutine(TakeScreenshotAndShare());
+                        StartCoroutine(TakeScreenshotAndSave());
                     }
                     break;
                 case "YesButton":
@@ -216,6 +222,7 @@ public class GameController : UiController, IPointerClickHandler
             Destroy(ss);
             yield return null;
             GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+            
             //kalau pause animasi ga jalan
             //Time.timeScale = 0f;
             //ToastMessageShower.MyToast.showToastOnUiThread("Photo Saved in" + Application.productName + " Captures");

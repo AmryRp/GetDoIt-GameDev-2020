@@ -60,10 +60,7 @@ public class Player : PlayerModel, IChangeable<string>
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (!Hidup)
-        {
-            Lose();
-        }
+
     }
     public void Lose()
     {

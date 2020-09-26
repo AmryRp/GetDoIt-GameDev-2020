@@ -181,6 +181,9 @@ MonoBehaviour:
   CharacterName: CantChill
   Point: 13
   MoveSpeed: 4
+  maxcatchtime: 3600
+  flipped: 0
+  movedir: 0
 --- !u!1 &7014586135521627555
 GameObject:
   m_ObjectHideFlags: 0

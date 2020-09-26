@@ -1,0 +1,1558 @@
+fileFormatVersion: 2
+guid: 02b3ca7e322b71b45b3cd2c27458c3af
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8071170960965168681
+    second: Odading_0
+  - first:
+      213: -700841433765393610
+    second: Odading_1
+  - first:
+      213: 5624729708688209428
+    second: Odading_2
+  - first:
+      213: 4298218566781486131
+    second: Odading_3
+  - first:
+      213: -7642502828227910126
+    second: Odading_4
+  - first:
+      213: -1956402071436913865
+    second: Odading_5
+  - first:
+      213: 176373078724392325
+    second: Odading_6
+  - first:
+      213: -5913660761839833467
+    second: Odading_7
+  - first:
+      213: -509266419668170338
+    second: Odading_8
+  - first:
+      213: 9172236410432784545
+    second: Odading_9
+  - first:
+      213: -2115864439174844326
+    second: Odading_10
+  - first:
+      213: -3036982672960387236
+    second: Odading_11
+  - first:
+      213: 6379087934929709739
+    second: Odading_12
+  - first:
+      213: 2749358507342684591
+    second: Odading_13
+  - first:
+      213: -681915065095334872
+    second: Odading_14
+  - first:
+      213: -4509243448609213019
+    second: Odading_15
+  - first:
+      213: 3125091748697736553
+    second: Odading_16
+  - first:
+      213: -6084618294020675414
+    second: Odading_17
+  - first:
+      213: 8449392040057679437
+    second: Odading_18
+  - first:
+      213: 4812097447633081816
+    second: Odading_19
+  - first:
+      213: 7262865045320417588
+    second: Odading_20
+  - first:
+      213: 4029205294246615141
+    second: Odading_21
+  - first:
+      213: -8773805215698122522
+    second: Odading_22
+  - first:
+      213: -7051058470000188174
+    second: Odading_23
+  - first:
+      213: 2036513871850958057
+    second: Odading_24
+  - first:
+      213: 6658515986928819755
+    second: Odading_25
+  - first:
+      213: 8140280568718707747
+    second: Odading_26
+  - first:
+      213: 4780582911556067312
+    second: Odading_27
+  - first:
+      213: 3726667996611928800
+    second: Odading_28
+  - first:
+      213: 4024054021460896058
+    second: Odading_29
+  - first:
+      213: -1647122170594560932
+    second: Odading_30
+  - first:
+      213: -3798700466681319296
+    second: Odading_31
+  - first:
+      213: 4577826906956101660
+    second: Odading_32
+  - first:
+      213: -5553253051593474705
+    second: Odading_33
+  - first:
+      213: 229943783201822786
+    second: Odading_34
+  - first:
+      213: -9040192370633869994
+    second: Odading_35
+  - first:
+      213: 713289761161412612
+    second: Odading_36
+  - first:
+      213: 6036614070910167657
+    second: Odading_37
+  - first:
+      213: -5586613894011513570
+    second: Odading_38
+  - first:
+      213: -1009886258841805500
+    second: Odading_39
+  - first:
+      213: 686961868542859924
+    second: Odading_40
+  - first:
+      213: 1985177899985908879
+    second: Odading_41
+  - first:
+      213: 3385674725371346589
+    second: Odading_42
+  - first:
+      213: 3648134291386319090
+    second: Odading_43
+  - first:
+      213: -4986625728114478512
+    second: Odading_44
+  - first:
+      213: 2508845379630902356
+    second: Odading_45
+  - first:
+      213: -105875331384977000
+    second: Odading_46
+  - first:
+      213: -5116985648705255756
+    second: Odading_47
+  - first:
+      213: 7454714322680036601
+    second: Odading_48
+  - first:
+      213: -739479086085922015
+    second: Odading_49
+  - first:
+      213: 5763442397079398078
+    second: Odading_50
+  - first:
+      213: -7909561885493455794
+    second: Odading_51
+  - first:
+      213: 4615527007575922335
+    second: Odading_52
+  - first:
+      213: -360176875263131156
+    second: Odading_53
+  - first:
+      213: 3664081290085964515
+    second: Odading_54
+  - first:
+      213: 3416291379453418138
+    second: Odading_55
+  - first:
+      213: -4764728516508766626
+    second: Odading_56
+  - first:
+      213: 8379037378191719683
+    second: Odading_57
+  - first:
+      213: 7685280716666703543
+    second: Odading_58
+  - first:
+      213: 3174530520044723314
+    second: Odading_59
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 47
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Odading_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 3643
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ee6c1e93f820070800000000000000
+      internalID: 8071170960965168681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_1
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 3643
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63bc980ed6c1646f0800000000000000
+      internalID: -700841433765393610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_2
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 3643
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41672f37edd0f0e40800000000000000
+      internalID: 5624729708688209428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_3
+      rect:
+        serializedVersion: 2
+        x: 1586
+        y: 3643
+        width: 407
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 334cff7730756ab30800000000000000
+      internalID: 4298218566781486131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_4
+      rect:
+        serializedVersion: 2
+        x: 2099
+        y: 3643
+        width: 406
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 216ae806b2060f590800000000000000
+      internalID: -7642502828227910126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_5
+      rect:
+        serializedVersion: 2
+        x: 2608
+        y: 3643
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7331a267ea679d4e0800000000000000
+      internalID: -1956402071436913865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_6
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 3643
+        width: 409
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5853f41716a927200800000000000000
+      internalID: 176373078724392325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_7
+      rect:
+        serializedVersion: 2
+        x: 3632
+        y: 3640
+        width: 409
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58eee587ed47eeda0800000000000000
+      internalID: -5913660761839833467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_8
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 3131
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e99c4a7b3e8bee8f0800000000000000
+      internalID: -509266419668170338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_9
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 3131
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a800cf2b645a4f70800000000000000
+      internalID: 9172236410432784545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_10
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 3131
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a503a1eb080f2a2e0800000000000000
+      internalID: -2115864439174844326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_11
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 3131
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c570e2d79587ad5d0800000000000000
+      internalID: -3036982672960387236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_12
+      rect:
+        serializedVersion: 2
+        x: 2096
+        y: 3131
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa2770dda2178850800000000000000
+      internalID: 6379087934929709739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_13
+      rect:
+        serializedVersion: 2
+        x: 2608
+        y: 3131
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa1eb56eefea72620800000000000000
+      internalID: 2749358507342684591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_14
+      rect:
+        serializedVersion: 2
+        x: 3122
+        y: 3131
+        width: 407
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 824510a7cd95986f0800000000000000
+      internalID: -681915065095334872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_15
+      rect:
+        serializedVersion: 2
+        x: 3632
+        y: 3131
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a5f3e779f2fb61c0800000000000000
+      internalID: -4509243448609213019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_16
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 2620
+        width: 409
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96502a3536e8e5b20800000000000000
+      internalID: 3125091748697736553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_17
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 2619
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa8ed0736e71f8ba0800000000000000
+      internalID: -6084618294020675414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_18
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 2620
+        width: 409
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4ea6ab2b45424570800000000000000
+      internalID: 8449392040057679437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_19
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 2620
+        width: 409
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d5dbbe022108c240800000000000000
+      internalID: 4812097447633081816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_20
+      rect:
+        serializedVersion: 2
+        x: 2096
+        y: 2620
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 431cce54741eac460800000000000000
+      internalID: 7262865045320417588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_21
+      rect:
+        serializedVersion: 2
+        x: 2608
+        y: 2620
+        width: 409
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56851b21edc9ae730800000000000000
+      internalID: 4029205294246615141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_22
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 2621
+        width: 409
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e808d554ae2d3680800000000000000
+      internalID: -8773805215698122522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_23
+      rect:
+        serializedVersion: 2
+        x: 3632
+        y: 2621
+        width: 409
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f4212dfdab952e90800000000000000
+      internalID: -7051058470000188174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_24
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 2109
+        width: 409
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ece4d79396234c10800000000000000
+      internalID: 2036513871850958057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_25
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 2109
+        width: 409
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2ed624030dc76c50800000000000000
+      internalID: 6658515986928819755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_26
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 2109
+        width: 409
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32c4e765c0618f070800000000000000
+      internalID: 8140280568718707747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_27
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 2109
+        width: 409
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff1a9654da085240800000000000000
+      internalID: 4780582911556067312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_28
+      rect:
+        serializedVersion: 2
+        x: 2096
+        y: 2109
+        width: 409
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e2eed55cc8c7b330800000000000000
+      internalID: 3726667996611928800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_29
+      rect:
+        serializedVersion: 2
+        x: 2608
+        y: 2109
+        width: 409
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39a82aefcf48d730800000000000000
+      internalID: 4024054021460896058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_30
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 2109
+        width: 409
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c547a08dc1f3429e0800000000000000
+      internalID: -1647122170594560932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_31
+      rect:
+        serializedVersion: 2
+        x: 3632
+        y: 2109
+        width: 409
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 080795b4d0e484bc0800000000000000
+      internalID: -3798700466681319296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_32
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 1597
+        width: 407
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c18f7584155b78f30800000000000000
+      internalID: 4577826906956101660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_33
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1597
+        width: 409
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6dbaef95c1eee2b0800000000000000
+      internalID: -5553253051593474705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_34
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 1597
+        width: 409
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 248dd0c07ace03300800000000000000
+      internalID: 229943783201822786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_35
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 1597
+        width: 409
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 655fb279fe8ca8280800000000000000
+      internalID: -9040192370633869994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_36
+      rect:
+        serializedVersion: 2
+        x: 2096
+        y: 1597
+        width: 409
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40003f3324d16e900800000000000000
+      internalID: 713289761161412612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_37
+      rect:
+        serializedVersion: 2
+        x: 2608
+        y: 1597
+        width: 409
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96aa9be938c56c350800000000000000
+      internalID: 6036614070910167657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_38
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 1596
+        width: 409
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e159e26334c5872b0800000000000000
+      internalID: -5586613894011513570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_39
+      rect:
+        serializedVersion: 2
+        x: 3632
+        y: 1597
+        width: 409
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44d9f265cc92cf1f0800000000000000
+      internalID: -1009886258841805500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_40
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1084
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49a5cb40e24988900800000000000000
+      internalID: 686961868542859924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_41
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1084
+        width: 409
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f84bd9838c4cc8b10800000000000000
+      internalID: 1985177899985908879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_42
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 1084
+        width: 409
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9ef6c289355cfe20800000000000000
+      internalID: 3385674725371346589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_43
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 1083
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0c0033fc6c0a230800000000000000
+      internalID: 3648134291386319090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_44
+      rect:
+        serializedVersion: 2
+        x: 2096
+        y: 1083
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 052b9ef0252fbcab0800000000000000
+      internalID: -4986625728114478512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_45
+      rect:
+        serializedVersion: 2
+        x: 2608
+        y: 1083
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45ca741949531d220800000000000000
+      internalID: 2508845379630902356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_46
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 1083
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 899525272fad78ef0800000000000000
+      internalID: -105875331384977000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_47
+      rect:
+        serializedVersion: 2
+        x: 3632
+        y: 1083
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b6c628d9a0dcf8b0800000000000000
+      internalID: -5116985648705255756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_48
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 571
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc3c510e27747760800000000000000
+      internalID: 7454714322680036601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_49
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 571
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 123a40b60b7dcb5f0800000000000000
+      internalID: -739479086085922015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_50
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 571
+        width: 407
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6e759f25cdbff40800000000000000
+      internalID: 5763442397079398078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_51
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 571
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44913e2f579b3290800000000000000
+      internalID: -7909561885493455794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_52
+      rect:
+        serializedVersion: 2
+        x: 2096
+        y: 571
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96d8c9fb55ad0040800000000000000
+      internalID: 4615527007575922335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_53
+      rect:
+        serializedVersion: 2
+        x: 2608
+        y: 571
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce181ad4a05600bf0800000000000000
+      internalID: -360176875263131156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_54
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 571
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ea9abb258e69d230800000000000000
+      internalID: 3664081290085964515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_55
+      rect:
+        serializedVersion: 2
+        x: 3634
+        y: 571
+        width: 407
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9adc89c8ea196f20800000000000000
+      internalID: 3416291379453418138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_56
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 59
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5e225aa8a840edb0800000000000000
+      internalID: -4764728516508766626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_57
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 59
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d76d6f912584470800000000000000
+      internalID: 8379037378191719683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_58
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 59
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7be041ce71a97aa60800000000000000
+      internalID: 7685280716666703543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Odading_59
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 59
+        width: 409
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27cd6e740b23e0c20800000000000000
+      internalID: 3174530520044723314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f4014db493fe9d442a597e35cf17999a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

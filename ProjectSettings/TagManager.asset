@@ -45,6 +45,8 @@ TagManager:
   - Stone
   - Energy
   - PanelTransisi
+  - CoinParticle
+  - EnergyAbsorber
   layers:
   - Default
   - TransparentFX

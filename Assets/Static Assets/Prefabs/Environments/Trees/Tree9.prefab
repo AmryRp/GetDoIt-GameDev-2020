@@ -112,4 +112,5 @@ MonoBehaviour:
   name: Tree9
   myLevel: 1
   power: 10
+  isCaptured: 0
   maxRayCastDefault: 40

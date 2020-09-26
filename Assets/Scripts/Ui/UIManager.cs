@@ -69,6 +69,7 @@ public class UIManager : UiController
             GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = Menu;
             GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = Gameplay;
         }
+        
     }
     public void RestartGame()
     {
