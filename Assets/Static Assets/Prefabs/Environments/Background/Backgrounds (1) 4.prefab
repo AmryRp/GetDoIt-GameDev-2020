@@ -2176,7 +2176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2931895678500072206}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Backgrounds (1) 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

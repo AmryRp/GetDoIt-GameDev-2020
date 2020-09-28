@@ -36,19 +36,19 @@ public class GameController : UiController, IPointerClickHandler
                     LoadPlay(ModeName);
                     break;
                 case "PauseButton":
-                    UI.LoadUI(false, true, false, false, false, false, false);
+                    UI.LoadUI(false, true, false, false, false, false, false, false);
                     Time.timeScale = 0f;
                     break;
                 case "BackButton":
-                    UI.LoadUI(true, false, false, false, false, false, false);
+                    UI.LoadUI(true, false, false, false, false, false, false, false);
                     Time.timeScale = 1f;
                     break;
                 case "BackButtonMM":
-                    UI.LoadUI(false, false, false, true, false, false, false);
+                    UI.LoadUI(false, false, false, true, false, false, false, false);
                     Time.timeScale = 1f;
                     break;
                 case "BackHome":
-                    UI.LoadUI(false, false, false, true, false, false, false);
+                    UI.LoadUI(false, false, false, true, false, false, false, false);
                     Time.timeScale = 1f;
                     LoadPlay(ModeName);
                     break;
@@ -56,7 +56,7 @@ public class GameController : UiController, IPointerClickHandler
                     print("Open Challenge Box");
                     break;
                 case "Setting":
-                    UI.LoadUI(false, false, true, false, false, false, false);
+                    UI.LoadUI(false, false, true, false, false, false, false, false);
                     Time.timeScale = 0f;
                     break;
                 case "Gallery":
@@ -66,7 +66,7 @@ public class GameController : UiController, IPointerClickHandler
                     print("unknown");
                     break;
                 case "UnPauseButton":
-                    UI.LoadUI(true, false, false, false, false, false, false);
+                    UI.LoadUI(true, false, false, false, false, false, false, false);
                     Time.timeScale = 1f;
                     break;
                 case "CaptureButton":
@@ -82,7 +82,7 @@ public class GameController : UiController, IPointerClickHandler
                     PC = PlayerController.MyPlayerControl;
                     PC.IsAnimator.SetBool("IsCapture", false);
                     GM.isCapturing = false;
-                    UI.LoadUI(true, false, false, false, false, false, false);
+                    UI.LoadUI(true, false, false, false, false, false, false, false);
                     Time.timeScale = 1f;
                     GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().maxParticles = int.Parse(Mathf.Round(COGM.AllPoint).ToString());
                     GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().Play();
@@ -95,7 +95,7 @@ public class GameController : UiController, IPointerClickHandler
                         PC = PlayerController.MyPlayerControl;
                         PC.IsAnimator.SetBool("IsCapture", false);
                         GM.isCapturing = false;
-                        UI.LoadUI(true, false, false, false, false, false, false);
+                        UI.LoadUI(true, false, false, false, false, false, false, false);
                         Time.timeScale = 1f;
                     }
                     else if (!PC.Hidup)
@@ -117,7 +117,7 @@ public class GameController : UiController, IPointerClickHandler
                         PC = PlayerController.MyPlayerControl;
                         PC.IsAnimator.SetBool("IsCapture", false);
                         GM.isCapturing = false;
-                        UI.LoadUI(true, false, false, false, false, false, false);
+                        UI.LoadUI(true, false, false, false, false, false, false, false);
                         Time.timeScale = 1f;
                     }
                     else if (!PC.Hidup)
@@ -136,11 +136,11 @@ public class GameController : UiController, IPointerClickHandler
                     UI = UIManager.MyUI;
                     if (SceneManager.GetActiveScene().buildIndex == 0)
                     {
-                        UI.LoadUI(false, false, false, true, false, false, false);
+                        UI.LoadUI(false, false, false, true, false, false, false, false);
                     }
                     else
                     {
-                        UI.LoadUI(true, false, false, false, false, false, false);
+                        UI.LoadUI(true, false, false, false, false, false, false, false);
                         Time.timeScale = 1f;
                     }
                     break;
@@ -163,7 +163,8 @@ public class GameController : UiController, IPointerClickHandler
                     }
                     break;
                 case "UpgradeMenu":
-                    print("not yet opened");
+                    GM.isCapturing = true;
+                    UI.LoadUI(false, false, false, false, false, false, false, true);
                     break;
                 default:
                     print("Incorrect button Name");
@@ -232,7 +233,7 @@ public class GameController : UiController, IPointerClickHandler
             PC = PlayerController.MyPlayerControl;
             PC.IsAnimator.SetBool("IsCapture", false);
             GM.isCapturing = false;
-            UI.LoadUI(true, false, false, false, false, false, false);
+            UI.LoadUI(true, false, false, false, false, false, false, false);
             Time.timeScale = 1f;
         }
         else
@@ -288,7 +289,7 @@ public class GameController : UiController, IPointerClickHandler
             PC = PlayerController.MyPlayerControl;
             PC.IsAnimator.SetBool("IsCapture", false);
             GM.isCapturing = false;
-            UI.LoadUI(true, false, false, false, false, false, false);
+            UI.LoadUI(true, false, false, false, false, false, false, false);
             Time.timeScale = 1f;
         }
         else

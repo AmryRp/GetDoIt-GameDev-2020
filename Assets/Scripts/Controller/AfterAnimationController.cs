@@ -18,7 +18,12 @@ public class AfterAnimationController : MonoBehaviour
             UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
         }
         UI = UIManager.MyUI;
-        UI.LoadUI(false, false, false, false, true, false, false);
+        UI.LoadUI(false, false, false, false, true, false, false,false);
+        StartCoroutine(PlayAnim());
+    }
+    public IEnumerator PlayAnim()
+    {
+        yield return new WaitForSeconds(2);
         Animator isShowing = GameObject.FindGameObjectWithTag("ShowImage").GetComponent<Animator>();
         isShowing.SetBool("ShowImage", true);
     }
@@ -36,5 +41,9 @@ public class AfterAnimationController : MonoBehaviour
     {
         //load the scene we want
         SceneManager.LoadScene("T", LoadSceneMode.Single);
+    }
+    public void playSFX(string Name)
+    {
+        AudioController.Playsound(Name);
     }
 }

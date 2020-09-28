@@ -4,44 +4,43 @@ using UnityEngine;
 
 public class PowerUpManager : MonoBehaviour
 {
-    public GameObject[] coins;
-    public float CoinTime;
-    public float HealthTime = 30f;
+    public GameObject[] PowerUp;
+    public GameObject[] Animal;
+    public float PowerUpSpawnTime;
+    public float AnimalSpawnTime = 30f;
     private Transform player;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        StartCoroutine(SpawnCoins());
-        StartCoroutine(SpawnHealths());
+        StartCoroutine(SpawnPower());
+        StartCoroutine(SpawnAnimal());
     }
-    IEnumerator SpawnCoins()
+    IEnumerator SpawnPower()
     {
-        yield return new WaitForSeconds(CoinTime);
+        yield return new WaitForSeconds(PowerUpSpawnTime);
         Spawn();
     }
-    IEnumerator SpawnHealths()
+    IEnumerator SpawnAnimal()
     {
-        yield return new WaitForSeconds(HealthTime);
+        yield return new WaitForSeconds(AnimalSpawnTime);
         Spawn2();
     }
     void Spawn()
     {
         int RandCoind = UnityEngine.Random.Range(0, 1);
-        Vector3 hpos = new Vector3(player.position.x + 10f, 0f, 0f);
-        Instantiate(coins[RandCoind], hpos, coins[RandCoind].transform.rotation);
+        Vector3 hpos = new Vector3(player.position.x + 26f, 0f, 0f);
+        Instantiate(PowerUp[RandCoind], hpos, PowerUp[RandCoind].transform.rotation);
 
-        StartCoroutine(SpawnCoins());
+        StartCoroutine(SpawnPower());
     }
     void Spawn2()
     {
         int RandCoind = UnityEngine.Random.Range(1, 2);
+        Vector3 hpos = new Vector3(player.position.x + 45f, 0f, 0f);
+        Instantiate(Animal[RandCoind], hpos, Animal[RandCoind].transform.rotation);
 
-
-        Vector3 hpos = new Vector3(player.position.x + 30f, 0f, 0f);
-        Instantiate(coins[RandCoind], hpos, coins[RandCoind].transform.rotation);
-
-        StartCoroutine(SpawnHealths());
+        StartCoroutine(SpawnAnimal());
     }
-    // Update is called once per frame
+   
 }

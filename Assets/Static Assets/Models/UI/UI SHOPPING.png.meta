@@ -1,0 +1,565 @@
+fileFormatVersion: 2
+guid: 40233543d0c15824aabf4cd65e1cc7af
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5546625091265478811
+    second: UI SHOPPING_0
+  - first:
+      213: 3250924579155796404
+    second: UI SHOPPING_1
+  - first:
+      213: -5851128268393434600
+    second: UI SHOPPING_2
+  - first:
+      213: 1253947874433404441
+    second: UI SHOPPING_3
+  - first:
+      213: 3321101335184158419
+    second: UI SHOPPING_4
+  - first:
+      213: 1458266632747479752
+    second: UI SHOPPING_5
+  - first:
+      213: -6090130215103129657
+    second: UI SHOPPING_6
+  - first:
+      213: -2804114844763481229
+    second: UI SHOPPING_7
+  - first:
+      213: -5317152747064235166
+    second: UI SHOPPING_8
+  - first:
+      213: -5939912997639832734
+    second: UI SHOPPING_9
+  - first:
+      213: -7862972734623945960
+    second: UI SHOPPING_10
+  - first:
+      213: -6565043072480189969
+    second: UI SHOPPING_11
+  - first:
+      213: -3291446324157639933
+    second: UI SHOPPING_12
+  - first:
+      213: -5708864369835304725
+    second: UI SHOPPING_13
+  - first:
+      213: -6845946119240270909
+    second: UI SHOPPING_14
+  - first:
+      213: 4504202497424260948
+    second: UI SHOPPING_15
+  - first:
+      213: 6518296442468290817
+    second: UI SHOPPING_16
+  - first:
+      213: -485911606368089136
+    second: UI SHOPPING_17
+  - first:
+      213: -8378747380612765325
+    second: UI SHOPPING_18
+  - first:
+      213: -7063118175768984450
+    second: UI SHOPPING_19
+  - first:
+      213: 6920209594974828848
+    second: UI SHOPPING_20
+  - first:
+      213: 3211372949331545556
+    second: UI SHOPPING_21
+  - first:
+      213: -39811096627682417
+    second: UI SHOPPING_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI SHOPPING_0
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 4915
+        width: 1908
+        height: 3296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b90c52b122299fc40800000000000000
+      internalID: 5546625091265478811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_1
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 5551
+        width: 1951
+        height: 2666
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b1ea2c3eaa9d1d20800000000000000
+      internalID: 3250924579155796404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_2
+      rect:
+        serializedVersion: 2
+        x: 4499
+        y: 8111
+        width: 1387
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 812b92b27dd9ccea0800000000000000
+      internalID: -5851128268393434600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_3
+      rect:
+        serializedVersion: 2
+        x: 6432
+        y: 5682
+        width: 1833
+        height: 2537
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e8576b2fae66110800000000000000
+      internalID: 1253947874433404441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_4
+      rect:
+        serializedVersion: 2
+        x: 4515
+        y: 7985
+        width: 1358
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de2ab2811ce61e20800000000000000
+      internalID: 3321101335184158419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_5
+      rect:
+        serializedVersion: 2
+        x: 4473
+        y: 7407
+        width: 1825
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2f7b8b6cdcc3410800000000000000
+      internalID: 1458266632747479752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_6
+      rect:
+        serializedVersion: 2
+        x: 4477
+        y: 6832
+        width: 1817
+        height: 521
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c797e416d28b7ba0800000000000000
+      internalID: -6090130215103129657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_7
+      rect:
+        serializedVersion: 2
+        x: 4477
+        y: 6198
+        width: 1817
+        height: 521
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37b1970d768c519d0800000000000000
+      internalID: -2804114844763481229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_8
+      rect:
+        serializedVersion: 2
+        x: 4423
+        y: 5436
+        width: 1913
+        height: 654
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26b6ebe7fbda536b0800000000000000
+      internalID: -5317152747064235166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_9
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 4548
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26bb3f28990319da0800000000000000
+      internalID: -5939912997639832734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_10
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 4475
+        width: 325
+        height: 325
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b682a25fb11e290800000000000000
+      internalID: -7862972734623945960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_11
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 4554
+        width: 218
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe1eda1db1844e4a0800000000000000
+      internalID: -6565043072480189969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_12
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 4399
+        width: 45
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 303915bc10f6252d0800000000000000
+      internalID: -3291446324157639933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_14
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 4552
+        width: 526
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cb3833a6405ef0a0800000000000000
+      internalID: -6845946119240270909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_18
+      rect:
+        serializedVersion: 2
+        x: 2127
+        y: 4490
+        width: 223
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37967db56a5b8bb80800000000000000
+      internalID: -8378747380612765325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_20
+      rect:
+        serializedVersion: 2
+        x: 2428
+        y: 4257
+        width: 1772
+        height: 1137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03979b736f5890060800000000000000
+      internalID: 6920209594974828848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_21
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 3665
+        width: 7725
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dd843ecea6119c20800000000000000
+      internalID: 3211372949331545556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI SHOPPING_22
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 594
+        width: 3029
+        height: 2779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f83636fb400927ff0800000000000000
+      internalID: -39811096627682417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fc07a7bcb95d7784f9a46f6aae188322
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

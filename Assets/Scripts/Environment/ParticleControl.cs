@@ -43,14 +43,14 @@ public class ParticleControl : MonoBehaviour
                     break;
                 case "Stone":
                     player.TakeDamage(20f);
-                    AudioController.Playsound("HitObstacle");
+                    
                     break;
                 case "Energy":
                     player.getEnergy(15f);
 
                     break;
                 case "Water Volume":
-                    if (player.CanoeBody.velocity.y < -1)
+                    if (player.CanoeBody.velocity.y < -4)
                     {
                         AudioController.Playsound("DropSound");
                         WaterSplash.gameObject.SetActive(true);

@@ -37,9 +37,16 @@ public class UIManager : UiController
         //    Destroy(gameObject);
         //}
     }
-    public void LateUpdate()
+    public void Update()
     {
+        if (!GM.IsPaused && !GM.isCapturing && !GM.isDeath)
+        {
             SwitchScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else if (GM.isDeath)
+        {
+            SwitchScene(4);
+        }
     }
     public void SwitchScene(int SceneName) 
     {
@@ -57,6 +64,11 @@ public class UIManager : UiController
             case 3:
                 print("unknown");
                 break;
+            case 4:
+                GameObject.FindGameObjectWithTag("GameOver").GetComponent<Canvas>().enabled = true;
+                GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = false;
+                GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = false;
+                break;
             default:
                 print("Incorrect intelligence level.");
                 break;
@@ -69,13 +81,12 @@ public class UIManager : UiController
             GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = Menu;
             GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = Gameplay;
         }
-        
     }
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public void LoadUI(bool gpui, bool pause, bool sett, bool mainmenu, bool capture, bool exit, bool GOver)
+    public void LoadUI(bool gpui, bool pause, bool sett, bool mainmenu, bool capture, bool exit, bool GOver,bool SnU)
     {
         GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = gpui;
         GameObject.FindGameObjectWithTag("CaptureOption").GetComponent<Canvas>().enabled = capture;
@@ -84,10 +95,13 @@ public class UIManager : UiController
         GameObject.FindGameObjectWithTag("ExitOption").GetComponent<Canvas>().enabled = exit;
         GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = mainmenu;
         GameObject.FindGameObjectWithTag("GameOver").GetComponent<Canvas>().enabled = GOver;
+        GameObject.FindGameObjectWithTag("ShopAndUpgrade").GetComponent<Canvas>().enabled = SnU;
     }
     public IEnumerator CalculatingPrefabPoint() 
     {
-
+        yield return new WaitForSeconds(1);
+        LoadUI(false, false, false, false, false, false, true, false);
+        yield return null;
         CalculatePoint();
         yield return null;
     }

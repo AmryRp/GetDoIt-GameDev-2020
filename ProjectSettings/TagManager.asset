@@ -47,6 +47,8 @@ TagManager:
   - PanelTransisi
   - CoinParticle
   - EnergyAbsorber
+  - ShopAndUpgrade
+  - UpgradeMenu
   layers:
   - Default
   - TransparentFX
@@ -63,8 +65,8 @@ TagManager:
   - 
   - 
   - bg
-  - 
-  - 
+  - POSTPROCESSING
+  - SECONDCAM
   - 
   - 
   - 

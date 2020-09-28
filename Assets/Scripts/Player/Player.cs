@@ -66,8 +66,6 @@ public class Player : PlayerModel, IChangeable<string>
     {
         Time.timeScale = 1f;
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-        UI = UIManager.MyUI;
-        UI.LoadUI(false, false, false, false, false, false, true);
         StartCoroutine(UI.CalculatingPrefabPoint());
     }
     //public void GainExp(int exp)
@@ -149,7 +147,7 @@ public class Player : PlayerModel, IChangeable<string>
     {
 
         Energy.MyCurrentValue -= damage;
-
+        AudioController.Playsound("HitObstacle");
         //GameTextManager.MyInts.creattext(transform.position, damage.ToString(), SCTTYPE.DAMAGE, false);
 
         if (Energy.MyCurrentValue <= 0)
