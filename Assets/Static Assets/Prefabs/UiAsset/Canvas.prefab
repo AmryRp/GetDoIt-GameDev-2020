@@ -1101,10 +1101,9 @@ MonoBehaviour:
     price: 
     theItemPreview: {fileID: 0}
     itemIcon: {fileID: 0}
-    equiped: 1
+    equiped: 0
     equipedImage: {fileID: 0}
     bought: 1
-    purchased: {r: 0, g: 0, b: 1, a: 1}
     locked: 1
     discount: 0
     speedStat: 0
@@ -1114,10 +1113,9 @@ MonoBehaviour:
     price: 
     theItemPreview: {fileID: 0}
     itemIcon: {fileID: 0}
-    equiped: 1
+    equiped: 0
     equipedImage: {fileID: 0}
     bought: 1
-    purchased: {r: 0, g: 0, b: 1, a: 1}
     locked: 1
     discount: 0
     speedStat: 0
@@ -1127,10 +1125,9 @@ MonoBehaviour:
     price: 
     theItemPreview: {fileID: 0}
     itemIcon: {fileID: 0}
-    equiped: 1
+    equiped: 0
     equipedImage: {fileID: 0}
     bought: 1
-    purchased: {r: 0, g: 0, b: 1, a: 1}
     locked: 1
     discount: 0
     speedStat: 0

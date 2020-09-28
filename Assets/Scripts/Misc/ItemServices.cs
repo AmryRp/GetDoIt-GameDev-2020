@@ -8,8 +8,9 @@ using UnityEngine.UI;
 [Serializable]
 public class ItemServices : IBuyAble<int>,IChangeable<string>
 {
+
     private const bool truestate = true; 
-    private const bool falsestate = true;
+    private const bool falsestate = false;
     public string itemName;
     public string price;
     public Image theItemPreview;
@@ -17,7 +18,8 @@ public class ItemServices : IBuyAble<int>,IChangeable<string>
     public bool equiped = falsestate;
     public Image equipedImage;
     public bool bought = falsestate;
-    public Color purchased = Color.blue;
+    public static Color purchased = Color.blue;
+    public static Color notpurchased = Color.white;
     public bool locked = truestate;
     public int discount;
     public int speedStat;
