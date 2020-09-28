@@ -36,9 +36,16 @@ public class GameManager : MonoBehaviour
     public bool IsPaused;
     private void Update()
     {
-        if (!PC.Hidup)
+        if (PC != null)
         {
-            isDeath = true;
+            if (!PC.Hidup)
+            {
+                isDeath = true;
+            }
+        }
+        else if (!SceneManager.GetActiveScene().buildIndex.Equals(0))
+        {
+            PC = PlayerController.MyPlayerControl;
         }
         if (Time.timeScale == 0f)
         {
