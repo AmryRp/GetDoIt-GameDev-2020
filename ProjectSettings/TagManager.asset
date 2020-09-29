@@ -37,7 +37,6 @@ TagManager:
   - ScreenShotTaken
   - CalculatedPoint
   - ShowImage
-  - UICAnvas
   - MyPoints
   - MuddyWater
   - ReverseWater
@@ -49,6 +48,7 @@ TagManager:
   - EnergyAbsorber
   - ShopAndUpgrade
   - UpgradeMenu
+  - UICanvas
   layers:
   - Default
   - TransparentFX

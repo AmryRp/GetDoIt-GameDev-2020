@@ -757,7 +757,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0.92886573, b: 0.5613208, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1896,8 +1896,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.9117066, b: 0.68235296, a: 0.20784314}
-        key1: {r: 0.36470592, g: 0.7503854, b: 1, a: 0.6745098}
+        key0: {r: 1, g: 0.7596115, b: 0.68235296, a: 1}
+        key1: {r: 0.5139853, g: 1, b: 0.36470592, a: 0.6745098}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4163,8 +4163,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.9622642, g: 0.86581, b: 0.51290494, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 0.6392157}
+        key0: {r: 0.9607843, g: 0.83061534, b: 0.5137255, a: 1}
+        key1: {r: 0.8018868, g: 0, b: 0, a: 0.6392157}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4550,7 +4550,7 @@ ParticleSystem:
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4616,7 +4616,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.76566863, b: 0.33490568, a: 0.22745098}
+      maxColor: {r: 1, g: 0.56596655, b: 0.13679248, a: 0.64705884}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4732,7 +4732,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.66342807, g: 0.9811321, b: 0.50445, a: 0.4117647}
+      maxColor: {r: 0.62423986, g: 1, b: 0.43867922, a: 0.5882353}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5436,7 +5436,7 @@ GameObject:
   - component: {fileID: 6058468273116168848}
   - component: {fileID: 6058468273116168943}
   - component: {fileID: 4471144755210493269}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canoe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5497,7 +5497,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -1510037519176120828, guid: 008e1beeca7bbfa43820a5a24862bb02, type: 3}
+  m_Sprite: {fileID: 5738844547682835945, guid: be880fca2c90f464588a0bc5944f2404, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5550,7 +5550,7 @@ GameObject:
   - component: {fileID: 6058468273226768503}
   - component: {fileID: 6058468273226768505}
   - component: {fileID: 6058468273226768504}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MoveParticle
   m_TagString: MovementParticle
   m_Icon: {fileID: 0}
@@ -5707,7 +5707,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.33
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10611,7 +10611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6058468273976360127}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10643,7 +10643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6058468274540404828}
   - component: {fileID: 6058468274540404829}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: audio Listener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10683,7 +10683,7 @@ GameObject:
   - component: {fileID: 6058468274695215745}
   - component: {fileID: 6058468274695215775}
   - component: {fileID: 6058468274695215744}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: PlayerParticle
   m_Icon: {fileID: 0}
@@ -15567,8 +15567,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6976807700006087591}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.43, y: 11.79, z: 0.19086635}
-  m_LocalScale: {x: 3.333333, y: 3.333333, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6058468273805336714}
   m_RootOrder: 5
@@ -15587,14 +15587,14 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.589
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

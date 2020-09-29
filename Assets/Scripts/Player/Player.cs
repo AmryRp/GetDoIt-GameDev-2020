@@ -65,7 +65,7 @@ public class Player : PlayerModel, IChangeable<string>
     public void Lose()
     {
         Time.timeScale = 1f;
-        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+        GameObject.Find("CanvasLose").GetComponent<Canvas>().enabled = true;
         StartCoroutine(UI.CalculatingPrefabPoint());
     }
     //public void GainExp(int exp)
@@ -156,9 +156,8 @@ public class Player : PlayerModel, IChangeable<string>
             Direction = Vector2.zero;
             //myRigidbody.velocity = Direction;
             Hidup = false;
-            if (this is Player)
+            if (this is Player && !Hidup)
             {
-                 
                 Lose();
             }
 
