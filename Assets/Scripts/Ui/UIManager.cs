@@ -99,11 +99,11 @@ public class UIManager : UiController
     }
     public IEnumerator CalculatingPrefabPoint() 
     {
+        CalculatePoint();
         yield return new WaitForSeconds(1);
         LoadUI(false, false, false, false, false, false, true, false);
         yield return null;
-        CalculatePoint();
-        yield return null;
+        /*yield return null;*/
     }
     public Text DistanceP;
     float tmpDistance;
