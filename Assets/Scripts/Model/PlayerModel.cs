@@ -101,7 +101,7 @@ public class PlayerModel : CharacterModel
     [Header("Player Point Records System")]
     [SerializeField]
     public UIManager UI;
-    public float AllShotTaken;
+    public int AllShotTaken;
     public float AllSavedDistance;
     public float AllPointCollected;
     public float AllObjectShot;

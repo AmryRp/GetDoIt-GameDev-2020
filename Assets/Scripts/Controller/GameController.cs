@@ -149,7 +149,12 @@ public class GameController : UiController, IPointerClickHandler
                     break;
                 case "SaveToPrefab":
                     //Saving Point to Prefab
+                    COGM = CameraObjectManager.MyCamReceiver;
                     PC = PlayerController.MyPlayerControl;
+                    PlayerPrefs.SetInt("MyShot", COGM.tempShotTaken);
+                    PlayerPrefs.SetFloat("MyPoint", COGM.AllPoint);
+                    PlayerPrefs.SetFloat("DistanceTraveled", PC.AllDistance);
+                    PlayerPrefs.Save();
                     //UI = UIManager.MyUI;
                     //StartCoroutine(UI.CalculatingPrefabPoint());
 

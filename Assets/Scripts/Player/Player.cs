@@ -40,9 +40,10 @@ public class Player : PlayerModel, IChangeable<string>
     {
     }
 
-    public void Change(string Type)
+    public string Change(string Type)
     {
         Type = CanoeType;
+        return Type;
     }
 
   
@@ -52,7 +53,13 @@ public class Player : PlayerModel, IChangeable<string>
     // Use this for initialization
     protected virtual void Start()
     {
-
+        float str = PlayerPrefs.GetFloat("MyPoint");
+        float str2 = PlayerPrefs.GetFloat("DistanceTraveled");
+        int str3 = PlayerPrefs.GetInt("MyShot");
+        if (!str.Equals(0f)) AllPointCollected = PlayerPrefs.GetFloat("MyPoint");
+        if (!str2.Equals(0f)) AllDistance = PlayerPrefs.GetFloat("DistanceTraveled");
+        if (!str3.Equals(0)) AllShotTaken = PlayerPrefs.GetInt("MyShot");
+       
         //myRigidbody = GetComponent<Rigidbody2D>();
         IsAnimator = GetComponentInChildren<Animator>();
     }
@@ -65,83 +72,15 @@ public class Player : PlayerModel, IChangeable<string>
     public void Lose()
     {
         Time.timeScale = 1f;
-        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+        GameObject.Find("CanvasLose").GetComponent<Canvas>().enabled = true;
         StartCoroutine(UI.CalculatingPrefabPoint());
     }
-    //public void GainExp(int exp)
-    //{
-    //    MyExp.MyCurrentValue += exp;
-
-    //    if (MyExp.MyCurrentValue >= MyExp.MyMaxValue)
-    //    {
-    //        StartCoroutine(Blip());
-    //    }
-    //}
-    //private IEnumerator Blip()
-    //{
-    //    while (!MyExp.ExpFull)
-    //    {
-    //        yield return null;
-    //    }
-    //    myLevel++;
-    //    LevelText.text = myLevel.ToString();
-    //    MyExp.MyMaxValue = 100 * myLevel * Mathf.Pow(myLevel, 0.5f);
-    //    MyExp.MyMaxValue = Mathf.Floor(MyExp.MyMaxValue);
-    //    MyExp.MyCurrentValue = MyExp.MyOverExp;
-    //    MyExp.Reset();
-    //}
-    //public void UpdateLevel()
-    //{
-    //    LevelText.text = myLevel.ToString();
-    //}
     public void PlayerRespawn()
     {
         Hidup = true;
         //IsAnimator.SetBool("IsDie", false);
         Energy.MyCurrentValue += myEnergy.MyMaxValue;
     }
-    //untuk handle animasi
-    //public void HandleLayers()
-    //{
-    //    if (Hidup)
-    //    {
-    //        if (IsMoving)
-    //        {
-    //            ActivateLayer("WalkLayer");
-    //            IsAnimator.SetFloat("x", Direction.x);
-    //            IsAnimator.SetFloat("y", Direction.y);
-
-    //        }
-    //        else if (IsOnMove)
-    //        {
-    //            ActivateLayer("SerangLayer");
-    //        }
-    //        else if (CaptureClick)
-    //        {
-    //            ActivateLayer("Skill");
-    //        }
-    //        else if (!Hidup)
-    //        {
-
-    //            ActivateLayer("DieLayer");
-    //        }
-    //        else
-    //        {
-    //            ActivateLayer("IdleLayer");
-    //        }
-    //    }
-
-    //}
-
-    //public void ActivateLayer(string layerName)
-    //{
-    //    for (int i = 0; i < IsAnimator.layerCount; i++)
-    //    {
-    //        IsAnimator.SetLayerWeight(i, 0);
-    //    }
-    //    IsAnimator.SetLayerWeight(IsAnimator.GetLayerIndex(layerName), 1);
-    //}
-
 
     public virtual void TakeDamage(float damage/*, Transform source*/)
     {
@@ -156,9 +95,8 @@ public class Player : PlayerModel, IChangeable<string>
             Direction = Vector2.zero;
             //myRigidbody.velocity = Direction;
             Hidup = false;
-            if (this is Player)
+            if (this is Player && !Hidup)
             {
-                 
                 Lose();
             }
 

@@ -99,11 +99,11 @@ public class UIManager : UiController
     }
     public IEnumerator CalculatingPrefabPoint() 
     {
+        CalculatePoint();
         yield return new WaitForSeconds(1);
         LoadUI(false, false, false, false, false, false, true, false);
         yield return null;
-        CalculatePoint();
-        yield return null;
+        /*yield return null;*/
     }
     public Text DistanceP;
     float tmpDistance;
@@ -134,12 +134,13 @@ public class UIManager : UiController
             NullHandler();
         }
 
-        COGM.tempShotTaken = COGM.InitShotTaken;
-        COGM.AllPoint = COGM.PrevousPoint;
-        PL.AllDistance = PL.totalDistance;
+        COGM.tempShotTaken += COGM.InitShotTaken;
+        COGM.AllPoint += COGM.PrevousPoint;
+        PL.AllDistance += PL.totalDistance;
         StartCoroutine(PointTextHandleSS());
         StartCoroutine(PointTextHandleCP());
         StartCoroutine(PointTextHandleDP());
+        
     }
     public IEnumerator PointTextHandleSS()
     {
@@ -151,7 +152,7 @@ public class UIManager : UiController
                 tmpSS++; //Increment the display score by 1
                 SsTaken.text = Mathf.Round(Mathf.Lerp(tmpSS, PL.AllShotTaken, 0.1f * Time.deltaTime)).ToString();
             }
-            yield return new WaitForSeconds(0.2f); // I used .2 secs but you can update it as fast as you want
+            yield return new WaitForSeconds(0.1f); 
         }
 
     }
@@ -165,7 +166,7 @@ public class UIManager : UiController
                 tmpCP++; //Increment the display score by 1
                 CollectedPoint.text = Mathf.Round(Mathf.Lerp(tmpCP, COGM.AllPoint, 0.1f * Time.deltaTime)).ToString();
             }
-            yield return new WaitForSeconds(0.2f); // I used .2 secs but you can update it as fast as you want
+            yield return new WaitForSeconds(0.1f); 
         }
 
     }
@@ -179,7 +180,7 @@ public class UIManager : UiController
                 tmpDistance++; //Increment the display score by 1
                 DistanceP.text = Mathf.Round(Mathf.Lerp(tmpDistance, PL.AllDistance, 0.1f * Time.deltaTime)).ToString();
             }
-            yield return new WaitForSeconds(0.2f); // I used .2 secs but you can update it as fast as you want
+            yield return new WaitForSeconds(0.1f); 
         }
 
     }

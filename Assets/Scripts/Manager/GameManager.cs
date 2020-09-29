@@ -36,9 +36,16 @@ public class GameManager : MonoBehaviour
     public bool IsPaused;
     private void Update()
     {
-        if (!PC.Hidup)
+        if (PC != null)
         {
-            isDeath = true;
+            if (!PC.Hidup)
+            {
+                isDeath = true;
+            }
+        }
+        else if (!SceneManager.GetActiveScene().buildIndex.Equals(0))
+        {
+            PC = PlayerController.MyPlayerControl;
         }
         if (Time.timeScale == 0f)
         {
@@ -62,7 +69,7 @@ public class GameManager : MonoBehaviour
             {
                 SceneManager.LoadScene("MainMenu");
             }
-            else 
+            else if(SceneManager.GetActiveScene().buildIndex == 0)
             {
                 UI.LoadUI(false, false, false, false, false, true, false, false);
             }

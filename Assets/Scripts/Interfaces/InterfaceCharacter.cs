@@ -21,9 +21,12 @@ public interface IDrainable<T>
 //change equip
 public interface IChangeable<T>
 {
-    void Change(T Type);
+    string Change(T Type);
 }
-
+public interface IBuyAble<T>
+{
+    string Buy(T Type);
+}
 public interface IMoveable<T>
 {
     IEnumerator MovePlayer(T moveSpeed);
@@ -34,7 +37,9 @@ public interface IStopable<T>
 {
     IEnumerator BreakPlayer(T breakValue);
 }
-[System.Serializable]
+
+
+    [System.Serializable]
 public class SerializableDictionary<TK, TV>: ISerializable
 {
     private Dictionary<TK, TV> _Dictionary;
