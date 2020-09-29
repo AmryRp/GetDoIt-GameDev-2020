@@ -42,6 +42,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
 
     public void SetDefault()
     {
+       
         lastMove = transform.position;
         CanoeBody = GetComponent<Rigidbody2D>();
         TapCount = 0;

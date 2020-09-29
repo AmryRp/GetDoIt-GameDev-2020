@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
-public class ItemServices : IBuyAble<int>,IChangeable<string>
+public class ItemServices : IBuyAble<string>,IChangeable<string>
 {
 
     private const bool truestate = true; 
     private const bool falsestate = false;
+    public string ItemID;
     public string itemName;
-    public string price;
-    public Image theItemPreview;
+    public int price;
+    public Sprite theItemPreview;
     public Sprite itemIcon;
     public bool equiped = falsestate;
     public Image equipedImage;
@@ -23,19 +25,18 @@ public class ItemServices : IBuyAble<int>,IChangeable<string>
     public bool locked = truestate;
     public int discount;
     public int speedStat;
-    public int weight;
-    public int pointValue;
+    public int weightStat;
+    public int pointValueStat;
 
-
-    public void Buy(int Type)
+    public string Buy(string Type)
     {
-        
+        Type = ItemID;
+        return Type;
     }
 
-    public void Change(string Type)
+    public string Change(string Type)
     {
-        
+        Type = ItemID;
+        return Type;
     }
-    
-
 }

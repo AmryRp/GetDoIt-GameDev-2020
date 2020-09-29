@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
             {
                 SceneManager.LoadScene("MainMenu");
             }
-            else 
+            else if(SceneManager.GetActiveScene().buildIndex == 0)
             {
                 UI.LoadUI(false, false, false, false, false, true, false, false);
             }

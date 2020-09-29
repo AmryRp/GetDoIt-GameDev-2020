@@ -1396,6 +1396,7 @@ GameObject:
   - component: {fileID: 5688073913180635600}
   - component: {fileID: 4354497861771611097}
   - component: {fileID: 8525691617606778563}
+  - component: {fileID: 6934099115106388490}
   m_Layer: 5
   m_Name: StatusLock
   m_TagString: Untagged
@@ -1460,6 +1461,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &6934099115106388490
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6862995297655338001}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 400feb65edb4f3b4491fec02f2839823, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7004460129580852054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,8 +1549,8 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: d812fa604b607274e81c5556cf46318a, type: 3}
     m_FontSize: 36
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 3
+    m_BestFit: 1
+    m_MinSize: 8
     m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0

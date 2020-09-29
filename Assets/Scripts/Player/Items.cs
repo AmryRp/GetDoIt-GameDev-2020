@@ -17,19 +17,16 @@ public class Items : MonoBehaviour
             return instance;
         }
     }
-
+    public string ItemID;
     public Text itemName;
     public Image theItemPreview;
     public Image Equipped;
     public Image Locked;
-    [SerializeField]
-    private Image Speed;
+    public Image Speed;
     public Text SpeedValue;
-    [SerializeField]
-    private Image Weight;
+    public Image Weight;
     public Text WeightValue;
-    [SerializeField]
-    private Image PointShot;
+    public Image PointShot;
     public Text PointShotValue;
     public Text Price;
 
@@ -64,10 +61,17 @@ public class Items : MonoBehaviour
 
     }
 
-    public void Initialize(float currentValue, float maxValue,Image Stats)
+    public void Initialize(float currentValue, float maxValue, Image Stats)
     {
         MyMaxValue = maxValue;
         MyCurrentValue = currentValue;
         Stats.fillAmount = MyCurrentValue / MyMaxValue;
     }
+    public IEnumerator Unlocked()
+    {
+        Animator UnLockAnim = Locked.gameObject.GetComponent<Animator>();
+        UnLockAnim.SetBool("Unlock", true);
+        yield return null;
+    }
+
 }
