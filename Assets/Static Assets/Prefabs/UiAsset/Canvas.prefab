@@ -2132,7 +2132,7 @@ RectTransform:
   m_GameObject: {fileID: 1438861530688622948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children:
   - {fileID: 6038976605824699280}
   - {fileID: 2969991804544925084}
@@ -3225,7 +3225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5901,6 +5901,7 @@ MonoBehaviour:
   Exit: {fileID: 7950329646731865316}
   GmOver: {fileID: 5979912249181848703}
   SavenU: {fileID: 3099172693926919880}
+  EnergyStats: {fileID: 9184459539929298134}
   DistanceP: {fileID: 4384626477862481208}
   CollectedPoint: {fileID: 1587968677242733906}
   SsTaken: {fileID: 2814701676292406472}

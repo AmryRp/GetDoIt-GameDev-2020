@@ -57,7 +57,11 @@ public class Player : PlayerModel, IChangeable<string>
         float str2 = PlayerPrefs.GetFloat("DistanceTraveled");
         int str3 = PlayerPrefs.GetInt("MyShot");
         if (!str.Equals(0f)) AllPointCollected = PlayerPrefs.GetFloat("MyPoint");
-        if (!str2.Equals(0f)) AllDistance = PlayerPrefs.GetFloat("DistanceTraveled");
+        if (!str2.Equals(0f)) 
+        { 
+            AllDistance = PlayerPrefs.GetFloat("DistanceTraveled");
+            AllSavedDistance = AllDistance;
+        }
         if (!str3.Equals(0)) AllShotTaken = PlayerPrefs.GetInt("MyShot");
        
         //myRigidbody = GetComponent<Rigidbody2D>();
@@ -69,13 +73,16 @@ public class Player : PlayerModel, IChangeable<string>
     {
 
     }
-    public void Lose()
+    public virtual IEnumerator Lose()
     {
         UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
         Time.timeScale = 1f;
+        print("open");
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-        UI.LoadUI(false, false, false, false, false, false, true, false);
         StartCoroutine(UI.CalculatingPrefabPoint());
+        UI.LoadUI(false, false, false, false, false, false, true, false);
+        //UI = UIManager.MyUI;
+        yield return null;
     }
     public void PlayerRespawn()
     {
@@ -98,14 +105,15 @@ public class Player : PlayerModel, IChangeable<string>
             Hidup = false;
             if (this is Player && !Hidup)
             {
-                Lose();
+                print("from player energy");
+                StartCoroutine(Lose());
             }
 
         }
 
 
     }
-    public void getEnergy(float h)
+    public  void getEnergy(float h)
     {
         myEnergy.MyCurrentValue += h;
         //text tambah energy
@@ -114,7 +122,10 @@ public class Player : PlayerModel, IChangeable<string>
     }
     public void Fatigue()
     {
+
+        //dikali dengan canoe weight nantinya
         myEnergy.MyCurrentValue -= EnergyDrain ;
+        PlayerEnergy = myEnergy.MyCurrentValue;
         //GameTextManager.MyInts.creattext(transform.position, "-", SCTTYPE.HEAL, true);
 
     }

@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         if (eventData.button == PointerEventData.InputButton.Left || Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
         {
             //Debug.Log("Touched the UI");
-
+            
             switch (ButtonName)
             {
                 case "SceneChange":
@@ -72,12 +72,11 @@ public class GameController : MonoBehaviour, IPointerClickHandler
                 case "Gallery":
                     print("unknown");
                     break;
-                case "PLayerInfo":
-                    print("unknown");
+                case "PlayerInfo":
+                   StartCoroutine(ShowEnergyValue());
                     break;
                 case "UnPauseButton":
                     StartCoroutine(UnPauseButton());
-                   
                     break;
                 case "CaptureButton":
                     StartCoroutine(Capturing());
@@ -135,7 +134,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
     }
     private IEnumerator TakeScreenshotAndSave()
     {
-        if (PC.Hidup)
+        if (PC.Hidup && !GM.IsPaused)
         {
             AudioController.Playsound("Jepret");
             Animator isShowing = GameObject.FindGameObjectWithTag("ShowImage").GetComponent<Animator>();
@@ -167,7 +166,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         else if (PC.myEnergy.MyCurrentValue <= (PC.myEnergy.MyMaxValue * 0.1))
         {
             GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-          
+
             PC = PlayerController.MyPlayerControl;
             PC.Lose();
             PC.IsAnimator.SetBool("IsCapture", false);
@@ -175,9 +174,14 @@ public class GameController : MonoBehaviour, IPointerClickHandler
             UI.LoadUI(true, false, false, false, false, false, false, false);
             Time.timeScale = 1f;
         }
-        else
+        else if (!PC.Hidup)
         {
-            PC.Lose();
+            StartCoroutine(PC.Lose());
+
+        }
+        else 
+        {
+            print("Wait for second,please close.. camera still saving the picture");
         }
     }
     public void NullHandler()
@@ -190,7 +194,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
     }
     private IEnumerator TakeScreenshotAndShare()
     {
-        if (PC.Hidup)
+        if (PC.Hidup && !GM.IsPaused)
         {
             NullHandler();
             AudioController.Playsound("Jepret");
@@ -231,9 +235,13 @@ public class GameController : MonoBehaviour, IPointerClickHandler
             UI.LoadUI(true, false, false, false, false, false, false, false);
             Time.timeScale = 1f;
         }
+        else if (!PC.Hidup)
+        {
+            StartCoroutine(PC.Lose());
+        }
         else
         {
-            PC.Lose();
+            print("Wait for second,please close.. camera still saving the picture");
         }
     }
     public IEnumerator ExitOption()
@@ -258,7 +266,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         COGM = GameObject.FindGameObjectWithTag("DistanceReceiver").GetComponent<CameraObjectManager>();
-        loadPC();
+        PC = PlayerController.MyPlayerControl;
         PC.IsAnimator.SetBool("IsCapture", true);
         PC.IsAnimator.SetBool("IsMoving", false);
         PC.IsAnimator.SetBool("IsStop", false);
@@ -356,7 +364,6 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         COGM = CameraObjectManager.MyCamReceiver;
         PC = PlayerController.MyPlayerControl;
-        PC = PlayerController.MyPlayerControl;
         if (PC.myEnergy.MyCurrentValue <= (PC.myEnergy.MyMaxValue * 0.1))
         {
             PC.IsAnimator.SetBool("IsCapture", false);
@@ -381,7 +388,6 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         COGM = CameraObjectManager.MyCamReceiver;
         PC = PlayerController.MyPlayerControl;
-        PC = PlayerController.MyPlayerControl;
         if (PC.myEnergy.MyCurrentValue <= (PC.myEnergy.MyMaxValue * 0.1))
         {
 
@@ -405,8 +411,17 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         LoadNeeded();
         Animator PauseAnim = GameObject.FindGameObjectWithTag("PauseOption").GetComponent<Animator>();
         PauseAnim.SetBool("IsPaused", false);
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
         UI.LoadUI(true, false, false, false, false, false, false, false);
         Time.timeScale = 1f;
         yield return null;
+    }
+    public IEnumerator ShowEnergyValue()
+    {
+       
+        UI = UIManager.MyUI;
+        StartCoroutine(UI.ShowText());
+        yield return null;
+        
     }
 }

@@ -39,7 +39,23 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         //}
         base.Start();
     }
+    //load data tersimpan dr equip
+    private void PlayerPrefsLoads()
+    {
+        MoveSpeed = PlayerPrefs.GetFloat("MySpeed");
+        EnergyDrain = PlayerPrefs.GetFloat("MyFatigue");
+        PlayerEnergy = PlayerPrefs.GetFloat("MaxEnergy");
+        CanoeType = PlayerPrefs.GetString("CanoeType");
+        canoeSpeed = PlayerPrefs.GetFloat("CanoeSpeed");
+        canoeWeight = PlayerPrefs.GetFloat("CanoeWeight");
+        canoePoint = PlayerPrefs.GetFloat("CanoePoint");
 
+//        saving in playerprefs as string,
+//          load the image from itemservices from stringvalue playerprefs,
+//            set the equipped to the player sprite.
+
+
+    }
     public void SetDefault()
     {
 
@@ -89,10 +105,12 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             IsAnimator.SetBool(IDLE, true);
             if (IsAnimator.GetBool(IDLE) && !IsAnimator.GetBool(MOVING))
             {
+               
                 IdleTimer += Time.deltaTime;
                // print(IdleTimer);
                 if (IdleTimer >= 3f)
                 {
+                   
                     multiplier = 1;
                     IsAnimator.SetFloat("MoveMultiplier", multiplier);
                     IdleTimer = 0f;
@@ -116,6 +134,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 //Debug.Log("Not Touched the UI");
                 if (!is_hold)
                 {
+                  
                     IsAnimator.SetBool(STOP, false);
                     IsAnimator.SetBool(IDLE, false);
                     IsAnimator.SetBool(MOVING, true);
@@ -258,6 +277,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             //Untuk pergerakan
             isMoving = true;
             MoveBoatSplash.Play();
+            //dikali canoe speed dan dibagi canoe weight nantinya
             CanoeBody.AddForce(new Vector2(((MoveSpeedInWater + moveSpeed + (MoveEffect/2)) * Time.deltaTime), 0), ForceMode2D.Impulse); // Movement
                                                                                                                         //MovementSpeedInWater kecepatan canoe berdasarkan deras air atau bisa ditambah dengan moveSpeed kecepatan dari player, seperti dibawah ini
             /*CanoeBody.MovePosition(transform.position + transform.right * ((MoveSpeedInWater + moveSpeed) * Time.deltaTime)); */
@@ -357,7 +377,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     }
     public bool speedLimiter(float Vel)
     {
-        float maxMultipliet = 2.5f;
+        float maxMultipliet = maxmultiplier;
         bool LimitReach = false;
         if (Vel >= maxMultipliet)
         {

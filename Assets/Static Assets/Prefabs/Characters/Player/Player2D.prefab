@@ -10487,14 +10487,17 @@ MonoBehaviour:
   isMoving: 0
   MaxAnimTime: 1.5
   PlayerEnergy: 100
-  CanoeType: 1
   CameraMeter: 0
   CanoeBody: {fileID: 6058468273805336710}
   multiplier: 0
   IdleTimer: 0
+  CanoeType: 1
+  canoeSpeed: 0
+  canoeWeight: 0
+  canoePoint: 0
   MoveBoatSplash: {fileID: 6058468273226768505}
   lastMove: {x: 0, y: 0, z: 0}
-  EnergyDrain: 0.0005
+  EnergyDrain: 0.001
   maxDrainSpeedTime: 100
   timeWaitingDrain: 1.1
   GM: {fileID: 0}

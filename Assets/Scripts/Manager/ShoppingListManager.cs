@@ -94,10 +94,13 @@ public class ShoppingListManager : MonoBehaviour
             for (int i = 0; i < CoinsShop.Length; i++)
             {
                 CoinsShop[i].text = Mathf.Round(Mathf.MoveTowards(savePoint, MyCoins, 0.1f * Time.unscaledDeltaTime)).ToString();
-                yield return new WaitForSeconds(0.1f);
+                yield return null;
             }
         }
         yield return new WaitForSeconds(0.1f);
-
+        for (int i = 0; i < CoinsShop.Length; i++)
+        {
+            CoinsShop[i].text = Mathf.Round(savePoint).ToString();
+        }
     }
 }

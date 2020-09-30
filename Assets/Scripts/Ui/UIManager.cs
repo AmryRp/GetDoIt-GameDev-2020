@@ -10,6 +10,7 @@ public class UIManager : UiController
     public CameraObjectManager COGM;
     private static UIManager instance;
     public Canvas Gpui, Pause, Sett, Mainmenu, Capture, Exit, GmOver, SavenU;
+    public Text EnergyStats;
     public static UIManager MyUI
     {
         get
@@ -23,20 +24,10 @@ public class UIManager : UiController
     }
     void Start()
     {
-        NullHandler();
         COGM = CameraObjectManager.MyCamReceiver;
         PL = PlayerController.MyPlayerControl;
         GM = GameManager.MyGM;
-        //DontDestroyOnLoad(transform.gameObject);
-        //if (!UiControllerxist)
-        //{
-        //    UiControllerxist = true;
-        //    DontDestroyOnLoad(transform.gameObject);
-        //}
-        //else
-        //{
-        //    Destroy(gameObject);
-        //}
+
     }
     public void Update()
     {
@@ -49,7 +40,7 @@ public class UIManager : UiController
             SwitchScene(4);
         }
     }
-    public void SwitchScene(int SceneName) 
+    public void SwitchScene(int SceneName)
     {
         switch (SceneName)
         {
@@ -66,9 +57,7 @@ public class UIManager : UiController
                 print("unknown");
                 break;
             case 4:
-                GameObject.FindGameObjectWithTag("GameOver").GetComponent<Canvas>().enabled = true;
-                GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = false;
-                GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = false;
+                StartCoroutine(PL.Lose());
                 break;
             default:
                 print("Incorrect intelligence level.");
@@ -87,7 +76,7 @@ public class UIManager : UiController
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public void LoadUI(bool gpui, bool pause, bool sett, bool mainmenu, bool capture, bool exit, bool GOver,bool SnU)
+    public void LoadUI(bool gpui, bool pause, bool sett, bool mainmenu, bool capture, bool exit, bool GOver, bool SnU)
     {
         Gpui.GetComponent<Canvas>().enabled = gpui;
         Pause.GetComponent<Canvas>().enabled = pause;
@@ -97,22 +86,23 @@ public class UIManager : UiController
         GmOver.GetComponent<Canvas>().enabled = GOver;
         SavenU.GetComponent<Canvas>().enabled = SnU;
         Sett.GetComponent<Canvas>().enabled = sett;
-     
+
     }
-    public IEnumerator CalculatingPrefabPoint() 
+    public IEnumerator CalculatingPrefabPoint()
     {
         CalculatePoint();
-        yield return new WaitForSeconds(1);
-        LoadUI(false, false, false, false, false, false, true, false);
-        yield return null;
+        yield return new WaitForSeconds(0.1f);
         /*yield return null;*/
     }
     public Text DistanceP;
     float tmpDistance;
+    float AllDistance;
     public Text CollectedPoint;
     float tmpCP;
+    float AllPointCol;
     public Text SsTaken;
-    float tmpSS;
+    int tmpSS;
+    int AllTakenSS;
 
     public void NullHandler()
     {
@@ -131,59 +121,77 @@ public class UIManager : UiController
     }
     public void CalculatePoint()
     {
-        if ((CollectedPoint == null)||(DistanceP == null)||(SsTaken == null))
+        if ((CollectedPoint == null) || (DistanceP == null) || (SsTaken == null))
         {
             NullHandler();
         }
 
-        COGM.TempShotTaken += COGM.InitShotTaken;
-        COGM.AllPoint += COGM.PrevousPoint;
-        PL.AllDistance += PL.totalDistance;
+        // COGM.TempShotTaken += COGM.InitShotTaken;
+        AllTakenSS = COGM.TempShotTaken;
+       // COGM.AllPoint += COGM.PrevousPoint;
+        AllPointCol = COGM.AllPoint;
+        //PL.AllDistance += PL.totalDistance;
+        AllDistance = PL.totalDistance;
         StartCoroutine(PointTextHandleSS());
         StartCoroutine(PointTextHandleCP());
         StartCoroutine(PointTextHandleDP());
-        
+
     }
     public IEnumerator PointTextHandleSS()
     {
-        tmpSS = 0f;
-        while (true)
+        print("SS "+ AllTakenSS);
+        tmpSS = 0;
+        while (tmpSS < AllTakenSS)
         {
-            if (tmpSS < PL.AllShotTaken)
-            {
-                tmpSS++; //Increment the display score by 1
-                SsTaken.text = Mathf.Round(Mathf.Lerp(tmpSS, PL.AllShotTaken, 0.1f * Time.unscaledDeltaTime)).ToString();
-            }
-            yield return new WaitForSeconds(0.1f); 
+            tmpSS++; //Increment the display score by 1
+            SsTaken.text = Mathf.Lerp(tmpSS, AllTakenSS, 1 * Time.unscaledDeltaTime).ToString();
+            yield return null;
         }
-
+        SsTaken.text = Mathf.Round(AllTakenSS).ToString();
     }
     public IEnumerator PointTextHandleCP()
     {
+        print("CP "+ AllPointCol);
         tmpCP = 0f;
-        while (true)
+        while (tmpCP < AllPointCol)
         {
-            if (tmpCP < COGM.AllPoint)
-            {
-                tmpCP++; //Increment the display score by 1
-                CollectedPoint.text = Mathf.Round(Mathf.Lerp(tmpCP, COGM.AllPoint, 0.1f * Time.unscaledDeltaTime)).ToString();
-            }
-            yield return new WaitForSeconds(0.1f); 
+            tmpCP++; //Increment the display score by 1
+            CollectedPoint.text = Mathf.Round(Mathf.Lerp(tmpCP, AllPointCol, 0.1f * Time.unscaledDeltaTime)).ToString();
+            yield return null;
         }
-
+        CollectedPoint.text = Mathf.Round(AllPointCol).ToString();
     }
     public IEnumerator PointTextHandleDP()
     {
+        print("DP "+ AllDistance);
         tmpDistance = 0f;
-        while (true)
+        while (tmpDistance < AllDistance)
         {
-            if (tmpDistance < PL.AllDistance)
-            {
-                tmpDistance++; //Increment the display score by 1
-                DistanceP.text = Mathf.Round(Mathf.Lerp(tmpDistance, PL.AllDistance, 0.1f * Time.unscaledDeltaTime)).ToString();
-            }
-            yield return new WaitForSeconds(0.1f); 
+            tmpDistance++; //Increment the display score by 1
+            DistanceP.text = Mathf.Round(Mathf.Lerp(tmpDistance, AllDistance, 0.1f * Time.unscaledDeltaTime)).ToString();
+            yield return null;
         }
-
+        DistanceP.text = Mathf.Round(AllDistance).ToString();
+    }
+    public IEnumerator ShowText()
+    {
+       
+        for (float i = 0; i <= 1f; i += 0.05f)
+        {
+           
+            EnergyStats.color = new Color(0f, 0f, 0f, Mathf.SmoothStep(0, 1, i));
+            yield return new WaitForSeconds(0.01f);
+        }
+        EnergyStats.color = new Color(0f, 0f, 0f, 1);
+        yield return new WaitForSeconds(5f);
+        StartCoroutine(HideText());
+    }
+    public IEnumerator HideText()
+    {
+        for (float i = 1;i >= 0;i-=0.03f) {
+            EnergyStats.color = new Color(0f, 0f, 0f, Mathf.SmoothStep(0, 1, i));
+            yield return new WaitForSeconds(0.01f);
+        }
+        EnergyStats.color = new Color(0f, 0f, 0f, 0);
     }
 }

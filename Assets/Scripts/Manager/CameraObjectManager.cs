@@ -22,6 +22,7 @@ public class CameraObjectManager : MonoBehaviour
     public int MaxObjects = 45;
     public int InitShotTaken;
     private int tempShotTaken;
+    public bool isGolden = false;
     private static CameraObjectManager instance;
     public static CameraObjectManager MyCamReceiver
 
@@ -61,7 +62,7 @@ public class CameraObjectManager : MonoBehaviour
 
             }
             CameraMeter = 0f;
-            CameraMeter = tmpVal / CountObjects;
+            CameraMeter = tmpVal / (CountObjects * goldenRatio);
         }
 
         yield return null;
@@ -83,11 +84,17 @@ public class CameraObjectManager : MonoBehaviour
             }
             capturePoint = 0f;
             IPower = IPower * calculateGolden;
-            capturePoint = (tmpVal + IPower) / CountObjects;
+            capturePoint = (tmpVal + IPower) / (CountObjects *goldenRatio);
             PrevousPoint = AllPoint;
+            if (isGolden)
+            {
+                print("golden");
+                capturePoint = capturePoint * 2;
+            }
             AllPoint += capturePoint;
             InitShotTaken ++;
             tempShotTaken = InitShotTaken;
+           
         }
         CalculatePoint();
         yield return null;
@@ -99,10 +106,23 @@ public class CameraObjectManager : MonoBehaviour
         {
             CameraMeterBar = GameObject.FindGameObjectWithTag("CameraMeter").GetComponent<Image>();
         }
-        bool isGolden = false;
+        
+        if (CameraMeter < maxCameraMeter)
+        {
+            calculateGolden = (maxCameraMeter + CameraMeter) / maxCameraMeter;
+        }
+        else
+        {
+            calculateGolden = (maxCameraMeter-CameraMeter)/CameraMeter;
+        }
+        if (calculateGolden >= 1 && calculateGolden <= goldenRatio)
+        {
+            float rand = UnityEngine.Random.Range(0.5f, 0.9f);
+            currentFill = rand;
+            isGolden=true;
+        }
 
-        calculateGolden = CameraMeter / (maxCameraMeter - CameraMeter);
-        if (calculateGolden == goldenRatio)
+        if (calculateGolden == goldenRatio || calculateGolden >=1.5 && calculateGolden <= goldenRatio)
         {
             currentFill = 1f;
             isGolden = true;
@@ -110,13 +130,13 @@ public class CameraObjectManager : MonoBehaviour
         }
         else if (calculateGolden < goldenRatio)
         {
-            currentFill = ((CameraMeter * calculateGolden) * 0.5f) / maxCameraMeter;
-            CameraMeterBar.color = Color.green;
+            currentFill = ((CameraMeter * calculateGolden) * 1f) / maxCameraMeter;
+            CameraMeterBar.color = Color.yellow;
         }
         else if (calculateGolden > goldenRatio)
         {
-            currentFill = ((CameraMeter * calculateGolden) * 1f) / maxCameraMeter;
-            CameraMeterBar.color = Color.yellow;
+            currentFill = ((CameraMeter * calculateGolden) * 1.25f) / maxCameraMeter;
+            CameraMeterBar.color = Color.green;
         }
         else
         {
@@ -124,8 +144,7 @@ public class CameraObjectManager : MonoBehaviour
         }
         if (isGolden)
         {
-            //tampilkan teks
-            //print("perfect");
+            AllPoint = AllPoint * 2f;
         }
         StartCoroutine(HandleBar());
     }
@@ -157,6 +176,7 @@ public class CameraObjectManager : MonoBehaviour
             }
             yield return new WaitForSeconds(0.2f); // I used .2 secs but you can update it as fast as you want
         }
+
         
     }
 }

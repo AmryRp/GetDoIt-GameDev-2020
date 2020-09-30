@@ -46,8 +46,7 @@ public class PlayerModel : CharacterModel
     [Header("Player Mechanic")]
     [SerializeField]
     protected float PlayerEnergy;
-    [SerializeField]
-    protected string CanoeType;
+   
     [SerializeField]
     protected float CameraMeter;
     protected static bool playerExists;
@@ -55,6 +54,18 @@ public class PlayerModel : CharacterModel
     public Rigidbody2D CanoeBody;
     public float multiplier;
     public float IdleTimer;
+    public float maxmultiplier= 3f;
+
+    [Header("Canoe Mechanic")]
+    [SerializeField]
+    protected string CanoeType;
+    [SerializeField]
+    protected float canoeSpeed;
+    [SerializeField]
+    protected float canoeWeight;
+    [SerializeField]
+    protected float canoePoint;
+
 
     [Header("Player Moving Animation Particle")]
     [SerializeField]
