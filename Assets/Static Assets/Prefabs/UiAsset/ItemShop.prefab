@@ -402,17 +402,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81b7ab52d5bef64bb552619c55f10f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemID: 
   itemName: {fileID: 967619392855375029}
   theItemPreview: {fileID: 4811311464648013530}
   Equipped: {fileID: 8096082848979501083}
   Locked: {fileID: 8525691617606778563}
-  Speed: {fileID: 5003918927718475859}
+  Speed: {fileID: 525374272851729128}
   SpeedValue: {fileID: 2339899044878132788}
-  Weight: {fileID: 6588685381081427015}
+  Weight: {fileID: 514319857392998586}
   WeightValue: {fileID: 5833307125111518511}
-  PointShot: {fileID: 7780904929509223666}
+  PointShot: {fileID: 2145928308172692196}
   PointShotValue: {fileID: 7088354213719291056}
   Price: {fileID: 3134200941334844792}
+  SelectedItem: {fileID: 3540807289428278514}
 --- !u!1 &2427816649418554343
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,10 +793,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 3321101335184158419, guid: 40233543d0c15824aabf4cd65e1cc7af, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -976,7 +978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8626775238168323712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1143,10 +1145,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 3321101335184158419, guid: 40233543d0c15824aabf4cd65e1cc7af, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -1376,10 +1378,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 3321101335184158419, guid: 40233543d0c15824aabf4cd65e1cc7af, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -1704,10 +1706,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: -5851128268393434600, guid: 40233543d0c15824aabf4cd65e1cc7af, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -1986,4 +1988,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8611014672410789827}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6655508814686070155}
+        m_TargetAssemblyTypeName: Items, Assembly-CSharp
+        m_MethodName: buyButtonAct
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

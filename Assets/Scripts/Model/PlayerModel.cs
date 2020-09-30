@@ -53,6 +53,8 @@ public class PlayerModel : CharacterModel
     protected static bool playerExists;
     [SerializeField]
     public Rigidbody2D CanoeBody;
+    public float multiplier;
+    public float IdleTimer;
 
     [Header("Player Moving Animation Particle")]
     [SerializeField]

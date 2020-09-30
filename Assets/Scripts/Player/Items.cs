@@ -29,6 +29,7 @@ public class Items : MonoBehaviour
     public Image PointShot;
     public Text PointShotValue;
     public Text Price;
+    public Image SelectedItem;
 
     private float currentFill;
     public float MyMaxValue { get; set; }
@@ -65,7 +66,8 @@ public class Items : MonoBehaviour
     {
         MyMaxValue = maxValue;
         MyCurrentValue = currentValue;
-        Stats.fillAmount = MyCurrentValue / MyMaxValue;
+        Stats.fillAmount = currentFill;
+       
     }
     public IEnumerator Unlocked()
     {
@@ -73,5 +75,9 @@ public class Items : MonoBehaviour
         UnLockAnim.SetBool("Unlock", true);
         yield return null;
     }
-
+    public void buyButtonAct()
+    {
+        float val = float.Parse(Price.text);
+        ShoppingListManager.MyInstance.Decrease(val);
+    }
 }

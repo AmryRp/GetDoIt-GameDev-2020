@@ -32,11 +32,11 @@ public class ShoppingListManager : MonoBehaviour
             PlayerPrefs.SetFloat("MyPoint", 100f);
             PlayerPrefs.Save();
         }
-        else 
+        else
         {
             for (int i = 0; i < CoinsShop.Length; i++)
             {
-                CoinsShop[i].text =  str.ToString();
+                CoinsShop[i].text = str.ToString();
             }
         }
     }
@@ -48,51 +48,56 @@ public class ShoppingListManager : MonoBehaviour
             //add new ItemShop
             myItemsPreview = Instantiate(ItemPrefab, ShoppingListManager.MyInstance.transform).GetComponent<Items>();
             //add Init Name,Price,ItemPreview
-            myItemsPreview.ItemID = itemServices[i].ItemID;
+            myItemsPreview.ItemID = i.ToString();
             myItemsPreview.itemName.text = itemServices[i].itemName;
             myItemsPreview.Price.text = itemServices[i].price.ToString();
             myItemsPreview.theItemPreview.sprite = itemServices[i].theItemPreview;
 
             //load Item Stat
             myItemsPreview.SpeedValue.text = itemServices[i].speedStat.ToString();
-            myItemsPreview.Speed.fillAmount = (itemServices[i].speedStat / 10);
+            myItemsPreview.Initialize(itemServices[i].speedStat, 10, myItemsPreview.Speed);
             myItemsPreview.WeightValue.text = itemServices[i].weightStat.ToString();
-            myItemsPreview.Weight.fillAmount = (itemServices[i].weightStat / 10);
+            myItemsPreview.Initialize(itemServices[i].weightStat, 10, myItemsPreview.Weight);
             myItemsPreview.PointShotValue.text = itemServices[i].pointValueStat.ToString();
-            myItemsPreview.PointShot.fillAmount = (itemServices[i].pointValueStat / 10);
+            myItemsPreview.Initialize(itemServices[i].pointValueStat, 10, myItemsPreview.PointShot);
             //load Image equipped
-
+            myItemsPreview.Equipped.GetComponent<Image>().enabled = itemServices[i].equiped;
+            if (myItemsPreview.Equipped.enabled)
+            {
+                myItemsPreview.SelectedItem.color = itemServices[i].purchased;
+            }
             //load Locked Icon
-
+            myItemsPreview.Locked.enabled = itemServices[i].locked;
             //load 
         }
     }
-    public void BuyButton()
+    public void Decrease(float Price)
     {
-        for (int i = 0; i < itemServices.Count; i++)
-        {
-            itemServices[i].Buy(itemServices[i].itemName);
-        }
-
+        StartCoroutine(DecreaseCoin(Price));
     }
     public IEnumerator DecreaseCoin(float decrease)
     {
-        float tmpCoins = PlayerPrefs.GetInt("MyPoint") - decrease;
-
-        float MyCoins = PlayerPrefs.GetInt("MyPoint");
-        while (true)
+        float tmpCoins = 0f;
+        float MyCoins = PlayerPrefs.GetFloat("MyPoint");
+        float str = PlayerPrefs.GetFloat("MyPoint");
+        if (!str.Equals(0f))
         {
-            if (MyCoins >= tmpCoins)
-            {
-                MyCoins--; //Kurangi Point by 1
-                for (int i = 0; i < CoinsShop.Length; i++)
-                {
-                    CoinsShop[i].text = Mathf.Round(Mathf.Lerp(tmpCoins, MyCoins, 0.1f * Time.deltaTime)).ToString();
-                }
-            }
-            Debug.Log(MyCoins + " - " + tmpCoins);
-            PlayerPrefs.SetFloat("MyPoint", MyCoins);
-            yield return new WaitForSeconds(0.1f);
+            tmpCoins = str - decrease;
+            PlayerPrefs.SetFloat("MyPoint", tmpCoins);
+            PlayerPrefs.Save();
         }
+        float savePoint = tmpCoins;
+
+        while (MyCoins > savePoint)
+        {
+            MyCoins--; //Kurangi Point by 1
+            for (int i = 0; i < CoinsShop.Length; i++)
+            {
+                CoinsShop[i].text = Mathf.Round(Mathf.MoveTowards(savePoint, MyCoins, 0.1f * Time.unscaledDeltaTime)).ToString();
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        yield return new WaitForSeconds(0.1f);
+
     }
 }

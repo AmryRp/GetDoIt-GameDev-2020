@@ -71,14 +71,15 @@ public class Player : PlayerModel, IChangeable<string>
     }
     public void Lose()
     {
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
         Time.timeScale = 1f;
-        GameObject.Find("CanvasLose").GetComponent<Canvas>().enabled = true;
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+        UI.LoadUI(false, false, false, false, false, false, true, false);
         StartCoroutine(UI.CalculatingPrefabPoint());
     }
     public void PlayerRespawn()
     {
         Hidup = true;
-        //IsAnimator.SetBool("IsDie", false);
         Energy.MyCurrentValue += myEnergy.MyMaxValue;
     }
 

@@ -16,12 +16,12 @@ public class CameraObjectManager : MonoBehaviour
     public float maxCameraMeter = 40f;
     public static float goldenRatio = 1.618f;
     public float capturePoint;
-    public float AllPoint;
+    private float allPoint;
     public Text PointText;
     public float PrevousPoint;
     public int MaxObjects = 45;
     public int InitShotTaken;
-    public int tempShotTaken;
+    private int tempShotTaken;
     private static CameraObjectManager instance;
     public static CameraObjectManager MyCamReceiver
 
@@ -35,6 +35,10 @@ public class CameraObjectManager : MonoBehaviour
             return instance;
         }
     }
+
+    public float AllPoint { get => allPoint; set => allPoint = value; }
+    public int TempShotTaken { get => tempShotTaken; set => tempShotTaken = value; }
+
     private void Start()
     {
         AllPoint = 0f;

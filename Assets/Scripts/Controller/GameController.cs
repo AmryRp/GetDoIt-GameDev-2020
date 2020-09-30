@@ -6,48 +6,56 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class GameController : UiController, IPointerClickHandler
+public class GameController : MonoBehaviour, IPointerClickHandler
 {
     public string ModeName;
     public string ButtonName;
-    [SerializeField]
-    private CameraObjectManager COGM;
-    [SerializeField]
-    private PlayerController PC;
-    [SerializeField]
-    private UIManager UI;
-    [SerializeField]
-    GameManager GM;
+    public CameraObjectManager COGM;
+    public PlayerController PC;
+    public UIManager UI;
+    public GameManager GM;
     public RawImage Img;
 
-    [System.Obsolete]
+
+    public void loadPC()
+    {
+        PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+    }
+    public void LoadNeeded()
+    {
+        print("load");
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        COGM = GameObject.FindGameObjectWithTag("DistanceReceiver").GetComponent<CameraObjectManager>();
+    }
+    //[System.Obsolete]
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (Input.GetMouseButton(0) || Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+        if (eventData.button == PointerEventData.InputButton.Left || Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
         {
             //Debug.Log("Touched the UI");
-            UI = UIManager.MyUI;
-            GM = GameManager.MyGM;
-            PC = PlayerController.MyPlayerControl;
-            COGM = CameraObjectManager.MyCamReceiver;
+
             switch (ButtonName)
             {
                 case "SceneChange":
                     LoadPlay(ModeName);
                     break;
                 case "PauseButton":
-                    UI.LoadUI(false, true, false, false, false, false, false, false);
-                    Time.timeScale = 0f;
+                    StartCoroutine(PauseButton());
                     break;
                 case "BackButton":
+                    LoadNeeded();
                     UI.LoadUI(true, false, false, false, false, false, false, false);
                     Time.timeScale = 1f;
                     break;
                 case "BackButtonMM":
+                    LoadNeeded();
                     UI.LoadUI(false, false, false, true, false, false, false, false);
                     Time.timeScale = 1f;
                     break;
                 case "BackHome":
+                    LoadNeeded();
                     UI.LoadUI(false, false, false, true, false, false, false, false);
                     Time.timeScale = 1f;
                     LoadPlay(ModeName);
@@ -56,8 +64,10 @@ public class GameController : UiController, IPointerClickHandler
                     print("Open Challenge Box");
                     break;
                 case "Setting":
-                    UI.LoadUI(false, false, true, false, false, false, false, false);
-                    Time.timeScale = 0f;
+                    StartCoroutine(SettingMain());
+                    break;
+                case "UpgradeMenu":
+                    StartCoroutine(OpenShop());
                     break;
                 case "Gallery":
                     print("unknown");
@@ -66,110 +76,43 @@ public class GameController : UiController, IPointerClickHandler
                     print("unknown");
                     break;
                 case "UnPauseButton":
-                    UI.LoadUI(true, false, false, false, false, false, false, false);
-                    Time.timeScale = 1f;
+                    StartCoroutine(UnPauseButton());
+                   
                     break;
                 case "CaptureButton":
-                    PC = PlayerController.MyPlayerControl;
-                    PC.IsAnimator.SetBool("IsCapture", true);
-                    PC.IsAnimator.SetBool("IsMoving", false);
-                    PC.IsAnimator.SetBool("IsStop", false);
-                    GM.isCapturing = true;
+                    StartCoroutine(Capturing());
                     //captureMoment();
                     break;
                 case "ExitOption":
                     //doneCapture();
-                    PC = PlayerController.MyPlayerControl;
-                    PC.IsAnimator.SetBool("IsCapture", false);
-                    GM.isCapturing = false;
-                    UI.LoadUI(true, false, false, false, false, false, false, false);
-                    Time.timeScale = 1f;
-                    GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().maxParticles = int.Parse(Mathf.Round(COGM.AllPoint).ToString());
-                    GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().Play();
+                    StartCoroutine(ExitOption());
                     break;
                 case "ShareToInstagram":
-                    COGM = CameraObjectManager.MyCamReceiver;
-                    PC = PlayerController.MyPlayerControl;
-                    if (PC.myEnergy.MyCurrentValue <= (PC.myEnergy.MyMaxValue * 0.1))
-                    {
-                        PC = PlayerController.MyPlayerControl;
-                        PC.IsAnimator.SetBool("IsCapture", false);
-                        GM.isCapturing = false;
-                        UI.LoadUI(true, false, false, false, false, false, false, false);
-                        Time.timeScale = 1f;
-                    }
-                    else if (!PC.Hidup)
-                    {
-                        PC.Lose();
-                    }
-                    else if (PC.myEnergy.MyCurrentValue >= (PC.myEnergy.MyMaxValue * 0.1))
-                    {
-                       
-                        StartCoroutine(TakeScreenshotAndShare());
-                       
-                    }
+                    StartCoroutine(Share());
                     break;
                 case "SaveToGallery":
-                    COGM = CameraObjectManager.MyCamReceiver;
-                    PC = PlayerController.MyPlayerControl;
-                    if (PC.myEnergy.MyCurrentValue <= (PC.myEnergy.MyMaxValue * 0.1))
-                    {
-                        PC = PlayerController.MyPlayerControl;
-                        PC.IsAnimator.SetBool("IsCapture", false);
-                        GM.isCapturing = false;
-                        UI.LoadUI(true, false, false, false, false, false, false, false);
-                        Time.timeScale = 1f;
-                    }
-                    else if (!PC.Hidup)
-                    {
-                        PC.Lose();
-                    }
-                    else if (PC.myEnergy.MyCurrentValue >= (PC.myEnergy.MyMaxValue * 0.1))
-                    {
-                        StartCoroutine(TakeScreenshotAndSave());
-                    }
+                    StartCoroutine(SaveOnly());
                     break;
                 case "YesButton":
                     Application.Quit();
                     break;
                 case "NoButton":
-                    UI = UIManager.MyUI;
-                    if (SceneManager.GetActiveScene().buildIndex == 0)
-                    {
-                        UI.LoadUI(false, false, false, true, false, false, false, false);
-                    }
-                    else
-                    {
-                        UI.LoadUI(true, false, false, false, false, false, false, false);
-                        Time.timeScale = 1f;
-                    }
+                    StartCoroutine(NoButton());
                     break;
                 case "RestartButton":
                     LoadPlay(SceneManager.GetActiveScene().name);
                     break;
                 case "SaveToPrefab":
                     //Saving Point to Prefab
-                    COGM = CameraObjectManager.MyCamReceiver;
-                    PC = PlayerController.MyPlayerControl;
-                    PlayerPrefs.SetInt("MyShot", COGM.tempShotTaken);
-                    PlayerPrefs.SetFloat("MyPoint", COGM.AllPoint);
-                    PlayerPrefs.SetFloat("DistanceTraveled", PC.AllDistance);
-                    PlayerPrefs.Save();
-                    //UI = UIManager.MyUI;
-                    //StartCoroutine(UI.CalculatingPrefabPoint());
-
+                    StartCoroutine(SavingPoint());
                     if (ModeName.Equals("BackHomeOG"))
                     {
                         LoadPlay("MainMenu");
                     }
-                    else 
+                    else
                     {
                         LoadPlay(SceneManager.GetActiveScene().name);
                     }
-                    break;
-                case "UpgradeMenu":
-                    GM.isCapturing = true;
-                    UI.LoadUI(false, false, false, false, false, false, false, true);
                     break;
                 default:
                     print("Incorrect button Name");
@@ -182,7 +125,7 @@ public class GameController : UiController, IPointerClickHandler
     {
         animator = GameObject.FindGameObjectWithTag("PanelTransisi").GetComponent<Animator>();
         //show animate out animation
-        animator.SetBool("TutupYach", true);
+        animator.SetBool(Name, true);
         yield return new WaitForSecondsRealtime(3f);
     }
     public void LoadPlay(string Name)
@@ -212,30 +155,21 @@ public class GameController : UiController, IPointerClickHandler
             // Save the screenshot to Gallery/Photos
             string name = string.Format("{0}_Capture{1}_{2}.png", Application.productName, "{0}", System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
             Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName + " Captures", name));
-
-            //calculate the point
-            if (PC.Hidup)
-            {
-                StartCoroutine(COGM.capturedPointShot());
-                PC.TakeDamage(10f);
-            }
-            else
-            {
-                GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-                PC.Lose(); 
-            }
             // To avoid memory leaks
             Destroy(ss);
             yield return null;
             GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-            
+
             //kalau pause animasi ga jalan
             //Time.timeScale = 0f;
             //ToastMessageShower.MyToast.showToastOnUiThread("Photo Saved in" + Application.productName + " Captures");
         }
-        else if (PC.myEnergy.MyCurrentValue <= (PC.myEnergy.MyMaxValue * 0.1)) 
+        else if (PC.myEnergy.MyCurrentValue <= (PC.myEnergy.MyMaxValue * 0.1))
         {
+            GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+          
             PC = PlayerController.MyPlayerControl;
+            PC.Lose();
             PC.IsAnimator.SetBool("IsCapture", false);
             GM.isCapturing = false;
             UI.LoadUI(true, false, false, false, false, false, false, false);
@@ -248,10 +182,11 @@ public class GameController : UiController, IPointerClickHandler
     }
     public void NullHandler()
     {
+        LoadNeeded();
         COGM = GameObject.FindGameObjectWithTag("DistanceReceiver").GetComponent<CameraObjectManager>();
         PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-       // print(PC);
-       // print(COGM);  
+        // print(PC);
+        // print(COGM);  
     }
     private IEnumerator TakeScreenshotAndShare()
     {
@@ -282,8 +217,7 @@ public class GameController : UiController, IPointerClickHandler
                 .SetSubject("Subject goes here").SetText("Look At My Great Picture at River Horizon Game by GetDoIt")
                 .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
                 .Share();
-            StartCoroutine(COGM.capturedPointShot());
-            PC.TakeDamage(8f);
+            
 
             yield return null;
             GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
@@ -302,16 +236,177 @@ public class GameController : UiController, IPointerClickHandler
             PC.Lose();
         }
     }
-    public void captureMoment()
+    public IEnumerator ExitOption()
     {
-            PC.IsAnimator.SetBool("IsCapture", true);
-            PC.IsAnimator.SetBool("IsMoving", false);
-            PC.IsAnimator.SetBool("IsStop", false);
-    }
-    public void doneCapture()
-    {
-        NullHandler();
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        COGM = CameraObjectManager.MyCamReceiver;
+        PC = PlayerController.MyPlayerControl;
+        StartCoroutine(COGM.capturedPointShot());
+        PC.TakeDamage(8f);
         PC.IsAnimator.SetBool("IsCapture", false);
+        GM.isCapturing = false;
+        UI.LoadUI(true, false, false, false, false, false, false, false);
+        Time.timeScale = 1f;
+        //GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().maxParticles = int.Parse(Mathf.Round(COGM.AllPoint).ToString());
+        GameObject.Find("Canvas").GetComponent<Canvas>().worldCamera = Camera.main;
+        GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().Play();
+        yield return null;
     }
+    public IEnumerator Capturing()
+    {
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        COGM = GameObject.FindGameObjectWithTag("DistanceReceiver").GetComponent<CameraObjectManager>();
+        loadPC();
+        PC.IsAnimator.SetBool("IsCapture", true);
+        PC.IsAnimator.SetBool("IsMoving", false);
+        PC.IsAnimator.SetBool("IsStop", false);
+        GM.isCapturing = true;
+        yield return null;
+    }
+    public IEnumerator PauseButton()
+    {
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        COGM = GameObject.FindGameObjectWithTag("DistanceReceiver").GetComponent<CameraObjectManager>();
+        Animator PauseAnim = GameObject.FindGameObjectWithTag("PauseOption").GetComponent<Animator>();
+        PauseAnim.SetBool("IsPaused", true);
+        UI.LoadUI(false, true, false, false, false, false, false, false);
+        yield return new WaitForEndOfFrame();
+       
+    }
+    public IEnumerator OpenShop()
+    {
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        COGM = GameObject.FindGameObjectWithTag("DistanceReceiver").GetComponent<CameraObjectManager>();
+        GM.isCapturing = true;
+        UI.LoadUI(false, false, false, false, false, false, false, true);
+        yield return null;
+    }
+    public IEnumerator SettingMain()
+    {
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        COGM = GameObject.FindGameObjectWithTag("DistanceReceiver").GetComponent<CameraObjectManager>();
+        UI.LoadUI(false, false, true, false, false, false, false, false);
+        Time.timeScale = 0f;
+        yield return null;
+    }
+    public IEnumerator SavingPoint()
+    {
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        COGM = CameraObjectManager.MyCamReceiver;
+        PC = PlayerController.MyPlayerControl;
+        float str = PlayerPrefs.GetFloat("MyPoint");
+        float str2 = PlayerPrefs.GetFloat("DistanceTraveled");
+        int str3 = PlayerPrefs.GetInt("MyShot");
+        if (!str.Equals(0f))
+        {
+            str = PlayerPrefs.GetFloat("MyPoint") + COGM.AllPoint;
+            PlayerPrefs.SetFloat("MyPoint", str);
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("MyPoint", Mathf.Round(COGM.AllPoint));
+        }
+        if (!str2.Equals(0f))
+        {
+            str2 = PlayerPrefs.GetFloat("DistanceTraveled") + PC.AllDistance;
+            PlayerPrefs.SetFloat("DistanceTraveled", str2);
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("DistanceTraveled", Mathf.Round(PC.AllDistance));
+        }
+        if (!str3.Equals(0))
+        {
+            str3 = PlayerPrefs.GetInt("MyShot") + COGM.TempShotTaken;
+            PlayerPrefs.SetInt("MyShot", str3);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("MyShot", COGM.TempShotTaken);
+        }
+        PlayerPrefs.Save();
+        yield return null;
+    }
+    public IEnumerator NoButton()
+    {
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        COGM = CameraObjectManager.MyCamReceiver;
+        PC = PlayerController.MyPlayerControl;
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            UI.LoadUI(false, false, false, true, false, false, false, false);
+        }
+        else
+        {
+            UI.LoadUI(true, false, false, false, false, false, false, false);
+            Time.timeScale = 1f;
+        }
+        yield return null;
+    }
+    public IEnumerator Share()
+    {
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        COGM = CameraObjectManager.MyCamReceiver;
+        PC = PlayerController.MyPlayerControl;
+        PC = PlayerController.MyPlayerControl;
+        if (PC.myEnergy.MyCurrentValue <= (PC.myEnergy.MyMaxValue * 0.1))
+        {
+            PC.IsAnimator.SetBool("IsCapture", false);
+            GM.isCapturing = false;
+            UI.LoadUI(true, false, false, false, false, false, false, false);
+            Time.timeScale = 1f;
+        }
+        else if (!PC.Hidup)
+        {
+            PC.Lose();
+        }
+        else if (PC.myEnergy.MyCurrentValue >= (PC.myEnergy.MyMaxValue * 0.1))
+        {
+            StartCoroutine(TakeScreenshotAndShare());
+        }
+        yield return null;
+       
+    }
+    public IEnumerator SaveOnly()
+    {
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        COGM = CameraObjectManager.MyCamReceiver;
+        PC = PlayerController.MyPlayerControl;
+        PC = PlayerController.MyPlayerControl;
+        if (PC.myEnergy.MyCurrentValue <= (PC.myEnergy.MyMaxValue * 0.1))
+        {
 
+            PC.IsAnimator.SetBool("IsCapture", false);
+            GM.isCapturing = false;
+            UI.LoadUI(true, false, false, false, false, false, false, false);
+            Time.timeScale = 1f;
+        }
+        else if (!PC.Hidup)
+        {
+            PC.Lose();
+        }
+        else if (PC.myEnergy.MyCurrentValue >= (PC.myEnergy.MyMaxValue * 0.1))
+        {
+            StartCoroutine(TakeScreenshotAndSave());
+        }
+        yield return null;
+    }
+    public IEnumerator UnPauseButton()
+    {
+        LoadNeeded();
+        Animator PauseAnim = GameObject.FindGameObjectWithTag("PauseOption").GetComponent<Animator>();
+        PauseAnim.SetBool("IsPaused", false);
+        UI.LoadUI(true, false, false, false, false, false, false, false);
+        Time.timeScale = 1f;
+        yield return null;
+    }
 }

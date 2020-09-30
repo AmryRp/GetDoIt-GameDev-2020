@@ -62,17 +62,31 @@ public class GameManager : MonoBehaviour
             if (UI = null)
             {
                 UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+                if (SceneManager.GetActiveScene().buildIndex != 0)
+                {
+                    SceneManager.LoadScene("MainMenu");
+                }
+                else if (SceneManager.GetActiveScene().buildIndex == 0)
+                {
+                    UI = UIManager.MyUI;
+                    UI.LoadUI(false, false, false, false, false, true, false, false);
+                }
             }
-            else { UI = UIManager.MyUI; }
+            else 
+            {
+                UI = UIManager.MyUI;
+                if (SceneManager.GetActiveScene().buildIndex != 0)
+                {
+                    SceneManager.LoadScene("MainMenu");
+                }
+                else if (SceneManager.GetActiveScene().buildIndex == 0)
+                {
+                    UI = UIManager.MyUI;
+                    UI.LoadUI(false, false, false, false, false, true, false, false);
+                }
+            }
             
-            if (SceneManager.GetActiveScene().buildIndex != 0)
-            {
-                SceneManager.LoadScene("MainMenu");
-            }
-            else if(SceneManager.GetActiveScene().buildIndex == 0)
-            {
-                UI.LoadUI(false, false, false, false, false, true, false, false);
-            }
+           
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {

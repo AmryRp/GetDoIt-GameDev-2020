@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class UIManager : UiController
 {
-    private GameManager GM;
-    private PlayerController PL;
-    private CameraObjectManager COGM;
+    public GameManager GM;
+    public PlayerController PL;
+    public CameraObjectManager COGM;
     private static UIManager instance;
+    public Canvas Gpui, Pause, Sett, Mainmenu, Capture, Exit, GmOver, SavenU;
     public static UIManager MyUI
     {
         get
@@ -78,8 +79,8 @@ public class UIManager : UiController
     {
         if (!GM.IsPaused && !GM.isCapturing && !GM.isDeath)
         {
-            GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = Menu;
-            GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = Gameplay;
+            Mainmenu.GetComponent<Canvas>().enabled = Menu;
+            Gpui.GetComponent<Canvas>().enabled = Gameplay;
         }
     }
     public void RestartGame()
@@ -88,14 +89,15 @@ public class UIManager : UiController
     }
     public void LoadUI(bool gpui, bool pause, bool sett, bool mainmenu, bool capture, bool exit, bool GOver,bool SnU)
     {
-        GameObject.FindGameObjectWithTag("GameplayUI").GetComponent<Canvas>().enabled = gpui;
-        GameObject.FindGameObjectWithTag("CaptureOption").GetComponent<Canvas>().enabled = capture;
-        GameObject.FindGameObjectWithTag("PauseOption").GetComponent<Canvas>().enabled = pause;
-        GameObject.FindGameObjectWithTag("SettingOptionMM").GetComponent<Canvas>().enabled = sett;
-        GameObject.FindGameObjectWithTag("ExitOption").GetComponent<Canvas>().enabled = exit;
-        GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Canvas>().enabled = mainmenu;
-        GameObject.FindGameObjectWithTag("GameOver").GetComponent<Canvas>().enabled = GOver;
-        GameObject.FindGameObjectWithTag("ShopAndUpgrade").GetComponent<Canvas>().enabled = SnU;
+        Gpui.GetComponent<Canvas>().enabled = gpui;
+        Pause.GetComponent<Canvas>().enabled = pause;
+        Exit.GetComponent<Canvas>().enabled = exit;
+        Mainmenu.GetComponent<Canvas>().enabled = mainmenu;
+        Capture.GetComponent<Canvas>().enabled = capture;
+        GmOver.GetComponent<Canvas>().enabled = GOver;
+        SavenU.GetComponent<Canvas>().enabled = SnU;
+        Sett.GetComponent<Canvas>().enabled = sett;
+     
     }
     public IEnumerator CalculatingPrefabPoint() 
     {
@@ -134,7 +136,7 @@ public class UIManager : UiController
             NullHandler();
         }
 
-        COGM.tempShotTaken += COGM.InitShotTaken;
+        COGM.TempShotTaken += COGM.InitShotTaken;
         COGM.AllPoint += COGM.PrevousPoint;
         PL.AllDistance += PL.totalDistance;
         StartCoroutine(PointTextHandleSS());
@@ -147,10 +149,10 @@ public class UIManager : UiController
         tmpSS = 0f;
         while (true)
         {
-            if (tmpSS <= PL.AllShotTaken)
+            if (tmpSS < PL.AllShotTaken)
             {
                 tmpSS++; //Increment the display score by 1
-                SsTaken.text = Mathf.Round(Mathf.Lerp(tmpSS, PL.AllShotTaken, 0.1f * Time.deltaTime)).ToString();
+                SsTaken.text = Mathf.Round(Mathf.Lerp(tmpSS, PL.AllShotTaken, 0.1f * Time.unscaledDeltaTime)).ToString();
             }
             yield return new WaitForSeconds(0.1f); 
         }
@@ -161,10 +163,10 @@ public class UIManager : UiController
         tmpCP = 0f;
         while (true)
         {
-            if (tmpCP <= COGM.AllPoint)
+            if (tmpCP < COGM.AllPoint)
             {
                 tmpCP++; //Increment the display score by 1
-                CollectedPoint.text = Mathf.Round(Mathf.Lerp(tmpCP, COGM.AllPoint, 0.1f * Time.deltaTime)).ToString();
+                CollectedPoint.text = Mathf.Round(Mathf.Lerp(tmpCP, COGM.AllPoint, 0.1f * Time.unscaledDeltaTime)).ToString();
             }
             yield return new WaitForSeconds(0.1f); 
         }
@@ -175,10 +177,10 @@ public class UIManager : UiController
         tmpDistance = 0f;
         while (true)
         {
-            if (tmpDistance <= PL.AllDistance)
+            if (tmpDistance < PL.AllDistance)
             {
                 tmpDistance++; //Increment the display score by 1
-                DistanceP.text = Mathf.Round(Mathf.Lerp(tmpDistance, PL.AllDistance, 0.1f * Time.deltaTime)).ToString();
+                DistanceP.text = Mathf.Round(Mathf.Lerp(tmpDistance, PL.AllDistance, 0.1f * Time.unscaledDeltaTime)).ToString();
             }
             yield return new WaitForSeconds(0.1f); 
         }
