@@ -64,7 +64,8 @@ public class GameManager : MonoBehaviour
                 UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
                 if (SceneManager.GetActiveScene().buildIndex != 0)
                 {
-                    SceneManager.LoadScene("MainMenu");
+                    Canvas OptionMM = GameObject.FindGameObjectWithTag("BackOption").GetComponent<Canvas>();
+                    OptionMM.enabled = true;
                 }
                 else if (SceneManager.GetActiveScene().buildIndex == 0)
                 {
@@ -77,7 +78,8 @@ public class GameManager : MonoBehaviour
                 UI = UIManager.MyUI;
                 if (SceneManager.GetActiveScene().buildIndex != 0)
                 {
-                    SceneManager.LoadScene("MainMenu");
+                    Canvas OptionMM = GameObject.FindGameObjectWithTag("BackOption").GetComponent<Canvas>();
+                    OptionMM.enabled = true;
                 }
                 else if (SceneManager.GetActiveScene().buildIndex == 0)
                 {

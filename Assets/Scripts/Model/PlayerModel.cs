@@ -55,6 +55,7 @@ public class PlayerModel : CharacterModel
     public float multiplier;
     public float IdleTimer;
     public float maxmultiplier= 3f;
+    public float MaxTouchWait;
 
     [Header("Canoe Mechanic")]
     [SerializeField]

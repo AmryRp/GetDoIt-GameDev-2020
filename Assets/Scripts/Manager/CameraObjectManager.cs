@@ -86,12 +86,12 @@ public class CameraObjectManager : MonoBehaviour
             IPower = IPower * calculateGolden;
             capturePoint = (tmpVal + IPower) / (CountObjects *goldenRatio);
             PrevousPoint = AllPoint;
+            AllPoint += capturePoint;
             if (isGolden)
             {
-                print("golden");
-                capturePoint = capturePoint * 2;
+                float point = AllPoint * 2;
+                AllPoint = point;
             }
-            AllPoint += capturePoint;
             InitShotTaken ++;
             tempShotTaken = InitShotTaken;
            
@@ -142,10 +142,7 @@ public class CameraObjectManager : MonoBehaviour
         {
             CameraMeterBar.color = Color.white;
         }
-        if (isGolden)
-        {
-            AllPoint = AllPoint * 2f;
-        }
+        
         StartCoroutine(HandleBar());
     }
     public IEnumerator HandleBar()
@@ -174,9 +171,7 @@ public class CameraObjectManager : MonoBehaviour
                 PrevousPoint++; //Increment the display score by 1
                 PointText.text = Mathf.Round(Mathf.Lerp(PrevousPoint, AllPoint, 0.1f * Time.deltaTime)).ToString();
             }
-            yield return new WaitForSeconds(0.2f); // I used .2 secs but you can update it as fast as you want
+            yield return new WaitForSeconds(0.2f);
         }
-
-        
     }
 }

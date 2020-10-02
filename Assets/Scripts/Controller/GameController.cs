@@ -50,15 +50,10 @@ public class GameController : MonoBehaviour, IPointerClickHandler
                     Time.timeScale = 1f;
                     break;
                 case "BackButtonMM":
-                    LoadNeeded();
-                    UI.LoadUI(false, false, false, true, false, false, false, false);
-                    Time.timeScale = 1f;
+                    StartCoroutine(BACKmm());
                     break;
                 case "BackHome":
-                    LoadNeeded();
-                    UI.LoadUI(false, false, false, true, false, false, false, false);
-                    Time.timeScale = 1f;
-                    LoadPlay(ModeName);
+                    StartCoroutine(JustBackHome());
                     break;
                 case "Challenge":
                     print("Open Challenge Box");
@@ -353,6 +348,8 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         }
         else
         {
+            Canvas OptionMM = GameObject.FindGameObjectWithTag("BackOption").GetComponent<Canvas>();
+            OptionMM.enabled = false;
             UI.LoadUI(true, false, false, false, false, false, false, false);
             Time.timeScale = 1f;
         }
@@ -424,4 +421,22 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         yield return null;
         
     }
+    public IEnumerator BACKmm()
+    {
+        UI = UIManager.MyUI;
+        UI.LoadUI(false, false, false, true, false, false, false, false);
+        Time.timeScale = 1f;
+        yield return null;
+    }
+    public IEnumerator JustBackHome()
+    {
+        UI = UIManager.MyUI;
+        UI.LoadUI(false, false, false, true, false, false, false, false);
+        Time.timeScale = 1f;
+        LoadPlay(ModeName);
+        Canvas OptionMM = GameObject.FindGameObjectWithTag("BackOption").GetComponent<Canvas>();
+        OptionMM.enabled = false;
+        yield return null;
+    }
+
 }

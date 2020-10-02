@@ -53,7 +53,8 @@ public class AfterAnimationController : MonoBehaviour
     {
         PL = PlayerController.MyPlayerControl;
         GM = GameManager.MyGM;
-        StartCoroutine(PL.MovePlayer(PL.MoveSpeedInWater));
+       // StartCoroutine(PL.MovePlayer(PL.MoveSpeedInWater));
+       
         //animmove = PL.GetComponentInChildren<Animator>();
 
         //if (!PL.speedLimiter(animmove.GetFloat("MoveMultiplier")))

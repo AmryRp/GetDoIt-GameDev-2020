@@ -108,7 +108,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                
                 IdleTimer += Time.deltaTime;
                // print(IdleTimer);
-                if (IdleTimer >= 3f)
+                if (IdleTimer >= MaxTouchWait)
                 {
                    
                     multiplier = 1;
@@ -138,12 +138,14 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                     IsAnimator.SetBool(STOP, false);
                     IsAnimator.SetBool(IDLE, false);
                     IsAnimator.SetBool(MOVING, true);
+                    IsAnimator.SetTrigger("IsMove");
                     if (!speedLimiter(IsAnimator.GetFloat("MoveMultiplier")))
                     {
                         print("jalan");
-                        multiplier += 1f;
+                        multiplier += 0.5f;
                         IsAnimator.SetFloat("MoveMultiplier", multiplier);
                     }
+                    StartCoroutine(MovePlayer(MoveSpeedInWater));
                     one_click = false;
                 }
 
@@ -181,12 +183,15 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                             IsAnimator.SetBool(STOP, false);
                             IsAnimator.SetBool(IDLE, false);
                             IsAnimator.SetBool(MOVING, true);
+                            IsAnimator.SetTrigger("IsMove");
                             if (!speedLimiter(IsAnimator.GetFloat("MoveMultiplier")))
                             {
                                 print("jalan");
-                                multiplier += 1f;
+                                multiplier += 0.5f;
                                 IsAnimator.SetFloat("MoveMultiplier", multiplier);
+                                
                             }
+                            StartCoroutine(MovePlayer(MoveSpeedInWater));
                             is_hold = false;
                             one_click = false;
                         }
@@ -263,6 +268,8 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     }
     public IEnumerator MovePlayer(float moveSpeed)
     {
+        yield return new WaitForSeconds(1.2f*multiplier);
+        print("move");
         // Vector3 startingPos = transform.position;
         // Vector3 finalPos = transform.position + (transform.right * MoveSpeed);
         float MoveEffect = moveSpeed;
@@ -289,7 +296,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
 
             yield return null;
         }
-        yield return new WaitForSeconds(2f);
+       
 
         //IsAnimator.SetBool(IDLE, true);
         //IsAnimator.SetBool(MOVING, false);
