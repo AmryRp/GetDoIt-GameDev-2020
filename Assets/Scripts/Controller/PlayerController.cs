@@ -75,7 +75,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         //untuk handle animasi
         //HandleLayers();
         //untuk mobile touch 
-
+       
         GM = GameManager.MyGM;
         if (!GM.IsPaused && Hidup)
         {
@@ -278,22 +278,16 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         while (elapsedTime < MaxAnimTime)
         {
 
-            /*Vector2 tempVect = new Vector2(waterSpeed, 0f);
-            tempVect = tempVect.normalized * moveSpeed * Time.deltaTime;*/
-
             //Untuk pergerakan
             isMoving = true;
             MoveBoatSplash.Play();
             //dikali canoe speed dan dibagi canoe weight nantinya
+            print(MoveSpeedInWater + moveSpeed + (MoveEffect / 2));
             CanoeBody.AddForce(new Vector2(((MoveSpeedInWater + moveSpeed + (MoveEffect/2)) * Time.deltaTime), 0), ForceMode2D.Impulse); // Movement
                                                                                                                         //MovementSpeedInWater kecepatan canoe berdasarkan deras air atau bisa ditambah dengan moveSpeed kecepatan dari player, seperti dibawah ini
             /*CanoeBody.MovePosition(transform.position + transform.right * ((MoveSpeedInWater + moveSpeed) * Time.deltaTime)); */
-
-            //transform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / moveSpeed));
             elapsedTime += Time.deltaTime;
             MoveEffect -= Time.deltaTime;
-
-
             yield return null;
         }
        
@@ -376,7 +370,6 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
 
     public void DistanceTravel()
     {
-
         float distance = Vector3.Distance(lastMove, transform.position);
         totalDistance += distance;
         lastMove = transform.position;

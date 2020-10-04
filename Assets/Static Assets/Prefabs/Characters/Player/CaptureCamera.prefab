@@ -50,12 +50,11 @@ MonoBehaviour:
   CameraMeterBar: {fileID: 0}
   maxCameraMeter: 40
   capturePoint: 0
-  AllPoint: 0
   PointText: {fileID: 0}
   PrevousPoint: 0
   MaxObjects: 50
   InitShotTaken: 0
-  tempShotTaken: 0
+  isGolden: 0
   calculateGolden: 1
 --- !u!54 &1935444585756601048
 Rigidbody:
@@ -129,7 +128,7 @@ Camera:
   m_GameObject: {fileID: 1935444587186916575}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.6450694, g: 0.8316354, b: 0.9056604, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "595539991132",
+    "firebase_url": "https://riverhorizongetdoit.firebaseio.com",
+    "project_id": "riverhorizongetdoit",
+    "storage_bucket": "riverhorizongetdoit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595539991132:android:b5c187bc2eed325c092499",
+        "android_client_info": {
+          "package_name": "com.GetDoIt.RiverHorizon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595539991132-06092mvortb4ga3r4j32dekt5265ak83.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPEKAstKsN4wBj9ApqIEW0ldY_tNUMG5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595539991132-06092mvortb4ga3r4j32dekt5265ak83.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

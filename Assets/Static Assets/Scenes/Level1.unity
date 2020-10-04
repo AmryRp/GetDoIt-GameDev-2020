@@ -923,10 +923,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1935444587186916570, guid: a2391f4027db5b0479efdc216313e714, type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1935444587186916571, guid: a2391f4027db5b0479efdc216313e714, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.900002
@@ -970,22 +966,6 @@ PrefabInstance:
     - target: {fileID: 1935444587186916571, guid: a2391f4027db5b0479efdc216313e714, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1935444587186916571, guid: a2391f4027db5b0479efdc216313e714, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1935444587186916571, guid: a2391f4027db5b0479efdc216313e714, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1935444587186916571, guid: a2391f4027db5b0479efdc216313e714, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1935444587186916573, guid: a2391f4027db5b0479efdc216313e714, type: 3}
-      propertyPath: followTarget
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1935444587186916575, guid: a2391f4027db5b0479efdc216313e714, type: 3}
       propertyPath: m_Name
@@ -1226,6 +1206,8 @@ MonoBehaviour:
   amntilescreen: 2
   lastPrefabindex: 0
   Water: 0
+  DistanceBackgroundChangerInterval: 200
+  OneBackGround: 100
   activeTiles: []
 --- !u!4 &858695451
 Transform:
@@ -1359,19 +1341,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiles:
+  - {fileID: 4556621513927396441, guid: 96c608ce1fd446f4f8b06b91fea9f6f5, type: 3}
+  - {fileID: 4556621513927396441, guid: 1225771a5d77fcb40a09bd6474a3452c, type: 3}
+  - {fileID: 4556621513927396441, guid: 7db1b9e5d40f79f46a73c0004606ae08, type: 3}
   - {fileID: 4556621513927396441, guid: 517841fd4f7f5934a81880e97fef3529, type: 3}
   - {fileID: 4556621513927396441, guid: f1475d2bac3698b4f802df590549ed2f, type: 3}
-  - {fileID: 4556621513927396441, guid: f1475d2bac3698b4f802df590549ed2f, type: 3}
-  - {fileID: 4556621513927396441, guid: 517841fd4f7f5934a81880e97fef3529, type: 3}
-  - {fileID: 4556621513927396441, guid: 517841fd4f7f5934a81880e97fef3529, type: 3}
-  - {fileID: 4556621513927396441, guid: f1475d2bac3698b4f802df590549ed2f, type: 3}
-  - {fileID: 4556621513927396441, guid: 517841fd4f7f5934a81880e97fef3529, type: 3}
+  - {fileID: 4556621513927396441, guid: 7c948904bed98cd40bddaa54b6314e59, type: 3}
   SpawnTileAt: 0
   tilelength: 24
   save: 10
   amntilescreen: 2
   lastPrefabindex: 0
   Water: 0
+  DistanceBackgroundChangerInterval: 200
+  OneBackGround: 100
   activeTiles: []
 --- !u!4 &1173375513
 Transform:
@@ -1506,7 +1489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8333255562535036545, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00024414062
+      value: 0.000012402293
       objectReference: {fileID: 0}
     - target: {fileID: 8731040975914430752, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2529,14 +2512,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2D
       objectReference: {fileID: 0}
-    - target: {fileID: 6058468273805336709, guid: 2bc075e98a27dac4380bc0789b767f39, type: 3}
-      propertyPath: UI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6058468273805336712, guid: 2bc075e98a27dac4380bc0789b767f39, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6058468273805336714, guid: 2bc075e98a27dac4380bc0789b767f39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -2778,10 +2753,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7344368442297948882, guid: 70d4a8f5138003a4fb0bee3a3d21f8ea, type: 3}
-      propertyPath: followTarget
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7344368442297948887, guid: 70d4a8f5138003a4fb0bee3a3d21f8ea, type: 3}
       propertyPath: m_Name
       value: Main Camera (1)

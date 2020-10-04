@@ -40,7 +40,20 @@ public class ShoppingListManager : MonoBehaviour
             }
         }
     }
-
+    public void saveItemShop()
+    {
+        for (int i = 0; i < itemServices.Count; i++)
+        {
+            PlayerPrefs.SetString("", itemServices[i].ItemID);
+        }
+    }
+    public void updateItemShop()
+    {
+        for (int i = 0; i < itemServices.Count; i++)
+        {
+           PlayerPrefs.SetString("", itemServices[i].ItemID);
+        }
+    }
     public void loadItemShop()
     {
         for (int i = 0; i < itemServices.Count; i++)
