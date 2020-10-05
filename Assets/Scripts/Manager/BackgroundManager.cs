@@ -19,6 +19,10 @@ public class BackgroundManager : MonoBehaviour
     [SerializeField]
     float Water = 0;
     [SerializeField]
+    float DistanceBackgroundChangerInterval = 200f;
+    [SerializeField]
+    float OneBackGround = 100f;
+    [SerializeField]
     private List<GameObject> activeTiles;
 
     // Start is called before the first frame update
@@ -55,70 +59,42 @@ public class BackgroundManager : MonoBehaviour
         Destroy(activeTiles[0]);
         activeTiles.RemoveAt(0);
     }
-
-    private int randPrefab()
-    {
-        Water += Time.deltaTime;
-        if (tiles.Length <= 1)
-            return 0;
-        int randomIndx = lastPrefabindex;
-
-        if (Water >= 0.6f)
-        {
-            while (randomIndx == lastPrefabindex)
-            {
-                int min = 0;
-                if (randomIndx == 1)
-                {
-                    min = 5;
-                }
-                else if (randomIndx == 2)
-                {
-                    min = 6;
-                }
-                else if (randomIndx == 3)
-                {
-                    min = 7;
-                }
-                else if (randomIndx == 4)
-                {
-                    min = 8;
-                }
-                else if (randomIndx == 5)
-                {
-                    min = 9;
-                }
-                else
-                {
-                    min = 0;
-                }
-                randomIndx = Random.Range(min, tiles.Length);
-            }
-            Water = 0;
-            lastPrefabindex = randomIndx;
-            return randomIndx;
-        }
-        else
-        {
-            while (randomIndx == lastPrefabindex)
-            {
-                randomIndx = Random.Range(0, 5);
-            }
-            lastPrefabindex = randomIndx;
-            return randomIndx;
-        }
-
-    }
+    float addTile = 0;
     private void spawntile(int prefabIndex = -1)
     {
         GameObject go;
-        if (prefabIndex == -1)
+        int randomIndx;
+ //Hitung Meter     
+        print(addTile + " Meters");
+        if (addTile < DistanceBackgroundChangerInterval)
         {
-            go = Instantiate(tiles[randPrefab()]) as GameObject;
+            addTile += tilelength;
+        }
+         else if (addTile >= DistanceBackgroundChangerInterval*2)
+        {
+            addTile = 0;
         }
         else
         {
-            go = Instantiate(tiles[prefabIndex]) as GameObject;
+            addTile += tilelength;
+        }
+//Change BG
+        if (addTile >= OneBackGround * 2)
+        {
+            randomIndx = Random.Range(3, 5);
+        }
+        else 
+        {
+            randomIndx = Random.Range(0, 2);
+        }
+//Spawn 
+        if (prefabIndex == -1 )
+        {
+            go = Instantiate(tiles[randomIndx]) as GameObject;
+        }
+        else
+        {
+            go = Instantiate(tiles[randomIndx]) as GameObject;
         }
         go.transform.SetParent(transform);
         float rand = UnityEngine.Random.Range(1, 1.5f);
@@ -130,4 +106,71 @@ public class BackgroundManager : MonoBehaviour
 
     }
 
+    //private int randPrefab()
+    //{
+    //    Water += Time.deltaTime;
+    //    if (tiles.Length <= 1)
+    //        return 0;
+    //    int randomIndx = lastPrefabindex;
+
+    //    if (Water >= 0.6f)
+    //    {
+    //        while (randomIndx == lastPrefabindex)
+    //        {
+    //            int min = 0;
+    //            if (randomIndx == 1)
+    //            {
+    //                min = 5;
+    //            }
+    //            else if (randomIndx == 2)
+    //            {
+    //                min = 6;
+    //            }
+    //            else if (randomIndx == 3)
+    //            {
+    //                min = 7;
+    //            }
+    //            else if (randomIndx == 4)
+    //            {
+    //                min = 8;
+    //            }
+    //            else if (randomIndx == 5)
+    //            {
+    //                min = 9;
+    //            }
+    //            else
+    //            {
+    //                min = 0;
+    //            }
+    //            randomIndx = Random.Range(min, tiles.Length);
+    //        }
+    //        Water = 0;
+    //        lastPrefabindex = randomIndx;
+    //        return randomIndx;
+    //    }
+    //    else
+    //    {
+    //        print("random");
+    //        if (PlayerController.MyPlayerControl.lastMove.x <= 100)
+    //        {
+    //            print("mangroove");
+    //            while (randomIndx == lastPrefabindex)
+    //            {
+    //                randomIndx = Random.Range(0, 2);
+    //            }
+
+    //        }
+    //        else
+    //        {
+    //            print("sabana");
+    //            while (randomIndx == lastPrefabindex)
+    //            {
+    //                randomIndx = Random.Range(3, 5);
+    //            }
+    //        }
+    //        lastPrefabindex = randomIndx;
+    //        return randomIndx;
+    //    }
+
+    //}
 }

@@ -16,12 +16,13 @@ public class CameraObjectManager : MonoBehaviour
     public float maxCameraMeter = 40f;
     public static float goldenRatio = 1.618f;
     public float capturePoint;
-    public float AllPoint;
+    private float allPoint;
     public Text PointText;
     public float PrevousPoint;
     public int MaxObjects = 45;
     public int InitShotTaken;
-    public int tempShotTaken;
+    private int tempShotTaken;
+    public bool isGolden = false;
     private static CameraObjectManager instance;
     public static CameraObjectManager MyCamReceiver
 
@@ -35,6 +36,10 @@ public class CameraObjectManager : MonoBehaviour
             return instance;
         }
     }
+
+    public float AllPoint { get => allPoint; set => allPoint = value; }
+    public int TempShotTaken { get => tempShotTaken; set => tempShotTaken = value; }
+
     private void Start()
     {
         AllPoint = 0f;
@@ -57,7 +62,7 @@ public class CameraObjectManager : MonoBehaviour
 
             }
             CameraMeter = 0f;
-            CameraMeter = tmpVal / CountObjects;
+            CameraMeter = tmpVal / (CountObjects * goldenRatio);
         }
 
         yield return null;
@@ -79,11 +84,17 @@ public class CameraObjectManager : MonoBehaviour
             }
             capturePoint = 0f;
             IPower = IPower * calculateGolden;
-            capturePoint = (tmpVal + IPower) / CountObjects;
+            capturePoint = (tmpVal + IPower) / (CountObjects *goldenRatio);
             PrevousPoint = AllPoint;
             AllPoint += capturePoint;
+            if (isGolden)
+            {
+                float point = AllPoint * 2;
+                AllPoint = point;
+            }
             InitShotTaken ++;
             tempShotTaken = InitShotTaken;
+           
         }
         CalculatePoint();
         yield return null;
@@ -95,10 +106,23 @@ public class CameraObjectManager : MonoBehaviour
         {
             CameraMeterBar = GameObject.FindGameObjectWithTag("CameraMeter").GetComponent<Image>();
         }
-        bool isGolden = false;
+        
+        if (CameraMeter < maxCameraMeter)
+        {
+            calculateGolden = (maxCameraMeter + CameraMeter) / maxCameraMeter;
+        }
+        else
+        {
+            calculateGolden = (maxCameraMeter-CameraMeter)/CameraMeter;
+        }
+        if (calculateGolden >= 1 && calculateGolden <= goldenRatio)
+        {
+            float rand = UnityEngine.Random.Range(0.5f, 0.9f);
+            currentFill = rand;
+            isGolden=true;
+        }
 
-        calculateGolden = CameraMeter / (maxCameraMeter - CameraMeter);
-        if (calculateGolden == goldenRatio)
+        if (calculateGolden == goldenRatio || calculateGolden >=1.5 && calculateGolden <= goldenRatio)
         {
             currentFill = 1f;
             isGolden = true;
@@ -106,23 +130,19 @@ public class CameraObjectManager : MonoBehaviour
         }
         else if (calculateGolden < goldenRatio)
         {
-            currentFill = ((CameraMeter * calculateGolden) * 0.5f) / maxCameraMeter;
-            CameraMeterBar.color = Color.green;
+            currentFill = ((CameraMeter * calculateGolden) * 1f) / maxCameraMeter;
+            CameraMeterBar.color = Color.yellow;
         }
         else if (calculateGolden > goldenRatio)
         {
-            currentFill = ((CameraMeter * calculateGolden) * 1f) / maxCameraMeter;
-            CameraMeterBar.color = Color.yellow;
+            currentFill = ((CameraMeter * calculateGolden) * 1.25f) / maxCameraMeter;
+            CameraMeterBar.color = Color.green;
         }
         else
         {
             CameraMeterBar.color = Color.white;
         }
-        if (isGolden)
-        {
-            //tampilkan teks
-            //print("perfect");
-        }
+        
         StartCoroutine(HandleBar());
     }
     public IEnumerator HandleBar()
@@ -151,8 +171,7 @@ public class CameraObjectManager : MonoBehaviour
                 PrevousPoint++; //Increment the display score by 1
                 PointText.text = Mathf.Round(Mathf.Lerp(PrevousPoint, AllPoint, 0.1f * Time.deltaTime)).ToString();
             }
-            yield return new WaitForSeconds(0.2f); // I used .2 secs but you can update it as fast as you want
+            yield return new WaitForSeconds(0.2f);
         }
-        
     }
 }

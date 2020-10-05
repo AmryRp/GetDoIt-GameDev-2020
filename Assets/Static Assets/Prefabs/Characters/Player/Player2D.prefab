@@ -5539,6 +5539,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d4a3727a9cd244a9a61a90dd20fd12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI: {fileID: 0}
+  PL: {fileID: 0}
+  GM: {fileID: 0}
 --- !u!1 &6058468273226768502
 GameObject:
   m_ObjectHideFlags: 0
@@ -10465,8 +10468,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: player
   Point: 100
-  MoveSpeed: 2
-  holdTime: 0.5
+  MoveSpeed: 5
+  holdTime: 0.8
   acumTime: 0
   TapCount: 0
   MaxDubbleTapTime: 3
@@ -10484,12 +10487,19 @@ MonoBehaviour:
   isMoving: 0
   MaxAnimTime: 1.5
   PlayerEnergy: 100
-  CanoeType: 1
   CameraMeter: 0
   CanoeBody: {fileID: 6058468273805336710}
+  multiplier: 0
+  IdleTimer: 0
+  maxmultiplier: 4
+  MaxTouchWait: 1.3
+  CanoeType: 1
+  canoeSpeed: 0
+  canoeWeight: 0
+  canoePoint: 0
   MoveBoatSplash: {fileID: 6058468273226768505}
   lastMove: {x: 0, y: 0, z: 0}
-  EnergyDrain: 0.0005
+  EnergyDrain: 0.001
   maxDrainSpeedTime: 100
   timeWaitingDrain: 1.1
   GM: {fileID: 0}
@@ -10524,7 +10534,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6058468273805336708
 BoxCollider2D:
   m_ObjectHideFlags: 0

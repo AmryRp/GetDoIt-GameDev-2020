@@ -284,7 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: eagle
   Point: 600
-  MoveSpeed: 20
+  MoveSpeed: 25
   maxcatchtime: 500
   flipped: 0
   movedir: -1

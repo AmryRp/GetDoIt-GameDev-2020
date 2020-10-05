@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 8604316391109902400}
   m_Layer: 0
   m_Name: Odading_0
-  m_TagString: Untagged
+  m_TagString: EnergyObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

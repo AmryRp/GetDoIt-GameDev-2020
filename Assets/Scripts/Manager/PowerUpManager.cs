@@ -9,7 +9,9 @@ public class PowerUpManager : MonoBehaviour
     public float PowerUpSpawnTime;
     public float AnimalSpawnTime = 30f;
     private Transform player;
-
+    public int OdadingLimit;
+    [SerializeField]
+    private List<GameObject> ActivePower;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -18,6 +20,7 @@ public class PowerUpManager : MonoBehaviour
     }
     IEnumerator SpawnPower()
     {
+       
         yield return new WaitForSeconds(PowerUpSpawnTime);
         Spawn();
     }
@@ -28,16 +31,27 @@ public class PowerUpManager : MonoBehaviour
     }
     void Spawn()
     {
+        GameObject PowerObj;
         int RandCoind = UnityEngine.Random.Range(0, 1);
-        Vector3 hpos = new Vector3(player.position.x + 26f, 0f, 0f);
-        Instantiate(PowerUp[RandCoind], hpos, PowerUp[RandCoind].transform.rotation);
-
+        Vector3 hpos = new Vector3(player.position.x + 17f, player.position.y+0.2f, 0f);
+        PowerObj=Instantiate(PowerUp[RandCoind], hpos, PowerUp[RandCoind].transform.rotation);
+        ActivePower.Add(PowerObj);
         StartCoroutine(SpawnPower());
+        if (ActivePower.Count > OdadingLimit)
+        {
+            DeleteTile();
+        }
+    }
+
+    private void DeleteTile()
+    {
+        Destroy(ActivePower[0]);
+        ActivePower.RemoveAt(0);
     }
     void Spawn2()
     {
         int RandCoind = UnityEngine.Random.Range(1, 2);
-        Vector3 hpos = new Vector3(player.position.x + 45f, 0f, 0f);
+        Vector3 hpos = new Vector3(player.position.x + 45f, player.position.y + 0.2f, 0f);
         Instantiate(Animal[RandCoind], hpos, Animal[RandCoind].transform.rotation);
 
         StartCoroutine(SpawnAnimal());

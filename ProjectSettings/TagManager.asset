@@ -48,7 +48,10 @@ TagManager:
   - EnergyAbsorber
   - ShopAndUpgrade
   - UpgradeMenu
+  - GameManager
   - UICanvas
+  - EnergyObjects
+  - BackOption
   layers:
   - Default
   - TransparentFX
@@ -69,7 +72,7 @@ TagManager:
   - SECONDCAM
   - 
   - 
-  - 
+  - powerup
   - 
   - 
   - 
