@@ -3444,12 +3444,11 @@ MonoBehaviour:
   CameraMeterBar: {fileID: 0}
   maxCameraMeter: 40
   capturePoint: 0
-  AllPoint: 0
   PointText: {fileID: 0}
   PrevousPoint: 0
   MaxObjects: 50
   InitShotTaken: 0
-  tempShotTaken: 0
+  isGolden: 0
   calculateGolden: 1
 --- !u!1 &1619481936
 GameObject:
@@ -4389,6 +4388,7 @@ MonoBehaviour:
   AudioIsPlay: 0
   sfxIsPlay: 0
   isCapturing: 0
+  isDeath: 0
 --- !u!4 &1866914733
 Transform:
   m_ObjectHideFlags: 0
@@ -4528,6 +4528,8 @@ MonoBehaviour:
   amntilescreen: 2
   lastPrefabindex: 0
   Water: 0
+  DistanceBackgroundChangerInterval: 200
+  OneBackGround: 100
   activeTiles: []
 --- !u!4 &1945896845
 Transform:
@@ -4762,6 +4764,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 944601745609923426, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 944601745609923426, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 944601745609923426, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 957561866445517314, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 52
@@ -4852,7 +4866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3876081188652721376, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -4.9341293e+10
+      value: -8.5126315e+12
       objectReference: {fileID: 0}
     - target: {fileID: 3963445955796309338, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_Enabled
@@ -4960,7 +4974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7877274597417022739, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 8190276212128956834, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_IsActive

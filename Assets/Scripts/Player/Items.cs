@@ -21,7 +21,7 @@ public class Items : MonoBehaviour
     public Text itemName;
     public Image theItemPreview;
     public Image Equipped;
-    public Image Locked;
+    public GameObject Locked;
     public Image Speed;
     public Text SpeedValue;
     public Image Weight;
@@ -30,6 +30,10 @@ public class Items : MonoBehaviour
     public Text PointShotValue;
     public Text Price;
     public Image SelectedItem;
+    public Button bought;
+    public GameObject HidePrice;
+    public Image BgColor;
+
 
     private float currentFill;
     public float MyMaxValue { get; set; }
@@ -79,5 +83,10 @@ public class Items : MonoBehaviour
     {
         float val = float.Parse(Price.text);
         ShoppingListManager.MyInstance.Decrease(val);
+        Debug.Log(ItemID);
+        Debug.Log(val);
+        ShoppingListManager.MyInstance.updateBpught(ItemID);
+        Locked.GetComponent<Image>().enabled = false;
+   
     }
 }

@@ -52,6 +52,7 @@ TagManager:
   - UICanvas
   - EnergyObjects
   - BackOption
+  - ShopItem
   layers:
   - Default
   - TransparentFX

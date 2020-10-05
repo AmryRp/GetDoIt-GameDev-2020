@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
-public class ItemServices : IBuyAble<string>,IChangeable<string>
+public class ItemServices :  IBuyAble<string>,IChangeable<string>
 {
 
     private const bool truestate = true; 
@@ -22,7 +22,7 @@ public class ItemServices : IBuyAble<string>,IChangeable<string>
     public Image equipedImage;
     public bool bought = falsestate;
     public Color purchased = Color.blue;
-    public Color notpurchased = Color.white;
+    public Color notpurchased = Color.black;
     public bool locked = truestate;
     public int discount;
     public float speedStat;
@@ -32,7 +32,9 @@ public class ItemServices : IBuyAble<string>,IChangeable<string>
     {
         Type = Items.MyInstance.ItemID;
         float price = float.Parse(Items.MyInstance.Price.text);
+      
         ShoppingListManager.MyInstance.Decrease(price);
+      
         return Type;
     }
 
