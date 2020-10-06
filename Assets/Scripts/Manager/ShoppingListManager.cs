@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Text;
+using System;
+using System.Security.Cryptography;
 public class ShoppingListManager : MonoBehaviour
 {
     public GameObject ItemPrefab;
@@ -13,7 +16,7 @@ public class ShoppingListManager : MonoBehaviour
     [Header("Scriptable Objects")]
     public List<ItemServices> itemServicesList;
     public Text[] CoinsShop;
-    public Image[] CanoeImageStatic;
+    public Sprite[] CanoeImageStatic;
     public Items myItemsPreview { get; set; }
     private static ShoppingListManager instance;
     public static ShoppingListManager MyInstance
@@ -29,6 +32,7 @@ public class ShoppingListManager : MonoBehaviour
     }
     private void Awake()
     {
+        //LoadFromJsonSaveFile();
         loadItemShop();
         float str = PlayerPrefs.GetFloat("MyPoint");
         if (str.Equals(0f))
@@ -82,20 +86,21 @@ public class ShoppingListManager : MonoBehaviour
             Destroy(ListObject[i]);
         }
     }
-    private List<ItemServices> ItemServicesListJson()
-    {
-        //load the data from Json
-
-        return itemServicesList;
-    }
-
     public void loadItemShop()
     {
         //load the data from json with json reader input into itemsServices List
 
         //itemServicesList = ItemServicesListJson();
-        
-        // i will gonna replace this data to load from json
+        if (File.Exists(Application.persistentDataPath + string.Format("/{0}.psv", SAVE_FILE)))
+        {
+            LoadFromJsonSaveFile();
+        }
+        else 
+        {
+            //add the default data 
+            SaveToJsonSaveFile();
+        }
+        // this data to load from json to UI view
         for (int i = 0; i < itemServicesList.Count; i++)
         {
             //add new ItemShop
@@ -120,7 +125,6 @@ public class ShoppingListManager : MonoBehaviour
             if (myItemsPreview.Equipped.enabled)
             {
                 myItemsPreview.SelectedItem.color = itemServicesList[i].purchased;
-
             }
             if (itemServicesList[i].bought == true)
             {
@@ -139,23 +143,81 @@ public class ShoppingListManager : MonoBehaviour
             }
 
         }
-        //save the data
-        SaveToJsonSaveFile();
+    }
+    public IEnumerator PlayUnlock(GameObject LockedSprite)
+    {
+        yield return null;
+        Animator UnlockAnim = LockedSprite.GetComponent<Animator>();
+        UnlockAnim.SetBool("Unlock", true);
+        yield return new WaitForSeconds(1.6f);
     }
     public void SaveToJsonSaveFile()
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.psv", SAVE_FILE));
-        var json = "";
+        ItemServices[] JsonArray = new ItemServices[itemServicesList.Count];
         for (int i = 0; i < itemServicesList.Count; i++)
         {
-            json += JsonUtility.ToJson(itemServicesList[i]);
+            JsonArray[i] = itemServicesList[i];
         }
-        bf.Serialize(file, json);
+        string playerToJson = JsonHelper.ToJson(JsonArray, true);
+        Debug.Log(playerToJson);
+        bf.Serialize(file, EncryptJson(playerToJson));
+        file.Close();
+     
+    }
+    public void LoadFromJsonSaveFile()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Open(Application.persistentDataPath + string.Format("/{0}.psv", SAVE_FILE), FileMode.Open);
+        ItemServices[] JsonArray = JsonHelper.FromJson<ItemServices>(DecryptJson((string)bf.Deserialize(file)));
+        for (int i = 0; i < itemServicesList.Count; i++)
+        {
+            itemServicesList[i] = JsonArray[i];
+            print(JsonArray[i].itemName);
+            //JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), itemServicesList[i]);
+        }
+        //bf.Serialize(file, json);
         file.Close();
     }
-    public void Decrease(float Price)
+   
+    public static string hashcode = "5758184mryg37D0iT";
+    public static string EncryptJson(string input)
     {
+        byte[] data = UTF8Encoding.UTF8.GetBytes(input);
+        using (MD5CryptoServiceProvider Md5first = new MD5CryptoServiceProvider())
+        {
+            byte[] key = Md5first.ComputeHash(UTF8Encoding.UTF8.GetBytes(hashcode));
+            using (TripleDESCryptoServiceProvider Stripper = new TripleDESCryptoServiceProvider()
+            { Key = key, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+            {
+                ICryptoTransform setData = Stripper.CreateEncryptor();
+                byte[] dataEncResult = setData.TransformFinalBlock(data,0,data.Length);
+                return Convert.ToBase64String(dataEncResult, 0, dataEncResult.Length);
+            }
+        }
+    }
+    public static string DecryptJson(string input)
+    {
+        byte[] data = Convert.FromBase64String(input);
+        using (MD5CryptoServiceProvider Md5first = new MD5CryptoServiceProvider())
+        {
+            byte[] key = Md5first.ComputeHash(UTF8Encoding.UTF8.GetBytes(hashcode));
+            using (TripleDESCryptoServiceProvider Stripper = new TripleDESCryptoServiceProvider()
+            { Key = key, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+            {
+                ICryptoTransform setData = Stripper.CreateDecryptor();
+                byte[] dataEncResult = setData.TransformFinalBlock(data, 0, data.Length);
+                return UTF8Encoding.UTF8.GetString(dataEncResult);
+            }
+        }
+    }
+    //button buy function , check first not implemented yet
+    public void Decrease(float Price)
+    { // check if the price listed on list is below the coin that player have
+        // if true decrease coin and open the item
+        // else error message / toast appear to notify player if the coin is not enough
+
         StartCoroutine(DecreaseCoin(Price));
     }
     public IEnumerator DecreaseCoin(float decrease)
@@ -176,13 +238,42 @@ public class ShoppingListManager : MonoBehaviour
             CoinsShop[i].text = Mathf.Round(Mathf.MoveTowards(savePoint, MyCoins, 0.1f * Time.unscaledDeltaTime)).ToString();
             yield return null;
         }
+        //update the saved data to json again
+        SaveToJsonSaveFile();
         //make it wait till animation of unlocked done
         DeletePrefabs();
         //load the new list
         loadItemShop();
-        //update the saved data to json again
-        SaveToJsonSaveFile();
+
+
+    }
+}
+
+//Class For Creating Json
+
+public static class JsonHelper
+{
+    public static T[] FromJson<T>(string json)
+    {
+        Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(json);
+        return wrapper.Items;
     }
 
+    public static string ToJson<T>(T[] array)
+    {
+        Wrapper<T> wrapper = new Wrapper<T>();
+        wrapper.Items = array;
+        return JsonUtility.ToJson(wrapper);
+    }
 
+    public static string ToJson<T>(T[] array, bool prettyPrint)
+    {
+        Wrapper<T> wrapper = new Wrapper<T>();
+        wrapper.Items = array;
+        return JsonUtility.ToJson(wrapper, prettyPrint);
+    }
+    private class Wrapper<T>
+    {
+        public T[] Items;
+    }
 }

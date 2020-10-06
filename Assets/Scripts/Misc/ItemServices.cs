@@ -15,8 +15,8 @@ public class ItemServices :  IBuyAble<string>,IChangeable<string>
     
     public string itemName;
     public string ItemID;
-    public int price;
-    public Sprite theItemPreview;
+    public int price;               //change image to string / int 
+    public Sprite theItemPreview; // get the image static from shopslistmanager
     public Sprite itemIcon;
     public bool equiped = falsestate;
     public Image equipedImage;
