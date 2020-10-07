@@ -32,15 +32,14 @@ public class ItemServices :  IBuyAble<string>,IChangeable<string>
     {
         Type = Items.MyInstance.ItemID;
         float price = float.Parse(Items.MyInstance.Price.text);
-      
         ShoppingListManager.MyInstance.Decrease(price);
-      
         return Type;
     }
 
     public string Change(string Type)
     {
-        Type = ItemID;
+        Type = Items.MyInstance.ItemID;
+     //   ShoppingListManager.MyInstance.EquipItems(Type);
         return Type;
     }
 

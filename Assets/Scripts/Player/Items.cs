@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,7 @@ public class Items : MonoBehaviour
     public string ItemID;
     public Text itemName;
     public Image theItemPreview;
-    public Image Equipped;
+    public Toggle Equipped;
     public GameObject Locked;
     public Image Speed;
     public Text SpeedValue;
@@ -87,6 +88,27 @@ public class Items : MonoBehaviour
         Debug.Log(val);
         ShoppingListManager.MyInstance.updateBpught(ItemID);
         Locked.GetComponent<Image>().enabled = false;
-   
+    }
+    public void Start()
+    {
+        Equipped = GetComponentInChildren<Toggle>();
+        Equipped.onValueChanged.AddListener(EquipButton);
+    }
+    public void EquipButton(bool value)
+    {
+        value = Equipped.isOn;
+        if (value ? false : true)
+        {
+            Debug.Log(ItemID + " Is not Equipped " + value);
+            ShoppingListManager.MyInstance.EquipItems(ItemID,value);
+        }
+        else
+        {
+            Debug.Log(ItemID + " Is Equipped " + value);
+            ShoppingListManager.MyInstance.EquipItems(ItemID, value);
+        }
+
+       
+       
     }
 }

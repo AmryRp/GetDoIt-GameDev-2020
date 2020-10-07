@@ -48,22 +48,22 @@ public class ShoppingListManager : MonoBehaviour
             }
         }
     }
-    //for saving the data
-    public void saveItemShop()
-    {
-        for (int i = 0; i < itemServicesList.Count; i++)
-        {
-            PlayerPrefs.SetString("", itemServicesList[i].ItemID);
-        }
-    }
-    //for updating the UI view
-    public void updateItemShop()
-    {
-        for (int i = 0; i < itemServicesList.Count; i++)
-        {
-            PlayerPrefs.SetString("", itemServicesList[i].ItemID);
-        }
-    }
+    ////for saving the data
+    //public void saveItemShop()
+    //{
+    //    for (int i = 0; i < itemServicesList.Count; i++)
+    //    {
+    //        PlayerPrefs.SetString("", itemServicesList[i].ItemID);
+    //    }
+    //}
+    ////for updating the UI view
+    //public void updateItemShop()
+    //{
+    //    for (int i = 0; i < itemServicesList.Count; i++)
+    //    {
+    //        PlayerPrefs.SetString("", itemServicesList[i].ItemID);
+    //    }
+    //}
     //for update bought status in click.
     public void updateBpught(string ItemID)
     {
@@ -73,9 +73,8 @@ public class ShoppingListManager : MonoBehaviour
             {
                 itemServicesList[i].locked = true;
                 itemServicesList[i].bought = true;
+                
             }
-            //PlayerPrefs.SetString("", itemServices[i].ItemID);
-
         }
     }
     public void DeletePrefabs()
@@ -95,7 +94,7 @@ public class ShoppingListManager : MonoBehaviour
         {
             LoadFromJsonSaveFile();
         }
-        else 
+        else
         {
             //add the default data 
             SaveToJsonSaveFile();
@@ -117,14 +116,18 @@ public class ShoppingListManager : MonoBehaviour
             myItemsPreview.Initialize(itemServicesList[i].weightStat, 10, myItemsPreview.Weight);
             myItemsPreview.PointShotValue.text = itemServicesList[i].pointValueStat.ToString();
             myItemsPreview.Initialize(itemServicesList[i].pointValueStat, 10, myItemsPreview.PointShot);
-            //load Image equipped
-            myItemsPreview.Equipped.GetComponent<Image>().enabled = itemServicesList[i].equiped;
             //load Locked Icon
             myItemsPreview.Locked.SetActive(itemServicesList[i].locked);
 
-            if (myItemsPreview.Equipped.enabled)
+            if (itemServicesList[i].equiped == true)
             {
-                myItemsPreview.SelectedItem.color = itemServicesList[i].purchased;
+                //load Image equipped
+                myItemsPreview.Equipped.isOn = itemServicesList[i].equiped;
+            }
+            else
+            {
+                print(itemServicesList[i].itemName + "NOT ENABLED");
+                myItemsPreview.Equipped.isOn = itemServicesList[i].equiped;
             }
             if (itemServicesList[i].bought == true)
             {
@@ -164,7 +167,7 @@ public class ShoppingListManager : MonoBehaviour
         Debug.Log(playerToJson);
         bf.Serialize(file, EncryptJson(playerToJson));
         file.Close();
-     
+        loadItemShop();
     }
     public void LoadFromJsonSaveFile()
     {
@@ -180,7 +183,7 @@ public class ShoppingListManager : MonoBehaviour
         //bf.Serialize(file, json);
         file.Close();
     }
-   
+    //hashcode will used playername too if it can
     public static string hashcode = "5758184mryg37D0iT";
     public static string EncryptJson(string input)
     {
@@ -192,7 +195,7 @@ public class ShoppingListManager : MonoBehaviour
             { Key = key, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
             {
                 ICryptoTransform setData = Stripper.CreateEncryptor();
-                byte[] dataEncResult = setData.TransformFinalBlock(data,0,data.Length);
+                byte[] dataEncResult = setData.TransformFinalBlock(data, 0, data.Length);
                 return Convert.ToBase64String(dataEncResult, 0, dataEncResult.Length);
             }
         }
@@ -244,13 +247,46 @@ public class ShoppingListManager : MonoBehaviour
         DeletePrefabs();
         //load the new list
         loadItemShop();
-
-
+    }
+    public void EquipItems(string ID,bool On)
+    {
+       // StartCoroutine(EquipOneOnly(ID,On));
+        for (int i = 0; i < itemServicesList.Count; i++)
+        {
+            if (itemServicesList[i].ItemID == ID)
+            {
+                itemServicesList[i].equiped = On;
+                print("equip "+On);
+                //float str1 = PlayerPrefs.GetFloat("MyEquipSpeed");
+                //float str2 = PlayerPrefs.GetFloat("MyEquipWeight");
+                //float str3 = PlayerPrefs.GetFloat("MyEquipPoint");
+                //if (!str1.Equals(0f) || !str2.Equals(0f) || !str3.Equals(0f))
+                //{
+                //    PlayerPrefs.SetFloat("MyEquipSpeed", itemServicesList[i].speedStat);
+                //    PlayerPrefs.SetFloat("MyEquipWeight", itemServicesList[i].weightStat);
+                //    PlayerPrefs.SetFloat("MyEquipPoint", itemServicesList[i].pointValueStat);
+                //    PlayerPrefs.Save();
+                //}
+            }
+            else 
+            {
+                itemServicesList[i].equiped = false;
+            }
+        }
+        //update the saved data to json again
+        SaveToJsonSaveFile();
+        //make it wait till animation of unlocked done
+        DeletePrefabs();
+        //load the new list
+        loadItemShop();
+    }
+    public IEnumerator EquipOneOnly(string Name,bool On)
+    {
+        yield return null;
     }
 }
 
 //Class For Creating Json
-
 public static class JsonHelper
 {
     public static T[] FromJson<T>(string json)
