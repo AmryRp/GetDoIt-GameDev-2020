@@ -3,7 +3,7 @@
 using System.Collections;
 public delegate void HealthChanged(float energy);
 public delegate void CharacterDie();
-public class Player : PlayerModel, IChangeable<string>
+public class Player : PlayerModel
 {
     public event CharacterDie characterdie;
     public event HealthChanged healthchanged;
@@ -39,13 +39,6 @@ public class Player : PlayerModel, IChangeable<string>
     public Player(string name, int point, int movespeed) : base(name, point, movespeed)
     {
     }
-
-    public string Change(string Type)
-    {
-        Type = CanoeType;
-        return Type;
-    }
-
   
     //public Status MyExp { get { return ExpStat; } set => ExpStat = value; }
 

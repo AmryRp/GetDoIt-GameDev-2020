@@ -1177,7 +1177,7 @@ MonoBehaviour:
   ItemPrefab: {fileID: 2319016928386352249, guid: 8c9b1cabd26134a45a60579db0537d85, type: 3}
   SAVE_FILE: RH_SaveData
   itemServicesList:
-  - itemName: Esquif Canoes CANYON
+  - itemName: SuperNova Solo, Nova Craft
     ItemID: 0
     price: 4000
     theItemPreview: {fileID: 4647293517599838588, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
@@ -1192,7 +1192,7 @@ MonoBehaviour:
     speedStat: 3
     weightStat: 3
     pointValueStat: 3
-  - itemName: Wenonah Canoe, Inc. MINNESOTA II
+  - itemName: Osagian 18 Expedition
     ItemID: 1
     price: 5000
     theItemPreview: {fileID: 8583849063736270012, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
@@ -1207,16 +1207,76 @@ MonoBehaviour:
     speedStat: 4
     weightStat: 3
     pointValueStat: 5
+  - itemName: Shadow, Placidwork
+    ItemID: 2
+    price: 5000
+    theItemPreview: {fileID: 8583849063736270012, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
+    itemIcon: {fileID: 0}
+    equiped: 0
+    equipedImage: {fileID: 0}
+    bought: 0
+    purchased: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+    notpurchased: {r: 0, g: 0, b: 0, a: 1}
+    locked: 1
+    discount: 0
+    speedStat: 8
+    weightStat: 2
+    pointValueStat: 8
+  - itemName: Wenonah Canoe, Inc. MINNESOTA II
+    ItemID: 3
+    price: 5000
+    theItemPreview: {fileID: 8583849063736270012, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
+    itemIcon: {fileID: 0}
+    equiped: 0
+    equipedImage: {fileID: 0}
+    bought: 0
+    purchased: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+    notpurchased: {r: 0, g: 0, b: 0, a: 1}
+    locked: 1
+    discount: 0
+    speedStat: 8
+    weightStat: 7
+    pointValueStat: 9
+  - itemName: MR-17 Journey
+    ItemID: 4
+    price: 5000
+    theItemPreview: {fileID: 8583849063736270012, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
+    itemIcon: {fileID: 0}
+    equiped: 0
+    equipedImage: {fileID: 0}
+    bought: 0
+    purchased: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+    notpurchased: {r: 0, g: 0, b: 0, a: 1}
+    locked: 1
+    discount: 0
+    speedStat: 8
+    weightStat: 3
+    pointValueStat: 7
+  - itemName: RogueRiver 154 SS
+    ItemID: 5
+    price: 5000
+    theItemPreview: {fileID: 8583849063736270012, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
+    itemIcon: {fileID: 0}
+    equiped: 0
+    equipedImage: {fileID: 0}
+    bought: 0
+    purchased: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+    notpurchased: {r: 0, g: 0, b: 0, a: 1}
+    locked: 1
+    discount: 0
+    speedStat: 10
+    weightStat: 5
+    pointValueStat: 10
   CoinsShop:
   - {fileID: 6917104253052183299}
   - {fileID: 9079068287550510233}
   CanoeImageStatic:
-  - {fileID: 4647293517599838588, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
+  - {fileID: -238879496689801872, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
   - {fileID: 8583849063736270012, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
   - {fileID: -4975230651463584249, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
   - {fileID: 2730758618439411738, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
+  - {fileID: 4647293517599838588, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
   - {fileID: -4775639239016116149, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
-  - {fileID: -238879496689801872, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
 --- !u!1 &567357942815636572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,7 +1935,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077270248813225715}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}

@@ -21,11 +21,11 @@ public interface IDrainable<T>
 //change equip
 public interface IChangeable<T>
 {
-    string Change(T Type);
+    T Change(T Type);
 }
 public interface IBuyAble<T>
 {
-    string Buy(T Type);
+    int Buy(T Type);
 }
 public interface IMoveable<T>
 {

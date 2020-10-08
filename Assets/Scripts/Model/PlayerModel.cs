@@ -59,14 +59,15 @@ public class PlayerModel : CharacterModel
 
     [Header("Canoe Mechanic")]
     [SerializeField]
-    protected string CanoeType;
+    protected int CanoeType;
     [SerializeField]
     protected float canoeSpeed;
     [SerializeField]
     protected float canoeWeight;
     [SerializeField]
     protected float canoePoint;
-
+    [SerializeField]
+    public GameObject CanoeTypeUsed;
 
     [Header("Player Moving Animation Particle")]
     [SerializeField]

@@ -4,22 +4,22 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 4647293517599838588
-    second: Untitled-1 Sheet_0
+    second: MR-17 Journey
   - first:
       213: 8583849063736270012
-    second: Untitled-1 Sheet_1
+    second: Osagian_18Expedition
   - first:
       213: -4975230651463584249
-    second: Untitled-1 Sheet_2
+    second: Shadow, PlacidWork
   - first:
       213: 2730758618439411738
-    second: Untitled-1 Sheet_3
+    second: MineSota II
   - first:
       213: -4775639239016116149
-    second: Untitled-1 Sheet_4
+    second: RogueRiver 154 SS
   - first:
       213: -238879496689801872
-    second: Untitled-1 Sheet_5
+    second: Supernova Solo, Nova Craft
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled-1 Sheet_0
+      name: MR-17 Journey
       rect:
         serializedVersion: 2
         x: 0
@@ -127,7 +127,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -140,7 +140,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled-1 Sheet_1
+      name: Osagian_18Expedition
       rect:
         serializedVersion: 2
         x: 512
@@ -148,7 +148,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -161,7 +161,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled-1 Sheet_2
+      name: Shadow, PlacidWork
       rect:
         serializedVersion: 2
         x: 1024
@@ -169,7 +169,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,7 +182,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled-1 Sheet_3
+      name: MineSota II
       rect:
         serializedVersion: 2
         x: 1536
@@ -190,7 +190,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -203,7 +203,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled-1 Sheet_4
+      name: RogueRiver 154 SS
       rect:
         serializedVersion: 2
         x: 0
@@ -211,7 +211,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -224,7 +224,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled-1 Sheet_5
+      name: Supernova Solo, Nova Craft
       rect:
         serializedVersion: 2
         x: 512
@@ -232,7 +232,7 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

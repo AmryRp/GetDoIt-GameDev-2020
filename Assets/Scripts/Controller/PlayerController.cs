@@ -27,38 +27,48 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     protected override void Start()
     {
         SetDefault();
-        //DontDestroyOnLoad(transform.gameObject);
-        //if (!playerExists)
-        //{
-        //    playerExists = true;
-        //    DontDestroyOnLoad(transform.gameObject);
-        //}
-        //else
-        //{
-        //    Destroy(gameObject);
-        //}
+    
         base.Start();
     }
     //load data tersimpan dr equip
     private void PlayerPrefsLoads()
-    {
-        MoveSpeed = PlayerPrefs.GetFloat("MySpeed");
-        EnergyDrain = PlayerPrefs.GetFloat("MyFatigue");
-        PlayerEnergy = PlayerPrefs.GetFloat("MaxEnergy");
-        CanoeType = PlayerPrefs.GetString("CanoeType");
-        canoeSpeed = PlayerPrefs.GetFloat("CanoeSpeed");
-        canoeWeight = PlayerPrefs.GetFloat("CanoeWeight");
-        canoePoint = PlayerPrefs.GetFloat("CanoePoint");
+    {//for character
+        //MoveSpeed = PlayerPrefs.GetFloat("MySpeed");
+        //EnergyDrain = PlayerPrefs.GetFloat("MyFatigue");
+        //PlayerEnergy = PlayerPrefs.GetFloat("MaxEnergy");
+     //for CanoeType
+        float str1 = PlayerPrefs.GetFloat("MyEquipSpeed");
+        float str2 = PlayerPrefs.GetFloat("MyEquipWeight");
+        float str3 = PlayerPrefs.GetFloat("MyEquipPoint");
+        if (!str1.Equals(0f) || !str2.Equals(0f) || !str3.Equals(0f))
+        {
+            CanoeType = PlayerPrefs.GetInt("CanoeType");
+            print(CanoeType);
+            CanoeTypeUsed.GetComponent<SpriteRenderer>().sprite= ShoppingListManager.MyInstance.CanoeImageStatic[CanoeType];
+            print(CanoeTypeUsed);
+            canoeSpeed = PlayerPrefs.GetFloat("MyEquipSpeed");
+            canoeWeight = PlayerPrefs.GetFloat("MyEquipWeight");
+            canoePoint = PlayerPrefs.GetFloat("MyEquipPoint");
+            print("Speed : " + canoeSpeed + "\n Weight : " + canoeWeight + "\nPoint : " + canoePoint);
 
-//        saving in playerprefs as string,
-//          load the image from itemservices from stringvalue playerprefs,
-//            set the equipped to the player sprite.
+        }
+        else 
+        {
+            PlayerPrefs.SetFloat("MyEquipSpeed", 0);
+            PlayerPrefs.SetFloat("MyEquipWeight", 0);
+            PlayerPrefs.SetFloat("MyEquipPoint", 0);
+            PlayerPrefs.Save();
+        }
+       
+        //        saving in playerprefs as string,
+        //          load the image from itemservices from stringvalue playerprefs,
+        //            set the equipped to the player sprite.
 
 
     }
     public void SetDefault()
     {
-
+        PlayerPrefsLoads();
         lastMove = transform.position;
         CanoeBody = GetComponent<Rigidbody2D>();
         TapCount = 0;
@@ -75,7 +85,6 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         //untuk handle animasi
         //HandleLayers();
         //untuk mobile touch 
-       
         GM = GameManager.MyGM;
         if (!GM.IsPaused && Hidup)
         {

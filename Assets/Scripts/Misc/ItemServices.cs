@@ -7,14 +7,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
-public class ItemServices :  IBuyAble<string>,IChangeable<string>
+public class ItemServices :  IBuyAble<int>,IChangeable<int>
 {
 
     private const bool truestate = true; 
     private const bool falsestate = false;
     
     public string itemName;
-    public string ItemID;
+    public int ItemID;
     public int price;               //change image to string / int 
     public Sprite theItemPreview; // get the image static from shopslistmanager
     public Sprite itemIcon;
@@ -28,7 +28,7 @@ public class ItemServices :  IBuyAble<string>,IChangeable<string>
     public float speedStat;
     public float weightStat;
     public float pointValueStat;
-    public string Buy(string Type)
+    public int Buy(int Type)
     {
         Type = Items.MyInstance.ItemID;
         float price = float.Parse(Items.MyInstance.Price.text);
@@ -36,7 +36,7 @@ public class ItemServices :  IBuyAble<string>,IChangeable<string>
         return Type;
     }
 
-    public string Change(string Type)
+    public int Change(int Type)
     {
         Type = Items.MyInstance.ItemID;
      //   ShoppingListManager.MyInstance.EquipItems(Type);
@@ -47,7 +47,7 @@ public class ItemServices :  IBuyAble<string>,IChangeable<string>
     {
     }
 
-    public ItemServices(string itemName, string itemID, int price, 
+    public ItemServices(string itemName, int itemID, int price, 
         Sprite theItemPreview, Sprite itemIcon, bool equiped, 
         Image equipedImage, bool bought, Color purchased, 
         Color notpurchased, bool locked, int discount, 
@@ -95,7 +95,7 @@ public class ItemServices :  IBuyAble<string>,IChangeable<string>
     {
         var hashCode = -631323268;
         hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(itemName);
-        hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ItemID);
+        hashCode = hashCode * -1521134295 + EqualityComparer<int>.Default.GetHashCode(ItemID);
         hashCode = hashCode * -1521134295 + price.GetHashCode();
         hashCode = hashCode * -1521134295 + EqualityComparer<Sprite>.Default.GetHashCode(theItemPreview);
         hashCode = hashCode * -1521134295 + EqualityComparer<Sprite>.Default.GetHashCode(itemIcon);

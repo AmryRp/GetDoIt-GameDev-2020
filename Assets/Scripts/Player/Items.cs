@@ -18,7 +18,7 @@ public class Items : MonoBehaviour
             return instance;
         }
     }
-    public string ItemID;
+    public int ItemID;
     public Text itemName;
     public Image theItemPreview;
     public Toggle Equipped;
@@ -83,11 +83,14 @@ public class Items : MonoBehaviour
     public void buyButtonAct()
     {
         float val = float.Parse(Price.text);
-        ShoppingListManager.MyInstance.Decrease(val);
-        Debug.Log(ItemID);
-        Debug.Log(val);
-        ShoppingListManager.MyInstance.updateBpught(ItemID);
-        Locked.GetComponent<Image>().enabled = false;
+       
+        if (ShoppingListManager.MyInstance.Decrease(val))
+        {
+            Locked.GetComponent<Image>().enabled = false;
+            ShoppingListManager.MyInstance.updateBpught(ItemID);
+        }
+        
+        
     }
     public void Start()
     {
@@ -99,12 +102,10 @@ public class Items : MonoBehaviour
         value = Equipped.isOn;
         if (value ? false : true)
         {
-            Debug.Log(ItemID + " Is not Equipped " + value);
             ShoppingListManager.MyInstance.EquipItems(ItemID,value);
         }
         else
         {
-            Debug.Log(ItemID + " Is Equipped " + value);
             ShoppingListManager.MyInstance.EquipItems(ItemID, value);
         }
 

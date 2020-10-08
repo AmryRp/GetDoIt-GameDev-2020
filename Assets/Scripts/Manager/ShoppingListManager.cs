@@ -37,7 +37,7 @@ public class ShoppingListManager : MonoBehaviour
         float str = PlayerPrefs.GetFloat("MyPoint");
         if (str.Equals(0f))
         {
-            PlayerPrefs.SetFloat("MyPoint", 100f);
+            PlayerPrefs.SetFloat("MyPoint", 2000f);
             PlayerPrefs.Save();
         }
         else
@@ -65,7 +65,7 @@ public class ShoppingListManager : MonoBehaviour
     //    }
     //}
     //for update bought status in click.
-    public void updateBpught(string ItemID)
+    public void updateBpught(int ItemID)
     {
         for (int i = 0; i < itemServicesList.Count; i++)
         {
@@ -105,10 +105,10 @@ public class ShoppingListManager : MonoBehaviour
             //add new ItemShop
             myItemsPreview = Instantiate(ItemPrefab, ShoppingListManager.MyInstance.transform).GetComponent<Items>();
             //add Init Name,Price,ItemPreview
-            myItemsPreview.ItemID = i.ToString();
+            myItemsPreview.ItemID = i;
             myItemsPreview.itemName.text = itemServicesList[i].itemName;
             myItemsPreview.Price.text = itemServicesList[i].price.ToString();
-            myItemsPreview.theItemPreview.sprite = itemServicesList[i].theItemPreview;
+            myItemsPreview.theItemPreview.sprite = CanoeImageStatic[i];
             //load Item Stat
             myItemsPreview.SpeedValue.text = itemServicesList[i].speedStat.ToString();
             myItemsPreview.Initialize(itemServicesList[i].speedStat, 10, myItemsPreview.Speed);
@@ -126,7 +126,7 @@ public class ShoppingListManager : MonoBehaviour
             }
             else
             {
-                print(itemServicesList[i].itemName + "NOT ENABLED");
+                //print(itemServicesList[i].itemName + "NOT ENABLED");
                 myItemsPreview.Equipped.isOn = itemServicesList[i].equiped;
             }
             if (itemServicesList[i].bought == true)
@@ -167,7 +167,7 @@ public class ShoppingListManager : MonoBehaviour
         Debug.Log(playerToJson);
         bf.Serialize(file, EncryptJson(playerToJson));
         file.Close();
-        loadItemShop();
+        //loadItemShop();
     }
     public void LoadFromJsonSaveFile()
     {
@@ -177,7 +177,7 @@ public class ShoppingListManager : MonoBehaviour
         for (int i = 0; i < itemServicesList.Count; i++)
         {
             itemServicesList[i] = JsonArray[i];
-            print(JsonArray[i].itemName);
+            //print(JsonArray[i].itemName);
             //JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), itemServicesList[i]);
         }
         //bf.Serialize(file, json);
@@ -216,12 +216,23 @@ public class ShoppingListManager : MonoBehaviour
         }
     }
     //button buy function , check first not implemented yet
-    public void Decrease(float Price)
+    public bool Decrease(float Price)
     { // check if the price listed on list is below the coin that player have
         // if true decrease coin and open the item
         // else error message / toast appear to notify player if the coin is not enough
-
-        StartCoroutine(DecreaseCoin(Price));
+        bool result = false;
+        float MyCoins = PlayerPrefs.GetFloat("MyPoint");
+        if (MyCoins <= Price)
+        {
+            SSTools.ShowMessage(" Not Enough Coins ", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            result = false;
+        }
+        else
+        {
+            StartCoroutine(DecreaseCoin(Price));
+            result = true;
+        }
+        return result;
     }
     public IEnumerator DecreaseCoin(float decrease)
     {
@@ -248,7 +259,7 @@ public class ShoppingListManager : MonoBehaviour
         //load the new list
         loadItemShop();
     }
-    public void EquipItems(string ID,bool On)
+    public void EquipItems(int ID,bool On)
     {
        // StartCoroutine(EquipOneOnly(ID,On));
         for (int i = 0; i < itemServicesList.Count; i++)
@@ -257,16 +268,23 @@ public class ShoppingListManager : MonoBehaviour
             {
                 itemServicesList[i].equiped = On;
                 print("equip "+On);
-                //float str1 = PlayerPrefs.GetFloat("MyEquipSpeed");
-                //float str2 = PlayerPrefs.GetFloat("MyEquipWeight");
-                //float str3 = PlayerPrefs.GetFloat("MyEquipPoint");
-                //if (!str1.Equals(0f) || !str2.Equals(0f) || !str3.Equals(0f))
-                //{
-                //    PlayerPrefs.SetFloat("MyEquipSpeed", itemServicesList[i].speedStat);
-                //    PlayerPrefs.SetFloat("MyEquipWeight", itemServicesList[i].weightStat);
-                //    PlayerPrefs.SetFloat("MyEquipPoint", itemServicesList[i].pointValueStat);
-                //    PlayerPrefs.Save();
-                //}
+                if (On)
+                {
+                    print("setvalue");
+                    PlayerPrefs.SetInt("CanoeType", itemServicesList[i].ItemID);
+                    PlayerPrefs.SetFloat("MyEquipSpeed", itemServicesList[i].speedStat);
+                    PlayerPrefs.SetFloat("MyEquipWeight", itemServicesList[i].weightStat);
+                    PlayerPrefs.SetFloat("MyEquipPoint", itemServicesList[i].pointValueStat);
+                    PlayerPrefs.Save();
+                }
+                else
+                {
+                    print("setDefault");
+                    PlayerPrefs.SetFloat("MyEquipSpeed", 1);
+                    PlayerPrefs.SetFloat("MyEquipWeight", 1);
+                    PlayerPrefs.SetFloat("MyEquipPoint", 1);
+                    PlayerPrefs.Save();
+                }
             }
             else 
             {
