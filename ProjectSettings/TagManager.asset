@@ -52,6 +52,8 @@ TagManager:
   - UICanvas
   - EnergyObjects
   - BackOption
+  - ShopItem
+  - LockIcon
   layers:
   - Default
   - TransparentFX

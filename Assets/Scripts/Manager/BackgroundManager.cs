@@ -24,6 +24,8 @@ public class BackgroundManager : MonoBehaviour
     float OneBackGround = 100f;
     [SerializeField]
     private List<GameObject> activeTiles;
+    [SerializeField]
+    private GameObject[] Background;
 
     // Start is called before the first frame update
     private void Start()
@@ -65,7 +67,7 @@ public class BackgroundManager : MonoBehaviour
         GameObject go;
         int randomIndx;
  //Hitung Meter     
-        print(addTile + " Meters");
+        //print(addTile + " Meters");
         if (addTile < DistanceBackgroundChangerInterval)
         {
             addTile += tilelength;
@@ -81,29 +83,26 @@ public class BackgroundManager : MonoBehaviour
 //Change BG
         if (addTile >= OneBackGround * 2)
         {
+            //sabana
             randomIndx = Random.Range(3, 5);
+            Background[0].SetActive(false);
+            Background[1].SetActive(true);
         }
         else 
         {
+            //mangroove
             randomIndx = Random.Range(0, 2);
+            Background[1].SetActive(false);
+            Background[0].SetActive(true);
         }
 //Spawn 
-        if (prefabIndex == -1 )
-        {
-            go = Instantiate(tiles[randomIndx]) as GameObject;
-        }
-        else
-        {
-            go = Instantiate(tiles[randomIndx]) as GameObject;
-        }
+        go = Instantiate(tiles[randomIndx]) as GameObject;
         go.transform.SetParent(transform);
         float rand = UnityEngine.Random.Range(1, 1.5f);
         Vector3 Ini = new Vector3(transform.position.x + SpawnTileAt, player.transform.position.y - rand, transform.position.z);
         go.transform.position = Ini;
         SpawnTileAt += tilelength;
         activeTiles.Add(go);
-
-
     }
 
     //private int randPrefab()

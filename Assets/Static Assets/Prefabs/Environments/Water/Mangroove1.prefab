@@ -15790,7 +15790,6 @@ GameObject:
   - component: {fileID: 1696680509242560182}
   - component: {fileID: 791027781271696852}
   - component: {fileID: 4568785651414704627}
-  - component: {fileID: 2766686970709045537}
   - component: {fileID: 1766710491503160677}
   - component: {fileID: 4164539712541850695}
   m_Layer: 0
@@ -15865,21 +15864,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2766686970709045537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7146224934886742875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50dce9ca81894b04e9155f999110ca64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Obstacle: ReverseWater
-  WaterSplash: {fileID: 0}
-  player: {fileID: 0}
 --- !u!65 &1766710491503160677
 BoxCollider:
   m_ObjectHideFlags: 0

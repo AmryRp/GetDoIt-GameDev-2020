@@ -14,13 +14,6 @@ public class CameraController : MonoBehaviour
     public float minZoom, maxZoom,maxVelocity;
     private void Start()
     {
-        /*DontDestroyOnLoad(transform.gameObject);
-        if (!cameraExists)
-        {
-            cameraExists = true;
-            DontDestroyOnLoad(transform.gameObject);
-        }
-        else { Destroy(gameObject); }*/
         if (followTarget == null)
         {
             followTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();

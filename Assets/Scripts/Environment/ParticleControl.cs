@@ -33,7 +33,7 @@ public class ParticleControl : MonoBehaviour
                     player.MoveSpeedInWater = 0.1f;
                     break;
                 case "ReverseWater":
-                    player.MoveSpeedInWater = -0.3f;
+                    player.MoveSpeedInWater = -0.2f;
                     break;
                 case "AfterWaterfall":
                     player.MoveSpeedInWater = 3f;

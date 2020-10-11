@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,11 +18,11 @@ public class Items : MonoBehaviour
             return instance;
         }
     }
-    public string ItemID;
+    public int ItemID;
     public Text itemName;
     public Image theItemPreview;
-    public Image Equipped;
-    public Image Locked;
+    public Toggle Equipped;
+    public GameObject Locked;
     public Image Speed;
     public Text SpeedValue;
     public Image Weight;
@@ -30,6 +31,10 @@ public class Items : MonoBehaviour
     public Text PointShotValue;
     public Text Price;
     public Image SelectedItem;
+    public Button bought;
+    public GameObject HidePrice;
+    public Image BgColor;
+
 
     private float currentFill;
     public float MyMaxValue { get; set; }
@@ -67,7 +72,7 @@ public class Items : MonoBehaviour
         MyMaxValue = maxValue;
         MyCurrentValue = currentValue;
         Stats.fillAmount = currentFill;
-       
+
     }
     public IEnumerator Unlocked()
     {
@@ -75,9 +80,52 @@ public class Items : MonoBehaviour
         UnLockAnim.SetBool("Unlock", true);
         yield return null;
     }
-    public void buyButtonAct()
+    public void buyButtonAct(string CanoeOrCoin)
     {
-        float val = float.Parse(Price.text);
-        ShoppingListManager.MyInstance.Decrease(val);
+        try
+        {
+            if (Price.text.Split("Rp."[2])[1] != null)
+            {
+                CanoeOrCoin = Price.text.Split("Rp."[2])[0];
+                print(Price.text);
+                print(Price.text.Split("Rp."[2])[0]);
+                print(Price.text.Split("Rp."[2])[1]);
+                SSTools.ShowMessage("Not Implemented Yet", SSTools.Position.bottom, SSTools.Time.oneSecond);
+            }
+        }
+        catch
+        {
+            float val = float.Parse(Price.text);
+
+            if (ShoppingListManager.MyInstance.Decrease(val))
+            {
+                Locked.GetComponent<Image>().enabled = false;
+                ShoppingListManager.MyInstance.updateBpught(ItemID);
+            }
+            else 
+            {
+                SSTools.ShowMessage(" Not Enough Coins ", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            }
+        }
+    }
+    public void Start()
+    {
+        Equipped = GetComponentInChildren<Toggle>();
+        Equipped.onValueChanged.AddListener(EquipButton);
+    }
+    public void EquipButton(bool value)
+    {
+        value = Equipped.isOn;
+        if (value ? false : true)
+        {
+            ShoppingListManager.MyInstance.EquipItems(ItemID, value);
+        }
+        else
+        {
+            ShoppingListManager.MyInstance.EquipItems(ItemID, value);
+        }
+
+
+
     }
 }
