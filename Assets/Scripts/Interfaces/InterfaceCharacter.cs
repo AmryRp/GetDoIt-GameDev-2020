@@ -39,7 +39,8 @@ public interface IStopable<T>
 }
 
 
-    [System.Serializable]
+
+[System.Serializable]
 public class SerializableDictionary<TK, TV>: ISerializable
 {
     private Dictionary<TK, TV> _Dictionary;

@@ -10469,7 +10469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: player
   Point: 100
-  MoveSpeed: 5
+  MoveSpeed: 2
   holdTime: 0.8
   acumTime: 0
   TapCount: 0
@@ -10484,7 +10484,7 @@ MonoBehaviour:
   max_Hold: 1.5
   DefaultWaterStream: 1
   InReverse: 0
-  MoveSpeedInWater: 0
+  MoveSpeedInWater: 1
   isMoving: 0
   MaxAnimTime: 1.5
   PlayerEnergy: 100
@@ -10501,7 +10501,7 @@ MonoBehaviour:
   CanoeTypeUsed: {fileID: 8217486710481519523}
   MoveBoatSplash: {fileID: 6058468273226768505}
   lastMove: {x: 0, y: 0, z: 0}
-  EnergyDrain: 0.001
+  EnergyDrain: 0.0008
   maxDrainSpeedTime: 100
   timeWaitingDrain: 1.1
   GM: {fileID: 0}

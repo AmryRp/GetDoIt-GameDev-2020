@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81b7ab52d5bef64bb552619c55f10f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemID: 
+  ItemID: 0
   itemName: {fileID: 967619392855375029}
   theItemPreview: {fileID: 4811311464648013530}
   Equipped: {fileID: 4186515759633117544}
@@ -1837,7 +1837,7 @@ GameObject:
   - component: {fileID: 6934099115106388490}
   m_Layer: 5
   m_Name: StatusLock
-  m_TagString: Untagged
+  m_TagString: LockIcon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2428,7 +2428,7 @@ MonoBehaviour:
       - m_Target: {fileID: 6655508814686070155}
         m_TargetAssemblyTypeName: Items, Assembly-CSharp
         m_MethodName: buyButtonAct
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

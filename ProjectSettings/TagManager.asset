@@ -53,6 +53,7 @@ TagManager:
   - EnergyObjects
   - BackOption
   - ShopItem
+  - LockIcon
   layers:
   - Default
   - TransparentFX

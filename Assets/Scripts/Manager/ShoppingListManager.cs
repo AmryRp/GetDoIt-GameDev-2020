@@ -1,22 +1,28 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Cryptography;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
-using System.Text;
-using System;
-using System.Security.Cryptography;
 public class ShoppingListManager : MonoBehaviour
 {
+    [Header("Prefab UI ")]
     public GameObject ItemPrefab;
-    [Header("Meta")]
+    [Header("Meta Save File Name")]
     //private string json;
     public string SAVE_FILE;
     [Header("Scriptable Objects")]
     public List<ItemServices> itemServicesList;
+    public List<ItemServices> InAppPurchaseList;
+    [Header("Coins UI")]
     public Text[] CoinsShop;
+    [Header("Canoe Image")]
     public Sprite[] CanoeImageStatic;
+    [Header("IAP Image")]
+    public Sprite[] IAPImageStatic;
     public Items myItemsPreview { get; set; }
     private static ShoppingListManager instance;
     public static ShoppingListManager MyInstance
@@ -30,10 +36,10 @@ public class ShoppingListManager : MonoBehaviour
             return instance;
         }
     }
-    private void Awake()
+    private void Start()
     {
         //LoadFromJsonSaveFile();
-        loadItemShop();
+        LoadCanoeEquipShop();
         float str = PlayerPrefs.GetFloat("MyPoint");
         if (str.Equals(0f))
         {
@@ -48,23 +54,30 @@ public class ShoppingListManager : MonoBehaviour
             }
         }
     }
-    ////for saving the data
-    //public void saveItemShop()
-    //{
-    //    for (int i = 0; i < itemServicesList.Count; i++)
-    //    {
-    //        PlayerPrefs.SetString("", itemServicesList[i].ItemID);
-    //    }
-    //}
-    ////for updating the UI view
-    //public void updateItemShop()
-    //{
-    //    for (int i = 0; i < itemServicesList.Count; i++)
-    //    {
-    //        PlayerPrefs.SetString("", itemServicesList[i].ItemID);
-    //    }
-    //}
-    //for update bought status in click.
+    public void switchOption(int indexOption)
+    {
+        switch (indexOption)
+        {
+            case 0:
+                if (!GameObject.FindGameObjectsWithTag("ShopItem").Length.Equals(0))
+                {
+                    DeletePrefabs();
+                }
+                LoadCanoeEquipShop();
+                break;
+            case 1:
+                if (!GameObject.FindGameObjectsWithTag("ShopItem").Length.Equals(0))
+                {
+                    DeletePrefabs();
+                }
+                LoadIAP();
+                break;
+            default:
+                print("Incorrect button Name");
+                break;
+        }
+
+    }
     public void updateBpught(int ItemID)
     {
         for (int i = 0; i < itemServicesList.Count; i++)
@@ -73,7 +86,7 @@ public class ShoppingListManager : MonoBehaviour
             {
                 itemServicesList[i].locked = true;
                 itemServicesList[i].bought = true;
-                
+                break;
             }
         }
     }
@@ -85,19 +98,19 @@ public class ShoppingListManager : MonoBehaviour
             Destroy(ListObject[i]);
         }
     }
-    public void loadItemShop()
+    public void LoadCanoeEquipShop()
     {
         //load the data from json with json reader input into itemsServices List
 
         //itemServicesList = ItemServicesListJson();
         if (File.Exists(Application.persistentDataPath + string.Format("/{0}.psv", SAVE_FILE)))
         {
-            LoadFromJsonSaveFile();
+            LoadFromJsonSaveFile("psv");
         }
         else
         {
             //add the default data 
-            SaveToJsonSaveFile();
+            SaveToJsonSaveFile("psv");
         }
         // this data to load from json to UI view
         for (int i = 0; i < itemServicesList.Count; i++)
@@ -147,6 +160,42 @@ public class ShoppingListManager : MonoBehaviour
 
         }
     }
+    public void LoadIAP()
+    {
+        //load the data from json with json reader input into itemsServices List
+
+        //itemServicesList = ItemServicesListJson();
+        if (File.Exists(Application.persistentDataPath + string.Format("/{0}.iap", SAVE_FILE)))
+        {
+            LoadFromJsonSaveFile("iap");
+        }
+        else
+        {
+            //add the default data 
+            SaveToJsonSaveFile("iap");
+        }
+        // this data to load from json to UI view
+        for (int i = 0; i < InAppPurchaseList.Count; i++)
+        {
+            //add new ItemShop
+            myItemsPreview = Instantiate(ItemPrefab, ShoppingListManager.MyInstance.transform).GetComponent<Items>();
+            //add Init Name,Price,ItemPreview
+            myItemsPreview.ItemID = i;
+            myItemsPreview.itemName.text = InAppPurchaseList[i].itemName;
+            myItemsPreview.Price.text = "Rp." + InAppPurchaseList[i].price.ToString();
+            myItemsPreview.theItemPreview.sprite = CanoeImageStatic[i];
+            //hidden shop
+            myItemsPreview.Locked.GetComponent<Image>().color = Color.black;
+            myItemsPreview.Locked.GetComponent<Image>().sprite = IAPImageStatic[0];
+            GameObject[] Locker = GameObject.FindGameObjectsWithTag("LockIcon");
+            for (int j = 0; j < Locker.Length; j++)
+            {
+                Locker[j].GetComponent<Image>().sprite = IAPImageStatic[1];
+                print(Locker[j]);
+            }
+          
+        }
+    }
     public IEnumerator PlayUnlock(GameObject LockedSprite)
     {
         yield return null;
@@ -154,31 +203,54 @@ public class ShoppingListManager : MonoBehaviour
         UnlockAnim.SetBool("Unlock", true);
         yield return new WaitForSeconds(1.6f);
     }
-    public void SaveToJsonSaveFile()
+    public void SaveToJsonSaveFile(string format)
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}.psv", SAVE_FILE));
+        FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}." + format, SAVE_FILE));
         ItemServices[] JsonArray = new ItemServices[itemServicesList.Count];
-        for (int i = 0; i < itemServicesList.Count; i++)
+        if (format == "psv")
         {
-            JsonArray[i] = itemServicesList[i];
+            for (int i = 0; i < itemServicesList.Count; i++)
+            {
+                JsonArray[i] = itemServicesList[i];
+            }
         }
+        else
+        {
+            for (int i = 0; i < InAppPurchaseList.Count; i++)
+            {
+                JsonArray[i] = InAppPurchaseList[i];
+            }
+        }
+
         string playerToJson = JsonHelper.ToJson(JsonArray, true);
         Debug.Log(playerToJson);
         bf.Serialize(file, EncryptJson(playerToJson));
         file.Close();
         //loadItemShop();
     }
-    public void LoadFromJsonSaveFile()
+    public void LoadFromJsonSaveFile(string format)
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Open(Application.persistentDataPath + string.Format("/{0}.psv", SAVE_FILE), FileMode.Open);
+        FileStream file = File.Open(Application.persistentDataPath + string.Format("/{0}." + format, SAVE_FILE), FileMode.Open);
         ItemServices[] JsonArray = JsonHelper.FromJson<ItemServices>(DecryptJson((string)bf.Deserialize(file)));
-        for (int i = 0; i < itemServicesList.Count; i++)
+        if (format == "psv")
         {
-            itemServicesList[i] = JsonArray[i];
-            //print(JsonArray[i].itemName);
-            //JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), itemServicesList[i]);
+            for (int i = 0; i < itemServicesList.Count; i++)
+            {
+                itemServicesList[i] = JsonArray[i];
+                //print(JsonArray[i].itemName);
+                //JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), itemServicesList[i]);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < InAppPurchaseList.Count; i++)
+            {
+                InAppPurchaseList[i] = JsonArray[i];
+                //print(JsonArray[i].itemName);
+                //JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), itemServicesList[i]);
+            }
         }
         //bf.Serialize(file, json);
         file.Close();
@@ -224,7 +296,6 @@ public class ShoppingListManager : MonoBehaviour
         float MyCoins = PlayerPrefs.GetFloat("MyPoint");
         if (MyCoins <= Price)
         {
-            SSTools.ShowMessage(" Not Enough Coins ", SSTools.Position.bottom, SSTools.Time.twoSecond);
             result = false;
         }
         else
@@ -253,21 +324,21 @@ public class ShoppingListManager : MonoBehaviour
             yield return null;
         }
         //update the saved data to json again
-        SaveToJsonSaveFile();
+        SaveToJsonSaveFile("psv");
         //make it wait till animation of unlocked done
         DeletePrefabs();
         //load the new list
-        loadItemShop();
+        LoadCanoeEquipShop();
     }
-    public void EquipItems(int ID,bool On)
+    public void EquipItems(int ID, bool On)
     {
-       // StartCoroutine(EquipOneOnly(ID,On));
+        // StartCoroutine(EquipOneOnly(ID,On));
         for (int i = 0; i < itemServicesList.Count; i++)
         {
             if (itemServicesList[i].ItemID == ID)
             {
                 itemServicesList[i].equiped = On;
-                print("equip "+On);
+                //print("equip "+On);
                 if (On)
                 {
                     print("setvalue");
@@ -286,19 +357,19 @@ public class ShoppingListManager : MonoBehaviour
                     PlayerPrefs.Save();
                 }
             }
-            else 
+            else
             {
                 itemServicesList[i].equiped = false;
             }
         }
         //update the saved data to json again
-        SaveToJsonSaveFile();
+        SaveToJsonSaveFile("psv");
         //make it wait till animation of unlocked done
         DeletePrefabs();
         //load the new list
-        loadItemShop();
+        LoadCanoeEquipShop();
     }
-    public IEnumerator EquipOneOnly(string Name,bool On)
+    public IEnumerator EquipOneOnly(string Name, bool On)
     {
         yield return null;
     }

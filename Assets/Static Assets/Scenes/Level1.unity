@@ -1209,6 +1209,7 @@ MonoBehaviour:
   DistanceBackgroundChangerInterval: 200
   OneBackGround: 100
   activeTiles: []
+  Background: []
 --- !u!4 &858695451
 Transform:
   m_ObjectHideFlags: 0
@@ -1224,6 +1225,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &888401396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7441646348198832274, guid: 0b229e037a27055439aa5a0b5db1aef8, type: 3}
+  m_PrefabInstance: {fileID: 1407683192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &919832720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2931895678500072206, guid: 0b229e037a27055439aa5a0b5db1aef8, type: 3}
@@ -1311,6 +1317,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1165760493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7441646348198832274, guid: 0cb75fa229bc7c5408983c557b16a278, type: 3}
+  m_PrefabInstance: {fileID: 625040266}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1173375511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,6 +1367,9 @@ MonoBehaviour:
   DistanceBackgroundChangerInterval: 200
   OneBackGround: 100
   activeTiles: []
+  Background:
+  - {fileID: 1165760493}
+  - {fileID: 888401396}
 --- !u!4 &1173375513
 Transform:
   m_ObjectHideFlags: 0
@@ -2307,7 +2321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441646348198832274, guid: 0b229e037a27055439aa5a0b5db1aef8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7492287652400488965, guid: 0b229e037a27055439aa5a0b5db1aef8, type: 3}
       propertyPath: m_Layer
@@ -2609,6 +2623,7 @@ MonoBehaviour:
   AnimalSpawnTime: 22
   OdadingLimit: 10
   ActivePower: []
+  ActiveAnimal: []
 --- !u!4 &1795586610
 Transform:
   m_ObjectHideFlags: 0

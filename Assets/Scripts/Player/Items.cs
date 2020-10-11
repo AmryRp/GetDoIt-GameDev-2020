@@ -72,7 +72,7 @@ public class Items : MonoBehaviour
         MyMaxValue = maxValue;
         MyCurrentValue = currentValue;
         Stats.fillAmount = currentFill;
-       
+
     }
     public IEnumerator Unlocked()
     {
@@ -80,17 +80,33 @@ public class Items : MonoBehaviour
         UnLockAnim.SetBool("Unlock", true);
         yield return null;
     }
-    public void buyButtonAct()
+    public void buyButtonAct(string CanoeOrCoin)
     {
-        float val = float.Parse(Price.text);
-       
-        if (ShoppingListManager.MyInstance.Decrease(val))
+        try
         {
-            Locked.GetComponent<Image>().enabled = false;
-            ShoppingListManager.MyInstance.updateBpught(ItemID);
+            if (Price.text.Split("Rp."[2])[1] != null)
+            {
+                CanoeOrCoin = Price.text.Split("Rp."[2])[0];
+                print(Price.text);
+                print(Price.text.Split("Rp."[2])[0]);
+                print(Price.text.Split("Rp."[2])[1]);
+                SSTools.ShowMessage("Not Implemented Yet", SSTools.Position.bottom, SSTools.Time.oneSecond);
+            }
         }
-        
-        
+        catch
+        {
+            float val = float.Parse(Price.text);
+
+            if (ShoppingListManager.MyInstance.Decrease(val))
+            {
+                Locked.GetComponent<Image>().enabled = false;
+                ShoppingListManager.MyInstance.updateBpught(ItemID);
+            }
+            else 
+            {
+                SSTools.ShowMessage(" Not Enough Coins ", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            }
+        }
     }
     public void Start()
     {
@@ -102,14 +118,14 @@ public class Items : MonoBehaviour
         value = Equipped.isOn;
         if (value ? false : true)
         {
-            ShoppingListManager.MyInstance.EquipItems(ItemID,value);
+            ShoppingListManager.MyInstance.EquipItems(ItemID, value);
         }
         else
         {
             ShoppingListManager.MyInstance.EquipItems(ItemID, value);
         }
 
-       
-       
+
+
     }
 }

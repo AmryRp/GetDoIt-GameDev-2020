@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using UnityEngine;
+using UnityEngine.UI;
+
+[Serializable]
+public class PhotoServices : ScriptableObject
+{
+    private const bool truestate = true;
+    private const bool falsestate = false;
+    [SerializeField]
+    private int photoId;
+    [SerializeField]
+    private string photosName;
+    [SerializeField]
+    private bool sharedPhotos = falsestate;
+    [SerializeField]
+    private Sprite photosTexture;
+
+    public Sprite PhotosTexture { get => photosTexture; set => photosTexture = value; }
+    public bool SharedPhotos { get => sharedPhotos; set => sharedPhotos = value; }
+    public int PhotoId { get => photoId; set => photoId = value; }
+    public string PhotosName { get => photosName; set => photosName = value; }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+}
