@@ -9,7 +9,7 @@ public class UIManager : UiController
     public PlayerController PL;
     public CameraObjectManager COGM;
     private static UIManager instance;
-    public Canvas Gpui, Pause, Sett, Mainmenu, Capture, Exit, GmOver, SavenU;
+    public Canvas Gpui, Pause, Sett, Mainmenu, Capture, Exit, GmOver, SavenU, GalView, PhotoView;
     public Text EnergyStats;
     public static UIManager MyUI
     {
@@ -76,7 +76,7 @@ public class UIManager : UiController
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public void LoadUI(bool gpui, bool pause, bool sett, bool mainmenu, bool capture, bool exit, bool GOver, bool SnU)
+    public void LoadUI(bool gpui, bool pause, bool sett, bool mainmenu, bool capture, bool exit, bool GOver, bool SnU,bool GV,bool PV)
     {
         Gpui.GetComponent<Canvas>().enabled = gpui;
         Pause.GetComponent<Canvas>().enabled = pause;
@@ -86,7 +86,8 @@ public class UIManager : UiController
         GmOver.GetComponent<Canvas>().enabled = GOver;
         SavenU.GetComponent<Canvas>().enabled = SnU;
         Sett.GetComponent<Canvas>().enabled = sett;
-
+        GalView.GetComponent<Canvas>().enabled = GV;
+        PhotoView.GetComponent<Canvas>().enabled = PV;
     }
     public IEnumerator CalculatingPrefabPoint()
     {

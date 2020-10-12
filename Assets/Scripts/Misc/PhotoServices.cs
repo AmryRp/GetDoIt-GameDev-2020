@@ -7,23 +7,23 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
-public class PhotoServices : ScriptableObject
+public class PhotoServices 
 {
-    private const bool truestate = true;
+    //private const bool truestate = true;
     private const bool falsestate = false;
     [SerializeField]
-    private int photoId;
+    public int photoId;
     [SerializeField]
-    private string photosName;
+    public string photosName;
     [SerializeField]
-    private bool sharedPhotos = falsestate;
+    public bool sharedPhotos = falsestate;
     [SerializeField]
-    private Sprite photosTexture;
+    public Sprite photosTexture;
 
-    public Sprite PhotosTexture { get => photosTexture; set => photosTexture = value; }
-    public bool SharedPhotos { get => sharedPhotos; set => sharedPhotos = value; }
-    public int PhotoId { get => photoId; set => photoId = value; }
-    public string PhotosName { get => photosName; set => photosName = value; }
+    //public Sprite PhotosTexture { get => photosTexture; set => photosTexture = value; }
+    //public bool SharedPhotos { get => sharedPhotos; set => sharedPhotos = value; }
+    //public int PhotoId { get => photoId; set => photoId = value; }
+    //public string PhotosName { get => photosName; set => photosName = value; }
 
     // Start is called before the first frame update
     void Start()

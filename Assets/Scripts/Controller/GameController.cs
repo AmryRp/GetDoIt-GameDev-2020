@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
                     break;
                 case "BackButton":
                     LoadNeeded();
-                    UI.LoadUI(true, false, false, false, false, false, false, false);
+                    UI.LoadUI(true, false, false, false, false, false, false, false, false, false);
                     Time.timeScale = 1f;
                     break;
                 case "BackButtonMM":
@@ -65,7 +65,12 @@ public class GameController : MonoBehaviour, IPointerClickHandler
                     StartCoroutine(OpenShop());
                     break;
                 case "Gallery":
-                    print("unknown");
+                    LoadNeeded();
+                    UI.LoadUI(false, false, false, false, false, false, false, false, true, false);
+                    break;
+                case "PreviewPhoto":
+                    LoadNeeded();
+                    UI.LoadUI(false, false, false, false, false, false, false, false, false, true);
                     break;
                 case "PlayerInfo":
                    StartCoroutine(ShowEnergyValue());
@@ -147,7 +152,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
             ss.Apply();
             COGM = CameraObjectManager.MyCamReceiver;
             // Save the screenshot to Gallery/Photos
-            string name = string.Format("{0}_Capture{1}_{2}.png", Application.productName, "{0}", System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
+            string name = string.Format("{0}_Capture_{1}.png", Application.productName, System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
             Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName + " Captures", name));
             // To avoid memory leaks
             Destroy(ss);
@@ -166,7 +171,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
             PC.Lose();
             PC.IsAnimator.SetBool("IsCapture", false);
             GM.isCapturing = false;
-            UI.LoadUI(true, false, false, false, false, false, false, false);
+            UI.LoadUI(true, false, false, false, false, false, false, false, false, false);
             Time.timeScale = 1f;
         }
         else if (!PC.Hidup)
@@ -227,7 +232,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
             PC = PlayerController.MyPlayerControl;
             PC.IsAnimator.SetBool("IsCapture", false);
             GM.isCapturing = false;
-            UI.LoadUI(true, false, false, false, false, false, false, false);
+            UI.LoadUI(true, false, false, false, false, false, false, false, false, false);
             Time.timeScale = 1f;
         }
         else if (!PC.Hidup)
@@ -249,7 +254,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         PC.TakeDamage(8f);
         PC.IsAnimator.SetBool("IsCapture", false);
         GM.isCapturing = false;
-        UI.LoadUI(true, false, false, false, false, false, false, false);
+        UI.LoadUI(true, false, false, false, false, false, false, false, false, false);
         Time.timeScale = 1f;
         //GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().maxParticles = int.Parse(Mathf.Round(COGM.AllPoint).ToString());
         GameObject.Find("Canvas").GetComponent<Canvas>().worldCamera = Camera.main;
@@ -275,7 +280,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         COGM = GameObject.FindGameObjectWithTag("DistanceReceiver").GetComponent<CameraObjectManager>();
         Animator PauseAnim = GameObject.FindGameObjectWithTag("PauseOption").GetComponent<Animator>();
         PauseAnim.SetBool("IsPaused", true);
-        UI.LoadUI(false, true, false, false, false, false, false, false);
+        UI.LoadUI(false, true, false, false, false, false, false, false, false, false);
         yield return new WaitForEndOfFrame();
        
     }
@@ -285,7 +290,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         COGM = GameObject.FindGameObjectWithTag("DistanceReceiver").GetComponent<CameraObjectManager>();
         GM.isCapturing = true;
-        UI.LoadUI(false, false, false, false, false, false, false, true);
+        UI.LoadUI(false, false, false, false, false, false, false, true, false, false);
         yield return null;
     }
     public IEnumerator SettingMain()
@@ -293,7 +298,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         COGM = GameObject.FindGameObjectWithTag("DistanceReceiver").GetComponent<CameraObjectManager>();
-        UI.LoadUI(false, false, true, false, false, false, false, false);
+        UI.LoadUI(false, false, true, false, false, false, false, false, false, false);
         Time.timeScale = 0f;
         yield return null;
     }
@@ -345,13 +350,13 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         PC = PlayerController.MyPlayerControl;
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            UI.LoadUI(false, false, false, true, false, false, false, false);
+            UI.LoadUI(false, false, false, true, false, false, false, false, false, false);
         }
         else
         {
             Canvas OptionMM = GameObject.FindGameObjectWithTag("BackOption").GetComponent<Canvas>();
             OptionMM.enabled = false;
-            UI.LoadUI(true, false, false, false, false, false, false, false);
+            UI.LoadUI(true, false, false, false, false, false, false, false, false, false);
             Time.timeScale = 1f;
         }
         yield return null;
@@ -366,7 +371,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         {
             PC.IsAnimator.SetBool("IsCapture", false);
             GM.isCapturing = false;
-            UI.LoadUI(true, false, false, false, false, false, false, false);
+            UI.LoadUI(true, false, false, false, false, false, false, false, false, false);
             Time.timeScale = 1f;
         }
         else if (!PC.Hidup)
@@ -391,7 +396,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
 
             PC.IsAnimator.SetBool("IsCapture", false);
             GM.isCapturing = false;
-            UI.LoadUI(true, false, false, false, false, false, false, false);
+            UI.LoadUI(true, false, false, false, false, false, false, false, false, false);
             Time.timeScale = 1f;
         }
         else if (!PC.Hidup)
@@ -410,7 +415,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         Animator PauseAnim = GameObject.FindGameObjectWithTag("PauseOption").GetComponent<Animator>();
         PauseAnim.SetBool("IsPaused", false);
         UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
-        UI.LoadUI(true, false, false, false, false, false, false, false);
+        UI.LoadUI(true, false, false, false, false, false, false, false, false, false);
         Time.timeScale = 1f;
         yield return null;
     }
@@ -425,14 +430,14 @@ public class GameController : MonoBehaviour, IPointerClickHandler
     public IEnumerator BACKmm()
     {
         UI = UIManager.MyUI;
-        UI.LoadUI(false, false, false, true, false, false, false, false);
+        UI.LoadUI(false, false, false, true, false, false, false, false, false, false);
         Time.timeScale = 1f;
         yield return null;
     }
     public IEnumerator JustBackHome()
     {
         UI = UIManager.MyUI;
-        UI.LoadUI(false, false, false, true, false, false, false, false);
+        UI.LoadUI(false, false, false, true, false, false, false, false, false, false);
         Time.timeScale = 1f;
         LoadPlay(ModeName);
         Canvas OptionMM = GameObject.FindGameObjectWithTag("BackOption").GetComponent<Canvas>();

@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
                 else if (SceneManager.GetActiveScene().buildIndex == 0)
                 {
                     UI = UIManager.MyUI;
-                    UI.LoadUI(false, false, false, false, false, true, false, false);
+                    UI.LoadUI(false, false, false, false, false, true, false, false, false, false);
                 }
             }
             else 
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
                 else if (SceneManager.GetActiveScene().buildIndex == 0)
                 {
                     UI = UIManager.MyUI;
-                    UI.LoadUI(false, false, false, false, false, true, false, false);
+                    UI.LoadUI(false, false, false, false, false, true, false, false, false, false);
                 }
             }
             
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            UI.LoadUI(true, false, false, false, false, false, false,false);
+            UI.LoadUI(true, false, false, false, false, false, false,false, false, false);
             isShowing.SetBool("ShowImage", false);
             Time.timeScale = 1f;
         }

@@ -21,12 +21,11 @@ public class GalerryModel : MonoBehaviour
     public int PhotoId;
     public Text PhotoName;
     public Image PhotoMiniPreview;
-    public Image SelectedItem;
-    public Button ClickButton;
-    public GameObject HidePrice;
-    void Start()
+    public void buttonView()
     {
-        
+        Image PhotoViewer = GameObject.FindGameObjectWithTag("PhotoView").GetComponent<Image>();
+        PhotoViewer.sprite = PhotoMiniPreview.sprite;
+
     }
 
 }
