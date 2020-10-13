@@ -14,7 +14,7 @@ public class PhotoServices
     [SerializeField]
     public int photoId;
     [SerializeField]
-    public string photosName;
+    public String photosName;
     [SerializeField]
     public bool sharedPhotos = falsestate;
     [SerializeField]
@@ -26,9 +26,4 @@ public class PhotoServices
     //public string PhotosName { get => photosName; set => photosName = value; }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
 }

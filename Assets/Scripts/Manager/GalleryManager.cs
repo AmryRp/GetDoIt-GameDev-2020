@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -10,6 +11,7 @@ public class GalleryManager : MonoBehaviour
     private GameObject PhotoPrefabs;
     [SerializeField]
     private List<PhotoServices> PhotosLoaded;
+    public Text DistanceText, ShotTakenText;
     public GalerryModel myPhotoPreview { get; set; }
 
     private static GalleryManager instance;
@@ -36,6 +38,12 @@ public class GalleryManager : MonoBehaviour
     }
     void Start()
     {
+        float str2 = PlayerPrefs.GetFloat("DistanceTraveled");
+        int str3 = PlayerPrefs.GetInt("MyShot");
+
+        DistanceText.text = Mathf.Round(str2).ToString();
+        ShotTakenText.text = str3.ToString();
+
         BinaryFormatter bf = new BinaryFormatter();
         DirectoryInfo dir = new DirectoryInfo(GetAndroidExternalStoragePath() + "/" + Application.productName + " Captures");
         var files = dir.GetFiles().Where(o => o.Name.EndsWith(".png")).ToArray();
@@ -48,12 +56,15 @@ public class GalleryManager : MonoBehaviour
             PhotoServices imagefile = new PhotoServices();
             imagefile.photosTexture = NewSprite;
             imagefile.photoId = i;
-            imagefile.photosName = files[i].Name;
+            imagefile.photosName = files[i].Name.ToString();
             imagefile.sharedPhotos = false;
             PhotosLoaded.Add(imagefile);
             myPhotoPreview = Instantiate(PhotoPrefabs, GalleryManager.MyInstance.transform).GetComponent<GalerryModel>();
             //AllFiles[i] = (FileModel)bf.Deserialize(fs);
-                myPhotoPreview.PhotoMiniPreview.sprite = PhotosLoaded[i].photosTexture;
+            myPhotoPreview.PhotoMiniPreview.sprite = PhotosLoaded[i].photosTexture;
+            myPhotoPreview.PhotoName.text = PhotosLoaded[i].photosName.Replace(".png","");
+            myPhotoPreview.PhotoId = PhotosLoaded[i].photoId;
+            myPhotoPreview.sharedPhotos = PhotosLoaded[i].sharedPhotos;
         }
     }
     public Texture2D LoadTexture(string FilePath)

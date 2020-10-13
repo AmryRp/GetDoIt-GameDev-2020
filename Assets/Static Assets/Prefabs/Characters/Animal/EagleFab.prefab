@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190920708732133770}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 18.9, y: 2.95, z: 0}
+  m_LocalPosition: {x: 18.1, y: 3.25, z: -0}
   m_LocalScale: {x: 0.25316006, y: 0.25316, z: 0.25316006}
   m_Children:
   - {fileID: 8456999933606964142}
@@ -285,7 +285,7 @@ MonoBehaviour:
   CharacterName: eagle
   Point: 600
   MoveSpeed: 25
-  maxcatchtime: 500
+  maxcatchtime: 5
   flipped: 0
   movedir: -1
 --- !u!65 &2108743756502577507
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: eagle
   myLevel: 10
-  power: 500
+  power: 200
   isCaptured: 0
   maxRayCastDefault: 36
 --- !u!1 &2196981031457632019
@@ -623,7 +623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8053147463358505444}
   m_LocalRotation: {x: -0.13299344, y: -9.527085e-17, z: 9.5270845e-17, w: 0.99111694}
-  m_LocalPosition: {x: 3.1182046e-17, y: 1.1199073, z: -0.3922128}
+  m_LocalPosition: {x: -0, y: -0.4, z: 39.4}
   m_LocalScale: {x: 100, y: 99.99999, z: 99.99999}
   m_Children:
   - {fileID: 6141008164255959234}

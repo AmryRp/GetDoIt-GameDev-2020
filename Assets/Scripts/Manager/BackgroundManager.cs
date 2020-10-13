@@ -14,10 +14,10 @@ public class BackgroundManager : MonoBehaviour
     private float save = 10f;
     [SerializeField]
     private int amntilescreen = 1;
-    [SerializeField]
-    private int lastPrefabindex;
-    [SerializeField]
-    float Water = 0;
+    //[SerializeField]
+    //private int lastPrefabindex;
+    //[SerializeField]
+    //float Water = 0;
     [SerializeField]
     float DistanceBackgroundChangerInterval = 200f;
     [SerializeField]

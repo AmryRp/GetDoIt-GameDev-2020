@@ -59,12 +59,13 @@ public class Player : PlayerModel
        
         //myRigidbody = GetComponent<Rigidbody2D>();
         IsAnimator = GetComponentInChildren<Animator>();
+        LowHP = GameObject.FindGameObjectWithTag("bar energy").GetComponent<Animator>();
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-
+       
     }
     public virtual IEnumerator Lose()
     {

@@ -26,8 +26,8 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     }
     protected override void Start()
     {
+       
         SetDefault();
-
         base.Start();
     }
     //load data tersimpan dr equip
@@ -96,6 +96,14 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         else if (!Hidup)
         {
             GM.isDeath = true;
+        }
+        if (Energy.MyCurrentValue <= Energy.MyMaxValue * 0.3f)
+        {
+            LowHP.SetBool("LowHP", true);
+        }
+        else
+        {
+            LowHP.SetBool("LowHP", false);
         }
         //untuk drain energy
         //Drain();

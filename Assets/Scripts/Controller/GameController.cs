@@ -313,8 +313,9 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         int str3 = PlayerPrefs.GetInt("MyShot");
         if (!str.Equals(0f))
         {
-            float calculatePointWithVar = (Mathf.Round((COGM.AllPoint) * (COGM.TempShotTaken +1)) / 2) + (Mathf.Round(PC.AllDistance) / COGM.TempShotTaken);
+            float calculatePointWithVar = (Mathf.Round((COGM.AllPoint) * (COGM.TempShotTaken +1)) / 5) + (Mathf.Round(PC.AllDistance) / COGM.TempShotTaken);
             str = PlayerPrefs.GetFloat("MyPoint") + Mathf.Round(calculatePointWithVar);
+            print("Final Point:  "+str);
             PlayerPrefs.SetFloat("MyPoint", str);
         }
         else
@@ -340,7 +341,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
             PlayerPrefs.SetInt("MyShot", COGM.TempShotTaken);
         }
         PlayerPrefs.Save();
-        yield return null;
+        yield break;
     }
     public IEnumerator NoButton()
     {

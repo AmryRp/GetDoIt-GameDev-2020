@@ -58,6 +58,7 @@ TagManager:
   - AllDistance
   - AllPhotoCaptured
   - PhotoView
+  - FinalPoint
   layers:
   - Default
   - TransparentFX

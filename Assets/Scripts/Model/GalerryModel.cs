@@ -21,11 +21,13 @@ public class GalerryModel : MonoBehaviour
     public int PhotoId;
     public Text PhotoName;
     public Image PhotoMiniPreview;
+    public bool sharedPhotos;
     public void buttonView()
     {
         Image PhotoViewer = GameObject.FindGameObjectWithTag("PhotoView").GetComponent<Image>();
         PhotoViewer.sprite = PhotoMiniPreview.sprite;
-
+        Text PhotoViewName = GameObject.FindGameObjectWithTag("PhotoView").GetComponentInChildren<Text>();
+        PhotoViewName.text = PhotoName.text;
     }
 
 }

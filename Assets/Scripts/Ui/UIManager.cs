@@ -174,6 +174,18 @@ public class UIManager : UiController
         }
         DistanceP.text = Mathf.Round(AllDistance).ToString();
     }
+    public IEnumerator PointTextHandleFinal()
+    {
+        print("DP " + AllDistance);
+        tmpDistance = 0f;
+        while (tmpDistance < AllDistance)
+        {
+            tmpDistance++; //Increment the display score by 1
+            DistanceP.text = Mathf.Round(Mathf.Lerp(tmpDistance, AllDistance, 0.1f * Time.unscaledDeltaTime)).ToString();
+            yield return null;
+        }
+        DistanceP.text = Mathf.Round(AllDistance).ToString();
+    }
     public IEnumerator ShowText()
     {
        

@@ -56,8 +56,9 @@ public class PlayerModel : CharacterModel
     public float IdleTimer;
     public float maxmultiplier= 3f;
     public float MaxTouchWait;
+    public Animator LowHP;
 
-    [Header("Canoe Mechanic")]
+   [Header("Canoe Mechanic")]
     [SerializeField]
     protected int CanoeType;
     [SerializeField]
