@@ -324,6 +324,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         }
         if (!str2.Equals(0f))
         {
+            PC.AllDistance += PC.totalDistance;
             str2 = PlayerPrefs.GetFloat("DistanceTraveled") + PC.AllDistance;
             PlayerPrefs.SetFloat("DistanceTraveled", str2);
         }
