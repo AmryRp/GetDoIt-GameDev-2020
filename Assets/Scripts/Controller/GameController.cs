@@ -330,6 +330,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         }
         else
         {
+            PC.AllDistance += PC.totalDistance;
             PlayerPrefs.SetFloat("DistanceTraveled", Mathf.Round(PC.AllDistance));
         }
         if (!str3.Equals(0))

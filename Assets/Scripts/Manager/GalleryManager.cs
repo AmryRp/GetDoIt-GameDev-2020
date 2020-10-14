@@ -46,6 +46,11 @@ public class GalleryManager : MonoBehaviour
 
         BinaryFormatter bf = new BinaryFormatter();
         DirectoryInfo dir = new DirectoryInfo(GetAndroidExternalStoragePath() + "/" + Application.productName + " Captures");
+        if (!Directory.Exists(GetAndroidExternalStoragePath() + "/" + Application.productName + " Captures"))
+        {
+            var folder = Directory.CreateDirectory(GetAndroidExternalStoragePath() + "/" + Application.productName + " Captures");
+        }
+
         var files = dir.GetFiles().Where(o => o.Name.EndsWith(".png")).ToArray();
         for (int i = 0; i < files.Length; i++)
         {
@@ -62,10 +67,12 @@ public class GalleryManager : MonoBehaviour
             myPhotoPreview = Instantiate(PhotoPrefabs, GalleryManager.MyInstance.transform).GetComponent<GalerryModel>();
             //AllFiles[i] = (FileModel)bf.Deserialize(fs);
             myPhotoPreview.PhotoMiniPreview.sprite = PhotosLoaded[i].photosTexture;
-            myPhotoPreview.PhotoName.text = PhotosLoaded[i].photosName.Replace(".png","");
+            myPhotoPreview.PhotoName.text = PhotosLoaded[i].photosName.Replace(".png", "");
             myPhotoPreview.PhotoId = PhotosLoaded[i].photoId;
             myPhotoPreview.sharedPhotos = PhotosLoaded[i].sharedPhotos;
         }
+
+
     }
     public Texture2D LoadTexture(string FilePath)
     {
