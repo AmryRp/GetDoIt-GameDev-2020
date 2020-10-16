@@ -12,7 +12,7 @@ public class GalleryManager : MonoBehaviour
     [SerializeField]
     private List<PhotoServices> PhotosLoaded;
     public Text DistanceText, ShotTakenText;
-    public GalerryModel myPhotoPreview { get; set; }
+    public GalerryView myPhotoPreview { get; set; }
 
     private static GalleryManager instance;
     public static GalleryManager MyInstance
@@ -64,7 +64,7 @@ public class GalleryManager : MonoBehaviour
             imagefile.photosName = files[i].Name.ToString();
             imagefile.sharedPhotos = false;
             PhotosLoaded.Add(imagefile);
-            myPhotoPreview = Instantiate(PhotoPrefabs, GalleryManager.MyInstance.transform).GetComponent<GalerryModel>();
+            myPhotoPreview = Instantiate(PhotoPrefabs, GalleryManager.MyInstance.transform).GetComponent<GalerryView>();
             //AllFiles[i] = (FileModel)bf.Deserialize(fs);
             myPhotoPreview.PhotoMiniPreview.sprite = PhotosLoaded[i].photosTexture;
             myPhotoPreview.PhotoName.text = PhotosLoaded[i].photosName.Replace(".png", "");

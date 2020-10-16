@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Items : MonoBehaviour
+public class ItemsView : MonoBehaviour
 {
-    private static Items instance;
-    public static Items MyInstance
+    private static ItemsView instance;
+    public static ItemsView MyInstance
     {
         get
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<Items>();
+                instance = FindObjectOfType<ItemsView>();
             }
             return instance;
         }

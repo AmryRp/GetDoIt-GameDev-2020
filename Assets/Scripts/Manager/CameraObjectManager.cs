@@ -95,7 +95,7 @@ public class CameraObjectManager : MonoBehaviour
             
             InitShotTaken++;
             tempShotTaken = InitShotTaken;
-            SSTools.ShowMessage(capturePoint +" < captured ,AllPoint> "+AllPoint, SSTools.Position.bottom, SSTools.Time.twoSecond);
+            
 
         }
         CalculatePoint();

@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
     public UIManager UI;
     public GameManager GM;
     public RawImage Img;
-
+    public bool jepretYes = false;
 
     public void loadPC()
     {
@@ -134,6 +134,11 @@ public class GameController : MonoBehaviour, IPointerClickHandler
     }
     private IEnumerator TakeScreenshotAndSave()
     {
+        jepretYes = true;
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        COGM = CameraObjectManager.MyCamReceiver;
+        PC = PlayerController.MyPlayerControl;
         if (PC.Hidup && !GM.IsPaused)
         {
             AudioController.Playsound("Jepret");
@@ -166,22 +171,23 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         else if (PC.myEnergy.MyCurrentValue <= (PC.myEnergy.MyMaxValue * 0.1))
         {
             GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
-
-            PC = PlayerController.MyPlayerControl;
-            PC.Lose();
+            UI.HPTOLOW();
+            print("GAGAL");
             PC.IsAnimator.SetBool("IsCapture", false);
             GM.isCapturing = false;
             UI.LoadUI(true, false, false, false, false, false, false, false, false, false);
             Time.timeScale = 1f;
+            
         }
         else if (!PC.Hidup)
         {
             StartCoroutine(PC.Lose());
 
         }
-        else 
+        else
         {
-            print("Wait for second,please close.. camera still saving the picture");
+            UI.HPTOLOW();
+            print("GAGAL");
         }
     }
     public void NullHandler()
@@ -194,6 +200,11 @@ public class GameController : MonoBehaviour, IPointerClickHandler
     }
     private IEnumerator TakeScreenshotAndShare()
     {
+        jepretYes = true;
+        UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        COGM = CameraObjectManager.MyCamReceiver;
+        PC = PlayerController.MyPlayerControl;
         if (PC.Hidup && !GM.IsPaused)
         {
             NullHandler();
@@ -229,11 +240,14 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         }
         else if (PC.myEnergy.MyCurrentValue <= (PC.myEnergy.MyMaxValue * 0.1))
         {
-            PC = PlayerController.MyPlayerControl;
+            UI.HPTOLOW();
+            print("GAGAL");
             PC.IsAnimator.SetBool("IsCapture", false);
             GM.isCapturing = false;
             UI.LoadUI(true, false, false, false, false, false, false, false, false, false);
             Time.timeScale = 1f;
+        
+
         }
         else if (!PC.Hidup)
         {
@@ -241,7 +255,8 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            print("Wait for second,please close.. camera still saving the picture");
+            UI.HPTOLOW();
+            print("GAGAL");
         }
     }
     public IEnumerator ExitOption()
@@ -250,15 +265,19 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         COGM = CameraObjectManager.MyCamReceiver;
         PC = PlayerController.MyPlayerControl;
-        StartCoroutine(COGM.capturedPointShot());
-        PC.TakeDamage(8f);
         PC.IsAnimator.SetBool("IsCapture", false);
         GM.isCapturing = false;
         UI.LoadUI(true, false, false, false, false, false, false, false, false, false);
         Time.timeScale = 1f;
         //GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().maxParticles = int.Parse(Mathf.Round(COGM.AllPoint).ToString());
         GameObject.Find("Canvas").GetComponent<Canvas>().worldCamera = Camera.main;
-        GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().Play();
+        if (jepretYes)
+        {
+            StartCoroutine(COGM.capturedPointShot());
+            PC.TakeDamage(8f);
+            GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().Play();
+        }
+       
         yield return null;
     }
     public IEnumerator Capturing()
@@ -315,7 +334,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         {
             float calculatePointWithVar = (Mathf.Round((COGM.AllPoint) * (COGM.TempShotTaken +1)) / 5) + (Mathf.Round(PC.AllDistance) / COGM.TempShotTaken);
             str = PlayerPrefs.GetFloat("MyPoint") + Mathf.Round(calculatePointWithVar);
-            print("Final Point:  "+str);
+            //print("Final Point:  "+str);
             PlayerPrefs.SetFloat("MyPoint", str);
         }
         else

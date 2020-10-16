@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GalerryModel : MonoBehaviour
+public class GalerryView : MonoBehaviour
 {
-    private static GalerryModel instance;
-    public static GalerryModel MyInstance
+    private static GalerryView instance;
+    public static GalerryView MyInstance
     {
         get
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<GalerryModel>();
+                instance = FindObjectOfType<GalerryView>();
             }
             return instance;
         }

@@ -38,7 +38,10 @@ public interface IStopable<T>
     IEnumerator BreakPlayer(T breakValue);
 }
 
-
+public interface IUpdateable<T>
+{
+    bool AcomplishObjective(T value);
+}
 
 [System.Serializable]
 public class SerializableDictionary<TK, TV>: ISerializable

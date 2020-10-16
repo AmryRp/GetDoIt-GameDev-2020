@@ -30,15 +30,15 @@ public class ItemServices :  IBuyAble<int>,IChangeable<int>
     public float pointValueStat;
     public int Buy(int Type)
     {
-        Type = Items.MyInstance.ItemID;
-        float price = float.Parse(Items.MyInstance.Price.text);
+        Type = ItemsView.MyInstance.ItemID;
+        float price = float.Parse(ItemsView.MyInstance.Price.text);
         ShoppingListManager.MyInstance.Decrease(price);
         return Type;
     }
 
     public int Change(int Type)
     {
-        Type = Items.MyInstance.ItemID;
+        Type = ItemsView.MyInstance.ItemID;
      //   ShoppingListManager.MyInstance.EquipItems(Type);
         return Type;
     }
