@@ -72,6 +72,8 @@ public class CameraObjectManager : MonoBehaviour
         int CountObjects = ObjectCatchs.Count;
         float tmpVal = 0;
         float IPower = 0;
+        float countanimals = 0;
+        float toAcomplish = 0;
         if (CountObjects != 0)
         {
             foreach (KeyValuePair<string, float> Objects in ObjectCatchs)
@@ -79,6 +81,12 @@ public class CameraObjectManager : MonoBehaviour
                 tmpVal += Mathf.Round(Objects.Value);
                 char separator = "_"[0];
                 string pow = Objects.Key.Split(separator)[2];
+                string name = Objects.Key.Split(separator)[0];
+                if (name.Equals(ObjectivesManager.MyInstance.animalName))
+                {
+                    CountObjects++;
+                    print(ObjectivesManager.MyInstance.animalName+" "+CountObjects);
+                }
                 IPower += float.Parse(pow);
 
             }
@@ -95,11 +103,12 @@ public class CameraObjectManager : MonoBehaviour
             
             InitShotTaken++;
             tempShotTaken = InitShotTaken;
-            
-
+            toAcomplish = InitShotTaken;
         }
+        ObjectivesManager.MyInstance.AcomplishObjective(toAcomplish, "photos", 1);
+        ObjectivesManager.MyInstance.AcomplishObjective(countanimals, ObjectivesManager.MyInstance.animalName, 2);
         CalculatePoint();
-        yield return null;
+        yield break;
     }
     public float calculateGolden = 1f;
     public void CalculateMeter()

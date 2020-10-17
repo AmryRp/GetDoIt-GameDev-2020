@@ -46,7 +46,8 @@ public class PlayerModel : CharacterModel
     [Header("Player Mechanic")]
     [SerializeField]
     protected float PlayerEnergy;
-   
+    public bool jepretYes = false;
+
     [SerializeField]
     protected float CameraMeter;
     protected static bool playerExists;

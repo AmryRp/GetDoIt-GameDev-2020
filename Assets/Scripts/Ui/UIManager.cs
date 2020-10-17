@@ -185,8 +185,26 @@ public class UIManager : UiController
     }
     public IEnumerator PointTextHandleFinal()
     {
-
-        float calculatePointWithVar = (Mathf.Round((COGM.AllPoint) * (COGM.TempShotTaken + 1)) / 5) + (Mathf.Round(PL.AllDistance) / COGM.TempShotTaken);
+        ObjectivesManager OM = ObjectivesManager.MyInstance;
+        int count = OM.Objective.Length;
+        float multiplier = 1f;
+        if (OM.Objective[0] || OM.Objective[1] || OM.Objective[2])
+        {
+            multiplier = 1.5f;
+        }
+        else if (OM.Objective[1] && OM.Objective[0] || OM.Objective[1] && OM.Objective[2] || OM.Objective[0] && OM.Objective[2])
+        {
+            multiplier = 2f;
+        }
+        else if (OM.Objective[1] && OM.Objective[0] && OM.Objective[2])
+        {
+            multiplier = 3f;
+        }
+        else
+        {
+            multiplier = 1f;
+        }
+        float calculatePointWithVar = ((Mathf.Round((COGM.AllPoint) * (COGM.TempShotTaken + 1)) / 5) + (Mathf.Round(PL.AllDistance) / COGM.TempShotTaken)) * multiplier;
         print("FP " + calculatePointWithVar);
         tmpDistance = 0f;
         while (tmpDistance < calculatePointWithVar)

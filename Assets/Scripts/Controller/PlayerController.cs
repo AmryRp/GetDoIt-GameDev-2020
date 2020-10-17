@@ -68,6 +68,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     }
     public void SetDefault()
     {
+        ObjectivesManager.MyInstance.LoadObjectives();
         PlayerPrefsLoads();
         lastMove = transform.position;
         CanoeBody = GetComponent<Rigidbody2D>();
@@ -413,6 +414,10 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         totalDistance += distance;
         lastMove = transform.position;
         DistanceTraveled.text = Mathf.Round(totalDistance) + " m";
+        if (!ObjectivesManager.MyInstance.AcomplishObjective(totalDistance, "distance", 0))
+        {
+            ObjectivesManager.MyInstance.AcomplishObjective(totalDistance, "distance", 0);
+        }
     }
     public bool speedLimiter(float Vel)
     {

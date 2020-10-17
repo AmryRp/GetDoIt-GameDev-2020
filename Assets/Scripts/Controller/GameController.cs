@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
     public UIManager UI;
     public GameManager GM;
     public RawImage Img;
-    public bool jepretYes = false;
+   
 
     public void loadPC()
     {
@@ -134,7 +134,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
     }
     private IEnumerator TakeScreenshotAndSave()
     {
-        jepretYes = true;
+       
         UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         COGM = CameraObjectManager.MyCamReceiver;
@@ -189,6 +189,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
             UI.HPTOLOW();
             print("GAGAL");
         }
+        PC.jepretYes = true;
     }
     public void NullHandler()
     {
@@ -200,7 +201,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
     }
     private IEnumerator TakeScreenshotAndShare()
     {
-        jepretYes = true;
+        
         UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         COGM = CameraObjectManager.MyCamReceiver;
@@ -258,6 +259,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
             UI.HPTOLOW();
             print("GAGAL");
         }
+        PC.jepretYes = true;
     }
     public IEnumerator ExitOption()
     {
@@ -271,14 +273,18 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         Time.timeScale = 1f;
         //GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().maxParticles = int.Parse(Mathf.Round(COGM.AllPoint).ToString());
         GameObject.Find("Canvas").GetComponent<Canvas>().worldCamera = Camera.main;
-        if (jepretYes)
+       
+        if (PC.jepretYes )
         {
+           
             StartCoroutine(COGM.capturedPointShot());
             PC.TakeDamage(8f);
             GameObject.FindGameObjectWithTag("CoinParticle").GetComponent<ParticleSystem>().Play();
+            PC.jepretYes = false;
         }
        
         yield return null;
+        yield break;
     }
     public IEnumerator Capturing()
     {
@@ -291,6 +297,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         PC.IsAnimator.SetBool("IsStop", false);
         GM.isCapturing = true;
         yield return null;
+        yield break;
     }
     public IEnumerator PauseButton()
     {
@@ -301,7 +308,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         PauseAnim.SetBool("IsPaused", true);
         UI.LoadUI(false, true, false, false, false, false, false, false, false, false);
         yield return new WaitForEndOfFrame();
-       
+        yield break;
     }
     public IEnumerator OpenShop()
     {
@@ -311,6 +318,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         GM.isCapturing = true;
         UI.LoadUI(false, false, false, false, false, false, false, true, false, false);
         yield return null;
+        yield break;
     }
     public IEnumerator SettingMain()
     {
@@ -320,6 +328,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         UI.LoadUI(false, false, true, false, false, false, false, false, false, false);
         Time.timeScale = 0f;
         yield return null;
+        yield break;
     }
     public IEnumerator SavingPoint()
     {
@@ -382,6 +391,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
             Time.timeScale = 1f;
         }
         yield return null;
+        yield break;
     }
     public IEnumerator Share()
     {
@@ -405,7 +415,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
             StartCoroutine(TakeScreenshotAndShare());
         }
         yield return null;
-       
+        yield break;
     }
     public IEnumerator SaveOnly()
     {
@@ -430,6 +440,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
             StartCoroutine(TakeScreenshotAndSave());
         }
         yield return null;
+        yield break;
     }
     public IEnumerator UnPauseButton()
     {
@@ -440,6 +451,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         UI.LoadUI(true, false, false, false, false, false, false, false, false, false);
         Time.timeScale = 1f;
         yield return null;
+        yield break;
     }
     public IEnumerator ShowEnergyValue()
     {
@@ -447,7 +459,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         UI = UIManager.MyUI;
         StartCoroutine(UI.ShowText());
         yield return null;
-        
+        yield break;
     }
     public IEnumerator BACKmm()
     {
@@ -455,6 +467,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         UI.LoadUI(false, false, false, true, false, false, false, false, false, false);
         Time.timeScale = 1f;
         yield return null;
+        yield break;
     }
     public IEnumerator JustBackHome()
     {
@@ -465,6 +478,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         Canvas OptionMM = GameObject.FindGameObjectWithTag("BackOption").GetComponent<Canvas>();
         OptionMM.enabled = false;
         yield return null;
+        yield break;
     }
 
 }

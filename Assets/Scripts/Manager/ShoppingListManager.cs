@@ -23,7 +23,7 @@ public class ShoppingListManager : MonoBehaviour
     public Sprite[] CanoeImageStatic;
     [Header("IAP Image")]
     public Sprite[] IAPImageStatic;
-    public ItemsView myItemsPreview { get; set; }
+    public ItemView myItemsPreview { get; set; }
     private static ShoppingListManager instance;
     public static ShoppingListManager MyInstance
     {
@@ -116,7 +116,7 @@ public class ShoppingListManager : MonoBehaviour
         for (int i = 0; i < itemServicesList.Count; i++)
         {
             //add new ItemShop
-            myItemsPreview = Instantiate(ItemPrefab, ShoppingListManager.MyInstance.transform).GetComponent<ItemsView>();
+            myItemsPreview = Instantiate(ItemPrefab, ShoppingListManager.MyInstance.transform).GetComponent<ItemView>();
             //add Init Name,Price,ItemPreview
             myItemsPreview.ItemID = i;
             myItemsPreview.itemName.text = itemServicesList[i].itemName;
@@ -178,7 +178,7 @@ public class ShoppingListManager : MonoBehaviour
         for (int i = 0; i < InAppPurchaseList.Count; i++)
         {
             //add new ItemShop
-            myItemsPreview = Instantiate(ItemPrefab, ShoppingListManager.MyInstance.transform).GetComponent<ItemsView>();
+            myItemsPreview = Instantiate(ItemPrefab, ShoppingListManager.MyInstance.transform).GetComponent<ItemView>();
             //add Init Name,Price,ItemPreview
             myItemsPreview.ItemID = i;
             myItemsPreview.itemName.text = InAppPurchaseList[i].itemName;

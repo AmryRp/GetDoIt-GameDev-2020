@@ -522,7 +522,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2319016928386352249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81b7ab52d5bef64bb552619c55f10f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6705b63815b7af84ca5c9b1475aa224e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ItemID: 0
@@ -537,10 +537,10 @@ MonoBehaviour:
   PointShot: {fileID: 2145928308172692196}
   PointShotValue: {fileID: 7088354213719291056}
   Price: {fileID: 3134200941334844792}
-  SelectedItem: {fileID: 3540807289428278514}
+  SelectedItem: {fileID: 6584242852514305228}
   bought: {fileID: 6124016922628120637}
   HidePrice: {fileID: 7615745530337960029}
-  BgColor: {fileID: 6584242852514305228}
+  BgColor: {fileID: 4431601199002305500}
 --- !u!1 &2427816649418554343
 GameObject:
   m_ObjectHideFlags: 0

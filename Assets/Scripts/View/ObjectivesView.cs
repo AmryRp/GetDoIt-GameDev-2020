@@ -18,9 +18,11 @@ public class ObjectivesView : MonoBehaviour
             return instance;
         }
     }
-    public int ItemID;
-    public Text itemName;
+    public int objectiveId;
+    public Image Icons;
+    public Text objectiveName;
     public Image checkAcomplished;
     public Text Description;
+    public Text objectiveStatus;
 
 }
