@@ -29,15 +29,17 @@ public class UIManager : UiController
         GM = GameManager.MyGM;
 
     }
+    bool death = false;
     public void Update()
     {
         if (!GM.IsPaused && !GM.isCapturing && !GM.isDeath)
         {
             SwitchScene(SceneManager.GetActiveScene().buildIndex);
         }
-        else if (GM.isDeath)
+        else if (GM.isDeath && !death)
         {
             SwitchScene(4);
+            print("trigger");
         }
     }
     public void SwitchScene(int SceneName)
@@ -58,6 +60,7 @@ public class UIManager : UiController
                 break;
             case 4:
                 StartCoroutine(PL.Lose());
+                death = true;
                 break;
             default:
                 print("Incorrect intelligence level.");
@@ -97,8 +100,8 @@ public class UIManager : UiController
         /*yield return null;*/
     }
     public Text DistanceP;
-    float tmpDistance;
-    float AllDistance;
+    float tmpFinal;
+    public float AllDistance;
     public Text CollectedPoint;
     float tmpCP;
     float AllPointCol;
@@ -146,7 +149,6 @@ public class UIManager : UiController
     }
     public IEnumerator PointTextHandleSS()
     {
-        print("SS " + AllTakenSS);
         tmpSS = 0;
         while (tmpSS < AllTakenSS)
         {
@@ -159,7 +161,6 @@ public class UIManager : UiController
     }
     public IEnumerator PointTextHandleCP()
     {
-        print("CP " + AllPointCol);
         tmpCP = 0f;
         while (tmpCP < AllPointCol)
         {
@@ -172,49 +173,60 @@ public class UIManager : UiController
     }
     public IEnumerator PointTextHandleDP()
     {
-        print("DP " + AllDistance);
-        tmpDistance = 0f;
-        while (tmpDistance < AllDistance)
+        tmpFinal = 0f;
+        while (tmpFinal < AllDistance)
         {
-            tmpDistance++; //Increment the display score by 1
-            DistanceP.text = Mathf.Round(Mathf.Lerp(tmpDistance, AllDistance, 0.1f * Time.unscaledDeltaTime)).ToString();
+            tmpFinal++; //Increment the display score by 1
+            DistanceP.text = Mathf.Round(Mathf.Lerp(tmpFinal, AllDistance, 0.1f * Time.unscaledDeltaTime)).ToString();
             yield return null;
         }
         DistanceP.text = Mathf.Round(AllDistance).ToString();
         yield break;
     }
+    public float multiplier = 1f;
     public IEnumerator PointTextHandleFinal()
     {
         ObjectivesManager OM = ObjectivesManager.MyInstance;
         int count = OM.Objective.Length;
-        float multiplier = 1f;
+       
         if (OM.Objective[0] || OM.Objective[1] || OM.Objective[2])
         {
             multiplier = 1.5f;
+            OM.ObjMultipliericon[0].SetActive(true);
         }
         else if (OM.Objective[1] && OM.Objective[0] || OM.Objective[1] && OM.Objective[2] || OM.Objective[0] && OM.Objective[2])
         {
             multiplier = 2f;
+            OM.ObjMultipliericon[0].SetActive(true);
+            OM.ObjMultipliericon[1].SetActive(true);
         }
         else if (OM.Objective[1] && OM.Objective[0] && OM.Objective[2])
         {
             multiplier = 3f;
+            OM.ObjMultipliericon[0].SetActive(true);
+            OM.ObjMultipliericon[1].SetActive(true);
+            OM.ObjMultipliericon[2].SetActive(true);
         }
         else
         {
             multiplier = 1f;
         }
-        float calculatePointWithVar = ((Mathf.Round((COGM.AllPoint) * (COGM.TempShotTaken + 1)) / 5) + (Mathf.Round(PL.AllDistance) / COGM.TempShotTaken)) * multiplier;
+        print(COGM.AllPoint);
+        print(COGM.TempShotTaken + 1);
+        print(AllDistance);
+        print(COGM.TempShotTaken + 1);
+
+        float calculatePointWithVar = ((Mathf.Round((COGM.AllPoint) * (COGM.TempShotTaken + 1)) / 5) + (Mathf.Round(AllDistance) / COGM.TempShotTaken+1)) * multiplier;
         print("FP " + calculatePointWithVar);
-        tmpDistance = 0f;
-        while (tmpDistance < calculatePointWithVar)
+        tmpFinal = 0f;
+        while (tmpFinal < calculatePointWithVar)
         {
-            tmpDistance++; //Increment the display score by 1
-            FinalPoint.text = Mathf.Round(Mathf.Lerp(tmpDistance, calculatePointWithVar, 0.1f * Time.unscaledDeltaTime)).ToString();
+            tmpFinal++; //Increment the display score by 1
+            FinalPoint.text = Mathf.Round(Mathf.Lerp(tmpFinal, calculatePointWithVar, 0.1f * Time.unscaledDeltaTime)).ToString();
             yield return null;
         }
         FinalPoint.text = Mathf.Round(calculatePointWithVar).ToString();
-        yield break;
+        if(tmpFinal >= calculatePointWithVar) yield break;
     }
     public IEnumerator ShowText()
     {

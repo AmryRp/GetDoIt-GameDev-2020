@@ -341,7 +341,8 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         int str3 = PlayerPrefs.GetInt("MyShot");
         if (!str.Equals(0f))
         {
-            float calculatePointWithVar = (Mathf.Round((COGM.AllPoint) * (COGM.TempShotTaken +1)) / 5) + (Mathf.Round(PC.AllDistance) / COGM.TempShotTaken);
+            print("multiplier" + UI.multiplier );
+            float calculatePointWithVar = ((Mathf.Round((COGM.AllPoint) * (COGM.TempShotTaken + 1)) / 5) + (Mathf.Round(UI.AllDistance) / COGM.TempShotTaken + 1)) * UI.multiplier;
             str = PlayerPrefs.GetFloat("MyPoint") + Mathf.Round(calculatePointWithVar);
             //print("Final Point:  "+str);
             PlayerPrefs.SetFloat("MyPoint", str);

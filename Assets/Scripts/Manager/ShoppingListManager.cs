@@ -45,13 +45,21 @@ public class ShoppingListManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("MyPoint", 2000f);
             PlayerPrefs.Save();
+            str = PlayerPrefs.GetFloat("MyPoint");
+            loadPointText(str);
         }
         else
         {
-            for (int i = 0; i < CoinsShop.Length; i++)
-            {
-                CoinsShop[i].text = str.ToString();
-            }
+            //debug clearing errorpoint
+            //PlayerPrefs.DeleteKey("MyPoint");
+            loadPointText(str);
+        }
+    }
+    private void loadPointText(float text)
+    {
+        for (int i = 0; i < CoinsShop.Length; i++)
+        {
+            CoinsShop[i].text = text.ToString();
         }
     }
     public void switchOption(int indexOption)

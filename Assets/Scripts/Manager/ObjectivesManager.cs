@@ -15,6 +15,7 @@ public class ObjectivesManager : MonoBehaviour
     [SerializeField]
     private List<ObjectivesService> objectiveServices;
     public bool[] Objective;
+    public GameObject[] ObjMultipliericon;
     public ObjectivesView myObjectiveRandom { get; set; }
     public ObjectivesView[] objectsLoaded;
     public string animalName = "animal";
@@ -61,7 +62,6 @@ public class ObjectivesManager : MonoBehaviour
                     Desc += " " + ObjectiveTitle[i] + " reach " + counterMax + " shots";
                     objectsLoaded[i] = myObjectiveRandom;
                 }
-
             }
             else
             {
