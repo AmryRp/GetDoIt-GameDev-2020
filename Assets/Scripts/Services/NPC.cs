@@ -15,9 +15,9 @@ public class NPC : NPCModel
         GEM = GetComponent<GeneralEnvironment>();
         PL = PlayerController.MyPlayerControl;
     }
-    private void Update()
+    public void Update()
     {
-       
+
         if (GEM.isCaptured)
         {
             //if (PL = null) StartCoroutine(cariPasangan());
@@ -45,15 +45,20 @@ public class NPC : NPCModel
     public IEnumerator KagetNPCnya()
     {
         float move = 0f;
-        while (move < maxcatchtime) {
+        while (move < maxcatchtime)
+        {
             AnimalAnim = GetComponentInChildren<Animator>();
             AnimalAnim.SetBool("RUUUUNFORYOURLIFE", true);
-            transform.position = transform.position + new Vector3(-0.1f * MoveSpeed * Time.deltaTime,0, 0);
-            move += Time.time;
-            yield return new WaitForSeconds(0.2f);
+            transform.position = transform.position + new Vector3(-0.1f * MoveSpeed * Time.deltaTime, 0, 0);
+            move += Time.deltaTime;
+            yield return new WaitForSeconds(0.5f);
             //AnimalAnim.SetBool("RUUUUNFORYOURLIFE", false);
         }
-     
+        if (move >= maxcatchtime)
+        { 
+            Destroy(gameObject); 
+            
+        }
     }
-    
+
 }

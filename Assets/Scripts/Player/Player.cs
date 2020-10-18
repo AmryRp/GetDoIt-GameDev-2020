@@ -59,23 +59,25 @@ public class Player : PlayerModel
        
         //myRigidbody = GetComponent<Rigidbody2D>();
         IsAnimator = GetComponentInChildren<Animator>();
+        LowHP = GameObject.FindGameObjectWithTag("bar energy").GetComponent<Animator>();
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-
+       
     }
     public virtual IEnumerator Lose()
     {
         UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
         Time.timeScale = 1f;
-        print("open");
+
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
         StartCoroutine(UI.CalculatingPrefabPoint());
-        UI.LoadUI(false, false, false, false, false, false, true, false);
+        UI.LoadUI(false, false, false, false, false, false, true, false, false, false);
         //UI = UIManager.MyUI;
         yield return null;
+        yield break;
     }
     public void PlayerRespawn()
     {

@@ -23,7 +23,7 @@ public class ShoppingListManager : MonoBehaviour
     public Sprite[] CanoeImageStatic;
     [Header("IAP Image")]
     public Sprite[] IAPImageStatic;
-    public Items myItemsPreview { get; set; }
+    public ItemView myItemsPreview { get; set; }
     private static ShoppingListManager instance;
     public static ShoppingListManager MyInstance
     {
@@ -45,13 +45,21 @@ public class ShoppingListManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("MyPoint", 2000f);
             PlayerPrefs.Save();
+            str = PlayerPrefs.GetFloat("MyPoint");
+            loadPointText(str);
         }
         else
         {
-            for (int i = 0; i < CoinsShop.Length; i++)
-            {
-                CoinsShop[i].text = str.ToString();
-            }
+            //debug clearing errorpoint
+            //PlayerPrefs.DeleteKey("MyPoint");
+            loadPointText(str);
+        }
+    }
+    private void loadPointText(float text)
+    {
+        for (int i = 0; i < CoinsShop.Length; i++)
+        {
+            CoinsShop[i].text = text.ToString();
         }
     }
     public void switchOption(int indexOption)
@@ -116,7 +124,7 @@ public class ShoppingListManager : MonoBehaviour
         for (int i = 0; i < itemServicesList.Count; i++)
         {
             //add new ItemShop
-            myItemsPreview = Instantiate(ItemPrefab, ShoppingListManager.MyInstance.transform).GetComponent<Items>();
+            myItemsPreview = Instantiate(ItemPrefab, ShoppingListManager.MyInstance.transform).GetComponent<ItemView>();
             //add Init Name,Price,ItemPreview
             myItemsPreview.ItemID = i;
             myItemsPreview.itemName.text = itemServicesList[i].itemName;
@@ -178,7 +186,7 @@ public class ShoppingListManager : MonoBehaviour
         for (int i = 0; i < InAppPurchaseList.Count; i++)
         {
             //add new ItemShop
-            myItemsPreview = Instantiate(ItemPrefab, ShoppingListManager.MyInstance.transform).GetComponent<Items>();
+            myItemsPreview = Instantiate(ItemPrefab, ShoppingListManager.MyInstance.transform).GetComponent<ItemView>();
             //add Init Name,Price,ItemPreview
             myItemsPreview.ItemID = i;
             myItemsPreview.itemName.text = InAppPurchaseList[i].itemName;

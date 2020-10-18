@@ -19,7 +19,7 @@ public class AfterAnimationController : MonoBehaviour
     public void OpenCapture()
     {
         UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
-        UI.LoadUI(false, false, false, false, true, false, false, false);
+        UI.LoadUI(false, false, false, false, true, false, false, false, false, false);
         StartCoroutine(PlayAnim());
     }
     public IEnumerator PlayAnim()

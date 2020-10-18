@@ -26,8 +26,8 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     }
     protected override void Start()
     {
+       
         SetDefault();
-
         base.Start();
     }
     //load data tersimpan dr equip
@@ -68,6 +68,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     }
     public void SetDefault()
     {
+        ObjectivesManager.MyInstance.LoadObjectives();
         PlayerPrefsLoads();
         lastMove = transform.position;
         CanoeBody = GetComponent<Rigidbody2D>();
@@ -96,6 +97,14 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         else if (!Hidup)
         {
             GM.isDeath = true;
+        }
+        if (Energy.MyCurrentValue <= Energy.MyMaxValue * 0.3f)
+        {
+            LowHP.SetBool("LowHP", true);
+        }
+        else
+        {
+            LowHP.SetBool("LowHP", false);
         }
         //untuk drain energy
         //Drain();
@@ -312,7 +321,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
 
             //print((directMove + moveSpeed + ((canoeSpeed / canoeWeight) * 5)));
             // SSTools.ShowMessage((directMove + moveSpeed + ((canoeSpeed / canoeWeight) * 5)).ToString(), SSTools.Position.bottom, SSTools.Time.twoSecond);
-            CanoeBody.AddForce(new Vector2(((directMove + moveSpeed + (((canoeSpeed / canoeWeight) * 2) + multiplier) / 5) * Time.deltaTime), 0), ForceMode2D.Impulse); // Movement
+            CanoeBody.AddForce(new Vector2(((directMove + moveSpeed + (((canoeSpeed / canoeWeight) * 2) + multiplier) / 5) / 2 * Time.deltaTime), 0), ForceMode2D.Impulse); // Movement
                                                                                                                                                                         //MovementSpeedInWater kecepatan canoe berdasarkan deras air atau bisa ditambah dengan moveSpeed kecepatan dari player, seperti dibawah ini
             /*CanoeBody.MovePosition(transform.position + transform.right * ((MoveSpeedInWater + moveSpeed) * Time.deltaTime)); */
             elapsedTime += Time.deltaTime;
@@ -405,6 +414,10 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         totalDistance += distance;
         lastMove = transform.position;
         DistanceTraveled.text = Mathf.Round(totalDistance) + " m";
+        if (!ObjectivesManager.MyInstance.AcomplishObjective(totalDistance, "distance", 0))
+        {
+            ObjectivesManager.MyInstance.AcomplishObjective(totalDistance, "distance", 0);
+        }
     }
     public bool speedLimiter(float Vel)
     {

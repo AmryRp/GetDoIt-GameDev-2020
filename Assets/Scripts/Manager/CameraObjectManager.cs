@@ -72,6 +72,8 @@ public class CameraObjectManager : MonoBehaviour
         int CountObjects = ObjectCatchs.Count;
         float tmpVal = 0;
         float IPower = 0;
+        float countanimals = 0;
+        float toAcomplish = 0;
         if (CountObjects != 0)
         {
             foreach (KeyValuePair<string, float> Objects in ObjectCatchs)
@@ -79,25 +81,34 @@ public class CameraObjectManager : MonoBehaviour
                 tmpVal += Mathf.Round(Objects.Value);
                 char separator = "_"[0];
                 string pow = Objects.Key.Split(separator)[2];
+                string name = Objects.Key.Split(separator)[0];
+                if (name.Equals(ObjectivesManager.MyInstance.animalName))
+                {
+                    CountObjects++;
+                    print(ObjectivesManager.MyInstance.animalName+" "+CountObjects);
+                }
                 IPower += float.Parse(pow);
 
             }
             capturePoint = 0f;
             IPower = IPower * calculateGolden;
-            capturePoint = (tmpVal + IPower) / (CountObjects *goldenRatio);
+            capturePoint = (tmpVal + IPower) / (CountObjects * goldenRatio * (InitShotTaken+1));
             PrevousPoint = AllPoint;
-            AllPoint += capturePoint;
             if (isGolden)
             {
-                float point = AllPoint * 2;
-                AllPoint = point;
+                float point = capturePoint * 1.5f;
+                capturePoint = point;
             }
-            InitShotTaken ++;
+            AllPoint += capturePoint;
+            
+            InitShotTaken++;
             tempShotTaken = InitShotTaken;
-           
+            toAcomplish = InitShotTaken;
         }
+        ObjectivesManager.MyInstance.AcomplishObjective(toAcomplish, "photos", 1);
+        ObjectivesManager.MyInstance.AcomplishObjective(countanimals, ObjectivesManager.MyInstance.animalName, 2);
         CalculatePoint();
-        yield return null;
+        yield break;
     }
     public float calculateGolden = 1f;
     public void CalculateMeter()
@@ -106,23 +117,23 @@ public class CameraObjectManager : MonoBehaviour
         {
             CameraMeterBar = GameObject.FindGameObjectWithTag("CameraMeter").GetComponent<Image>();
         }
-        
+
         if (CameraMeter < maxCameraMeter)
         {
             calculateGolden = (maxCameraMeter + CameraMeter) / maxCameraMeter;
         }
         else
         {
-            calculateGolden = (maxCameraMeter-CameraMeter)/CameraMeter;
+            calculateGolden = (maxCameraMeter - CameraMeter) / CameraMeter;
         }
-        if (calculateGolden >= 1 && calculateGolden <= goldenRatio)
+        if (calculateGolden >= 1.35f && calculateGolden <= goldenRatio)
         {
-            float rand = UnityEngine.Random.Range(0.5f, 0.9f);
+            float rand = UnityEngine.Random.Range(0.6f, 0.9f);
             currentFill = rand;
-            isGolden=true;
+            isGolden = true;
         }
 
-        if (calculateGolden == goldenRatio || calculateGolden >=1.5 && calculateGolden <= goldenRatio)
+        if (calculateGolden == goldenRatio || calculateGolden >= 1.5 && calculateGolden <= goldenRatio)
         {
             currentFill = 1f;
             isGolden = true;
@@ -142,7 +153,7 @@ public class CameraObjectManager : MonoBehaviour
         {
             CameraMeterBar.color = Color.white;
         }
-        
+
         StartCoroutine(HandleBar());
     }
     public IEnumerator HandleBar()
@@ -164,14 +175,15 @@ public class CameraObjectManager : MonoBehaviour
     }
     public IEnumerator PointTextHandle()
     {
-        while (true)
+        while (PrevousPoint < AllPoint)
         {
-            if (PrevousPoint < AllPoint)
-            {
-                PrevousPoint++; //Increment the display score by 1
-                PointText.text = Mathf.Round(Mathf.Lerp(PrevousPoint, AllPoint, 0.1f * Time.deltaTime)).ToString();
-            }
-            yield return new WaitForSeconds(0.2f);
+            PrevousPoint++; //Increment the display score by 1
+            PointText.text = Mathf.Round(Mathf.Lerp(PrevousPoint, AllPoint, 0.1f * Time.deltaTime)).ToString();
+        }
+        yield return new WaitForSeconds(0.01f);
+        if(PrevousPoint >= AllPoint)
+        {
+            PointText.text = Mathf.Round(AllPoint).ToString();
         }
     }
 }

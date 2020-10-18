@@ -46,7 +46,8 @@ public class PlayerModel : CharacterModel
     [Header("Player Mechanic")]
     [SerializeField]
     protected float PlayerEnergy;
-   
+    public bool jepretYes = false;
+
     [SerializeField]
     protected float CameraMeter;
     protected static bool playerExists;
@@ -56,8 +57,9 @@ public class PlayerModel : CharacterModel
     public float IdleTimer;
     public float maxmultiplier= 3f;
     public float MaxTouchWait;
+    public Animator LowHP;
 
-    [Header("Canoe Mechanic")]
+   [Header("Canoe Mechanic")]
     [SerializeField]
     protected int CanoeType;
     [SerializeField]

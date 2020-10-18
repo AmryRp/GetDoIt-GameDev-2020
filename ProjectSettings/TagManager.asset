@@ -54,6 +54,11 @@ TagManager:
   - BackOption
   - ShopItem
   - LockIcon
+  - GalleryPreview
+  - AllDistance
+  - AllPhotoCaptured
+  - PhotoView
+  - FinalPoint
   layers:
   - Default
   - TransparentFX

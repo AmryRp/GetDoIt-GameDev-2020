@@ -107,7 +107,7 @@ Material:
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _windPow: {r: 0.3, g: 1, b: 0, a: 0}
+    - _windPow: {r: 0.41, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1993497224698549556
 MonoBehaviour:
