@@ -12,13 +12,11 @@ public class TimerManager : MonoBehaviour
     public UIManager UI;
 
     private float timer = 1;
-    public bool isTimeUp;
     private string minutes, seconds, milliseconds;
 
     // Start is called before the first frame update
     void Start()
     {
-        isTimeUp = true;
         SetTimer();
     }
 
@@ -35,8 +33,6 @@ public class TimerManager : MonoBehaviour
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
         StartCoroutine(UI.CalculatingPrefabPoint());
         UI.LoadUI(false, false, false, false, false, false, true, false, false, false);
-        isTimeUp = false;        
-        Debug.Log("Time is Up2 = " + isTimeUp);
     }
 
     private void SetTimer()
@@ -54,11 +50,7 @@ public class TimerManager : MonoBehaviour
         else
         {
             timer = 0;
-            Debug.Log(isTimeUp);
-            if (isTimeUp)
-            {
-                TimeUp();
-            }
+            TimeUp();
         }
     }
 
