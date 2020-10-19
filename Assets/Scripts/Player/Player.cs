@@ -117,9 +117,11 @@ public class Player : PlayerModel
     }
     public void Fatigue()
     {
-
         //dikali dengan canoe weight nantinya
-        myEnergy.MyCurrentValue -= EnergyDrain ;
+        if (!playerTimeMode)
+        {
+            myEnergy.MyCurrentValue -= EnergyDrain ;
+        }
         PlayerEnergy = myEnergy.MyCurrentValue;
         //GameTextManager.MyInts.creattext(transform.position, "-", SCTTYPE.HEAL, true);
 

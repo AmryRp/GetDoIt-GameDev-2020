@@ -41,7 +41,7 @@ public class AfterAnimationController : MonoBehaviour
     public void sceneTimeModeloader()
     {
         //load the scene we want
-        SceneManager.LoadScene("T", LoadSceneMode.Single);
+        SceneManager.LoadScene("LevelTimerMode", LoadSceneMode.Single);
     }
     public void playSFX(string Name)
     {

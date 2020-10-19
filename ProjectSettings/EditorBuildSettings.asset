@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Static Assets/Scenes/LevelAlternative.unity
     guid: 7ac5696f8bf2b934d8232be50598bfb3
+  - enabled: 1
+    path: Assets/Static Assets/Scenes/LevelTimerMode.unity
+    guid: 9065680ca8a74ce4ab167674e26a502d
   m_configObjects: {}

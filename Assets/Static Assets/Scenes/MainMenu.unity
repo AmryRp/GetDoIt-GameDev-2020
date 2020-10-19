@@ -10272,6 +10272,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -322
       objectReference: {fileID: 0}
+    - target: {fileID: 126237455317165371, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 228168724269950833, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -10294,7 +10298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1114707216260618821, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 23588190
+      value: 23767106
       objectReference: {fileID: 0}
     - target: {fileID: 1114707216260618821, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_SizeDelta.y
@@ -10376,6 +10380,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7087801677228754972, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
+      propertyPath: ModeName
+      value: LevelTimerMode
+      objectReference: {fileID: 0}
     - target: {fileID: 7118468525696785304, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -10398,7 +10406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8333255562535036545, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 8450763511784477576, guid: 077ab976ba0f9f44091c4c82243b6f02, type: 3}
       propertyPath: m_AnchoredPosition.y
