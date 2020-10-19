@@ -39,7 +39,7 @@ public class Player : PlayerModel
     public Player(string name, int point, int movespeed) : base(name, point, movespeed)
     {
     }
-  
+
     //public Status MyExp { get { return ExpStat; } set => ExpStat = value; }
 
 
@@ -50,13 +50,13 @@ public class Player : PlayerModel
         float str2 = PlayerPrefs.GetFloat("DistanceTraveled");
         int str3 = PlayerPrefs.GetInt("MyShot");
         if (!str.Equals(0f)) AllPointCollected = PlayerPrefs.GetFloat("MyPoint");
-        if (!str2.Equals(0f)) 
-        { 
+        if (!str2.Equals(0f))
+        {
             AllDistance = PlayerPrefs.GetFloat("DistanceTraveled");
             AllSavedDistance = AllDistance;
         }
         if (!str3.Equals(0)) AllShotTaken = PlayerPrefs.GetInt("MyShot");
-       
+
         //myRigidbody = GetComponent<Rigidbody2D>();
         IsAnimator = GetComponentInChildren<Animator>();
         LowHP = GameObject.FindGameObjectWithTag("bar energy").GetComponent<Animator>();
@@ -65,7 +65,7 @@ public class Player : PlayerModel
     // Update is called once per frame
     protected virtual void Update()
     {
-       
+
     }
     public virtual IEnumerator Lose()
     {
@@ -87,32 +87,32 @@ public class Player : PlayerModel
 
     public virtual void TakeDamage(float damage/*, Transform source*/)
     {
-
-        Energy.MyCurrentValue -= damage;
-        AudioController.Playsound("HitObstacle");
-        //GameTextManager.MyInts.creattext(transform.position, damage.ToString(), SCTTYPE.DAMAGE, false);
-
-        if (Energy.MyCurrentValue <= 0)
+        if (!playerTimeMode)
         {
-            //IsAnimator.SetBool("IsDie", true);
-            Direction = Vector2.zero;
-            //myRigidbody.velocity = Direction;
-            Hidup = false;
-            if (this is Player && !Hidup)
+            Energy.MyCurrentValue -= damage;
+            //AudioController.Playsound("HitObstacle");
+            //GameTextManager.MyInts.creattext(transform.position, damage.ToString(), SCTTYPE.DAMAGE, false);
+
+            if (Energy.MyCurrentValue <= 0)
             {
-                print("from player energy");
-                StartCoroutine(Lose());
+                //IsAnimator.SetBool("IsDie", true);
+                Direction = Vector2.zero;
+                //myRigidbody.velocity = Direction;
+                Hidup = false;
+                if (this is Player && !Hidup)
+                {
+                    print("from player energy");
+                    StartCoroutine(Lose());
+                }
+
             }
-
         }
-
-
     }
-    public  void getEnergy(float h)
+    public void getEnergy(float h)
     {
         myEnergy.MyCurrentValue += h;
         //text tambah energy
-       // GameTextManager.MyInts.creattext(transform.position, h.ToString(), SCTTYPE.HEAL, true);
+        // GameTextManager.MyInts.creattext(transform.position, h.ToString(), SCTTYPE.HEAL, true);
 
     }
     public void Fatigue()
@@ -120,7 +120,7 @@ public class Player : PlayerModel
         //dikali dengan canoe weight nantinya
         if (!playerTimeMode)
         {
-            myEnergy.MyCurrentValue -= EnergyDrain ;
+            myEnergy.MyCurrentValue -= EnergyDrain;
         }
         PlayerEnergy = myEnergy.MyCurrentValue;
         //GameTextManager.MyInts.creattext(transform.position, "-", SCTTYPE.HEAL, true);
@@ -196,5 +196,5 @@ public class Player : PlayerModel
             Level = value;
         }
     }
-   
+
 }
