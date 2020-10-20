@@ -35,6 +35,7 @@ public class ObjectivesManager : MonoBehaviour
 
     public void LoadObjectives()
     {
+        PlayerController PCtr = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         objectsLoaded = new ObjectivesView[objectiveServices.Count];
         // this data to load from json to UI view
         for (int i = 0; i < objectiveServices.Count; i++)
@@ -50,10 +51,20 @@ public class ObjectivesManager : MonoBehaviour
                 myObjectiveRandom.objectiveName.text = ObjectiveTitle[i] + " Reached : ";
                 if (i == 0)
                 {
-                    counterMax = ObjectiveType(distanceTarget, i);
-                    myObjectiveRandom.objectiveName.text += counterMax;
-                    Desc += " " + ObjectiveTitle[i] + " reach " + counterMax + " meters";
-                    objectsLoaded[i] = myObjectiveRandom;
+                    if (PCtr.playerTimeMode)
+                    {
+                        counterMax = Mathf.Round(PlayerPrefs.GetFloat("DistanceChekPoint"));
+                        myObjectiveRandom.objectiveName.text += counterMax;
+                        Desc += " " + ObjectiveTitle[i] + " reach " + counterMax + " meters";
+                        objectsLoaded[i] = myObjectiveRandom;
+                    }
+                    else 
+                    {
+                        counterMax = ObjectiveType(distanceTarget, i);
+                        myObjectiveRandom.objectiveName.text += counterMax;
+                        Desc += " " + ObjectiveTitle[i] + " reach " + counterMax + " meters";
+                        objectsLoaded[i] = myObjectiveRandom;
+                    }
                 }
                 else
                 {

@@ -46,7 +46,7 @@ public class PlayerModel : CharacterModel
     [Header("Player Mechanic")]
     [SerializeField]
     protected float PlayerEnergy;
-    [SerializeField] protected bool playerTimeMode;
+    [SerializeField] public bool playerTimeMode;
     public bool jepretYes = false;
 
     [SerializeField]

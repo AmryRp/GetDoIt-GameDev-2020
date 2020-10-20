@@ -53,7 +53,7 @@ public class PowerUpManager : MonoBehaviour
     void Spawn2()
     {
         GameObject PowerObj;
-        int RandCoind = UnityEngine.Random.Range(1, 2);
+        int RandCoind = UnityEngine.Random.Range(0, Animal.Length);
         Vector3 hpos = new Vector3(player.position.x + 45f, player.position.y + 0.2f, 0f);
         PowerObj = Instantiate(Animal[RandCoind], hpos, Animal[RandCoind].transform.rotation) as GameObject;
         StartCoroutine(SpawnAnimal());

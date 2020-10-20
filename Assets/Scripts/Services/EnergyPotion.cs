@@ -5,7 +5,9 @@ using UnityEngine;
 public class EnergyPotion : MonoBehaviour
 {
     [SerializeField]
-    float HealthIncrease;
+    string name;
+    [SerializeField]
+    float IncreaseValue;
     [SerializeField]
     PlayerController PL;
 
@@ -19,42 +21,58 @@ public class EnergyPotion : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            tmpEnergy = 0f;
-            if (PL.myEnergy.MyCurrentValue <= PL.myEnergy.MyMaxValue)
+            if (name == "Energy")
             {
-                //AudioController.Playsound("Healtht");
-                StartCoroutine(Increase(HealthIncrease));
-                Destroy(gameObject.GetComponentInChildren<SpriteRenderer>());
-                GameObject.FindGameObjectWithTag("EnergyAbsorber").GetComponent<ParticleSystem>().Play();
-            }
+                tmpEnergy = 0f;
+                if (PL.myEnergy.MyCurrentValue <= PL.myEnergy.MyMaxValue)
+                {
+                    //AudioController.Playsound("Healtht");
+                    StartCoroutine(Increase(IncreaseValue));
+                    Destroy(gameObject.GetComponentInChildren<SpriteRenderer>());
+                    GameObject.FindGameObjectWithTag("EnergyAbsorber").GetComponent<ParticleSystem>().Play();
+                }
 
+            }
+            else if (name == "TimePower")
+            {
+                //untuk time Power UP
+            }
         }
     }
     private void OnCollision2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            tmpEnergy = 0f;
-            if (PL.myEnergy.MyCurrentValue <= PL.myEnergy.MyMaxValue)
+            if (name == "Energy")
             {
-                //AudioController.Playsound("Healtht");
-                StartCoroutine(Increase(HealthIncrease));
-                Destroy(gameObject.GetComponentInChildren<SpriteRenderer>());
-                GameObject.FindGameObjectWithTag("EnergyAbsorber").GetComponent<ParticleSystem>().Play();
-            }
+                tmpEnergy = 0f;
+                if (PL.myEnergy.MyCurrentValue <= PL.myEnergy.MyMaxValue)
+                {
+                    //AudioController.Playsound("Healtht");
+                    StartCoroutine(Increase(IncreaseValue));
+                    Destroy(gameObject.GetComponentInChildren<SpriteRenderer>());
+                    GameObject.FindGameObjectWithTag("EnergyAbsorber").GetComponent<ParticleSystem>().Play();
+                }
 
+                else if (name == "TimePower")
+                {
+                    //untuk time Power UP
+                }
+            }
         }
     }
-        public IEnumerator Increase(float damage)
+    public IEnumerator Increase(float Val)
     {
-        tmpEnergy = PL.myEnergy.MyCurrentValue;
-        float nextEnergy = PL.myEnergy.MyCurrentValue + damage;
-        while (tmpEnergy <= nextEnergy)
-        {
-            PL.myEnergy.MyCurrentValue++;
-            tmpEnergy++;
-            yield return null;
-        }
-
+        //tmpEnergy = PL.myEnergy.MyCurrentValue;
+        //float nextEnergy = PL.myEnergy.MyCurrentValue + Val;
+        PL.getEnergy(Val);
+        //while (tmpEnergy <= nextEnergy)
+        //{
+        //    PL.myEnergy.MyCurrentValue++;
+        //    tmpEnergy++;
+        //    yield return null;
+        //}
+        Destroy(gameObject);
+        yield break;
     }
 }

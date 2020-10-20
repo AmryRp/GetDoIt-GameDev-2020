@@ -59,8 +59,11 @@ public class GeneralEnvironment : MonoBehaviour, IComparable<GeneralEnvironment>
                     obx.Remove(LObx[0]);
                     LObx.RemoveAt(0);
                 }
-                CameraObjectManager.MyCamReceiver.ObjectCatchs.Add(name, distance);
-                CameraObjectManager.MyCamReceiver.KeyVal.Add(name);
+                if (!CameraObjectManager.MyCamReceiver.ObjectCatchs.ContainsKey(name))
+                {
+                    CameraObjectManager.MyCamReceiver.ObjectCatchs.Add(name, distance);
+                    CameraObjectManager.MyCamReceiver.KeyVal.Add(name);
+                }
                 StartCoroutine(CameraObjectManager.MyCamReceiver.AddingObjects());
             }
         }

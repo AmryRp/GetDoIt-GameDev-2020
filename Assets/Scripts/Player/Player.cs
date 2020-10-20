@@ -67,6 +67,8 @@ public class Player : PlayerModel
     {
 
     }
+
+    bool lose = false;
     public virtual IEnumerator Lose()
     {
         UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
@@ -75,6 +77,8 @@ public class Player : PlayerModel
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
         StartCoroutine(UI.CalculatingPrefabPoint());
         UI.LoadUI(false, false, false, false, false, false, true, false, false, false);
+        Animator LoseAnim = GameObject.FindGameObjectWithTag("GameOver").GetComponent<Animator>();
+        LoseAnim.SetBool("PlayerLose", true);
         //UI = UIManager.MyUI;
         yield return null;
         yield break;

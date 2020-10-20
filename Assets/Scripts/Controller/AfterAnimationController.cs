@@ -53,8 +53,8 @@ public class AfterAnimationController : MonoBehaviour
     {
         PL = PlayerController.MyPlayerControl;
         GM = GameManager.MyGM;
-       // StartCoroutine(PL.MovePlayer(PL.MoveSpeedInWater));
-       
+        // StartCoroutine(PL.MovePlayer(PL.MoveSpeedInWater));
+
         //animmove = PL.GetComponentInChildren<Animator>();
 
         //if (!PL.speedLimiter(animmove.GetFloat("MoveMultiplier")))
@@ -81,7 +81,7 @@ public class AfterAnimationController : MonoBehaviour
         StartCoroutine(PL.StartIdling());
         if (PL.IdleTimer >= 3f)
         {
-           // print("idling");
+            // print("idling");
             animmove = PL.GetComponentInChildren<Animator>();
             multiplier = 1;
             animmove.SetFloat("MoveMultiplier", multiplier);

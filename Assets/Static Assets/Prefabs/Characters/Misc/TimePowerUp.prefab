@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586548636538812497}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.013, y: 0.997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8000452488382734433}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8071170960965168681, guid: 02b3ca7e322b71b45b3cd2c27458c3af, type: 3}
+  m_Sprite: {fileID: 3854468655817738116, guid: f00790d81bea8f842bac5aae4555265c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,7 +93,7 @@ Animator:
   m_GameObject: {fileID: 1586548636538812497}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 02668e32431b20f4a987f6f5a764c83c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 03e67437f6f53b44facde796b97f1a65, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 2461150051083121973}
   - component: {fileID: 8604316391109902400}
   m_Layer: 0
-  m_Name: Odading_0
+  m_Name: TimePowerUp
   m_TagString: EnergyObjects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,8 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c72d6af9d02afe489a8641f08f7a085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Energy
-  IncreaseValue: 10
+  name: TimePower
+  IncreaseValue: 3
   PL: {fileID: 0}
   tmpEnergy: 0
 --- !u!61 &8604316391109902400

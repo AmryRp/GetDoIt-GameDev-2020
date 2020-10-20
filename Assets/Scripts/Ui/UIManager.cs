@@ -184,11 +184,11 @@ public class UIManager : UiController
         yield break;
     }
     public float multiplier = 1f;
+    public float calculatePointWithVar;
     public IEnumerator PointTextHandleFinal()
     {
         ObjectivesManager OM = ObjectivesManager.MyInstance;
-        int count = OM.Objective.Length;
-       
+        //untuk spawn reward objective
         if (OM.Objective[0] || OM.Objective[1] || OM.Objective[2])
         {
             multiplier = 1.5f;
@@ -211,12 +211,8 @@ public class UIManager : UiController
         {
             multiplier = 1f;
         }
-        print(COGM.AllPoint);
-        print(COGM.TempShotTaken + 1);
-        print(AllDistance);
-        print(COGM.TempShotTaken + 1);
-
-        float calculatePointWithVar = ((Mathf.Round((COGM.AllPoint) * (COGM.TempShotTaken + 1)) / 5) + (Mathf.Round(AllDistance) / COGM.TempShotTaken+1)) * multiplier;
+        //untuk menghitung point yang ditampilkan dalam UI
+        calculatePointWithVar = (((COGM.AllPoint+1) * (COGM.TempShotTaken + 1)) / 5) +((AllDistance) / (COGM.TempShotTaken+1)) * multiplier;
         print("FP " + calculatePointWithVar);
         tmpFinal = 0f;
         while (tmpFinal < calculatePointWithVar)
