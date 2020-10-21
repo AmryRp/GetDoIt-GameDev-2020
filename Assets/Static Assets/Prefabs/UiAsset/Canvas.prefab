@@ -17960,6 +17960,7 @@ MonoBehaviour:
   SsTaken: {fileID: 2814701676292406472}
   FinalPoint: {fileID: 1171521575627677369}
   multiplier: 1
+  calculatePointWithVar: 0
 --- !u!1 &3672235746292139781
 GameObject:
   m_ObjectHideFlags: 0
@@ -18626,7 +18627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 15687180}
+  m_AnchoredPosition: {x: 0, y: 15719459}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2343017807644352879

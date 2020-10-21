@@ -263,10 +263,16 @@ public class GameController : MonoBehaviour, IPointerClickHandler
     }
     public IEnumerator ExitOption()
     {
+
         UI = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<UIManager>();
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         COGM = CameraObjectManager.MyCamReceiver;
         PC = PlayerController.MyPlayerControl;
+
+        if (!PC.Hidup)
+        {
+            UI.LoadUI(false, false, false, false, false, false, true, false, false, false);
+        }
         PC.IsAnimator.SetBool("IsCapture", false);
         GM.isCapturing = false;
         UI.LoadUI(true, false, false, false, false, false, false, false, false, false);
@@ -353,8 +359,8 @@ public class GameController : MonoBehaviour, IPointerClickHandler
         }
         if (!str2.Equals(0f))
         {
-            PC.AllDistance += PC.totalDistance;
-            str2 = PlayerPrefs.GetFloat("DistanceTraveled") + PC.AllDistance;
+        
+            str2 = PlayerPrefs.GetFloat("DistanceTraveled") + PC.totalDistance;
             PlayerPrefs.SetFloat("DistanceTraveled", str2);
         }
         else
