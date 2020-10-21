@@ -132,6 +132,16 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                     multiplier = 1;
                     IsAnimator.SetFloat("MoveMultiplier", multiplier);
                     IdleTimer = 0f;
+                    if (multiplier.Equals(1))
+                    {
+                        Animator StmUI = StaminaUI.GetComponent<Animator>();
+                        StmUI.SetBool("LimitReached", false);
+                        Attention.GetComponent<Image>().enabled = false;
+                        Stamina.fillAmount = 0 ;
+                        StaminaUI.GetComponent<Canvas>().enabled = false;
+                    }
+                    
+                    
                 }
             }
             else
@@ -152,7 +162,8 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 //Debug.Log("Not Touched the UI");
                 if (!is_hold)
                 {
-
+                    //movement pertama
+                    StaminaUI.GetComponent<Canvas>().enabled = true;
                     IsAnimator.SetBool(STOP, false);
                     IsAnimator.SetBool(IDLE, false);
                     IsAnimator.SetBool(MOVING, true);
@@ -160,16 +171,20 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                     if (!speedLimiter(IsAnimator.GetFloat("MoveMultiplier")))
                     {
                         //print("jalan");
-                        multiplier += 0.5f;
+                        multiplier += 0.37f;
                         IsAnimator.SetFloat("MoveMultiplier", multiplier);
                         StartCoroutine(MovePlayer(MoveSpeedInWater));
-
+                        Stamina.fillAmount = multiplier / maxmultiplier;
                     }
                     else
                     {
+                        Animator StmUI = StaminaUI.GetComponent<Animator>();
+                        StmUI.SetBool("LimitReached",true);
+                        Attention.GetComponent<Image>().enabled = true;
                         TakeDamage(0.5f);
                         IsAnimator.SetFloat("MoveMultiplier", multiplier);
                         StartCoroutine(MovePlayer(MoveSpeedInWater));
+
                     }
                     //one_click = false;
                 }
@@ -205,19 +220,23 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                         if ((Time.time - timer_for_double_click) < delay)
                         {
                             //print("One Hold Time Safe");
+                            //movement kedua
                             IsAnimator.SetBool(STOP, false);
                             IsAnimator.SetBool(IDLE, false);
                             IsAnimator.SetBool(MOVING, true);
                             IsAnimator.SetTrigger("IsMove");
                             if (!speedLimiter(IsAnimator.GetFloat("MoveMultiplier")))
                             {
-                                multiplier += 0.5f;
+                                multiplier += 0.25f;
                                 IsAnimator.SetFloat("MoveMultiplier", multiplier);
                                 StartCoroutine(MovePlayer(MoveSpeedInWater));
 
                             }
                             else
                             {
+
+                                Stamina.fillAmount = multiplier / maxmultiplier;
+                                
                             }
                             is_hold = false;
                             one_click = false;

@@ -48,7 +48,6 @@ public class PlayerModel : CharacterModel
     protected float PlayerEnergy;
     [SerializeField] public bool playerTimeMode;
     public bool jepretYes = false;
-
     [SerializeField]
     protected float CameraMeter;
     protected static bool playerExists;
@@ -59,8 +58,16 @@ public class PlayerModel : CharacterModel
     public float maxmultiplier= 3f;
     public float MaxTouchWait;
     public Animator LowHP;
+    [Header("Player Stamina System")]
+    [SerializeField]
+    protected Image Stamina;
+    [SerializeField]
+    protected Image Attention;
+    [SerializeField]
+    protected Canvas StaminaUI;
 
-   [Header("Canoe Mechanic")]
+
+    [Header("Canoe Mechanic")]
     [SerializeField]
     protected int CanoeType;
     [SerializeField]
