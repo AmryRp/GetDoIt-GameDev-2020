@@ -33,7 +33,11 @@ public class TimerManager : MonoBehaviour
         StartCoroutine(UI.CalculatingPrefabPoint());
         UI.LoadUI(false, false, false, false, false, false, true, false, false, false);
         PlayerController PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        PlayerPrefs.SetFloat("DistanceChekPoint", PC.totalDistance);
+        if (!(PlayerPrefs.GetFloat("DistanceChekPoint") < PC.totalDistance))
+        {
+            PlayerPrefs.SetFloat("DistanceChekPoint", PC.totalDistance);
+        }
+       
     }
 
     private void SetTimer()
