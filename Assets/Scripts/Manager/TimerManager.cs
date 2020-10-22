@@ -10,7 +10,6 @@ public class TimerManager : MonoBehaviour
     public Text millisecondsText;
     public float timeCountdownInSecond = 90f;
     public UIManager UI;
-
     private float timer = 1;
     private string minutes, seconds, milliseconds;
 
@@ -40,6 +39,16 @@ public class TimerManager : MonoBehaviour
         timer -= Time.deltaTime;
         if (timeCountdownInSecond > -1)
         {
+            if (timeCountdownInSecond == 10)
+            {
+                timerText.color = Color.red;
+                millisecondsText.color = Color.red;
+            } else
+            {
+                timerText.color = Color.white;
+                millisecondsText.color = Color.white;
+            }
+
             GetTime(timer); // Hitung time
             
             if (timer <= 0)
@@ -73,14 +82,13 @@ public class TimerManager : MonoBehaviour
             {
                 seconds = "0" + seconds;
             }
-            
-            if (timeCountdownInSecond == 10)
-            {
-                timerText.color = Color.red;
-                millisecondsText.color = Color.red;
-            }
 
             timerText.text = minutes + " : " + seconds + " : "; // Set Minutes and Seconds
         }
+    }
+
+    public void AddTime(float time)
+    {
+        timeCountdownInSecond += time;
     }
 }

@@ -13,6 +13,13 @@ public class EnergyPotion : MonoBehaviour
 
     [SerializeField]
     float tmpEnergy;
+
+    [Header("Time Settings")]
+    [SerializeField]
+    private bool isTimerMode = false;
+    [SerializeField]
+    private float timerAdd = 15f;
+
     private void Awake()
     {
         PL = PlayerController.MyPlayerControl;
@@ -33,9 +40,11 @@ public class EnergyPotion : MonoBehaviour
                 }
 
             }
-            else if (name == "TimePower")
+            else if (name == "TimePower" && isTimerMode)
             {
-                //untuk time Power UP
+                TimerManager timer = FindObjectOfType<TimerManager>();
+                timer.AddTime(timerAdd);
+                Destroy(gameObject);
             }
         }
     }

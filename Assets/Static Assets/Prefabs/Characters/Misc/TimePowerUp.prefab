@@ -151,6 +151,8 @@ MonoBehaviour:
   IncreaseValue: 3
   PL: {fileID: 0}
   tmpEnergy: 0
+  isTimerMode: 1
+  timerAdd: 15
 --- !u!61 &8604316391109902400
 BoxCollider2D:
   m_ObjectHideFlags: 0
