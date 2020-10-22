@@ -32,6 +32,8 @@ public class TimerManager : MonoBehaviour
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
         StartCoroutine(UI.CalculatingPrefabPoint());
         UI.LoadUI(false, false, false, false, false, false, true, false, false, false);
+        PlayerController PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        PlayerPrefs.SetFloat("DistanceChekPoint", PC.totalDistance);
     }
 
     private void SetTimer()

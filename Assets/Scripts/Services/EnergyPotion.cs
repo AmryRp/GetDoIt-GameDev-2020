@@ -65,7 +65,9 @@ public class EnergyPotion : MonoBehaviour
 
                 else if (name == "TimePower")
                 {
-                    //untuk time Power UP
+                    TimerManager timer = FindObjectOfType<TimerManager>();
+                    timer.AddTime(timerAdd);
+                    Destroy(gameObject);
                 }
             }
         }
