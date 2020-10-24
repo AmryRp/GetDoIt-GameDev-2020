@@ -45,7 +45,7 @@ public class ObjectivesManager : MonoBehaviour
             //add Init Name,Price,ItemPreview
             myObjectiveRandom.objectiveId = i;
             string Desc = "Complete the challenge ";
-            float counterMax; ;
+            float counterMax = 500; 
             if (i != 2)
             {
                 myObjectiveRandom.objectiveName.text = ObjectiveTitle[i] + " Reached : ";
@@ -53,7 +53,10 @@ public class ObjectivesManager : MonoBehaviour
                 {
                     if (PCtr.playerTimeMode)
                     {
-                        counterMax = Mathf.Round(PlayerPrefs.GetFloat("DistanceChekPoint"));
+                        if (!PlayerPrefs.GetFloat("DistanceChekPoint").Equals(0))
+                        {
+                            counterMax = Mathf.Round(PlayerPrefs.GetFloat("DistanceChekPoint"));
+                        }
                         myObjectiveRandom.objectiveName.text += counterMax;
                         Desc += " " + ObjectiveTitle[i] + " reach " + counterMax + " meters";
                         objectsLoaded[i] = myObjectiveRandom;
