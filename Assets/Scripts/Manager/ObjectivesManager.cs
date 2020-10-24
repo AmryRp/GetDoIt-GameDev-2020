@@ -57,6 +57,7 @@ public class ObjectivesManager : MonoBehaviour
                         {
                             counterMax = Mathf.Round(PlayerPrefs.GetFloat("DistanceChekPoint"));
                         }
+                        objectiveServices[i].targetValue = counterMax;
                         myObjectiveRandom.objectiveName.text += counterMax;
                         Desc += " " + ObjectiveTitle[i] + " reach " + counterMax + " meters";
                         objectsLoaded[i] = myObjectiveRandom;
