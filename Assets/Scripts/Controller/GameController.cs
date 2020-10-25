@@ -129,6 +129,7 @@ public class GameController : MonoBehaviour, IPointerClickHandler
     }
     public void LoadPlay(string Name)
     {
+        Time.timeScale = 1f;
         StartCoroutine(LoadSceneAFterTransition(Name));
 
     }

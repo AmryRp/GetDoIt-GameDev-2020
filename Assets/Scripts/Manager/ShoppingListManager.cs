@@ -43,7 +43,7 @@ public class ShoppingListManager : MonoBehaviour
         float str = PlayerPrefs.GetFloat("MyPoint");
         if (str.Equals(0f))
         {
-            PlayerPrefs.SetFloat("MyPoint", 2000f);
+            PlayerPrefs.SetFloat("MyPoint", 500f);
             PlayerPrefs.Save();
             str = PlayerPrefs.GetFloat("MyPoint");
             loadPointText(str);
@@ -362,6 +362,7 @@ public class ShoppingListManager : MonoBehaviour
                     PlayerPrefs.SetFloat("MyEquipSpeed", 1);
                     PlayerPrefs.SetFloat("MyEquipWeight", 1);
                     PlayerPrefs.SetFloat("MyEquipPoint", 1);
+                    PlayerPrefs.SetInt("CanoeType",-1);
                     PlayerPrefs.Save();
                 }
             }

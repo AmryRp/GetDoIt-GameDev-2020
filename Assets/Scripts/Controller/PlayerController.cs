@@ -41,7 +41,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         float str2 = PlayerPrefs.GetFloat("MyEquipWeight");
         float str3 = PlayerPrefs.GetFloat("MyEquipPoint");
         float str4 = PlayerPrefs.GetInt("CanoeType");
-        if (!str1.Equals(0f) && !str2.Equals(0f) && !str3.Equals(0f) && !str4.Equals(0f))
+        if (!str1.Equals(1) && !str2.Equals(1) && !str3.Equals(1) && !str4.Equals(-1))
         {
             CanoeType = PlayerPrefs.GetInt("CanoeType");
             //print(CanoeType);

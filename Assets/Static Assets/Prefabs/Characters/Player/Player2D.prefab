@@ -10578,9 +10578,9 @@ MonoBehaviour:
   Attention: {fileID: 5198742179412823990}
   StaminaUI: {fileID: 5677444692587549071}
   CanoeType: 1
-  canoeSpeed: 0
-  canoeWeight: 0
-  canoePoint: 0
+  canoeSpeed: 1
+  canoeWeight: 1
+  canoePoint: 1
   CanoeTypeUsed: {fileID: 8217486710481519523}
   MoveBoatSplash: {fileID: 6058468273226768505}
   lastMove: {x: 0, y: 0, z: 0}

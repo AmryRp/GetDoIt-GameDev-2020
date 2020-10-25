@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 8455770624860748214}
   - component: {fileID: 673012591010459504}
   - component: {fileID: 8256608514437006879}
+  - component: {fileID: 6803362392024774007}
   m_Layer: 5
   m_Name: Back Play
   m_TagString: Untagged
@@ -331,19 +332,26 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 673012591010459504}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8320282254379736609}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: RestartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &6803362392024774007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709643835901952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89973272fdbb9ba4f9f5ad705dea8183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ModeName: RestartButton
+  ButtonName: RestartButton
+  COGM: {fileID: 0}
+  PC: {fileID: 0}
+  UI: {fileID: 0}
+  GM: {fileID: 0}
+  Img: {fileID: 0}
 --- !u!1 &46994589434269328
 GameObject:
   m_ObjectHideFlags: 0
@@ -4450,7 +4458,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -18619,7 +18627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 501682.12}
+  m_AnchoredPosition: {x: 0, y: 252323.62}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2343017807644352879
@@ -20884,7 +20892,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -21152,7 +21160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0, y: -31.3}
+  m_AnchoredPosition: {x: 0, y: -31.299805}
   m_SizeDelta: {x: -895.1824, y: -222.71802}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7754058265467913059
@@ -22278,7 +22286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -61.6, y: 24}
+  m_AnchoredPosition: {x: -61.59961, y: 24}
   m_SizeDelta: {x: 447.8766, y: 56.059036}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &6184238081115010760
@@ -45412,7 +45420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 13.299805, y: -50.69995}
+  m_AnchoredPosition: {x: 13.299805, y: -50.699707}
   m_SizeDelta: {x: -844.66315, y: -393.28522}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3775445097975525153
