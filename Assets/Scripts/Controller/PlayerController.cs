@@ -26,7 +26,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     }
     protected override void Start()
     {
-       
+
         SetDefault();
         base.Start();
     }
@@ -137,11 +137,11 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                         Animator StmUI = StaminaUI.GetComponent<Animator>();
                         StmUI.SetBool("LimitReached", false);
                         Attention.GetComponent<Image>().enabled = false;
-                        Stamina.fillAmount = 0 ;
+                        Stamina.fillAmount = 0;
                         StaminaUI.GetComponent<Canvas>().enabled = false;
                     }
-                    
-                    
+
+
                 }
             }
             else
@@ -152,10 +152,11 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             IsAnimator.SetBool(STOP, false);
             MoveBoatSplash.Stop();
         }
-        if (Input.touchCount > 0 &&
+
+        if (Input.GetMouseButton(0) || Input.touchCount > 0 &&
             !(EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)))
         {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 one_click = true;
                 timer_for_double_click = Time.time;
@@ -179,7 +180,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                     else
                     {
                         Animator StmUI = StaminaUI.GetComponent<Animator>();
-                        StmUI.SetBool("LimitReached",true);
+                        StmUI.SetBool("LimitReached", true);
                         Attention.GetComponent<Image>().enabled = true;
                         TakeDamage(0.5f);
                         IsAnimator.SetFloat("MoveMultiplier", multiplier);
@@ -201,9 +202,10 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             //    acumTime = 0;
             //}
             //Double tap
-            if (Input.touchCount == 1)
+            if (Input.GetMouseButton(0) || Input.touchCount == 1)
             {
-                Touch touch = Input.GetTouch(0);
+#if UNITY_ANDROID
+                  Touch touch = Input.GetTouch(0);
                 if (touch.phase == TouchPhase.Ended)
                 {
                     is_hold = false;
@@ -252,19 +254,67 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                     //print("Dubble tap");
                     TapCount = 0;
                 }
-
+#endif
             }
+
             //hold
-            if (Input.touchCount == 2)
+            if (Input.GetMouseButton(1) || Input.touchCount == 2)
             {
-                // print("2 Finger");
-                if (Input.GetTouch(0).phase != TouchPhase.Ended)
+                bool moveIt = false;
+                if (Application.platform == RuntimePlatform.Android)
                 {
-                    acumTime += Input.GetTouch(0).deltaTime;
+                    if (Input.GetTouch(0).phase != TouchPhase.Ended)
+                    {
+                        moveIt = true;
+                    }
+                    else
+                    {
+                        moveIt = false;
+                    }
+                }
+                if (Application.platform == RuntimePlatform.WindowsPlayer)
+                {
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        moveIt = true;
+                    }
+                    else 
+                    {
+                        moveIt = false;
+                    }
+                }
+                if (Application.platform == RuntimePlatform.WindowsEditor)
+                {
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        moveIt = true;
+                    }
+                    else
+                    {
+                        moveIt = false;
+                    }
+                }
+                if (moveIt)
+                {
+                    
+                    if (Application.platform == RuntimePlatform.Android)
+                    {
+                        acumTime += Input.GetTouch(0).deltaTime;
+                    }
+                    if (Application.platform == RuntimePlatform.WindowsPlayer)
+                    {
+                        acumTime += Time.deltaTime;
+                        StartCoroutine(BreakPlayer(MoveSpeedInWater));
+                    }
+                    if (Application.platform == RuntimePlatform.WindowsEditor)
+                    {
+                        acumTime += Time.deltaTime;
+                        StartCoroutine(BreakPlayer(MoveSpeedInWater));
+                    }
                     if (acumTime >= holdTime)
                     {
                         //2 finger Long tap
-                        //print("Hold");
+                       
 
                         is_hold = true;
                         StartCoroutine(BreakPlayer(MoveSpeedInWater));
@@ -340,8 +390,8 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
 
             //print((directMove + moveSpeed + ((canoeSpeed / canoeWeight) * 5)));
             // SSTools.ShowMessage((directMove + moveSpeed + ((canoeSpeed / canoeWeight) * 5)).ToString(), SSTools.Position.bottom, SSTools.Time.twoSecond);
-            CanoeBody.AddForce(new Vector2(((directMove + moveSpeed + (((canoeSpeed / canoeWeight) * 2) + multiplier) / 5) / 2 * Time.deltaTime), 0), ForceMode2D.Impulse); // Movement
-                                                                                                                                                                        //MovementSpeedInWater kecepatan canoe berdasarkan deras air atau bisa ditambah dengan moveSpeed kecepatan dari player, seperti dibawah ini
+            CanoeBody.AddForce(new Vector2(((directMove + moveSpeed + (((canoeSpeed / canoeWeight) * 2) + multiplier) / 3) / 2 * Time.deltaTime), 0), ForceMode2D.Impulse); // Movement
+                                                                                                                                                                            //MovementSpeedInWater kecepatan canoe berdasarkan deras air atau bisa ditambah dengan moveSpeed kecepatan dari player, seperti dibawah ini
             /*CanoeBody.MovePosition(transform.position + transform.right * ((MoveSpeedInWater + moveSpeed) * Time.deltaTime)); */
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -379,6 +429,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
 
     public IEnumerator BreakPlayer(float breakValue)
     {
+        print("clicked");
         IsAnimator.SetBool(MOVING, false);
         IsAnimator.SetBool(STOP, true);
         Hold_timer += Time.deltaTime;
