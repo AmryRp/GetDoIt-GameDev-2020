@@ -57,7 +57,7 @@ public class UIManager : UiController
                 Activating(false, true);
                 break;
             case 3:
-                //print("unknown");
+                Activating(false, true);
                 break;
             case 4:
                 StartCoroutine(PL.Lose());

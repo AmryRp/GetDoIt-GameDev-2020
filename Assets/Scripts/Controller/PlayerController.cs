@@ -53,16 +53,9 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 CanoeType = -1;
                 CanoeTypeUsed.GetComponent<SpriteRenderer>().sprite = null;
             }
-            print(PlayerPrefs.GetInt("CanoeType"));
-            print(!PlayerPrefs.GetInt("CanoeType").Equals(null));
-            print(!str1.Equals(1));
-            print(!str1.Equals(0));
-
-
             //print(CanoeTypeUsed);
             loadDataPdj();
             //print("Speed : " + canoeSpeed + "\n Weight : " + canoeWeight + "\nPoint : " + canoePoint);
-
         }
         else
         {
@@ -94,7 +87,6 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         Energy.Initialize(PlayerEnergy, PlayerEnergy);
         //MyExp.Initialize(0, Mathf.Floor(100 * myLevel * Mathf.Pow(myLevel, 0.5f)));
         //LevelText.text = myLevel.ToString();
-
     }
     protected override void Update()
     {

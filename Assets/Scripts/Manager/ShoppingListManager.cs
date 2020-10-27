@@ -43,7 +43,7 @@ public class ShoppingListManager : MonoBehaviour
         float str = PlayerPrefs.GetFloat("MyPoint");
         if (str.Equals(0f))
         {
-            PlayerPrefs.SetFloat("MyPoint", 500f);
+            PlayerPrefs.SetFloat("MyPoint", 5000f);
             PlayerPrefs.Save();
             str = PlayerPrefs.GetFloat("MyPoint");
             loadPointText(str);
@@ -144,17 +144,20 @@ public class ShoppingListManager : MonoBehaviour
             {
                 //load Image equipped
                 myItemsPreview.Equipped.isOn = itemServicesList[i].equiped;
+                myItemsPreview.EquipText.text = "EQUIPPED";
             }
             else
             {
                 //print(itemServicesList[i].itemName + "NOT ENABLED");
                 myItemsPreview.Equipped.isOn = itemServicesList[i].equiped;
+                myItemsPreview.EquipText.text = "EQUIP";
             }
             if (itemServicesList[i].bought == true)
             {
                 myItemsPreview.BgColor.color = itemServicesList[i].purchased;
                 myItemsPreview.bought.interactable = false;
                 myItemsPreview.HidePrice.SetActive(false);
+                myItemsPreview.HideEquip.SetActive(true);
                 //load animation
                 myItemsPreview.Locked.SetActive(false);
             }
@@ -164,6 +167,7 @@ public class ShoppingListManager : MonoBehaviour
                 myItemsPreview.bought.interactable = true;
                 myItemsPreview.HidePrice.SetActive(true);
                 myItemsPreview.Locked.SetActive(true);
+                myItemsPreview.HideEquip.SetActive(false);
             }
 
         }
@@ -302,6 +306,7 @@ public class ShoppingListManager : MonoBehaviour
         // else error message / toast appear to notify player if the coin is not enough
         bool result = false;
         float MyCoins = PlayerPrefs.GetFloat("MyPoint");
+        print(MyCoins);
         if (MyCoins <= Price)
         {
             result = false;

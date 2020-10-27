@@ -19,7 +19,7 @@ public class AudioController : MonoBehaviour
         }
     }
 
-    
+
     public static AudioClip CanoeDrop, CanoeHit, DayungR, CaptureShutter, sfxSec;
     [SerializeField]
     public static AudioSource audios;
@@ -27,11 +27,11 @@ public class AudioController : MonoBehaviour
     [SerializeField]
     private Slider VolumeBGM;
     [SerializeField]
-    private Toggle ToggleBGM;
+    private Toggle[] ToggleBGM;
     [SerializeField]
     private Slider VolumeSFX;
     [SerializeField]
-    private Toggle ToggleSFX;
+    private Toggle[] ToggleSFX;
     [Header("LIST ")]
     [SerializeField]
     public GameObject[] BGM;
@@ -43,47 +43,98 @@ public class AudioController : MonoBehaviour
 
     private void Start()
     {
+        ambilsource();
         if (VolumeBGM == null || VolumeSFX == null || ToggleBGM == null || ToggleSFX == null)
         {
             VolumeBGM = GameObject.FindGameObjectWithTag("SliderBGM").GetComponent<Slider>();
             VolumeSFX = GameObject.FindGameObjectWithTag("SliderSFX").GetComponent<Slider>();
-            ToggleBGM = GameObject.FindGameObjectWithTag("ToggleBGM").GetComponent<Toggle>();
-            ToggleSFX = GameObject.FindGameObjectWithTag("ToggleSFX").GetComponent<Toggle>();
+            for (int i = 0; i < ToggleBGM.Length; i++)
+            {
+                ToggleBGM[i] = GameObject.FindGameObjectsWithTag("ToggleBGM")[i].GetComponent<Toggle>();
+                ToggleSFX[i] = GameObject.FindGameObjectsWithTag("ToggleSFX")[i].GetComponent<Toggle>();
+            }
+
         }
         VolumeBGM.onValueChanged.AddListener(BGMValue);
         VolumeSFX.onValueChanged.AddListener(SFXValue);
-        ToggleBGM.onValueChanged.AddListener(BGMToggle);
-        ToggleSFX.onValueChanged.AddListener(SFXToggle);
-
+        for (int i = 0; i < ToggleBGM.Length; i++)
+        {
+            ToggleBGM[i].isOn = PlayerPrefs.GetInt("BGM") == 1 ? true : false;
+            ToggleSFX[i].isOn = PlayerPrefs.GetInt("SFX") == 1 ? true : false;
+        }
+        UpdateVol();
+        UpdateSetting();
     }
-    public void UpdateSetting()
+    public void UpdateVol()
     {
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
             VolumeBGM.value = PlayerPrefs.GetFloat("MusicVolume");
+        }
+        if (PlayerPrefs.HasKey("SFXVolume"))
+        {
             VolumeSFX.value = PlayerPrefs.GetFloat("SFXVolume");
+        }
+    }
+    public void UpdateSetting()
+    {
+
+        for (int i = 0; i < ToggleBGM.Length; i++)
+        {
             if (PlayerPrefs.HasKey("BGM"))
             {
-                ToggleBGM.isOn = PlayerPrefs.GetInt("BGM") == 1 ? true : false; ;
+                if (PlayerPrefs.GetInt("BGM") == 1)
+                {
+                    ToggleBGM[i].isOn = true;
+                }
+                else 
+                {
+                    ToggleBGM[i].isOn = false;
+
+                    for (int j = 0; j < BGM1.Length; j++)
+                    {
+
+                        BGM1[j].GetComponent<AudioSource>().Stop();
+
+                    }
+                }
+
             }
             else
             {
-                ToggleBGM.isOn = true;
-            }
-            if (PlayerPrefs.HasKey("SFX"))
-            {
-                ToggleSFX.isOn = PlayerPrefs.GetInt("SFX") == 1 ? true : false; ;
-            }
-            else
-            {
-                ToggleSFX.isOn = true;
+                ToggleBGM[i].isOn = true;
             }
         }
+        for (int i = 0; i < ToggleBGM.Length; i++)
+        {
+            if (PlayerPrefs.HasKey("SFX"))
+            {
+                if (PlayerPrefs.GetInt("SFX") == 1)
+                {
+                    ToggleSFX[i].isOn = true;
+                }
+                else
+                {
+                    ToggleSFX[i].isOn = false;
+                    for (int j = 0; j < SFX1.Length; j++)
+                    {
+
+                        SFX1[j].GetComponent<AudioSource>().Stop();
+
+                    }
+                }
+            }
+            else
+            {
+                ToggleSFX[i].isOn = true;
+            }
+        }
+
     }
     public void updateList()
     {
-        BGM = GameObject.FindGameObjectsWithTag("BGM");
-        SFX = GameObject.FindGameObjectsWithTag("SFX");
+        BGM1 = GameObject.FindGameObjectsWithTag("BGM");
+        SFX1 = GameObject.FindGameObjectsWithTag("SFX");
         if (BGM1.Length != 0)
         {
             if (BGM1 != null)
@@ -91,11 +142,14 @@ public class AudioController : MonoBehaviour
 
                 for (int i = 0; i < BGM1.Length; i++)
                 {
-                    BGM1[i].GetComponent<AudioSource>();
+
                     BGM1[i].GetComponent<AudioSource>().volume = VolumeBGM.value;
 
                 }
-                ToggleBGM.isOn = PlayerPrefs.GetInt("BGM") == 1 ? true : false;
+                //for (int i = 0; i < ToggleBGM.Length; i++)
+                //{
+                //    ToggleBGM[i].isOn = PlayerPrefs.GetInt("BGM") == 1 ? true : false;
+                //}
             }
         }
         if (SFX1.Length != 0)
@@ -104,10 +158,14 @@ public class AudioController : MonoBehaviour
             {
                 for (int i = 0; i < SFX1.Length; i++)
                 {
-                    SFX1[i].GetComponent<AudioSource>();
+
                     SFX1[i].GetComponent<AudioSource>().volume = VolumeSFX.value;
                 }
-                ToggleBGM.isOn = PlayerPrefs.GetInt("SFX") == 1 ? true : false;
+                //for (int i = 0; i < ToggleBGM.Length; i++)
+                //{
+                //    ToggleSFX[i].isOn = PlayerPrefs.GetInt("SFX") == 1 ? true : false;
+                //}
+
             }
         }
 
@@ -138,12 +196,19 @@ public class AudioController : MonoBehaviour
 
     public void BGMToggle(bool value)
     {
-        value = ToggleBGM.isOn;
-        if (value ? false : true)
+        for (int i = 0; i < 2; i++)
+        {
+            //ToggleBGM[i].isOn = true ? false : true;
+            value = ToggleBGM[i].isOn;
+            print("B" + value);
+        }
+        int prefs = 0;
+        if (value == true ? false : true)
         {
             for (int i = 0; i < BGM1.Length; i++)
             {
                 BGM1[i].GetComponent<AudioSource>().Stop();
+                prefs = 0;
             }
 
         }
@@ -152,21 +217,29 @@ public class AudioController : MonoBehaviour
             for (int i = 0; i < BGM1.Length; i++)
             {
                 BGM1[i].GetComponent<AudioSource>().Play();
+                prefs = 1;
             }
 
         }
-        PlayerPrefs.SetInt("BGM", value ? 1 : 0);
+        PlayerPrefs.SetInt("BGM", prefs);
         PlayerPrefs.Save();
-
+        UpdateSetting();
     }
     public void SFXToggle(bool value)
     {
-        value = ToggleSFX.isOn;
-        if (value ? false : true)
+        for (int i = 0; i < 2; i++)
+        {
+            //ToggleSFX[i].isOn = true ? false : true;
+            value = ToggleSFX[i].isOn;
+            print("S" + value);
+        }
+        int prefs = 0;
+        if (value == true ? false : true)
         {
             for (int i = 0; i < SFX1.Length; i++)
             {
                 SFX1[i].GetComponent<AudioSource>().Stop();
+                prefs = 0;
             }
 
         }
@@ -175,18 +248,20 @@ public class AudioController : MonoBehaviour
             for (int i = 0; i < SFX1.Length; i++)
             {
                 SFX1[i].GetComponent<AudioSource>().Play();
+                prefs = 1;
             }
             //PlayerPrefs.SetInt("SFX", ToggleSFX.isOn ? 1 : 0);
             //PlayerPrefs.Save();
         }
-        PlayerPrefs.SetInt("SFX", value ? 1 : 0);
+        PlayerPrefs.SetInt("SFX", prefs);
         PlayerPrefs.Save();
+        UpdateSetting();
     }
     void Update()
     {
-        ambilsource();
+
         updateList();
-        UpdateSetting();
+
     }
 
     public void ambilsource()
@@ -196,9 +271,9 @@ public class AudioController : MonoBehaviour
         CanoeHit = Resources.Load<AudioClip>("Sounds/SFX/cklick");
         DayungR = Resources.Load<AudioClip>("Sounds/SFX/Dayung2R");
         CaptureShutter = Resources.Load<AudioClip>("Sounds/SFX/Tittitcekrek");
-       //sfxSec = Resources.Load<AudioClip>("boom");
+        //sfxSec = Resources.Load<AudioClip>("boom");
 
-        
+
     }
     public static void Playsound(string clip)
     {

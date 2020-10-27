@@ -34,7 +34,8 @@ public class ItemView : MonoBehaviour
     public Button bought;
     public GameObject HidePrice;
     public Image BgColor;
-
+    public GameObject HideEquip;
+    public Text EquipText;
 
     private float currentFill;
     public float MyMaxValue { get; set; }
@@ -110,7 +111,7 @@ public class ItemView : MonoBehaviour
     }
     public void Start()
     {
-        Equipped = GetComponentInChildren<Toggle>();
+        Equipped = HideEquip.GetComponent<Toggle>();
         Equipped.onValueChanged.AddListener(EquipButton);
     }
     public void EquipButton(bool value)
