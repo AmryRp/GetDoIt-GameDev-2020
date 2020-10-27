@@ -59,6 +59,8 @@ public class AudioController : MonoBehaviour
         VolumeSFX.onValueChanged.AddListener(SFXValue);
         for (int i = 0; i < ToggleBGM.Length; i++)
         {
+            ToggleBGM[i].onValueChanged.AddListener(BGMToggle);
+            ToggleSFX[i].onValueChanged.AddListener(SFXToggle);
             ToggleBGM[i].isOn = PlayerPrefs.GetInt("BGM") == 1 ? true : false;
             ToggleSFX[i].isOn = PlayerPrefs.GetInt("SFX") == 1 ? true : false;
         }
@@ -83,7 +85,7 @@ public class AudioController : MonoBehaviour
         {
             if (PlayerPrefs.HasKey("BGM"))
             {
-                if (PlayerPrefs.GetInt("BGM") == 1)
+                if (PlayerPrefs.GetInt("BGM").Equals(1))
                 {
                     ToggleBGM[i].isOn = true;
                 }
@@ -109,7 +111,7 @@ public class AudioController : MonoBehaviour
         {
             if (PlayerPrefs.HasKey("SFX"))
             {
-                if (PlayerPrefs.GetInt("SFX") == 1)
+                if (PlayerPrefs.GetInt("SFX").Equals(1))
                 {
                     ToggleSFX[i].isOn = true;
                 }
@@ -198,12 +200,13 @@ public class AudioController : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            //ToggleBGM[i].isOn = true ? false : true;
-            value = ToggleBGM[i].isOn;
-            print("B" + value);
+            ToggleBGM[i].isOn = true ? false : true;
+            
         }
+        value = ToggleBGM[1].isOn;
+        print("B" + value);
         int prefs = 0;
-        if (value == true ? false : true)
+        if (value == false ? false : true)
         {
             for (int i = 0; i < BGM1.Length; i++)
             {
@@ -229,16 +232,17 @@ public class AudioController : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            //ToggleSFX[i].isOn = true ? false : true;
-            value = ToggleSFX[i].isOn;
-            print("S" + value);
+            ToggleSFX[i].isOn = true ? false : true;
         }
+        value = ToggleBGM[1].isOn;
+        print("B" + value);
         int prefs = 0;
-        if (value == true ? false : true)
+        if (value == false ? false : true)
         {
             for (int i = 0; i < SFX1.Length; i++)
             {
                 SFX1[i].GetComponent<AudioSource>().Stop();
+                SFX1[i].GetComponent<AudioSource>().mute = true;
                 prefs = 0;
             }
 
@@ -248,6 +252,7 @@ public class AudioController : MonoBehaviour
             for (int i = 0; i < SFX1.Length; i++)
             {
                 SFX1[i].GetComponent<AudioSource>().Play();
+                SFX1[i].GetComponent<AudioSource>().mute = false;
                 prefs = 1;
             }
             //PlayerPrefs.SetInt("SFX", ToggleSFX.isOn ? 1 : 0);
