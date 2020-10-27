@@ -204,57 +204,58 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             //Double tap
             if (Input.GetMouseButton(0) || Input.touchCount == 1)
             {
-#if UNITY_ANDROID
-                  Touch touch = Input.GetTouch(0);
-                if (touch.phase == TouchPhase.Ended)
+                if (Application.platform == RuntimePlatform.Android)
                 {
-                    is_hold = false;
-                    TapCount += 1;
-                }
-
-                if (TapCount == 1)
-                {
-                    NewTime = Time.time + MaxDubbleTapTime;
-                    //jika terlalu lama hold / stop
-                    if (one_click)
+                    Touch touch = Input.GetTouch(0);
+                    if (touch.phase == TouchPhase.Ended)
                     {
-                        // if the time now is delay seconds more than when the first click started. 
-                        if ((Time.time - timer_for_double_click) < delay)
-                        {
-                            //print("One Hold Time Safe");
-                            //movement kedua
-                            IsAnimator.SetBool(STOP, false);
-                            IsAnimator.SetBool(IDLE, false);
-                            IsAnimator.SetBool(MOVING, true);
-                            IsAnimator.SetTrigger("IsMove");
-                            if (!speedLimiter(IsAnimator.GetFloat("MoveMultiplier")))
-                            {
-                                multiplier += 0.25f;
-                                IsAnimator.SetFloat("MoveMultiplier", multiplier);
-                                StartCoroutine(MovePlayer(MoveSpeedInWater));
-
-                            }
-                            else
-                            {
-
-                                Stamina.fillAmount = multiplier / maxmultiplier;
-                                
-                            }
-                            is_hold = false;
-                            one_click = false;
-                        }
+                        is_hold = false;
+                        TapCount += 1;
                     }
-                    Hold_timer = 0f;
 
-                }
-                else if (TapCount == 2)
-                {
+                    if (TapCount == 1)
+                    {
+                        NewTime = Time.time + MaxDubbleTapTime;
+                        //jika terlalu lama hold / stop
+                        if (one_click)
+                        {
+                            // if the time now is delay seconds more than when the first click started. 
+                            if ((Time.time - timer_for_double_click) < delay)
+                            {
+                                //print("One Hold Time Safe");
+                                //movement kedua
+                                IsAnimator.SetBool(STOP, false);
+                                IsAnimator.SetBool(IDLE, false);
+                                IsAnimator.SetBool(MOVING, true);
+                                IsAnimator.SetTrigger("IsMove");
+                                if (!speedLimiter(IsAnimator.GetFloat("MoveMultiplier")))
+                                {
+                                    multiplier += 0.25f;
+                                    IsAnimator.SetFloat("MoveMultiplier", multiplier);
+                                    StartCoroutine(MovePlayer(MoveSpeedInWater));
 
-                    //Whatever you want after a dubble tap    
-                    //print("Dubble tap");
-                    TapCount = 0;
+                                }
+                                else
+                                {
+
+                                    Stamina.fillAmount = multiplier / maxmultiplier;
+
+                                }
+                                is_hold = false;
+                                one_click = false;
+                            }
+                        }
+                        Hold_timer = 0f;
+
+                    }
+                    else if (TapCount == 2)
+                    {
+
+                        //Whatever you want after a dubble tap    
+                        //print("Dubble tap");
+                        TapCount = 0;
+                    }
                 }
-#endif
             }
 
             //hold
