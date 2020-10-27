@@ -1346,7 +1346,7 @@ MonoBehaviour:
   itemServicesList:
   - itemName: SuperNova Solo, Nova Craft
     ItemID: 0
-    price: 900
+    price: 1200
     theItemPreview: {fileID: 4647293517599838588, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
     itemIcon: {fileID: 0}
     equiped: 0
@@ -1361,7 +1361,7 @@ MonoBehaviour:
     pointValueStat: 3
   - itemName: Osagian 18 Expedition
     ItemID: 1
-    price: 1200
+    price: 1800
     theItemPreview: {fileID: 8583849063736270012, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
     itemIcon: {fileID: 0}
     equiped: 0
@@ -1376,7 +1376,7 @@ MonoBehaviour:
     pointValueStat: 5
   - itemName: Shadow, Placidwork
     ItemID: 2
-    price: 5000
+    price: 2100
     theItemPreview: {fileID: 8583849063736270012, guid: 7fdf873ee9574f149b600bb484f7ffe9, type: 3}
     itemIcon: {fileID: 0}
     equiped: 0
@@ -2775,7 +2775,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438861530688622948}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -18257,7 +18257,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 3955959336597461867}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.99999845
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -18627,7 +18627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0009765625}
+  m_AnchoredPosition: {x: 0, y: 305632.06}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2343017807644352879
@@ -18932,7 +18932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.00091552734}
   m_SizeDelta: {x: 0, y: -68}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1174743423896208443
@@ -20221,8 +20221,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1629198537809411676}
   m_HandleRect: {fileID: 1416521651172788303}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.9999988
+  m_Value: 1
+  m_Size: 0.5
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

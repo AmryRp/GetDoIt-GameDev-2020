@@ -10577,7 +10577,7 @@ MonoBehaviour:
   Stamina: {fileID: 4164311489791427930}
   Attention: {fileID: 5198742179412823990}
   StaminaUI: {fileID: 5677444692587549071}
-  CanoeType: 1
+  CanoeType: -1
   canoeSpeed: 1
   canoeWeight: 1
   canoePoint: 1
@@ -16210,7 +16210,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8889655327963791183}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}

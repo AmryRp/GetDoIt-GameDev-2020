@@ -26,7 +26,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
     }
     protected override void Start()
     {
-
+       
         SetDefault();
         base.Start();
     }
@@ -40,12 +40,25 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         float str1 = PlayerPrefs.GetFloat("MyEquipSpeed");
         float str2 = PlayerPrefs.GetFloat("MyEquipWeight");
         float str3 = PlayerPrefs.GetFloat("MyEquipPoint");
-        float str4 = PlayerPrefs.GetInt("CanoeType");
-        if (!str1.Equals(1) && !str2.Equals(1) && !str3.Equals(1) && !str4.Equals(-1))
+        if (!PlayerPrefs.GetFloat("MyEquipSpeed").Equals(0)  && !PlayerPrefs.GetFloat("MyEquipWeight").Equals(0)
+            && !PlayerPrefs.GetFloat("MyEquipPoint").Equals(0) )
         {
-            CanoeType = PlayerPrefs.GetInt("CanoeType");
-            //print(CanoeType);
-            CanoeTypeUsed.GetComponent<SpriteRenderer>().sprite = ShoppingListManager.MyInstance.CanoeImageStatic[CanoeType];
+            int intC = PlayerPrefs.GetInt("CanoeType");
+            if (!intC.Equals(-1))
+            {
+                CanoeTypeUsed.GetComponent<SpriteRenderer>().sprite = ShoppingListManager.MyInstance.CanoeImageStatic[intC];
+            }
+            else
+            {
+                CanoeType = -1;
+                CanoeTypeUsed.GetComponent<SpriteRenderer>().sprite = null;
+            }
+            print(PlayerPrefs.GetInt("CanoeType"));
+            print(!PlayerPrefs.GetInt("CanoeType").Equals(null));
+            print(!str1.Equals(1));
+            print(!str1.Equals(0));
+
+
             //print(CanoeTypeUsed);
             loadDataPdj();
             //print("Speed : " + canoeSpeed + "\n Weight : " + canoeWeight + "\nPoint : " + canoePoint);
@@ -53,6 +66,8 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         }
         else
         {
+            CanoeType = -1;
+            CanoeTypeUsed.GetComponent<SpriteRenderer>().sprite = null;
             PlayerPrefs.SetFloat("MyEquipSpeed", 1f);
             PlayerPrefs.SetFloat("MyEquipWeight", 1f);
             PlayerPrefs.SetFloat("MyEquipPoint", 1f);
@@ -65,6 +80,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
         canoeSpeed = PlayerPrefs.GetFloat("MyEquipSpeed");
         canoeWeight = PlayerPrefs.GetFloat("MyEquipWeight");
         canoePoint = PlayerPrefs.GetFloat("MyEquipPoint");
+        
     }
     public void SetDefault()
     {
@@ -132,16 +148,17 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                     multiplier = 1;
                     IsAnimator.SetFloat("MoveMultiplier", multiplier);
                     IdleTimer = 0f;
-                    if (multiplier.Equals(1))
+                    if (!playerTimeMode)
                     {
-                        Animator StmUI = StaminaUI.GetComponent<Animator>();
-                        StmUI.SetBool("LimitReached", false);
-                        Attention.GetComponent<Image>().enabled = false;
-                        Stamina.fillAmount = 0;
-                        StaminaUI.GetComponent<Canvas>().enabled = false;
+                        if (multiplier.Equals(1))
+                        {
+                            Animator StmUI = StaminaUI.GetComponent<Animator>();
+                            StmUI.SetBool("LimitReached", false);
+                            Attention.GetComponent<Image>().enabled = false;
+                            Stamina.fillAmount = 0;
+                            StaminaUI.GetComponent<Canvas>().enabled = false;
+                        }
                     }
-
-
                 }
             }
             else
@@ -164,7 +181,10 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                 if (!is_hold)
                 {
                     //movement pertama
-                    StaminaUI.GetComponent<Canvas>().enabled = true;
+                    if (!playerTimeMode)
+                    {
+                        StaminaUI.GetComponent<Canvas>().enabled = true;
+                    }
                     IsAnimator.SetBool(STOP, false);
                     IsAnimator.SetBool(IDLE, false);
                     IsAnimator.SetBool(MOVING, true);
@@ -175,14 +195,20 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
                         multiplier += 0.37f;
                         IsAnimator.SetFloat("MoveMultiplier", multiplier);
                         StartCoroutine(MovePlayer(MoveSpeedInWater));
-                        Stamina.fillAmount = multiplier / maxmultiplier;
+                        if (!playerTimeMode)
+                        {
+                            Stamina.fillAmount = multiplier / maxmultiplier;
+                        }
                     }
                     else
                     {
-                        Animator StmUI = StaminaUI.GetComponent<Animator>();
-                        StmUI.SetBool("LimitReached", true);
-                        Attention.GetComponent<Image>().enabled = true;
-                        TakeDamage(0.5f);
+                        if (!playerTimeMode)
+                        {
+                            Animator StmUI = StaminaUI.GetComponent<Animator>();
+                            StmUI.SetBool("LimitReached", true);
+                            Attention.GetComponent<Image>().enabled = true;
+                            TakeDamage(0.5f);
+                        }
                         IsAnimator.SetFloat("MoveMultiplier", multiplier);
                         StartCoroutine(MovePlayer(MoveSpeedInWater));
 
@@ -390,7 +416,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
             MoveBoatSplash.Play();
 
             //print((directMove + moveSpeed + ((canoeSpeed / canoeWeight) * 5)));
-            // SSTools.ShowMessage((directMove + moveSpeed + ((canoeSpeed / canoeWeight) * 5)).ToString(), SSTools.Position.bottom, SSTools.Time.twoSecond);
+             //SSTools.ShowMessage(((directMove + moveSpeed + (((canoeSpeed / canoeWeight) * 2) + multiplier) / 3) / 2).ToString(), SSTools.Position.bottom, SSTools.Time.twoSecond);
             CanoeBody.AddForce(new Vector2(((directMove + moveSpeed + (((canoeSpeed / canoeWeight) * 2) + multiplier) / 3) / 2 * Time.deltaTime), 0), ForceMode2D.Impulse); // Movement
                                                                                                                                                                             //MovementSpeedInWater kecepatan canoe berdasarkan deras air atau bisa ditambah dengan moveSpeed kecepatan dari player, seperti dibawah ini
             /*CanoeBody.MovePosition(transform.position + transform.right * ((MoveSpeedInWater + moveSpeed) * Time.deltaTime)); */
@@ -430,7 +456,7 @@ public class PlayerController : Player, ISinkable, IDrainable<float>, IMoveable<
 
     public IEnumerator BreakPlayer(float breakValue)
     {
-        print("clicked");
+        //print("clicked");
         IsAnimator.SetBool(MOVING, false);
         IsAnimator.SetBool(STOP, true);
         Hold_timer += Time.deltaTime;

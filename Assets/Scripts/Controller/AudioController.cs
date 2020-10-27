@@ -107,7 +107,7 @@ public class AudioController : MonoBehaviour
                     SFX1[i].GetComponent<AudioSource>();
                     SFX1[i].GetComponent<AudioSource>().volume = VolumeSFX.value;
                 }
-                ToggleBGM.isOn = PlayerPrefs.GetInt("BGM") == 1 ? true : false;
+                ToggleBGM.isOn = PlayerPrefs.GetInt("SFX") == 1 ? true : false;
             }
         }
 

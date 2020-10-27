@@ -24,6 +24,7 @@ public class UIManager : UiController
     }
     void Start()
     {
+        //PlayerPrefs.DeleteAll();
         COGM = CameraObjectManager.MyCamReceiver;
         PL = PlayerController.MyPlayerControl;
         GM = GameManager.MyGM;
@@ -39,7 +40,7 @@ public class UIManager : UiController
         else if (GM.isDeath && !death)
         {
             SwitchScene(4);
-            print("trigger");
+           // print("trigger");
         }
     }
     public void SwitchScene(int SceneName)
@@ -213,7 +214,7 @@ public class UIManager : UiController
         }
         //untuk menghitung point yang ditampilkan dalam UI
         calculatePointWithVar = (((COGM.AllPoint+1) * (COGM.TempShotTaken + 1)) / 5) +((AllDistance) / (COGM.TempShotTaken+1)) * multiplier;
-        print("FP " + calculatePointWithVar);
+       // print("FP " + calculatePointWithVar);
         tmpFinal = 0f;
         while (tmpFinal < calculatePointWithVar)
         {
@@ -248,7 +249,7 @@ public class UIManager : UiController
     }
     public void HPTOLOW()
     {
-        print("Your Energy Is Too Low");
+        //print("Your Energy Is Too Low");
         SSTools.ShowMessage("Your Energy Is Too Low", SSTools.Position.bottom, SSTools.Time.twoSecond);
 
     }

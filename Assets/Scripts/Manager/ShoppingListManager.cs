@@ -359,9 +359,9 @@ public class ShoppingListManager : MonoBehaviour
                 else
                 {
                     print("setDefault");
-                    PlayerPrefs.SetFloat("MyEquipSpeed", 1);
-                    PlayerPrefs.SetFloat("MyEquipWeight", 1);
-                    PlayerPrefs.SetFloat("MyEquipPoint", 1);
+                    PlayerPrefs.SetFloat("MyEquipSpeed", 1f);
+                    PlayerPrefs.SetFloat("MyEquipWeight", 1f);
+                    PlayerPrefs.SetFloat("MyEquipPoint", 1f);
                     PlayerPrefs.SetInt("CanoeType",-1);
                     PlayerPrefs.Save();
                 }
